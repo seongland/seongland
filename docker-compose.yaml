@@ -1,0 +1,11 @@
+version: '2.2'
+
+services:
+  nextland:
+    scale: 10
+    image: ghcr.io/seongland/seongland:2.0.6
+    ports:
+      - 8080:8080
+    restart: always
+    env_file:
+      - .env

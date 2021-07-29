@@ -1,0 +1,14 @@
+.DS_Store
+.env*
+.eslintcache
+.gitignore
+.next
+.vercel
+*.log
+node_modules
+public/**/*
+.git
+
+!.env.example
+!/**/.gitkeep
+.vscode
