@@ -1,14 +1,4 @@
 {
-  "overrides": [
-    {
-      "files": [
-        "src/pages/_document.tsx"
-      ],
-      "options": {
-        "printWidth": 999
-      }
-    }
-  ],
   "singleQuote": true,
   "endOfLine": "lf",
   "semi": false,
