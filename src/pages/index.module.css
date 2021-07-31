@@ -1,0 +1,15 @@
+.canvas {
+  position: absolute !important;
+  top: 0;
+  pointer-events: none;
+}
+
+.parallax {
+  position: absolute;
+  overflow: auto;
+  top: 0px;
+  width: 100%;
+  height: 100vh;
+  font-size: 20em;
+  font-weight: 800;
+}
