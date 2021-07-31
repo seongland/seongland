@@ -22,15 +22,15 @@ import * as types from 'lib/types'
 import * as config from 'lib/config'
 
 // components
-import { CustomFont } from './CustomFont'
-import { Loading } from './Loading'
-import { Page404 } from './Page404'
-import { PageHead } from './PageHead'
-import { Footer } from './Footer'
-import { PageSocial } from './PageSocial'
-import { ReactUtterances } from './ReactUtterances'
+import { CustomFont } from '../molecules/CustomFont'
+import { Loading } from '../molecules/Loading'
+import { Page404 } from '../organisms/Page404'
+import { PageHead } from '../organisms/PageHead'
+import { Footer } from '../molecules/Footer'
+import { PageSocial } from '../organisms/PageSocial'
+import { ReactUtterances } from '../molecules/ReactUtterances'
 
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 const Pdf = dynamic(() => import('react-notion-x').then(notion => notion.Pdf))
 const Equation = dynamic(() => import('react-notion-x').then(notion => notion.Equation))

@@ -5,9 +5,12 @@ import * as THREE from 'three'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useSpring, a, SpringValue } from '@react-spring/three'
 
-import { Footer } from '@/components/Footer'
+import { Footer } from '@/components/molecules/Footer'
 import siteConfig from '~/site-config'
 import type { NextPage } from '@/types/next'
+
+import styles from './index.module.css'
+
 
 const HomePage: NextPage = () => {
   const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
@@ -17,31 +20,19 @@ const HomePage: NextPage = () => {
     []
   )
   const onScroll = React.useCallback(e => set({ top: e.target.scrollTop }), [])
-
   return (
     <>
       <NextSeo title={siteConfig.title} titleTemplate="%s" />
-      <Canvas className="canvas">
+      <Canvas className={styles.canvas}>
         <Scene top={top} mouse={mouse} />
       </Canvas>
-      <div className="scroll-container" onScroll={onScroll} onMouseMove={onMouseMove}>
+      <div className={styles.parallax} onScroll={onScroll} onMouseMove={onMouseMove}>
         <div style={{ height: '525vh' }} />
       </div>
+      <div style={{position: 'fixed'}}>
       <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
+      </div>
     </>
-  )
-}
-
-/** This component loads an image and projects it onto a plane */
-function Image({ url, opacity, scale, ...props }) {
-  const texture = React.useMemo(() => new THREE.TextureLoader().load(url), [url])
-  return (
-    <a.mesh {...props}>
-      <planeBufferGeometry attach="geometry" args={[5, 5]} />
-      <a.meshLambertMaterial attach="material" transparent opacity={opacity}>
-        <primitive attach="map" object={texture} />
-      </a.meshLambertMaterial>
-    </a.mesh>
   )
 }
 
@@ -87,19 +78,26 @@ function Background({ color }) {
 function Stars({ position }) {
   let group = React.useRef(null)
   let theta = 0
+  const rFactor = 0.01
+  const sFactor = 100
   useFrame(() => {
-    const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta += 0.01)))
-    const s = Math.cos(THREE.MathUtils.degToRad(theta * 2))
+    const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta += rFactor)))
+    const s = Math.cos(THREE.MathUtils.degToRad(theta * sFactor))
     group.current.rotation.set(r, r, r)
     group.current.scale.set(s, s, s)
   })
   const [geo, mat, coords] = React.useMemo(() => {
-    const geo = new THREE.SphereBufferGeometry(1, 20, 20)
-    const mat = new THREE.MeshBasicMaterial({ color: new THREE.Color('peachpuff'), transparent: true })
-    const coords = Array.from({ length: 1000 }).map(i => [
-      Math.random() * 800 - 400,
-      Math.random() * 800 - 400,
-      Math.random() * 800 - 400,
+    const width = 1
+    const segments= 20
+    const spread = 400
+    const stars =1000
+    const color =  0xffffff
+    const geo = new THREE.SphereBufferGeometry(width, segments, segments)
+    const mat = new THREE.MeshBasicMaterial({ color })
+    const coords = Array.from({ length: stars }).map(() => [
+      Math.random() * spread * 2 - spread,
+      Math.random() * spread * 2 - spread,
+      Math.random() * spread * 2 - spread,
     ])
     return [geo, mat, coords]
   }, [])
