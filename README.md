@@ -3,19 +3,19 @@
 ![image](https://user-images.githubusercontent.com/27716524/126918573-c8c824bc-70eb-4c8c-ab72-93867451394a.png)
 
 
-- React Notion X
-- React Three Fiber
-- React Spring
-
-# Reference
-- [Nextplate](https://github.com/nextplate-dev/nextplate-chakra-ui)
-- [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)
-
 
 ## Philosophy
 
 - Atomic Design Pattern
 - Minimalism
+
+
+## Made by
+- React Notion X
+- React Three Fiber
+- React Spring
+- Next js
+
 
 ## Build
 ```bash
@@ -44,6 +44,7 @@ okteto stack deploy --wait
 
 
 
-## Reference
+## Impressed by
 
-- [Nuxtplate](https://github.com/nextplate-dev/nextplate)
+- [Nextplate](https://github.com/nextplate-dev/nextplate-chakra-ui)
+- [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)

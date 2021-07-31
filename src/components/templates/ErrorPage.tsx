@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import { PageHead } from './PageHead'
+import { PageHead } from '../organisms/PageHead'
 import Image from 'next/image'
 import error from '@/public/error.png'
 
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
   const title = 'Error'

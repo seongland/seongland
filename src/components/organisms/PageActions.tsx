@@ -2,7 +2,7 @@ import React from 'react'
 import { IoHeartOutline } from 'react-icons/io5'
 import { AiOutlineRetweet } from 'react-icons/ai'
 
-import styles from './styles.module.css'
+import styles from '../styles.module.css'
 
 /**
  * @see https://developer.twitter.com/en/docs/twitter-for-websites/web-intents/overview
