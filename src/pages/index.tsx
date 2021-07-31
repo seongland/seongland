@@ -5,9 +5,11 @@ import * as THREE from 'three'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useSpring, a, SpringValue } from '@react-spring/three'
 
-import { Footer } from '@/components/Footer'
+import { Footer } from '@/components/molecules/Footer'
 import siteConfig from '~/site-config'
 import type { NextPage } from '@/types/next'
+
+import styles from './index.module.css'
 
 
 const HomePage: NextPage = () => {
@@ -21,18 +23,10 @@ const HomePage: NextPage = () => {
   return (
     <>
       <NextSeo title={siteConfig.title} titleTemplate="%s" />
-      <Canvas style={{position: 'absolute', top: 0}}>
+      <Canvas className={styles.canvas}>
         <Scene top={top} mouse={mouse} />
       </Canvas>
-      <div style={{
-          position: "absolute",
-          overflow: "auto",
-          top: "0",
-          width: "100%",
-          height: "100vh",
-          fontSize: "20em",
-          fontWeight: 800
-      }} onScroll={onScroll} onMouseMove={onMouseMove}>
+      <div className={styles.parallax} onScroll={onScroll} onMouseMove={onMouseMove}>
         <div style={{ height: '525vh' }} />
       </div>
       <div style={{position: 'fixed'}}>

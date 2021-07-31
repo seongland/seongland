@@ -1,3 +1,3 @@
-export * from './NotionPage'
-export * from './Page404'
-export * from './ErrorPage'
+export * from './templates/NotionPage'
+export * from './organisms/Page404'
+export * from './templates/ErrorPage'
