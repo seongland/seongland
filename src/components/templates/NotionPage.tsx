@@ -22,7 +22,7 @@ import * as types from 'lib/types'
 import * as config from 'lib/config'
 
 // components
-import { CustomFont } from '../atoms/CustomFont'
+import { CustomFont } from '../molecules/CustomFont'
 import { Loading } from '../molecules/Loading'
 import { Page404 } from '../organisms/Page404'
 import { PageHead } from '../organisms/PageHead'
