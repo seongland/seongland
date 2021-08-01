@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { NextSeo } from 'next-seo'
 import useDarkMode from 'use-dark-mode'
-import * as THREE from 'three'
+import { MathUtils, SphereBufferGeometry, MeshBasicMaterial } from 'three'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useSpring, a, SpringValue } from '@react-spring/three'
 
@@ -10,7 +10,6 @@ import siteConfig from '~/site-config'
 import type { NextPage } from '@/types/next'
 
 import styles from './index.module.css'
-
 
 const HomePage: NextPage = () => {
   const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
@@ -29,8 +28,8 @@ const HomePage: NextPage = () => {
       <div className={styles.parallax} onScroll={onScroll} onMouseMove={onMouseMove}>
         <div style={{ height: '525vh' }} />
       </div>
-      <div style={{position: 'fixed'}}>
-      <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
+      <div style={{ position: 'fixed' }}>
+        <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
       </div>
     </>
   )
@@ -81,19 +80,19 @@ function Stars({ position }) {
   const rFactor = 0.01
   const sFactor = 100
   useFrame(() => {
-    const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta += rFactor)))
-    const s = Math.cos(THREE.MathUtils.degToRad(theta * sFactor))
+    const r = 5 * Math.sin(MathUtils.degToRad((theta += rFactor)))
+    const s = Math.cos(MathUtils.degToRad(theta * sFactor))
     group.current.rotation.set(r, r, r)
     group.current.scale.set(s, s, s)
   })
   const [geo, mat, coords] = React.useMemo(() => {
     const width = 1
-    const segments= 20
+    const segments = 20
     const spread = 400
-    const stars =1000
-    const color =  0xffffff
-    const geo = new THREE.SphereBufferGeometry(width, segments, segments)
-    const mat = new THREE.MeshBasicMaterial({ color })
+    const stars = 1000
+    const color = 0xffffff
+    const geo = new SphereBufferGeometry(width, segments, segments)
+    const mat = new MeshBasicMaterial({ color })
     const coords = Array.from({ length: stars }).map(() => [
       Math.random() * spread * 2 - spread,
       Math.random() * spread * 2 - spread,
