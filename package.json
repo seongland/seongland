@@ -23,8 +23,7 @@
     "email": "sungle3737@gmail.com",
     "url": "https://www.seongland.com",
     "twitter": {
-      "name": "@SeonglaeC",
-      "url": "https://twitter.com/SeonglaeC"
+      "name": "@SeonglaeC"
     },
     "github": {
       "name": "seonglae",
@@ -49,6 +48,7 @@
     "@emotion/styled": "^11.0.0",
     "@google-cloud/firestore": "^4.12.2",
     "@react-spring/three": "^9.2.4",
+    "@react-three/drei": "^7.3.1",
     "@react-three/fiber": "^7.0.6",
     "@types/three": "^0.130.1",
     "classnames": "^2.3.1",
@@ -61,6 +61,9 @@
     "lqip-modern": "^1.2.0",
     "next": "^11.0.0",
     "next-seo": "^4.17.0",
+    "notion-client": "^4.8.2",
+    "notion-types": "^4.8.2",
+    "notion-utils": "^4.8.2",
     "nprogress": "^0.2.0",
     "p-map": "^4.0.0",
     "p-memoize": "^4.0.1",
@@ -70,9 +73,6 @@
     "react-icons": "^4.1.0",
     "react-markdown": "^5.0.3",
     "react-notion-x": "^4.8.2",
-    "notion-client": "^4.8.2",
-    "notion-types": "^4.8.2",
-    "notion-utils": "^4.8.2",
     "react-use": "^17.2.4",
     "three": "^0.130.1",
     "use-dark-mode": "^2.3.1"
