@@ -8,12 +8,11 @@ import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
-
-// core notion renderer
 import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
+
 import { mapPageUrl, getCanonicalPageUrl } from 'lib/map-page-url'
 import { mapNotionImageUrl } from 'lib/map-image-url'
 import { getPageDescription } from 'lib/get-page-description'
@@ -82,33 +81,25 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   let comments: React.ReactNode = null
   let pageAside: React.ReactChild = null
 
-  // only display comments and page actions on blog post pages
-  if (isBlogPost)
-    if (config.utterancesGitHubRepo)
-      comments = (
-        <ReactUtterances
-          repo={config.utterancesGitHubRepo}
-          issueMap="issue-term"
-          issueTerm="title"
-          theme={darkMode.value ? 'photon-dark' : 'github-light'}
-        />
-      )
-
+  if (config.utterancesGitHubRepo)
+    comments = (
+      <ReactUtterances
+        repo={config.utterancesGitHubRepo}
+        issueMap="issue-term"
+        issueTerm="title"
+        theme={darkMode.value ? 'photon-dark' : 'github-light'}
+      />
+    )
   pageAside = <PageSocial />
-
   return (
     <>
       <PageHead site={site} />
-
       <Head>
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content={site.name} />
-
         <meta name="twitter:title" content={title} />
         <meta property="twitter:domain" content={site.domain} />
-
         {config.twitter && <meta name="twitter:creator" content={`@${config.twitter}`} />}
-
         {socialDescription && (
           <>
             <meta name="description" content={socialDescription} />
@@ -116,7 +107,6 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
             <meta name="twitter:description" content={socialDescription} />
           </>
         )}
-
         {socialImage ? (
           <>
             <meta name="twitter:card" content="summary_large_image" />
@@ -126,7 +116,6 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
         ) : (
           <meta name="twitter:card" content="summary" />
         )}
-
         {canonicalPageUrl && (
           <>
             <link rel="canonical" href={canonicalPageUrl} />
@@ -134,14 +123,10 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
             <meta property="twitter:url" content={canonicalPageUrl} />
           </>
         )}
-
         <title>{title}</title>
       </Head>
-
       <CustomFont site={site} />
-
       {isLiteMode && <BodyClassName className="notion-lite" />}
-
       <NotionRenderer
         bodyClassName={cs(styles.notion, pageId === site.rootNotionPageId && 'index-page')}
         components={{
