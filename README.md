@@ -39,7 +39,11 @@ docker-compose build
 
 ### deploy
 ```bash
+okteto namespace
+# deploy to current cluster
 okteto stack deploy --wait
+# if windows, change to default
+kubectl config use-context docker-desktop
 ```
 
 

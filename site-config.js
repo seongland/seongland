@@ -32,7 +32,7 @@ module.exports = {
 
   // Social
   twitterUsername: pkg.author.twitter.name,
-  twitter: pkg.author.twitter.url,
+  twitter: pkg.author.twitter.name,
   github: pkg.author.github.name,
   linkedin: pkg.author.linkedin.name,
   socials: {
