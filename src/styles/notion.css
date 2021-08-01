@@ -214,6 +214,11 @@ hr.notion-hr {
     display: none !important;
   }
 }
+.notion-search {
+  background: #0000;
+  border-radius: 1em;
+}
+
 input.searchInput {
   background: #2f3437;
   color: #fff;
