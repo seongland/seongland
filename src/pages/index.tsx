@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo, useRef } from 'react'
 import { NextSeo } from 'next-seo'
 import useDarkMode from 'use-dark-mode'
-import { MathUtils, SphereBufferGeometry, MeshBasicMaterial } from 'three'
+import { MathUtils, SphereBufferGeometry, MeshBasicMaterial, Object3D } from 'three'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { useSpring, a, SpringValue } from '@react-spring/three'
-import { Text, Html } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 
 import { Footer } from '@/components/molecules/Footer'
 import siteConfig from '~/site-config'
 import type { NextPage } from '@/types/next'
-
+import { useStore } from '@/store/'
 
 import styles from './index.module.css'
 
@@ -17,21 +17,10 @@ const HomePage: NextPage = () => {
   const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
   const [{ top, mouse }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }))
 
-  // Event
-  const onMouseMove = useCallback(
-    ({ clientX: x, clientY: y }) => set({ mouse: [x - window.innerWidth / 2, y - window.innerHeight / 2] }),
-    []
-  )
-  const onScroll = useCallback(e => set({ top: e.target.scrollTop }), [])
-  const onClick = useCallback(e => {
-    console.log(e)
-  }, [])
   return (
     <>
       <NextSeo title={siteConfig.title} titleTemplate="%s" />
-      <div className={styles.viewport} onScroll={onScroll} onClick={onClick}  onMouseMove={onMouseMove}>
-        <div className={styles.parallax} />
-      </div>
+      <ViewPort set={set} />
       <Canvas className={styles.canvas}>
         <Scene top={top} mouse={mouse} isDarkMode={darkMode.value} />
       </Canvas>
@@ -42,22 +31,43 @@ const HomePage: NextPage = () => {
   )
 }
 
+function ViewPort({ set }) {
+  // Event
+  const onMouseMove = useCallback(
+    ({ clientX: x, clientY: y }) => set({ mouse: [x - window.innerWidth / 2, y - window.innerHeight / 2] }),
+    []
+  )
+  const onScroll = useCallback(e => set({ top: e.target.scrollTop }), [])
+
+  // Click Intersection
+  const intersect = useStore(state => state.intersect)
+  const onClick = useCallback(
+    e => {
+      if (intersect) intersect.userData.click()
+    },
+    [intersect]
+  )
+  return (
+    <div className={styles.viewport} onScroll={onScroll} onClick={onClick} onMouseMove={onMouseMove}>
+      <div className={styles.parallax} />
+    </div>
+  )
+}
+
 /** This renders text via canvas and projects it as a sprite */
-function SpringText({ children, position, color = 'white', fontSize = 410 }) {
-  const {
-    viewport: { width: viewportWidth, height: viewportHeight },
-  } = useThree()
-  const scale = viewportWidth > viewportHeight ? viewportWidth : viewportHeight
+function SpringText({ children, position, color = 'white', fontSize = 400, onClick = null }) {
+  const text = useRef(null)
+
   return (
     <a.mesh position={position}>
       <Text
+        ref={text}
         font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
         anchorX="center"
         color={color}
-        anchorY={-0.06}
-        onClick={e => console.log(e)}
-        fontSize={fontSize / 5000}
-        scale={[scale * 2, scale * 2, 1]}
+        userData={{ click: onClick }}
+        anchorY={-1.3}
+        fontSize={fontSize / 100}
       >
         {children}
       </Text>
@@ -114,23 +124,53 @@ function Stars({ position, isDarkMode }: { position: any; isDarkMode: boolean })
 }
 
 /** This component maintains the scene */
-function Scene({ top, mouse, isDarkMode }: { top: SpringValue<number>; mouse: SpringValue<number[]>; isDarkMode: boolean }) {
+function Scene({ top, isDarkMode, mouse }: { top: SpringValue<number>; mouse: SpringValue<number[]>; isDarkMode: boolean }) {
   const colorSet = isDarkMode ? ['#23262a', '#424242', '#232424', '#000'] : ['#fff', '#fff', '#fff', '#fff']
   const { size } = useThree()
   const scrollMax = size.height * 4.5
   const color = isDarkMode ? 'white' : 'black'
+  const root = useRef(null)
   return (
     <>
       <Background color={top.to([0, scrollMax * 0.25, scrollMax * 0.8, scrollMax], colorSet)} />
       <Stars isDarkMode={isDarkMode} position={top.to(top => [0, -1 + top / 20, 0])} />
-      <SpringText position={top.to(top => [0, -1 + top / 200, 0])} fontSize={150} color={color}>
-        {siteConfig.title}
-      </SpringText>
-      <SpringText position={top.to(top => [0, -20 + ((top * 10) / scrollMax) * 2, 0])} color={color} fontSize={100}>
-        Explore
-      </SpringText>
+
+      <group ref={root}>
+        <SpringText position={top.to(top => [0, -1 + top / 200, 0])} fontSize={50} color={color}>
+          {siteConfig.title}
+        </SpringText>
+        <SpringText 
+        onClick={() => location.href = '/wiki'}
+        position={top.to(top => [0, -20 + ((top * 10) / scrollMax) * 2, 0])} color={color} fontSize={50}>
+          Explore
+        </SpringText>
+      </group>
+
+      <Intersector mouse={mouse} root={root.current} />
     </>
   )
+}
+
+function Intersector({ mouse, root }: { mouse: SpringValue<number[]>; root: Object3D }) {
+  const { raycaster } = useThree()
+  const state = useStore(state => state)
+
+  useFrame(({ camera }) => {
+    const coords = {
+      x: mouse.animation.fromValues[0] / window.innerWidth,
+      y: mouse.animation.fromValues[1] / window.innerHeight,
+    }
+    raycaster.setFromCamera(coords, camera)
+    const intersect = raycaster.intersectObject(root, true)[0]?.object
+    if (intersect?.userData?.click) {
+      state.setIntersect(intersect)
+      document.body.style.cursor = 'pointer'
+    } else {
+      state.setIntersect(null)
+      document.body.style.cursor = 'default'
+    }
+  })
+  return <></>
 }
 
 export default HomePage

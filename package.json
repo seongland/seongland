@@ -75,7 +75,8 @@
     "react-notion-x": "^4.8.2",
     "react-use": "^17.2.4",
     "three": "^0.130.1",
-    "use-dark-mode": "^2.3.1"
+    "use-dark-mode": "^2.3.1",
+    "zustand": "^3.5.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
