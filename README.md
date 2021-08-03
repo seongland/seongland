@@ -19,7 +19,7 @@
 
 ## Build
 ```bash
-VERSION=2.0.8
+VERSION=2.0.9
 set -a; source .env; set +a
 docker build  -t ghcr.io/seongland/seongland:$VERSION \
 --build-arg GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS \
@@ -33,7 +33,7 @@ docker push  ghcr.io/seongland/seongland:latest
 
 ### local
 ```bash
-VERSION=2.0.8
+VERSION=2.0.9
 docker-compose build
 ```
 
