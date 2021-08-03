@@ -5,7 +5,7 @@ import * as config from 'lib/config'
 
 import styles from '../styles.module.css'
 
-export const Footer: React.FC<{
+const Footer: React.FC<{
   isDarkMode: boolean
   toggleDarkMode: () => void
 }> = ({ isDarkMode, toggleDarkMode }) => {
@@ -74,3 +74,5 @@ export const Footer: React.FC<{
     </footer>
   )
 }
+
+export default Footer

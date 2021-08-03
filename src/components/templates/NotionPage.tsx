@@ -25,7 +25,7 @@ import { CustomFont } from '../molecules/CustomFont'
 import { Loading } from '../molecules/Loading'
 import { Page404 } from '../organisms/Page404'
 import { PageHead } from '../organisms/PageHead'
-import { Footer } from '../molecules/Footer'
+import Footer from '../molecules/Footer'
 import { PageSocial } from '../organisms/PageSocial'
 import { ReactUtterances } from '../molecules/ReactUtterances'
 
