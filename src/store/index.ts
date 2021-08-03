@@ -1,12 +1,13 @@
 import create from 'zustand'
-import { persist } from 'zustand/middleware'
-import { Object3D } from 'three'
+
+type Click = (e: MouseEvent) => void
 
 type StoreState = {
-  intersect?: Object3D
-  setIntersect: (Object3D: Object3D) => void
+  click: Click
+  setClick: (click: Click) => void
 }
 
-export const useStore = create<StoreState>(
-  persist(set => ({ intersect: null, setIntersect: (intersect: Object3D) => set({ intersect }) }), { name: 'root' })
-)
+export const useStore = create<StoreState>(set => ({
+  click: () => ({}),
+  setClick: (click: Click) => set({ click }),
+}))
