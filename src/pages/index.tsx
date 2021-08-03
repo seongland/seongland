@@ -41,7 +41,7 @@ function ViewPort({ set }) {
 
   // Click Intersection
   const click = useStore(state => state.click)
-  const onClick = e => click(e)
+  const onClick = useCallback(e => click(e), [click])
   return (
     <div className={styles.viewport} onScroll={onScroll} onClick={onClick} onMouseMove={onMouseMove}>
       <div className={styles.parallax} />
