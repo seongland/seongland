@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -47,7 +47,11 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
 
-  const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
+  const darkMode = useDarkMode(false)
+  useEffect(() => {
+    if (darkMode.value) document.body.style.background = '#2F3437'
+    else document.body.style.background = '#fff'
+  }, [darkMode])
 
   if (router.isFallback) {
     return <Loading />

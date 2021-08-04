@@ -11,7 +11,7 @@ export const PageHead: React.FC<types.PageProps> = ({ site }) => {
       <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
       <meta
         name='viewport'
-        content='width=device-width, initial-scale=1, shrink-to-fit=no'
+        content='viewport-fit=cover'
       />
 
       {site?.description && (

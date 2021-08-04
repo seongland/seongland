@@ -2,13 +2,7 @@ import React from 'react'
 
 import styles from '../styles.module.css'
 
-export type MappingType =
-  | 'pathname'
-  | 'url'
-  | 'title'
-  | 'og:title'
-  | 'issue-number'
-  | 'issue-term'
+export type MappingType = 'pathname' | 'url' | 'title' | 'og:title' | 'issue-number' | 'issue-term'
 
 export type Theme =
   | 'github-light'
@@ -32,10 +26,7 @@ interface ReactUtterancesState {
   pending: boolean
 }
 
-export class ReactUtterances extends React.Component<
-  ReactUtterancesProps,
-  ReactUtterancesState
-> {
+export class ReactUtterances extends React.Component<ReactUtterancesProps, ReactUtterancesState> {
   reference: React.RefObject<HTMLDivElement>
   scriptElement: any
 
@@ -43,15 +34,11 @@ export class ReactUtterances extends React.Component<
     super(props)
 
     if (props.issueMap === 'issue-term' && props.issueTerm === undefined) {
-      throw Error(
-        "Property 'issueTerm' must be provided with issueMap 'issue-term'"
-      )
+      throw Error("Property 'issueTerm' must be provided with issueMap 'issue-term'")
     }
 
     if (props.issueMap === 'issue-number' && props.issueNumber === undefined) {
-      throw Error(
-        "Property 'issueNumber' must be provided with issueMap 'issue-number'"
-      )
+      throw Error("Property 'issueNumber' must be provided with issueMap 'issue-number'")
     }
 
     this.reference = React.createRef<HTMLDivElement>()
@@ -61,13 +48,7 @@ export class ReactUtterances extends React.Component<
   UNSAFE_componentWillReceiveProps(props) {
     // this.scriptElement.setAttribute('theme', props.theme)
     const iframe = document.querySelector('iframe.utterances-frame') as any
-
-    if (iframe) {
-      iframe.contentWindow.postMessage(
-        { type: 'set-theme', theme: props.theme },
-        'https://utteranc.es/'
-      )
-    }
+    if (iframe) iframe.contentWindow.postMessage({ type: 'set-theme', theme: props.theme }, 'https://utteranc.es/')
   }
 
   componentDidMount(): void {
