@@ -1,15 +1,12 @@
-import * as React from 'react'
+import React from 'react'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
-import type { DocumentContext } from 'next/document'
+import { NextComponentType } from 'next'
+import type { DocumentContext, DocumentInitialProps, DocumentProps } from 'next/document'
 
 import siteConfig from '~/site-config'
-export default class Document extends NextDocument {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await NextDocument.getInitialProps(ctx)
-    return { ...initialProps }
-  }
 
-  render() {
+const Document: NextComponentType<DocumentContext, DocumentInitialProps, DocumentProps> & { renderDocument: Function } =
+  () => {
     return (
       <Html lang="en">
         <Head>
@@ -42,7 +39,10 @@ export default class Document extends NextDocument {
           <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
           <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
 
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+          />
         </Head>
 
         <body>
@@ -52,4 +52,11 @@ export default class Document extends NextDocument {
       </Html>
     )
   }
+
+Document.getInitialProps = async (ctx: DocumentContext) => {
+  const initialProps = await NextDocument.getInitialProps(ctx)
+  return { ...initialProps }
 }
+Document.renderDocument = NextDocument.renderDocument
+
+export default Document

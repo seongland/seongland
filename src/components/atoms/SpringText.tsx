@@ -13,7 +13,7 @@ export default function SpringText({ children, position, color = 'white', fontSi
         anchorX="center"
         color={color}
         userData={{ click: onClick }}
-        anchorY={-1.3}
+        anchorY={-1.5}
         fontSize={fontSize / 100}
       >
         {children}

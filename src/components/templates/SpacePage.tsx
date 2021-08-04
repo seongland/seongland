@@ -1,34 +1,35 @@
-import React from 'react'
-import Head from 'next/head'
-import { PageHead } from '../organisms/PageHead'
-import Image from 'next/image'
-import error from '@/public/error.png'
+import React, { useEffect } from 'react'
+import { NextSeo } from 'next-seo'
+import useDarkMode from 'use-dark-mode'
+import { Canvas } from '@react-three/fiber'
+import { useSpring } from '@react-spring/three'
+
+import Footer from '@/components/molecules/Footer'
+import ViewPort from '@/components/atoms/ViewPort'
+import SpaceScene from '@/components/molecules/SpaceScene'
+import siteConfig from '~/site-config'
 
 import styles from '../styles.module.css'
 
-export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
-  const title = 'Error'
+export const SpacePage = () => {
+  const darkMode = useDarkMode(false)
+  const [{ top, mouse }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }))
+  useEffect(() => {
+    document.body.style.background = darkMode.value ? '#111418' : '#E2E2E2'
+  }, [darkMode])
 
   return (
     <>
-      <PageHead />
-
-      <Head>
-        <meta property="og:site_name" content={title} />
-        <meta property="og:title" content={title} />
-
-        <title>{title}</title>
-      </Head>
-
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1>Error Loading Page</h1>
-
-          {statusCode && <p>Error code: {statusCode}</p>}
-
-          <Image src={error} alt="Error" className={styles.errorImage} />
-        </main>
+      <NextSeo title={siteConfig.title} titleTemplate="%s" />
+      <ViewPort set={set} />
+      <Canvas className={styles.canvas}>
+        <SpaceScene set={set} top={top} mouse={mouse} isDarkMode={darkMode.value} />
+      </Canvas>
+      <div className={styles.footerWrapper}>
+        <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
       </div>
     </>
   )
 }
+
+export default SpacePage

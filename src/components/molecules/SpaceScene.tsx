@@ -45,7 +45,7 @@ export default function SpaceScene({
           color={color}
           fontSize={50}
         >
-          Explore
+          Click to Explore
         </SpringText>
       </group>
 
