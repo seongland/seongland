@@ -1,13 +1,12 @@
 import React, { useRef, useMemo } from 'react'
 import { SpringValue } from '@react-spring/three'
-import { useFrame, useThree } from '@react-three/fiber'
-import { Object3D } from 'three'
+import { useThree } from '@react-three/fiber'
 
 import Stars from '@/components/atoms/Stars'
 import SpringText from '@/components/atoms/SpringText'
 import GradientWall from '@/components/atoms/GradientWall'
+import Intersector from '@/components/atoms/Intersector'
 import siteConfig from '~/site-config'
-import { useStore } from '@/store/'
 
 const DARK_WALL = ['#23262a', '#424242', '#232424', '#23262a']
 const LIGHT_WALL = ['#fff', '#fff', '#fff', '#fff']
@@ -56,36 +55,4 @@ export default function SpaceScene({
       <Intersector set={set} mouse={mouse} root={intersectRoot.current} />
     </>
   )
-}
-
-function Intersector({ mouse, root, set }: { mouse: SpringValue<number[]>; root: Object3D; set: Function }) {
-  const { camera, raycaster } = useThree(state => state)
-  const setClick = useStore(state => state.setClick)
-
-  // Set Click Function
-  setClick(e => {
-    const { x, y } = { x: e.clientX, y: e.clientY }
-    const mouse = [x - window.innerWidth / 2, y - window.innerHeight / 2]
-    const coords = {
-      x: mouse[0] / window.innerWidth,
-      y: mouse[1] / window.innerHeight,
-    }
-    raycaster.setFromCamera(coords, camera)
-    const intersect = raycaster.intersectObject(root, true)[0]?.object
-    if (intersect?.userData?.click) intersect?.userData?.click(e)
-    set({ mouse })
-  })
-
-  // Hover Effect
-  useFrame(({ camera }) => {
-    const coords = {
-      x: mouse.animation.fromValues[0] / window.innerWidth,
-      y: mouse.animation.fromValues[1] / window.innerHeight,
-    }
-    raycaster.setFromCamera(coords, camera)
-    const intersect = raycaster.intersectObject(root, true)[0]?.object
-    if (intersect?.userData?.click) document.body.style.cursor = 'pointer'
-    else document.body.style.cursor = 'default'
-  })
-  return <></>
 }
