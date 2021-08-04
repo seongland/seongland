@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -48,10 +48,10 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const searchParams = new URLSearchParams(params)
 
   const darkMode = useDarkMode(false)
+  const themeColor = useMemo(() => (darkMode.value ? '#2F3437' : '#fff'), [darkMode])
   useEffect(() => {
-    if (darkMode.value) document.body.style.background = '#2F3437'
-    else document.body.style.background = '#fff'
-  }, [darkMode])
+    document.body.style.background = themeColor
+  }, [themeColor])
 
   if (router.isFallback) {
     return <Loading />
@@ -95,9 +95,10 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
       />
     )
   pageAside = <PageSocial />
+
   return (
     <>
-      <PageHead site={site} />
+      <PageHead site={site}/>
       <Head>
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content={site.name} />
