@@ -3,7 +3,7 @@ import { a } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
 
 export default function GradientWall({ color }) {
-  const { viewport } = useThree()
+  const viewport = useThree(state => state.viewport)
   return (
     <mesh scale={[viewport.width, viewport.height, 1]}>
       <planeGeometry attach="geometry" args={[1, 1]} />

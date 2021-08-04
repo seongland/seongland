@@ -29,7 +29,6 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function App(props: AppProps) {
   const { Component, pageProps, router } = props
-
   return (
     <>
       <Head>

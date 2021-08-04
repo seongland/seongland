@@ -3,8 +3,8 @@ import React from 'react'
 import { SpacePage } from '@/components/'
 import type { NextPage } from '@/types/next'
 
-const HomePage: NextPage = () => {
+const Index: NextPage = () => {
   return <SpacePage />
 }
 
-export default HomePage
+export default Index
