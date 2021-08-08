@@ -3,7 +3,7 @@ version: '2.2'
 services:
   seongland:
     scale: 9
-    image: ghcr.io/seongland/seongland:2.0.9
+    image: ghcr.io/seongland/seongland:2.0.10
     ports:
       - 8000:8000
     restart: always
