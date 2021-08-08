@@ -12,7 +12,16 @@ export default function SpringText({ children, position, color = 'white', fontSi
         font="https://fonts.gstatic.com/s/raleway/v14/1Ptrg8zYS_SKggPNwK4vaqI.woff"
         anchorX="center"
         color={color}
-        userData={{ click: onClick }}
+        userData={{
+          click: onClick,
+          hover: onClick
+            ? intersect => {
+                if (intersect?.userData?.click) document.body.style.cursor = 'pointer'
+                else document.body.style.cursor = 'default'
+              }
+            : null,
+          leave: onClick ? () => (document.body.style.cursor = 'default') : null,
+        }}
         anchorY={-1.5}
         fontSize={fontSize / 100}
       >
