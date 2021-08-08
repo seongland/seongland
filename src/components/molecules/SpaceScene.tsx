@@ -24,8 +24,8 @@ export default function SpaceScene({
   isDarkMode: boolean
   set: Function
 }) {
-  const { size } = useThree()
-  const scrollMax = size.height * 4.5
+  const height = useThree(state => Math.floor(state.size.height / 10) * 10)
+  const scrollMax = height * 5.25
 
   // Dark Mode
   const color = useMemo(() => (isDarkMode ? DARK_FONT : LIGHT_FONT), [isDarkMode])
@@ -34,12 +34,11 @@ export default function SpaceScene({
   // Spring Props
   const starPosition = top.to(top => [0, -1 + top / 20, 0])
   const titlePosition = top.to(top => [0, -1 + top / 200, 0])
-  const exporePosition = top.to(top => [0, -20 + ((top * 10) / scrollMax) * 2, 0])
+  const exporePosition = top.to(top => [0, -18 + ((top * 10.5) / scrollMax) * 2, 0])
   const wallColor = top.to([0, scrollMax * 0.25, scrollMax * 0.8, scrollMax], colorSet)
 
   // Ref JSX
   const intersectRoot = useRef(null)
-  console.log('rerender scene', size, top, mouse, isDarkMode, intersectRoot)
   return (
     <>
       <GradientWall color={wallColor} />
@@ -52,7 +51,7 @@ export default function SpaceScene({
           Click to Explore
         </SpringText>
       </group>
-      <Intersector set={set} mouse={mouse} root={intersectRoot.current} />
+      <Intersector set={set} mouse={mouse} root={intersectRoot} />
     </>
   )
 }
