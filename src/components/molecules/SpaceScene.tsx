@@ -24,7 +24,8 @@ export default function SpaceScene({
   isDarkMode: boolean
   set: Function
 }) {
-  const height = useThree(state => Math.floor(state.size.height / 10) * 10)
+  const renderPer = 30
+  const height = useThree(state => Math.floor(state.size.height / renderPer) * renderPer)
   const scrollMax = height * 5.25
 
   // Dark Mode
