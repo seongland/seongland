@@ -34,7 +34,7 @@ export default function SpaceScene({
 
   // Spring Props
   const starPosition = top.to(top => [0, -1 + top / 20, 0])
-  const titlePosition = top.to(top => [0, -1 + top / 200, 0])
+  const titlePosition = top.to(top => [0, -0.5 + top / 200, 0])
   const exporePosition = top.to(top => [0, -18 + ((top * 10.5) / scrollMax) * 2, 0])
   const wallColor = top.to([0, scrollMax * 0.25, scrollMax * 0.8, scrollMax], colorSet)
 

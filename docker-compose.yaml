@@ -3,9 +3,9 @@ version: '2.2'
 services:
   seongland:
     scale: 9
-    image: ghcr.io/seongland/seongland:2.0.9
+    image: ghcr.io/seongland/seongland:2.0.10
     ports:
-      - 8888:8888
+      - 8000:8000
     restart: always
     env_file:
       - .env
@@ -27,4 +27,4 @@ endpoints:
   rules:
     - path: /
       service: seongland
-      port: 8888
+      port: 8000

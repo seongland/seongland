@@ -4,7 +4,6 @@ import { Text } from '@react-three/drei'
 
 export default function SpringText({ children, position, color = 'white', fontSize = 400, onClick = null }) {
   const text = useRef(null)
-
   return (
     <a.mesh position={position}>
       <Text
@@ -22,7 +21,7 @@ export default function SpringText({ children, position, color = 'white', fontSi
             : null,
           leave: onClick ? () => (document.body.style.cursor = 'default') : null,
         }}
-        anchorY={-1.5}
+        anchorY={-1}
         fontSize={fontSize / 100}
       >
         {children}
