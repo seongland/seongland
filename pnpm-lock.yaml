@@ -8,6 +8,7 @@ specifiers:
   '@react-spring/three': ^9.2.4
   '@react-three/drei': ^7.3.1
   '@react-three/fiber': ^7.0.6
+  '@tweenjs/tween.js': ^18.6.4
   '@types/node': ^14.14.21
   '@types/nprogress': ^0.2.0
   '@types/react': ^17.0.0
@@ -56,6 +57,7 @@ dependencies:
   '@react-spring/three': 9.2.4_1c25f45e7b4abfafdcf8f92178bc1feb
   '@react-three/drei': 7.3.1_239d6ef29d7a4674d047876c5ab74f61
   '@react-three/fiber': 7.0.6_868f0b73e409f9ea26b253008ada889d
+  '@tweenjs/tween.js': 18.6.4
   '@types/three': 0.130.1
   classnames: 2.3.1
   consola: 2.15.3
@@ -1138,6 +1140,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       defer-to-connect: 2.0.1
+    dev: false
+
+  /@tweenjs/tween.js/18.6.4:
+    resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
     dev: false
 
   /@types/cacheable-request/6.0.1:
