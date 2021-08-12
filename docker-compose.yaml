@@ -3,14 +3,15 @@ version: '2.2'
 services:
   seongland:
     scale: 9
-    image: ghcr.io/seongland/seongland:2.0.10
+    image: ghcr.io/seongland/seongland:2.0.9
     ports:
-      - 8000:8000
+      - 8888:8888
     restart: always
     env_file:
       - .env
       
   redis:
+    scale: 1
     image: redis
     ports:
       - 6379
@@ -26,4 +27,4 @@ endpoints:
   rules:
     - path: /
       service: seongland
-      port: 8000
+      port: 8888

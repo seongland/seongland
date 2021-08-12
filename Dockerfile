@@ -16,6 +16,6 @@ ARG FIREBASE_COLLECTION_IMAGES
 RUN npm i -g pnpm
 RUN pnpm i
 RUN pnpm build
-EXPOSE 8000
+EXPOSE 8888
 
 CMD [ "pnpm", "start" ]

@@ -8,8 +8,8 @@
   "repo": "seongland/seongland",
   "domain": "next.seongland.com",
   "scripts": {
-    "dev": "next dev --port 8000",
-    "start": "next start --port 8000",
+    "dev": "next dev --port 8888",
+    "start": "next start --port 8888",
     "lint": "npx next lint",
     "build": "run-s \"build:**\"",
     "build:scripts": "node scripts/build.js && next-sitemap",
