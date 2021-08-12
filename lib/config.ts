@@ -100,7 +100,7 @@ export const includeNotionIdInUrls: boolean = getSiteConfig(
 
 export const isServer = typeof window === 'undefined'
 
-export const port = getEnv('PORT', '8000')
+export const port = getEnv('PORT', '8888')
 export const host = isDev ? `http://localhost:${port}` : `https://${domain}`
 
 export const apiBaseUrl = `${host}/api`
