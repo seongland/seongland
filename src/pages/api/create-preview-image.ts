@@ -8,7 +8,7 @@ import { isPreviewImageSupportEnabled } from '~/lib/config'
 import * as types from '~/lib/types'
 import * as db from '~/lib/db'
 
-export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const previewImage = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.method !== 'POST') return res.status(405).send({ error: 'method not allowed' })
   if (!isPreviewImageSupportEnabled)
     return res.status(418).send({
@@ -48,10 +48,7 @@ export async function createPreviewImage(url: string, id: string): Promise<types
   } catch (err) {
     console.error('lqip error', err)
     try {
-      const error: any = {
-        url,
-        error: err.message || 'unknown error',
-      }
+      const error: any = { url, error: err.message || 'unknown error' }
       if (err?.response?.statusCode) error.statusCode = err?.response?.statusCode
       await doc.create(error)
       return error
@@ -60,3 +57,5 @@ export async function createPreviewImage(url: string, id: string): Promise<types
     }
   }
 }
+
+export default previewImage

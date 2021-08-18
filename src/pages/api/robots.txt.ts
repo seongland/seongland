@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 
 import { host } from '~/lib/config'
 
-export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const robotTXT = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.method !== 'GET') return res.status(405).send({ error: 'method not allowed' })
 
   // cache robots.txt for up to 60 seconds
@@ -13,3 +13,5 @@ Sitemap: ${host}/api/sitemap.xml
 `)
   res.end()
 }
+
+export default robotTXT

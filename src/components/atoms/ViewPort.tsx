@@ -7,9 +7,9 @@ export default function ViewPort({ set }) {
   // Event
   const onMouseMove = useCallback(
     ({ clientX: x, clientY: y }) => set({ mouse: [x - window.innerWidth / 2, y - window.innerHeight / 2] }),
-    []
+    [set]
   )
-  const onScroll = useCallback(e => set({ top: e.target.scrollTop }), [])
+  const onScroll = useCallback(e => set({ top: e.target.scrollTop }), [set])
 
   // Click Intersection
   const click = useStore(state => state.click)
