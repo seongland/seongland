@@ -14,6 +14,7 @@ module.exports = {
   description,
 
   // Notion X Option
+  notionUserId: pkg.author.notion.rootId,
   rootNotionPageId: pkg.author.notion.rootId,
   rootNotionSpaceId: pkg.author.notion.spaceId,
   isPreviewImageSupportEnabled: true,
