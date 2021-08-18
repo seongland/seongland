@@ -1,4 +1,4 @@
-import rawSiteConfig from '~/site-config.js'
+import rawSiteConfig from '~/site-config'
 
 if (!rawSiteConfig) throw new Error(`Config error: invalid site.config.js`)
 
