@@ -1,10 +1,10 @@
-const favicons = require('favicons')
-const fs = require('fs')
-const path = require('path')
+import favicons from 'favicons'
+import fs from 'fs'
+import path from 'path'
 
-const siteConfig = require('../site-config')
+import siteConfig from '../site-config.js'
 
-module.exports = async () =>
+export default async () =>
   new Promise((resolve, reject) =>
     favicons(
       path.resolve(process.cwd(), 'src', 'public', 'favicon.svg'),
@@ -36,7 +36,7 @@ module.exports = async () =>
             fs.writeFile(path.resolve(process.cwd(), 'public', name), contents, reject)
           )
         )
-        return resolve()
+        return resolve(null)
       }
     )
   )
