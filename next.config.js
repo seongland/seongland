@@ -1,7 +1,8 @@
 //@ts-check
 const withTM = require('next-transpile-modules')(['three'])
 
-module.exports = withTM({
+/** @type{import('next').NextConfig}*/
+const nextConfig = {
   target: 'serverless',
   headers: async () => [
     {
@@ -30,7 +31,11 @@ module.exports = withTM({
     config.externals.push('sharp')
     return config
   },
-  webpack5: true,
+  experimental: {
+    pageDataCollectionTimeout: 200,
+  },
   reactStrictMode: true,
   rewrites: async () => [{ source: '/social.png', destination: '/api/social-image' }],
-})
+}
+
+module.exports = withTM(nextConfig)
