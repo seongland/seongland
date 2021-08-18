@@ -25,6 +25,7 @@ docker build  -t ghcr.io/seongland/seongland:$VERSION \
 --build-arg GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS \
 --build-arg GCLOUD_PROJECT=$GCLOUD_PROJECT \
 --build-arg FIREBASE_COLLECTION_IMAGES=$FIREBASE_COLLECTION_IMAGES \
+--build-arg NOTION_API_AUTH_TOKEN=$NOTION_API_AUTH_TOKEN \
 .
 docker push  ghcr.io/seongland/seongland:$VERSION
 docker tag ghcr.io/seongland/seongland:$VERSION ghcr.io/seongland/seongland:latest
