@@ -5,10 +5,7 @@ import { host } from '~/lib/config'
 import { getSiteMaps } from '~/lib/get-site-maps'
 
 const siteMap = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  if (req.method !== 'GET') {
-    return res.status(405).send({ error: 'method not allowed' })
-  }
-
+  if (req.method !== 'GET') return res.status(405).send({ error: 'method not allowed' })
   const siteMaps = await getSiteMaps()
 
   // cache sitemap for up to one hour
