@@ -53,18 +53,13 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
     document.body.style.background = themeColor
   }, [themeColor])
 
-  if (router.isFallback) {
-    return <Loading />
-  }
-
+  if (router.isFallback) return <Loading />
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-
   if (error || !site || !keys.length || !block) return <Page404 site={site} pageId={pageId} error={error} />
   const title = getBlockTitle(block, recordMap) || site.name
 
   if (!config.isServer) {
-    // add important objects to the window global for easy debugging
     const g = window as any
     g.pageId = pageId
     g.recordMap = recordMap
