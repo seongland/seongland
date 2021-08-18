@@ -21,7 +21,7 @@ module.exports = {
   socialImageSubtitle: pkg.description,
   defaultPageCoverPosition: 0.5,
   includeNotionIdInUrls: true,
-  utterancesGitHubRepo: pkg.repo,
+  utterancesGitHubRepo: pkg.path,
 
   // Personal Info
   url: `https://${pkg.domain}`,
