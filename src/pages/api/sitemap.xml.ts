@@ -4,7 +4,7 @@ import { SiteMap } from '~/lib/types'
 import { host } from '~/lib/config'
 import { getSiteMaps } from '~/lib/get-site-maps'
 
-export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
+const siteMap = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   if (req.method !== 'GET') {
     return res.status(405).send({ error: 'method not allowed' })
   }
@@ -40,3 +40,5 @@ const createSitemap = (siteMap: SiteMap) => `<?xml version="1.0" encoding="UTF-8
         .join('')}
     </urlset>
     `
+
+export default siteMap

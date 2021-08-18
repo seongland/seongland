@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import * as types from '~/lib/types'
 import { search } from '~/lib/notion'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const searchNotion = async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(req)
   if (req.method !== 'POST') return res.status(405).send({ error: 'method not allowed' })
 
@@ -15,3 +15,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Cache-Control', 'public, s-maxage=60, max-age=60, stale-while-revalidate=60')
   res.status(200).json(results)
 }
+
+export default searchNotion

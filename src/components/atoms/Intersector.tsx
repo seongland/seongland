@@ -29,7 +29,7 @@ export default function Intersector({
       if (intersect?.userData?.click) intersect?.userData?.click(e)
       set({ mouse })
     })
-  }, [root])
+  }, [root, camera, raycaster, set, setClick])
 
   // Hover Effect
   let current = null
