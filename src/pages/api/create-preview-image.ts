@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import consola from 'consola'
 
 import got from 'got'
 import lqip from 'lqip-modern'
@@ -53,7 +52,7 @@ export async function createPreviewImage(url: string, id: string): Promise<types
       await doc.create(error)
       return error
     } catch (err) {
-      consola.error(err)
+      console.error(err)
     }
   }
 }
