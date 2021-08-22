@@ -1,10 +1,9 @@
-import favicons from 'favicons'
-import fs from 'fs'
-import path from 'path'
+const favicons = require('favicons')
+const fs = require('fs')
+const path = require('path')
+const siteConfig = require('../site-config.js')
 
-import siteConfig from '../site-config.js'
-
-export default async () =>
+module.exports = async () =>
   new Promise((resolve, reject) =>
     favicons(
       path.resolve(process.cwd(), 'src', 'public', 'favicon.svg'),

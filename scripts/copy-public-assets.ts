@@ -1,3 +1,3 @@
-import copy from 'copy'
+const copy = require('copy')
 
-export default async () => copy('src/public/**/*', 'public', () => {})
+module.exports = async () => copy('src/public/**/*', 'public', () => {})

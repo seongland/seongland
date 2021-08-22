@@ -38,10 +38,10 @@ module.exports = {
   linkedin: pkg.author.linkedin.name,
   socials: {
     GitHub: pkg.repository,
-    Twitter: pkg.author.twitter.url,
+    Twitter: pkg.author.twitter.name,
   },
 
   // Color
   bgColor: '#2f3437',
-  themeColor: '#46c0aE',
+  themeColor: '#2f3437',
 }
