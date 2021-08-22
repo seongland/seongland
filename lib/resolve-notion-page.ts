@@ -25,7 +25,6 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
       const resources = await Promise.all([getSiteForDomain(domain), getPage(pageId)])
       site = resources[0]
       recordMap = resources[1]
-      console.log(site, recordMap)
     } else {
       const siteMaps = await getSiteMaps()
       const siteMap = siteMaps[0]
