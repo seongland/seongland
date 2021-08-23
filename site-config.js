@@ -42,6 +42,6 @@ module.exports = {
   },
 
   // Color
-  bgColor: '#2f3437',
-  themeColor: '#2f3437',
+  bgColor: pkg.color,
+  themeColor: pkg.color,
 }

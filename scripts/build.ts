@@ -1,5 +1,5 @@
-const copyPublicAssets = require('./copy-public-assets')
-const generateFavicons = require('./generate-favicons')
+import copyPublicAssets from './copy-public-assets'
+import generateFavicons from './generate-favicons'
 
 async function build() {
   await copyPublicAssets()

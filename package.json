@@ -12,12 +12,13 @@
     "start": "next start --port 8888",
     "lint": "npx next lint",
     "build": "run-s \"build:**\"",
-    "build:scripts": "ts-node scripts/build.ts ",
+    "build:scripts": "esmo scripts/build.ts ",
     "build:web": "next build",
     "format": "run-p \"format:**\"",
     "format:index": "prettier --write \"*.{js,json,md}\"",
     "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\""
   },
+  "color": "#2f3437",
   "author": {
     "name": "Seonglae Cho",
     "email": "sungle3737@gmail.com",
@@ -55,6 +56,7 @@
     "@types/three": "^0.130.1",
     "classnames": "^2.3.1",
     "date-fns": "^2.22.1",
+    "esno": "^0.9.1",
     "favicons": "^6.2.0",
     "framer-motion": "^3.2.1",
     "got": "^11.8.2",
@@ -76,7 +78,6 @@
     "react-notion-x": "^4.8.2",
     "react-use": "^17.2.4",
     "three": "^0.130.1",
-    "ts-node": "^10.2.1",
     "use-dark-mode": "^2.3.1",
     "zustand": "^3.5.7"
   },
