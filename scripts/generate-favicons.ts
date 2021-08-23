@@ -1,21 +1,22 @@
-const favicons = require('favicons')
-const fs = require('fs')
-const path = require('path')
-const siteConfig = require('../site-config.js')
+import favicons from 'favicons'
+import fs from 'fs'
+import { readFile } from 'fs/promises'
+import path from 'path'
 
-module.exports = async () =>
-  new Promise((resolve, reject) =>
+export default async () => {
+  const pkg = await readFile('package.json').then(json => JSON.parse(String(json))).catch(() => null)
+  return new Promise((resolve, reject) =>
     favicons(
       path.resolve(process.cwd(), 'src', 'public', 'favicon.svg'),
       {
         path: '/',
-        appName: siteConfig.title,
-        appShortName: siteConfig.title,
-        appDescription: siteConfig.description,
-        developerName: siteConfig.title,
-        developerURL: siteConfig.url,
-        background: siteConfig.bgColor,
-        theme_color: siteConfig.themeColor,
+        appName: pkg.name,
+        appShortName: pkg.name,
+        appDescription: pkg.description,
+        developerName: pkg.author.name,
+        developerURL: pkg.author.github.url,
+        background: pkg.color,
+        theme_color: pkg.color,
         icons: {
           android: true,
           appleIcon: true,
@@ -39,3 +40,4 @@ module.exports = async () =>
       }
     )
   )
+}
