@@ -49,15 +49,13 @@ const Document: NextComponentType<DocumentContext, DocumentInitialProps, Documen
         </Head>
 
         <body>
-          <Noflash />
+          <script src="noflash.js" />
           <Main />
           <NextScript />
         </body>
       </Html>
     )
   }
-
-const Noflash = () => <Script src="noflash.js" />
 
 Document.getInitialProps = async (ctx: DocumentContext) => {
   const initialProps = await NextDocument.getInitialProps(ctx)
