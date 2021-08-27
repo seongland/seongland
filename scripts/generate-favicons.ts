@@ -1,13 +1,14 @@
 import favicons from 'favicons'
-import fs from 'fs'
-import { readFile } from 'fs/promises'
-import path from 'path'
+import { readFile as read, writeFile as write } from 'fs/promises'
+import { resolve as join } from 'path'
 
 export default async () => {
-  const pkg = await readFile('package.json').then(json => JSON.parse(String(json))).catch(() => null)
+  const pkg = await read('package.json')
+    .then(json => JSON.parse(String(json)))
+    .catch(() => null)
   return new Promise((resolve, reject) =>
     favicons(
-      path.resolve(process.cwd(), 'src', 'public', 'favicon.svg'),
+      join('src', 'public', 'favicon.svg'),
       {
         path: '/',
         appName: pkg.name,
@@ -31,11 +32,9 @@ export default async () => {
       },
       async (error, { files, images }) => {
         if (error) return reject(error)
-        await Promise.all(
-          [...images, ...files].map(({ name, contents }) =>
-            fs.writeFile(path.resolve(process.cwd(), 'public', name), contents, reject)
-          )
-        )
+        const targets = [...images, ...files]
+        const promises = targets.map(({ name, contents }) => write(join('public', name), contents))
+        await Promise.all(promises)
         return resolve(null)
       }
     )
