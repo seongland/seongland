@@ -32,7 +32,7 @@ const nextConfig = {
     return config
   },
   experimental: {
-    pageDataCollectionTimeout: 200,
+    pageDataCollectionTimeout: 1000,
   },
   reactStrictMode: true,
   rewrites: async () => [{ source: '/social.png', destination: '/api/social-image' }],
