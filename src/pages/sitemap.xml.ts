@@ -1,20 +1,12 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-
-import { SiteMap } from '~/lib/types'
 import { host } from '~/lib/config'
 import { getSiteMaps } from '~/lib/get-site-maps'
 
-const siteMap = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
-  if (req.method !== 'GET') return res.status(405).send({ error: 'method not allowed' })
-  const siteMaps = await getSiteMaps()
+import type { GetStaticProps } from 'next'
+import type { SiteMap } from '~/lib/types'
 
-  // cache sitemap for up to one hour
-  res.setHeader('Cache-Control', 'public, s-maxage=3600, max-age=3600, stale-while-revalidate=3600')
-  res.setHeader('Content-Type', 'text/xml')
-  console.log(siteMaps)
-  res.write(createSitemap(siteMaps[0]))
-  res.end()
-}
+let sitemap: string
+
+const SiteMapComponent = () => {}
 
 const createSitemap = (siteMap: SiteMap) => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -38,4 +30,17 @@ const createSitemap = (siteMap: SiteMap) => `<?xml version="1.0" encoding="UTF-8
     </urlset>
     `
 
-export default siteMap
+export const getStaticProps: GetStaticProps = async () => {
+  const siteMaps = await getSiteMaps()
+  sitemap = createSitemap(siteMaps[0])
+  return { props: {} }
+}
+
+export const getInitialProps = async ({ res }) => {
+  res.setHeader('Content-Type', 'text/xml')
+  res.setHeader('Cache-Control', 'public, s-maxage=3600, max-age=3600, stale-while-revalidate=3600')
+  res.write(sitemap)
+  res.end()
+}
+
+export default SiteMapComponent

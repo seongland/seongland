@@ -9,7 +9,6 @@ import NextDocument, {
   DocumentProps,
 } from 'next/document'
 import { NextComponentType } from 'next'
-import Script from 'next/script'
 
 import siteConfig from '~/site-config'
 

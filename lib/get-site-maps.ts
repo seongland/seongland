@@ -4,7 +4,10 @@ import { getAllPages } from './get-all-pages'
 import { getSites } from './get-sites'
 import * as types from './types'
 
+let siteMap: types.SiteMap[] = null
+
 export async function getSiteMaps(): Promise<types.SiteMap[]> {
+  if (siteMap) return siteMap
   const sites = await getSites()
   const siteMaps = await pMap(
     sites,
@@ -18,6 +21,6 @@ export async function getSiteMaps(): Promise<types.SiteMap[]> {
     },
     { concurrency: 1 }
   )
-
-  return siteMaps.filter(Boolean)
+  siteMap = siteMaps.filter(Boolean)
+  return siteMap
 }
