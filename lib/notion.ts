@@ -37,8 +37,9 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 
   const urls = Array.from(new Set(imageUrls))
   const previewImageMap = await getPreviewImages(urls)
-  ;(recordMap as any).preview_images = previewImageMap
-  return recordMap
+  const map = recordMap as any
+  map.preview_images = previewImageMap
+  return map
 }
 
 export async function search(params: SearchParams): Promise<SearchResults> {

@@ -1,13 +1,10 @@
 import pMap from 'p-map'
-
 import { getAllPages } from './get-all-pages'
 import { getSites } from './get-sites'
-import * as types from './types'
 
-let siteMap: types.SiteMap[] = null
+import type * as types from './types'
 
 export async function getSiteMaps(): Promise<types.SiteMap[]> {
-  if (siteMap) return siteMap
   const sites = await getSites()
   const siteMaps = await pMap(
     sites,
@@ -21,6 +18,6 @@ export async function getSiteMaps(): Promise<types.SiteMap[]> {
     },
     { concurrency: 1 }
   )
-  siteMap = siteMaps.filter(Boolean)
-  return siteMap
+
+  return siteMaps.filter(Boolean)
 }

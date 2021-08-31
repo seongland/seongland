@@ -1,4 +1,7 @@
-import rawSiteConfig from '~/site-config'
+import rawSiteConfig from '../site-config.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 if (!rawSiteConfig) throw new Error(`Config error: invalid site.config.js`)
 

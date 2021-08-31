@@ -59,10 +59,8 @@ export const includeNotionIdInUrls: boolean = getSiteConfig('includeNotionIdInUr
 // ----------------------------------------------------------------------------
 
 export const isServer = typeof window === 'undefined'
-
 export const port = getEnv('PORT', '8888')
 export const host = isDev ? `http://localhost:${port}` : `https://${domain}`
-
 export const apiBaseUrl = `${host}/api`
 
 export const api = {
@@ -72,24 +70,19 @@ export const api = {
 
 // ----------------------------------------------------------------------------
 const defaultEnvValueForPreviewImageSupport = isPreviewImageSupportEnabled && isServer ? undefined : null
-
 export const googleProjectId = getEnv('GCLOUD_PROJECT', defaultEnvValueForPreviewImageSupport)
-
 export const googleApplicationCredentials = getGoogleApplicationCredentials()
-
 export const firebaseCollectionImages = getEnv('FIREBASE_COLLECTION_IMAGES', defaultEnvValueForPreviewImageSupport)
 
 // this hack is necessary because vercel doesn't support secret files so we need to encode our google
 // credentials a base64-encoded string of the JSON-ified content
 function getGoogleApplicationCredentials() {
   if (!isPreviewImageSupportEnabled || !isServer) return null
-
   try {
     const googleApplicationCredentialsBase64 = getEnv(
       'GOOGLE_APPLICATION_CREDENTIALS',
       defaultEnvValueForPreviewImageSupport
     )
-
     return JSON.parse(Buffer.from(googleApplicationCredentialsBase64, 'base64').toString())
   } catch (err) {
     console.error('Firebase config error: invalid "GOOGLE_APPLICATION_CREDENTIALS" should be base64-encoded JSON\n')
