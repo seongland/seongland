@@ -4,9 +4,9 @@ import generateSitemap from './generate-sitemap'
 
 async function build() {
   const promises = []
-  promises.push(copyPublicAssets())
-  promises.push(generateFavicons())
-  promises.push(generateSitemap())
+  promises.push(await generateFavicons())
+  promises.push(await copyPublicAssets())
+  promises.push(await generateSitemap())
   await Promise.all(promises)
 }
 

@@ -17,21 +17,21 @@ export async function getAllPagesImpl(rootNotionPageId: string, rootNotionSpaceI
     concurrency: OPTIMIZED_CONCURRENCY,
   })
 
-  const canonicalPageMap = Object.keys(pageMap).reduce((map, pageId: string) => {
-    const recordMap = pageMap[pageId]
-    if (!recordMap) throw new Error(`Error loading page "${pageId}"`)
-    const canonicalPageId = getCanonicalPageId(pageId, recordMap, { uuid })
-    if (map[canonicalPageId]) {
-      console.error('error duplicate canonical page id', canonicalPageId, pageId, map[canonicalPageId])
-      return map
-    } else {
-      map[canonicalPageId] = pageId
-      return map
-    }
-  }, {})
+  const canonicalPageMap: types.CanonicalPageMap = Object.keys(pageMap).reduce(
+    (map: types.CanonicalPageMap, pageId: string) => {
+      const recordMap = pageMap[pageId]
+      if (!recordMap) return map
+      const canonicalPageId = getCanonicalPageId(pageId, recordMap, { uuid })
+      if (map[canonicalPageId]) {
+        console.error('error duplicate canonical page id', canonicalPageId, pageId, map[canonicalPageId])
+        return map
+      } else {
+        map[canonicalPageId] = pageId
+        return map
+      }
+    },
+    <types.CanonicalPageMap>{}
+  )
 
-  return {
-    pageMap,
-    canonicalPageMap,
-  }
+  return { pageMap, canonicalPageMap }
 }
