@@ -6,13 +6,15 @@ import { includeNotionIdInUrls } from './config'
 import { notion } from './notion'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
+const OPTIMIZED_CONCURRENCY = 10000
+
 const uuid = !!includeNotionIdInUrls
 
 export const getAllPages = pMemoize(getAllPagesImpl, { maxAge: 60000 * 5 })
 
 export async function getAllPagesImpl(rootNotionPageId: string, rootNotionSpaceId: string): Promise<Partial<types.SiteMap>> {
   const pageMap = await getAllPagesInSpace(rootNotionPageId, rootNotionSpaceId, notion.getPage.bind(notion), {
-    concurrency: 200_000,
+    concurrency: OPTIMIZED_CONCURRENCY,
   })
 
   const canonicalPageMap = Object.keys(pageMap).reduce((map, pageId: string) => {

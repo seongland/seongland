@@ -17,6 +17,7 @@ specifiers:
   classnames: ^2.3.1
   copy: ^0.3.2
   date-fns: ^2.22.1
+  dotenv: ^10.0.0
   esbuild-node-loader: ^0.3.1
   eslint: ^7.25.0
   esno: ^0.9.1
@@ -92,6 +93,7 @@ devDependencies:
   '@types/react': 17.0.10
   '@types/react-dom': 17.0.7
   copy: 0.3.2
+  dotenv: 10.0.0
   esbuild-node-loader: 0.3.1
   eslint: 7.28.0
   next-transpile-modules: 8.0.0
@@ -2286,6 +2288,11 @@ packages:
       domelementtype: 2.2.0
       domhandler: 4.2.0
     dev: false
+
+  /dotenv/10.0.0:
+    resolution: {integrity: sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==}
+    engines: {node: '>=10'}
+    dev: true
 
   /duplexify/4.1.1:
     resolution: {integrity: sha512-DY3xVEmVHTv1wSzKNbwoU6nVjzI369Y6sPoqfYr0/xlx3IdX2n94xIszTcjPO8W8ZIv0Wb0PXNcjuZyT4wiICA==}
