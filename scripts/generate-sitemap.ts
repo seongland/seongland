@@ -5,8 +5,6 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-import type { SiteMap } from '../lib/types'
-
 export default async () => {
   const pkg = await read('package.json')
     .then(json => JSON.parse(String(json)))
@@ -23,7 +21,7 @@ export default async () => {
   return write(join('public', 'sitemap.xml'), formatted)
 }
 
-const createSitemap = (siteMap: SiteMap, host: string) => `<?xml version="1.0" encoding="UTF-8"?>
+const createSitemap = (siteMap, host: string) => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${host}</loc>
@@ -34,12 +32,13 @@ const createSitemap = (siteMap: SiteMap, host: string) => `<?xml version="1.0" e
       </url>
 
       ${Object.keys(siteMap.canonicalPageMap)
-        .map(canonicalPagePath =>
-          `
+        .map(
+          canonicalPagePath =>
+            `
             <url>
               <loc>${host}/${canonicalPagePath}</loc>
             </url>
-          `.trim()
+          `
         )
         .join('')}
     </urlset>

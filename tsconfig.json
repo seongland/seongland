@@ -23,5 +23,5 @@
     "typeRoots": ["./node_modules/@types"]
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "site-config.js"]
+  "include": ["next-env.d.ts", "src/**/*.ts", "lib/**/*.ts", "**/*.tsx", "site-config.js"]
 }

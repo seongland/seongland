@@ -29,7 +29,7 @@ specifiers:
   next: ^11.1.0
   next-seo: ^4.17.0
   next-transpile-modules: ^8.0.0
-  notion-client: ^4.8.5
+  notion-client: ^4.8.6
   notion-types: ^4.8.2
   notion-utils: ^4.8.6
   npm-run-all: ^4.1.5
@@ -42,7 +42,7 @@ specifiers:
   react-dom: ^17.0.2
   react-icons: ^4.1.0
   react-markdown: ^5.0.3
-  react-notion-x: ^4.8.5
+  react-notion-x: ^4.8.7
   react-use: ^17.2.4
   sharp: ^0.28.3
   three: ^0.130.1
@@ -80,7 +80,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.2.0_react@17.0.2
   react-markdown: 5.0.3_abb1604a42d14852bf224beb3e1af3d0
-  react-notion-x: 4.8.6_react-dom@17.0.2+react@17.0.2
+  react-notion-x: 4.8.7_react-dom@17.0.2+react@17.0.2
   react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
   three: 0.130.1
   use-dark-mode: 2.3.1_react@17.0.2
@@ -5252,8 +5252,8 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-notion-x/4.8.6_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-ZQBZU9fJyLsplhELWnI3iNQxOMYp99IS05x2ICrta7gVfwjZDgvN+Vv8hH5tuT4Hf+aozlE4NClL0leigJARKw==}
+  /react-notion-x/4.8.7_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-rqRp+y2I4FBjpgFkKxd1vtQ1dEOOcqBIJwCnTdzNYEGxxYpfQuEHP9StVrJFeNOyc4lm1UN37sU7moQQensscw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
