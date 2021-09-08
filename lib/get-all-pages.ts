@@ -6,7 +6,7 @@ import { includeNotionIdInUrls } from './config'
 import { notion } from './notion'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
-const OPTIMIZED_CONCURRENCY = 10000
+const OPTIMIZED_CONCURRENCY = 100
 
 const uuid = !!includeNotionIdInUrls
 

@@ -39,7 +39,7 @@ okteto stack deploy --wait
 kubectl config use-context docker-desktop
 ```
 
-### local
+### Local
 ```bash
 VERSION=2.1.0
 docker-compose build
