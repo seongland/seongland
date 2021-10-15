@@ -20,8 +20,7 @@ COPY public ./public/
 USER seonglae
 
 RUN npm i -g pnpm
-RUN pnpm i --prod
-RUN pnpm build
+RUN pnpm i
 EXPOSE 8888
 
-CMD [ "pnpm", "start" ]
+CMD [ "pnpm", "dev" ]

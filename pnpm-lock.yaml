@@ -30,7 +30,7 @@ specifiers:
   next: ^11.1.2
   next-seo: ^4.17.0
   next-transpile-modules: ^8.0.0
-  notion-client: ^4.9.7
+  notion-client: ^4.9.9
   notion-types: ^4.8.2
   notion-utils: ^4.8.6
   npm-run-all: ^4.1.5
@@ -43,7 +43,7 @@ specifiers:
   react-dom: ^17.0.2
   react-icons: ^4.1.0
   react-markdown: ^5.0.3
-  react-notion-x: ^4.9.7
+  react-notion-x: ^4.9.9
   react-use: ^17.2.4
   sharp: ^0.28.3
   three: ^0.130.1
@@ -69,7 +69,7 @@ dependencies:
   lqip-modern: 1.2.0
   next: 11.1.2_3ec516949cacd886d2caf841d6e29a91
   next-seo: 4.24.0_6fbf59523517da779df50d355b375324
-  notion-client: 4.9.7
+  notion-client: 4.9.9
   notion-types: 4.8.2
   notion-utils: 4.8.6
   nprogress: 0.2.0
@@ -80,7 +80,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.2.0_react@17.0.2
   react-markdown: 5.0.3_abb1604a42d14852bf224beb3e1af3d0
-  react-notion-x: 4.9.7_react-dom@17.0.2+react@17.0.2
+  react-notion-x: 4.9.9_react-dom@17.0.2+react@17.0.2
   react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
   three: 0.130.1
   use-dark-mode: 2.3.1_react@17.0.2
@@ -410,6 +410,7 @@ packages:
 
   /@emotion/is-prop-valid/0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
+    requiresBuild: true
     dependencies:
       '@emotion/memoize': 0.7.4
     dev: false
@@ -2026,6 +2027,7 @@ packages:
 
   /clipboard/2.0.8:
     resolution: {integrity: sha512-Y6WO0unAIQp5bLmk1zdThRhgJt/x3ks6f30s3oE3H1mgIEU33XyQjEf8gsf6DxC7NPX8Y1SsNWjUjL/ywLnnbQ==}
+    requiresBuild: true
     dependencies:
       good-listener: 1.2.2
       select: 1.1.2
@@ -3261,6 +3263,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -4944,8 +4947,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /notion-client/4.9.7:
-    resolution: {integrity: sha512-G70rE5e14EELo7+Id0Sef2TwXIaCyVMi0F8S8/T1NYPAWNhU7GJfgf8Js2czfX0Ce5QOsHAlrdwq6ZeYcPkLyg==}
+  /notion-client/4.9.9:
+    resolution: {integrity: sha512-rS1SJvgh+ZaE/xbpY2jYqnzG/LvXaFsMeFQg3JlmVs20XM6nImJik4MwKsC8j7CteCzzdFJjW0pbb6RA3vBz3w==}
     engines: {node: '>=12'}
     dependencies:
       got: 11.8.2
@@ -5631,7 +5634,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       classnames: 2.3.1
       dom-align: 1.12.2
       rc-util: 5.13.1_react-dom@17.0.2+react@17.0.2
@@ -5646,7 +5649,7 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       classnames: 2.3.1
       rc-trigger: 5.2.9_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
@@ -5659,7 +5662,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       classnames: 2.3.1
       mini-store: 3.0.6_react-dom@17.0.2+react@17.0.2
       rc-motion: 2.4.4_react-dom@17.0.2+react@17.0.2
@@ -5677,7 +5680,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       classnames: 2.3.1
       rc-util: 5.13.1_react-dom@17.0.2+react@17.0.2
       react: 17.0.2
@@ -5691,7 +5694,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       classnames: 2.3.1
       rc-align: 4.0.9_react-dom@17.0.2+react@17.0.2
       rc-motion: 2.4.4_react-dom@17.0.2+react@17.0.2
@@ -5706,7 +5709,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-is: 16.13.1
@@ -5777,7 +5780,7 @@ packages:
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       invariant: 2.2.4
       react: 17.0.2
     dev: false
@@ -5846,8 +5849,8 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-notion-x/4.9.7_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-YJripHeDwuamFfGHVeLnv8OLQzdo1Rzer+iOW+7IfPonv6L4q+xD50PoG4awMoARszlRnsJ8osnHqCD1XejA1g==}
+  /react-notion-x/4.9.9_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-VZ9tpZhh0MWx9aC6ioSbDNjliS1Im6M4tAZiWa5MZ+eTelYiJs8rB3JSK1iy4PovQ/yHxltLp6ynDZoZfGbF8A==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
@@ -5884,7 +5887,7 @@ packages:
       react: ^16.3.0
       react-dom: ^16.3.0
     dependencies:
-      '@babel/runtime': 7.14.8
+      '@babel/runtime': 7.15.3
       make-cancellable-promise: 1.0.0
       make-event-props: 1.2.0
       merge-class-names: 1.4.0
