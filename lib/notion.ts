@@ -1,5 +1,6 @@
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
+
 import { getPreviewImages } from './get-preview-images'
 import { mapNotionImageUrl } from './map-image-url'
 import { getSiteConfig, getEnv } from './get-config-value'
