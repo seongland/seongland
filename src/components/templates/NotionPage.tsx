@@ -85,7 +85,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
       <ReactUtterances
         repo={config.utterancesGitHubRepo}
         issueMap="issue-term"
-        issueTerm="title"
+        issueTerm="pathname"
         theme={darkMode.value ? 'photon-dark' : 'github-light'}
       />
     )

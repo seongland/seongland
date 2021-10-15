@@ -32,15 +32,10 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   constructor(props: ReactUtterancesProps) {
     super(props)
-
-    if (props.issueMap === 'issue-term' && props.issueTerm === undefined) {
+    if (props.issueMap === 'issue-term' && props.issueTerm === undefined)
       throw Error("Property 'issueTerm' must be provided with issueMap 'issue-term'")
-    }
-
-    if (props.issueMap === 'issue-number' && props.issueNumber === undefined) {
+    if (props.issueMap === 'issue-number' && props.issueNumber === undefined)
       throw Error("Property 'issueNumber' must be provided with issueMap 'issue-number'")
-    }
-
     this.reference = React.createRef<HTMLDivElement>()
     this.state = { pending: true }
   }
@@ -53,6 +48,7 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   componentDidMount(): void {
     const { repo, issueMap, issueTerm, issueNumber, label, theme } = this.props
+    console.log(issueTerm)
     const scriptElement = document.createElement('script')
     scriptElement.src = 'https://utteranc.es/client.js'
     scriptElement.async = true
@@ -62,17 +58,11 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
     scriptElement.setAttribute('theme', theme)
     scriptElement.onload = () => this.setState({ pending: false })
 
-    if (label) {
-      scriptElement.setAttribute('label', label)
-    }
+    if (label) scriptElement.setAttribute('label', label)
 
-    if (issueMap === 'issue-number') {
-      scriptElement.setAttribute('issue-number', issueNumber.toString())
-    } else if (issueMap === 'issue-term') {
-      scriptElement.setAttribute('issue-term', issueTerm)
-    } else {
-      scriptElement.setAttribute('issue-term', issueMap)
-    }
+    if (issueMap === 'issue-number') scriptElement.setAttribute('issue-number', issueNumber.toString())
+    else if (issueMap === 'issue-term') scriptElement.setAttribute('issue-term', issueTerm)
+    else scriptElement.setAttribute('issue-term', issueMap)
 
     // TODO: Check current availability
     this.scriptElement = scriptElement
