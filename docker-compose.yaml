@@ -1,11 +1,30 @@
 version: '2.2'
 
 services:
-  nextland:
-    scale: 10
-    image: ghcr.io/seongland/seongland:2.0.6
+  next:
+    scale: 16
+    image: ghcr.io/seongland/seongland:2.1.1
     ports:
-      - 8080:8080
+      - 1234:1234
     restart: always
     env_file:
       - .env
+      
+  redis:
+    scale: 1
+    image: redis
+    ports:
+      - 6379
+    volumes:
+      - redis:/data
+
+volumes:
+  redis:
+
+endpoints:
+  labels:
+    kubernetes.io/ingress.class: nginx
+  rules:
+    - path: /
+      service: seongland
+      port: 1234

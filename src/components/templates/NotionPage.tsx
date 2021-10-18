@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -8,12 +8,11 @@ import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
-
-// core notion renderer
 import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
+
 import { mapPageUrl, getCanonicalPageUrl } from 'lib/map-page-url'
 import { mapNotionImageUrl } from 'lib/map-image-url'
 import { getPageDescription } from 'lib/get-page-description'
@@ -26,7 +25,7 @@ import { CustomFont } from '../molecules/CustomFont'
 import { Loading } from '../molecules/Loading'
 import { Page404 } from '../organisms/Page404'
 import { PageHead } from '../organisms/PageHead'
-import { Footer } from '../molecules/Footer'
+import Footer from '../molecules/Footer'
 import { PageSocial } from '../organisms/PageSocial'
 import { ReactUtterances } from '../molecules/ReactUtterances'
 
@@ -48,20 +47,19 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
 
-  const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
+  const darkMode = useDarkMode(false)
+  const themeColor = useMemo(() => (darkMode.value ? '#2F3437' : '#fff'), [darkMode])
+  useEffect(() => {
+    document.body.style.background = themeColor
+  }, [themeColor])
 
-  if (router.isFallback) {
-    return <Loading />
-  }
-
+  if (router.isFallback) return <Loading />
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-
   if (error || !site || !keys.length || !block) return <Page404 site={site} pageId={pageId} error={error} />
   const title = getBlockTitle(block, recordMap) || site.name
 
   if (!config.isServer) {
-    // add important objects to the window global for easy debugging
     const g = window as any
     g.pageId = pageId
     g.recordMap = recordMap
@@ -82,33 +80,41 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   let comments: React.ReactNode = null
   let pageAside: React.ReactChild = null
 
-  // only display comments and page actions on blog post pages
-  if (isBlogPost)
-    if (config.utterancesGitHubRepo)
-      comments = (
-        <ReactUtterances
-          repo={config.utterancesGitHubRepo}
-          issueMap="issue-term"
-          issueTerm="title"
-          theme={darkMode.value ? 'photon-dark' : 'github-light'}
-        />
-      )
-
+  if (config.utterancesGitHubRepo)
+    comments = (
+      <ReactUtterances
+        repo={config.utterancesGitHubRepo}
+        issueMap="issue-term"
+        issueTerm="pathname"
+        theme={darkMode.value ? 'photon-dark' : 'github-light'}
+      />
+    )
   pageAside = <PageSocial />
+
+  const pageLink = ({ href, as, passHref, prefetch, replace, scroll, shallow, locale, ...props }) => (
+    <Link
+      href={href}
+      as={as}
+      passHref={passHref}
+      prefetch={prefetch}
+      replace={replace}
+      scroll={scroll}
+      shallow={shallow}
+      locale={locale}
+    >
+      <a {...props} />
+    </Link>
+  )
 
   return (
     <>
       <PageHead site={site} />
-
       <Head>
         <meta property="og:title" content={title} />
         <meta property="og:site_name" content={site.name} />
-
         <meta name="twitter:title" content={title} />
         <meta property="twitter:domain" content={site.domain} />
-
         {config.twitter && <meta name="twitter:creator" content={`@${config.twitter}`} />}
-
         {socialDescription && (
           <>
             <meta name="description" content={socialDescription} />
@@ -116,7 +122,6 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
             <meta name="twitter:description" content={socialDescription} />
           </>
         )}
-
         {socialImage ? (
           <>
             <meta name="twitter:card" content="summary_large_image" />
@@ -126,7 +131,6 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
         ) : (
           <meta name="twitter:card" content="summary" />
         )}
-
         {canonicalPageUrl && (
           <>
             <link rel="canonical" href={canonicalPageUrl} />
@@ -134,31 +138,14 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
             <meta property="twitter:url" content={canonicalPageUrl} />
           </>
         )}
-
         <title>{title}</title>
       </Head>
-
       <CustomFont site={site} />
-
       {isLiteMode && <BodyClassName className="notion-lite" />}
-
       <NotionRenderer
         bodyClassName={cs(styles.notion, pageId === site.rootNotionPageId && 'index-page')}
         components={{
-          pageLink: ({ href, as, passHref, prefetch, replace, scroll, shallow, locale, ...props }) => (
-            <Link
-              href={href}
-              as={as}
-              passHref={passHref}
-              prefetch={prefetch}
-              replace={replace}
-              scroll={scroll}
-              shallow={shallow}
-              locale={locale}
-            >
-              <a {...props} />
-            </Link>
-          ),
+          pageLink,
           code: Code,
           collection: Collection,
           collectionRow: CollectionRow,
