@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { SpacePage } from '@/components/'
+import { ScrollPage } from '@/components/templates/ScrollPage'
 import type { NextPage } from '@/types/next'
 
 const Index: NextPage = () => {
-  return <SpacePage />
+  return <ScrollPage />
 }
 
 export default Index
