@@ -87,17 +87,17 @@
 }
 
 .linkedin .actionBgPane {
-  background: #0077b5;
+  background: #0077ee;
 }
 .linkedin:hover {
-  border-color: #0077b5;
+  border-color: #0077ee;
 }
 
 .github .actionBgPane {
-  background: #c9510c;
+  background: #6632aa;
 }
 .github:hover {
-  border-color: #c9510c;
+  border-color: #6632aa;
 }
 
 .medium .actionBgPane {
