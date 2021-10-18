@@ -21,7 +21,7 @@ import * as types from 'lib/types'
 import * as config from 'lib/config'
 
 // components
-import { CustomFont } from '../molecules/CustomFont'
+import { NotionCustomFont } from '../molecules/NotionCustomFont'
 import { Loading } from '../molecules/Loading'
 import { Page404 } from '../organisms/Page404'
 import { PageHead } from '../organisms/PageHead'
@@ -100,8 +100,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      locale={locale}
-    >
+      locale={locale}>
       <a {...props} />
     </Link>
   )
@@ -140,7 +139,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
         )}
         <title>{title}</title>
       </Head>
-      <CustomFont site={site} />
+      <NotionCustomFont site={site} />
       {isLiteMode && <BodyClassName className="notion-lite" />}
       <NotionRenderer
         bodyClassName={cs(styles.notion, pageId === site.rootNotionPageId && 'index-page')}
