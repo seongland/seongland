@@ -48,7 +48,6 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   componentDidMount(): void {
     const { repo, issueMap, issueTerm, issueNumber, label, theme } = this.props
-    console.log(issueTerm)
     const scriptElement = document.createElement('script')
     scriptElement.src = 'https://utteranc.es/client.js'
     scriptElement.async = true
