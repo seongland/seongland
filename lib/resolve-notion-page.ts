@@ -30,8 +30,9 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
       const siteMap = siteMaps[0]
       pageId = siteMap?.canonicalPageMap[rawPageId]
       if (pageId) {
-        site = await getSiteForDomain(domain)
-        recordMap = siteMap.pageMap[pageId]
+        const resources = await Promise.all([getSiteForDomain(domain), getPage(pageId)])
+        site = resources[0]
+        recordMap = resources[1]
       } else return { error: { message: `Not found "${rawPageId}"`, statusCode: 404 } }
     }
   } else {

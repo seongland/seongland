@@ -19,7 +19,7 @@
 
 ## Build
 ```bash
-VERSION=2.1.0
+VERSION=2.1.1
 set -a; source .env; set +a
 docker build  -t ghcr.io/seongland/seongland:$VERSION \
 --build-arg GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS \
@@ -41,7 +41,7 @@ kubectl config use-context docker-desktop
 
 ### Local
 ```bash
-VERSION=2.1.0
+VERSION=2.1.1
 docker-compose build
 ```
 
