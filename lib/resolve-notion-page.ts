@@ -8,12 +8,14 @@ import { getPage } from './notion'
 import { getSiteMaps } from './get-site-maps'
 import { getSiteForDomain } from './get-site-for-domain'
 
+const root = 'wiki'
+
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let site: types.Site
   let pageId: string
   let recordMap: ExtendedRecordMap
 
-  if (rawPageId && rawPageId !== 'index') {
+  if (rawPageId && rawPageId !== root) {
     pageId = parsePageId(rawPageId)
     if (!pageId) {
       const override = pageUrlOverrides[rawPageId] || pageUrlAdditions[rawPageId]
@@ -28,8 +30,6 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
       const siteMap = siteMaps[0]
       pageId = siteMap?.canonicalPageMap[rawPageId]
       if (pageId) {
-        // site = await getSiteForDomain(domain)
-        // recordMap = siteMap.pageMap[pageId]
         const resources = await Promise.all([getSiteForDomain(domain), getPage(pageId)])
         site = resources[0]
         recordMap = resources[1]

@@ -32,6 +32,27 @@ body.light-mode {
   --notion-header-height: 54px;
 }
 
+/* Search */
+.notion-search {
+  background: #0000;
+  border-radius: 1em;
+}
+input.searchInput {
+  background: var(--bg-color);
+  color: var(--fg-color);
+  caret-color: var(--fg-color);
+}
+.quickFindMenu {
+  background: var(--bg-color);
+}
+.notion-search .inlineIcon {
+  fill: var(--fg-color-3);
+}
+.notion-search .resultsFooter,
+.notion-search .resultsCount {
+  color: var(--fg-color-3);
+}
+
 /* Page */
 /* only target safari */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -206,21 +227,6 @@ hr.notion-hr {
 /* Callout */
 .notion-callout {
   margin: 0.75em 0;
-}
-
-/* Search */
-@media only screen and (max-width: 600px) {
-  .notion-search-button {
-    display: none !important;
-  }
-}
-input.searchInput {
-  background: #2f3437;
-  color: #fff;
-  caret-color: #fff;
-}
-.quickFindMenu {
-  background: #2f3437;
 }
 
 .notion-title {
