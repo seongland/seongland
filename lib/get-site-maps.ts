@@ -1,5 +1,4 @@
 import pMap from 'p-map'
-
 import { getAllPages } from './get-all-pages'
 import { getSites } from './get-sites'
 import * as types from './types'
@@ -16,7 +15,7 @@ export async function getSiteMaps(): Promise<types.SiteMap[]> {
         console.warn('site build error', index, site, err)
       }
     },
-    { concurrency: 1 }
+    { concurrency: 40 }
   )
 
   return siteMaps.filter(Boolean)

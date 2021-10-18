@@ -4,5 +4,6 @@
   "semi": false,
   "tabWidth": 2,
   "printWidth": 125,
+  "jsxBracketSameLine": true,
   "arrowParens": "avoid"
 }

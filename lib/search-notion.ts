@@ -1,4 +1,3 @@
-// import ky from 'ky'
 import fetch from 'isomorphic-unfetch'
 import pMemoize from 'p-memoize'
 
