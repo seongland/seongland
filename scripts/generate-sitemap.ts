@@ -15,7 +15,6 @@ export default async () => {
   const host = `https://${pkg.domain}`
   const prettierConfig = await prettier.resolveConfig(join('prettierrc.js'))
   const siteMaps = await getSiteMaps()
-  console.log(siteMaps)
   const sitemap = createSitemap(siteMaps[0], host)
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
