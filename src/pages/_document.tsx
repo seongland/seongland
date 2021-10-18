@@ -47,7 +47,7 @@ const Document: NextComponentType<DocumentContext, DocumentInitialProps, Documen
       </Head>
 
       <body>
-        <script src="noflash.js"> </script>
+        <script src="noflash.js" type="text/javascript"></script>
         <Main />
         <NextScript />
         <script

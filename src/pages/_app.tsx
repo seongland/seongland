@@ -1,5 +1,3 @@
-import '@/stylesheets/html.css'
-
 import * as React from 'react'
 import { DefaultSeo, SocialProfileJsonLd } from 'next-seo'
 import Head from 'next/head'
@@ -11,6 +9,7 @@ import siteConfig from '~/site-config'
 import type { AppProps } from '@/types/next'
 
 import '@/styles/global.css'
+import '@/styles/nprogress.css'
 import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism-coy.css'
 import 'prismjs/themes/prism-okaidia.css'
