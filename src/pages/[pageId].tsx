@@ -12,7 +12,7 @@ export const getStaticProps = async context => {
     return { props, revalidate: 10 }
   } catch (err) {
     console.error(domain, rawPageId, err)
-    throw err
+    return { notFound: true, revalidate: 10 }
   }
 }
 

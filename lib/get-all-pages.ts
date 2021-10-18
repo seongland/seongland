@@ -6,7 +6,7 @@ import { includeNotionIdInUrls } from './config'
 import { notion } from './notion'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
-const OPTIMIZED_CONCURRENCY = 100
+const OPTIMIZED_CONCURRENCY = 1000
 
 const uuid = !!includeNotionIdInUrls
 
@@ -16,6 +16,7 @@ export async function getAllPagesImpl(rootNotionPageId: string, rootNotionSpaceI
   const pageMap = await getAllPagesInSpace(rootNotionPageId, rootNotionSpaceId, notion.getPage.bind(notion), {
     concurrency: OPTIMIZED_CONCURRENCY,
   })
+  for (const uuid in pageMap) if (pageMap[uuid] === null) delete pageMap[uuid]
 
   const canonicalPageMap: types.CanonicalPageMap = Object.keys(pageMap).reduce(
     (map: types.CanonicalPageMap, pageId: string) => {

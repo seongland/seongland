@@ -4,7 +4,7 @@ LABEL email="sungle3737@gmail.com"
 LABEL name="seonglae"
 
 WORKDIR /usr/src/app
-RUN adduser -D seonglae && chown -R seonglae /usr/src/app
+RUN npm i -g pnpm
 
 ARG GOOGLE_APPLICATION_CREDENTIALS
 ARG GCLOUD_PROJECT
@@ -17,10 +17,11 @@ COPY lib ./lib/
 COPY scripts ./scripts/
 COPY public ./public/
 
+RUN adduser seonglae && chown -R seonglae /usr/src/app
 USER seonglae
 
-RUN npm i -g pnpm
 RUN pnpm i
+RUN pnpm build
 EXPOSE 8888
 
-CMD [ "pnpm", "dev" ]
+CMD [ "pnpm", "start" ]

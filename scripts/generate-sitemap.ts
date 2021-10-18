@@ -3,6 +3,8 @@ import { resolve as join } from 'path'
 import prettier from 'prettier'
 import dotenv from 'dotenv'
 
+import type { SiteMap } from '../lib/types'
+
 dotenv.config()
 
 export default async () => {
@@ -13,6 +15,7 @@ export default async () => {
   const host = `https://${pkg.domain}`
   const prettierConfig = await prettier.resolveConfig(join('prettierrc.js'))
   const siteMaps = await getSiteMaps()
+  console.log(siteMaps)
   const sitemap = createSitemap(siteMaps[0], host)
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
@@ -21,7 +24,7 @@ export default async () => {
   return write(join('public', 'sitemap.xml'), formatted)
 }
 
-const createSitemap = (siteMap, host: string) => `<?xml version="1.0" encoding="UTF-8"?>
+const createSitemap = (siteMap: SiteMap, host: string) => `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${host}</loc>

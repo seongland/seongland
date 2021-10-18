@@ -63,5 +63,7 @@ Document.getInitialProps = async (ctx: DocumentContext) => {
   const initialProps = await NextDocument.getInitialProps(ctx)
   return { ...initialProps }
 }
+// @ts-ignore
+Document.renderDocument = NextDocument.renderDocument
 
 export default Document

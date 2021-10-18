@@ -41,6 +41,7 @@ module.exports = {
     Twitter: pkg.author.twitter.name,
   },
   pageUrlOverrides: {
+    '/wiki': pkg.author.notion.rootId,
     '/logic': 'e562053ace984677a72cb9eaf5c6f91e',
     '/portfolio': 'b418523753984d4e8c940ede2e3de680',
     '/resume': '30022b4afb6f4d6e8446e0d49ec0a92f',
