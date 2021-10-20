@@ -21,6 +21,7 @@ import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-bash'
+import 'windi.css'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
