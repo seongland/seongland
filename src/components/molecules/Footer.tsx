@@ -17,26 +17,32 @@ const Footer: React.FC<{
     },
     [toggleDarkMode]
   )
-
-  React.useEffect(() => {
-    setHasMounted(true)
-  }, [])
+  React.useEffect(() => setHasMounted(true), [])
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.copyright}>Copyright 2021 {config.author}</div>
-
+    <footer
+      className="flex items-center"
+      text="dark:white"
+      m="x-auto t-auto b-0"
+      p="4"
+      w="full max-11/12"
+      justify="between"
+      flex="row <sm:col"
+      select="none">
+      <div select="none" p="2" text="xs" order="1 <sm:3">
+        Copyright 2021 {config.author}
+      </div>
       {hasMounted ? (
-        <div className={styles.settings}>
+        <div className={styles.settings} order="2 <sm:1">
           <a className={styles.toggleDarkMode} onClick={toggleDarkModeCb} title="Tottle dark mode">
             {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
           </a>
         </div>
       ) : null}
-
-      <div className={styles.social}>
+      <div className={styles.social} order="3 <sm:2">
         {config.twitter && (
           <a
+            cursor="pointer"
             className={styles.twitter}
             href={`https://twitter.com/${config.twitter}`}
             title={`Twitter @${config.twitter}`}
@@ -45,9 +51,9 @@ const Footer: React.FC<{
             <FaTwitter />
           </a>
         )}
-
         {config.github && (
           <a
+            cursor="pointer"
             className={styles.github}
             href={`https://github.com/${config.github}`}
             title={`GitHub @${config.github}`}
@@ -56,9 +62,9 @@ const Footer: React.FC<{
             <FaGithub />
           </a>
         )}
-
         {config.linkedin && (
           <a
+            cursor="pointer"
             className={styles.linkedin}
             href={`https://www.linkedin.com/in/${config.linkedin}`}
             title={`LinkedIn ${config.author}`}

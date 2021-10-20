@@ -18,7 +18,7 @@ export default function ScrollSpace({ isDarkMode }: { isDarkMode: boolean }) {
   // Dark Mode
   const colorSet = useMemo(() => (isDarkMode ? DARK_WALL : LIGHT_WALL), [isDarkMode])
   const [{ top }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }))
-  useFrame(() => set({ top: data.range(0, 1) * scrollMax }))
+  useFrame(() => set.start({ top: data.range(0, 1) * scrollMax }))
 
   // Spring Props
   const starPosition = top.to(top => [0, -1 + top / 20, 0])

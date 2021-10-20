@@ -23,9 +23,9 @@ import * as config from 'lib/config'
 // components
 import { NotionCustomFont } from '../molecules/NotionCustomFont'
 import { Loading } from '../molecules/Loading'
-import { Page404 } from '../organisms/Page404'
+import { NotionError } from '@/components/organisms/NotionError'
 import { PageHead } from '../organisms/PageHead'
-import Footer from '../molecules/Footer'
+import Footer from '@/components/molecules/Footer'
 import { PageSocial } from '../organisms/PageSocial'
 import { ReactUtterances } from '../molecules/ReactUtterances'
 
@@ -46,8 +46,20 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   // lite mode is for oembed
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
+  const darkMode = useDarkMode(false, {
+    classNameDark: 'dark',
+    classNameLight: 'light',
+    onChange: isDark => {
+      if (isDark) {
+        document.documentElement.classList.remove('light')
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('light')
+      }
+    },
+  })
 
-  const darkMode = useDarkMode(false)
   const themeColor = useMemo(() => (darkMode.value ? '#2F3437' : '#fff'), [darkMode])
   useEffect(() => {
     document.body.style.background = themeColor

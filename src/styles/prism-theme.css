@@ -7,7 +7,7 @@
   padding: 1.5em !important;
 }
 
-.dark-mode .notion-code {
+.dark .notion-code {
   background-color: rgba(17, 24, 39, 1);
   border-color: rgba(55, 65, 81, 1);
 }
@@ -20,7 +20,7 @@
   padding: 0 !important;
 }
 
-.dark-mode .notion code {
+.dark .notion code {
   color: rgba(229, 231, 235, 1);
 }
 
@@ -34,9 +34,9 @@
   color: #5b9b4c;
 }
 
-.dark-mode .token.cdata,
-.dark-mode .token.doctype,
-.dark-mode .token.prolog {
+.dark .token.cdata,
+.dark .token.doctype,
+.dark .token.prolog {
   color: rgba(209, 213, 219, 1);
 }
 
@@ -44,7 +44,7 @@
   color: rgba(55, 65, 81, 1);
 }
 
-.dark-mode .token.punctuation {
+.dark .token.punctuation {
   color: rgba(209, 213, 219, 1);
 }
 
@@ -97,8 +97,8 @@ pre[class*='language-'] {
   color: rgba(31, 41, 55, 1);
 }
 
-.dark-mode code[class*='language-'],
-.dark-mode pre[class*='language-'] {
+.dark code[class*='language-'],
+.dark pre[class*='language-'] {
   color: rgba(249, 250, 251, 1);
 }
 

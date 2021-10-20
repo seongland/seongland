@@ -1,3 +1,5 @@
-import { Page404 } from '@/components'
+import { ErrorPage } from '@/components'
 
-export default Page404
+export default function () {
+  return <ErrorPage statusCode={404} />
+}

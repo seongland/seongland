@@ -70,10 +70,8 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   render(): React.ReactElement {
     return (
-      <div className={styles.comments}>
-        <div className={styles.utterances} ref={this.reference}>
-          {this.state.pending && <p>Loading Comments...</p>}
-        </div>
+      <div w="full" ref={this.reference} m="t-6">
+        {this.state.pending && <p>Loading Comments...</p>}
       </div>
     )
   }
