@@ -5,7 +5,7 @@ import { a } from '@react-spring/three'
 
 /** This component rotates a bunch of stars */
 export default function Stars({ position, isDarkMode }: { position: any; isDarkMode: boolean }) {
-  let group = useRef(null)
+  const group = useRef(null)
   let theta = 90
   const tDiff = 0.1
   const rFactor = 5

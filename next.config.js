@@ -1,11 +1,11 @@
 //@ts-check
 const withTM = require('next-transpile-modules')(['three'])
+const WindiCSS = require('windicss-webpack-plugin').default
 
 /**
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  target: 'serverless',
   headers: async () => [
     {
       source: '/(.*)',
@@ -17,6 +17,7 @@ const nextConfig = {
     },
   ],
   webpack: config => {
+    config.plugins.push(new WindiCSS())
     config.externals.push('sharp')
     return config
   },

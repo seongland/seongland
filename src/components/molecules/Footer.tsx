@@ -41,8 +41,7 @@ const Footer: React.FC<{
             href={`https://twitter.com/${config.twitter}`}
             title={`Twitter @${config.twitter}`}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaTwitter />
           </a>
         )}
@@ -53,8 +52,7 @@ const Footer: React.FC<{
             href={`https://github.com/${config.github}`}
             title={`GitHub @${config.github}`}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaGithub />
           </a>
         )}
@@ -65,8 +63,7 @@ const Footer: React.FC<{
             href={`https://www.linkedin.com/in/${config.linkedin}`}
             title={`LinkedIn ${config.author}`}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <FaLinkedin />
           </a>
         )}
