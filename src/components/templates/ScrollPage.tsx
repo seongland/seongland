@@ -23,7 +23,7 @@ export const ScrollPage = () => {
       <PageHead />
       <NextSeo title={siteConfig.title} titleTemplate="%s" />
       <Canvas>
-        <ScrollControls damping={4} pages={5}>
+        <ScrollControls damping={10} pages={10}>
           {/* @ts-ignore */}
           <Scroll>
             <ScrollSpace isDarkMode={darkMode.value} />

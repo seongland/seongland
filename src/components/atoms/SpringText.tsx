@@ -22,8 +22,7 @@ export default function SpringText({ children, position, color = 'white', fontSi
           leave: onClick ? () => (document.body.style.cursor = 'default') : null,
         }}
         anchorY={-1}
-        fontSize={fontSize / 100}
-      >
+        fontSize={fontSize / 100}>
         {children}
       </Text>
     </a.mesh>

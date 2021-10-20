@@ -13,20 +13,18 @@ export const PageActions: React.FC<{ tweet: string }> = ({ tweet }) => {
       <a
         className={styles.likeTweet}
         href={`https://twitter.com/intent/like?tweet_id=${tweet}`}
-        target='_blank'
-        rel='noopener noreferrer'
-        title='Like this post on Twitter'
-      >
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Like this post on Twitter">
         <IoHeartOutline />
       </a>
 
       <a
         className={styles.retweet}
         href={`https://twitter.com/intent/retweet?tweet_id=${tweet}`}
-        target='_blank'
-        rel='noopener noreferrer'
-        title='Retweet this post on Twitter'
-      >
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Retweet this post on Twitter">
         <AiOutlineRetweet />
       </a>
     </div>
