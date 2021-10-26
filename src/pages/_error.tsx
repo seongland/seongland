@@ -1,5 +1,6 @@
+import React from 'react'
 import { ErrorPage } from '@/components'
-import { NextPageContext, NextPage } from 'next'
+import { NextPageContext } from 'next'
 
 const ErrorP = ({ statusCode }: { statusCode: number }) => {
   return <ErrorPage statusCode={statusCode} />

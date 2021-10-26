@@ -74,8 +74,12 @@ export interface PreviewImage {
   height: number
   type: string
   dataURIBase64: string
-
   error?: string
+}
+
+export interface PreviewError {
+  url: string
+  error: string
   statusCode?: number
 }
 

@@ -7,7 +7,7 @@ export let images: firestore.CollectionReference = null
 if (config.isPreviewImageSupportEnabled) {
   db = new firestore.Firestore({
     projectId: config.googleProjectId,
-    credentials: config.googleApplicationCredentials
+    credentials: config.googleApplicationCredentials,
   })
 
   images = db.collection(config.firebaseCollectionImages)
