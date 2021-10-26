@@ -8,20 +8,22 @@ import siteConfig from '~/site-config'
 
 import type { AppProps } from '@/types/next'
 
-import '@/styles/global.css'
-import '@/styles/nprogress.css'
+import 'windi.css'
+import 'katex/dist/katex.min.css'
 import 'react-notion-x/src/styles.css'
+
+import 'prismjs'
 import 'prismjs/themes/prism-coy.css'
 import 'prismjs/themes/prism-okaidia.css'
-import 'katex/dist/katex.min.css'
-import '@/styles/notion.css'
-import '@/styles/prism-theme.css'
-import 'prismjs'
+import 'prismjs/components/prism-bash'
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
-import 'prismjs/components/prism-bash'
-import 'windi.css'
+
+import '@/styles/global.css'
+import '@/styles/nprogress.css'
+import '@/styles/notion.css'
+import '@/styles/prism-theme.css'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())

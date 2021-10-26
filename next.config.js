@@ -22,7 +22,7 @@ const nextConfig = {
     return config
   },
   experimental: {
-    staticPageGenerationTimeout: 2000,
+    pageDataCollectionTimeout: 2000,
   },
   reactStrictMode: true,
   rewrites: async () => [{ source: '/social.png', destination: '/api/social-image' }],
