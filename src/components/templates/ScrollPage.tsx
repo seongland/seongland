@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import useDarkMode from 'use-dark-mode'
 import { ScrollControls, Scroll } from '@react-three/drei'

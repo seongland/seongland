@@ -1,7 +1,5 @@
 import React from 'react'
 
-import styles from '../styles.module.css'
-
 export type MappingType = 'pathname' | 'url' | 'title' | 'og:title' | 'issue-number' | 'issue-term'
 
 export type Theme =
@@ -28,7 +26,7 @@ interface ReactUtterancesState {
 
 export class ReactUtterances extends React.Component<ReactUtterancesProps, ReactUtterancesState> {
   reference: React.RefObject<HTMLDivElement>
-  scriptElement: any
+  scriptElement: HTMLElement
 
   constructor(props: ReactUtterancesProps) {
     super(props)
@@ -42,7 +40,7 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   UNSAFE_componentWillReceiveProps(props) {
     // this.scriptElement.setAttribute('theme', props.theme)
-    const iframe = document.querySelector('iframe.utterances-frame') as any
+    const iframe = document.querySelector('iframe.utterances-frame') as HTMLIFrameElement
     if (iframe) iframe.contentWindow.postMessage({ type: 'set-theme', theme: props.theme }, 'https://utteranc.es/')
   }
 

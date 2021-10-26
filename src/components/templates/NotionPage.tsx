@@ -40,7 +40,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const router = useRouter()
   const lite = useSearchParam('lite')
 
-  const params: any = {}
+  const params: { lite?: string } = {}
   if (lite) params.lite = lite
 
   // lite mode is for oembed
@@ -68,7 +68,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   if (router.isFallback) return <Loading />
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-  if (error || !site || !keys.length || !block) return <Page404 site={site} pageId={pageId} error={error} />
+  if (error || !site || !keys.length || !block) return <NotionError site={site} pageId={pageId} error={error} />
   const title = getBlockTitle(block, recordMap) || site.name
 
   if (!config.isServer) {
