@@ -13,7 +13,7 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  config.twitter && {
+  {
     name: 'twitter',
     href: `https://twitter.com/${config.twitter}`,
     title: `Twitter @${config.twitter}`,
@@ -24,7 +24,7 @@ const socialLinks: SocialLink[] = [
     ),
   },
 
-  config.github && {
+  {
     name: 'github',
     href: `https://github.com/${config.github}`,
     title: `GitHub @${config.github}`,
@@ -35,7 +35,7 @@ const socialLinks: SocialLink[] = [
     ),
   },
 
-  config.linkedin && {
+  {
     name: 'linkedin',
     href: `https://www.linkedin.com/in/${config.linkedin}`,
     title: `LinkedIn ${config.author}`,
