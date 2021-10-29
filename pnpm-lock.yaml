@@ -11,6 +11,7 @@ specifiers:
   '@types/node': ^14.14.21
   '@types/nprogress': ^0.2.0
   '@types/react': ^17.0.0
+  '@types/react-body-classname': ^1.1.7
   '@types/react-dom': ^17.0.0
   '@types/three': ^0.130.1
   '@typescript-eslint/eslint-plugin': ^5.1.0
@@ -48,7 +49,7 @@ specifiers:
   react-dom: ^17.0.2
   react-icons: ^4.1.0
   react-markdown: ^5.0.3
-  react-notion-x: 4.10.0
+  react-notion-x: 4.11.0
   react-use: ^17.2.4
   sharp: ^0.28.3
   three: ^0.130.1
@@ -89,7 +90,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.2.0_react@17.0.2
   react-markdown: 5.0.3_abb1604a42d14852bf224beb3e1af3d0
-  react-notion-x: 4.10.0_react-dom@17.0.2+react@17.0.2
+  react-notion-x: 4.11.0_react-dom@17.0.2+react@17.0.2
   react-use: 17.2.4_react-dom@17.0.2+react@17.0.2
   sharp: 0.28.3
   three: 0.130.1
@@ -108,6 +109,7 @@ devDependencies:
   '@types/node': 14.17.3
   '@types/nprogress': 0.2.0
   '@types/react': 17.0.10
+  '@types/react-body-classname': 1.1.7
   '@types/react-dom': 17.0.7
   '@types/three': 0.130.1
   '@typescript-eslint/eslint-plugin': 5.1.0_e392134742e7b0b2e540ff87028ebc39
@@ -1134,6 +1136,12 @@ packages:
 
   /@types/prop-types/15.7.3:
     resolution: {integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==}
+    dev: true
+
+  /@types/react-body-classname/1.1.7:
+    resolution: {integrity: sha512-rfs2A8PUfmTiVVpPWNWe4/uOUHgXWIe0IRxQmxx8DK/Ot2DxVQhILPZFHMWs03B92Fw43vipCx1FdVoBxY4bow==}
+    dependencies:
+      '@types/react': 17.0.10
     dev: true
 
   /@types/react-dom/17.0.7:
@@ -3214,6 +3222,16 @@ packages:
     dependencies:
       flat-cache: 3.0.4
     dev: true
+
+  /file-loader/6.2.0:
+    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 3.1.1
+    dev: false
 
   /file-stat/0.1.3:
     resolution: {integrity: sha1-0PGWHX0QcykoEgpuaVVHHCpbVBE=}
@@ -5443,8 +5461,10 @@ packages:
       sha.js: 2.4.11
     dev: false
 
-  /pdfjs-dist/2.5.207:
-    resolution: {integrity: sha512-xGDUhnCYPfHy+unMXCLCJtlpZaaZ17Ew3WIL0tnSgKFUZXHAPD49GO9xScyszSsQMoutNDgRb+rfBXIaX/lJbw==}
+  /pdfjs-dist/2.9.359:
+    resolution: {integrity: sha512-P2nYtkacdlZaNNwrBLw1ZyMm0oE2yY/5S/GDCAmMJ7U4+ciL/D0mrlEC/o4HZZc/LNE3w8lEVzBEyVgEQlPVKQ==}
+    peerDependencies:
+      worker-loader: ^3.0.7
     dev: false
 
   /performance-now/2.1.0:
@@ -5980,8 +6000,8 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-notion-x/4.10.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-XtlBrxwAIlDY1VMnoqCJBGOOVGlaYOgChNfWVHaEXYXy4v2pFR6xo11b/0xJfD6V/IGl8PN0sk5OHoRfFOW3ZA==}
+  /react-notion-x/4.11.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-lJr9fGJxXDV4L0F2xrSPqrMRtjM3UaXK7y3d51yPd7csoy6Oh7Xdk2WPpH4PVF18iS3iGv+OpOQX1BFCaU4S2A==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
@@ -6005,31 +6025,33 @@ packages:
       react-image: 4.0.3_react-dom@17.0.2+react@17.0.2
       react-lazy-images: 1.1.0_react-dom@17.0.2+react@17.0.2
       react-modal: 3.14.3_react-dom@17.0.2+react@17.0.2
-      react-pdf: 5.2.0_react-dom@17.0.2+react@17.0.2
+      react-pdf: 5.5.0_react-dom@17.0.2+react@17.0.2
       react-use: 17.3.1_react-dom@17.0.2+react@17.0.2
     transitivePeerDependencies:
       - '@babel/runtime'
       - webpack
+      - worker-loader
     dev: false
 
-  /react-pdf/5.2.0_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-/vl+fzurHzz1o1knGSnLzFu1lL/1yb67JSE3WSX3bC/ioL/j34q5WiJbxK2D61Og0RZe6CNy9rve6JyB+sfHCw==}
+  /react-pdf/5.5.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-0Sk0lFd95py7H7/G0+fPzUrLsGHQ6SzC+3eJChgSnLtEmrRV36uNAjuMgf5mz2ds55MK4vYCJHGuP9CyvaSEOA==}
     peerDependencies:
       react: ^16.3.0 || ^17.0.0-0
       react-dom: ^16.3.0 || ^17.0.0-0
     dependencies:
       '@babel/runtime': 7.15.3
+      file-loader: 6.2.0
       make-cancellable-promise: 1.0.0
       make-event-props: 1.2.0
       merge-class-names: 1.4.0
       merge-refs: 1.0.0
-      pdfjs-dist: 2.5.207
+      pdfjs-dist: 2.9.359
       prop-types: 15.7.2
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      worker-loader: 3.0.8
     transitivePeerDependencies:
       - webpack
+      - worker-loader
     dev: false
 
   /react-reconciler/0.26.2_react@17.0.2:
@@ -7545,16 +7567,6 @@ packages:
     resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /worker-loader/3.0.8:
-    resolution: {integrity: sha512-XQyQkIFeRVC7f7uRhFdNMe/iJOdO6zxAaR3EWbDp45v3mDhrTi+++oswKNxShUNjPC/1xUp5DB29YKLhFo129g==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-    dependencies:
-      loader-utils: 2.0.0
-      schema-utils: 3.1.1
-    dev: false
 
   /wrap-ansi/7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
