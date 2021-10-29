@@ -37,8 +37,8 @@ export const socialImageTitle: string | null = getSiteConfig('socialImageTitle',
 export const socialImageSubtitle: string | null = getSiteConfig('socialImageSubtitle', null)
 
 // default notion values for site-wide consistency (optional; may be overridden on a per-page basis)
-export const defaultPageIcon: string | null = getSiteConfig('defaultPageIcon', null)
-export const defaultPageCover: string | null = getSiteConfig('defaultPageCover', null)
+export const defaultPageIcon: string = getSiteConfig('defaultPageIcon', null) || ''
+export const defaultPageCover: string = getSiteConfig('defaultPageCover', null) || ''
 export const defaultPageCoverPosition: number = getSiteConfig('defaultPageCoverPosition', 0.5)
 
 // Optional utteranc.es comments via GitHub issue comments
@@ -69,20 +69,16 @@ export const api = {
 }
 
 // ----------------------------------------------------------------------------
-const defaultEnvValueForPreviewImageSupport = isPreviewImageSupportEnabled && isServer ? undefined : null
-export const googleProjectId = getEnv('GCLOUD_PROJECT', defaultEnvValueForPreviewImageSupport)
+export const googleProjectId = getEnv('GCLOUD_PROJECT', null)
 export const googleApplicationCredentials = getGoogleApplicationCredentials()
-export const firebaseCollectionImages = getEnv('FIREBASE_COLLECTION_IMAGES', defaultEnvValueForPreviewImageSupport)
+export const firebaseCollectionImages = getEnv('FIREBASE_COLLECTION_IMAGES', null)
 
 // this hack is necessary because vercel doesn't support secret files so we need to encode our google
 // credentials a base64-encoded string of the JSON-ified content
 function getGoogleApplicationCredentials() {
   if (!isPreviewImageSupportEnabled || !isServer) return null
   try {
-    const googleApplicationCredentialsBase64 = getEnv(
-      'GOOGLE_APPLICATION_CREDENTIALS',
-      defaultEnvValueForPreviewImageSupport
-    )
+    const googleApplicationCredentialsBase64 = getEnv('GOOGLE_APPLICATION_CREDENTIALS', undefined)
     return JSON.parse(Buffer.from(googleApplicationCredentialsBase64, 'base64').toString())
   } catch (err) {
     console.error('Firebase config error: invalid "GOOGLE_APPLICATION_CREDENTIALS" should be base64-encoded JSON\n')

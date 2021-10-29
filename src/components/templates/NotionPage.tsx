@@ -8,7 +8,7 @@ import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
-import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
+import { NotionRenderer, Code, Collection, CollectionRow, Equation } from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
@@ -31,8 +31,6 @@ import { ReactUtterances } from '../molecules/ReactUtterances'
 
 import styles from '../styles.module.css'
 
-const Pdf = dynamic(() => import('react-notion-x').then(notion => notion.Pdf))
-const Equation = dynamic(() => import('react-notion-x').then(notion => notion.Equation))
 const Modal = dynamic(() => import('react-notion-x').then(notion => notion.Modal), { ssr: false })
 
 // Main
@@ -85,12 +83,13 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  const socialImage = mapNotionImageUrl((block as PageBlock).format?.page_cover || config.defaultPageCover, block)
+  const imageURL = (block as PageBlock).format?.page_cover || config.defaultPageCover
+  const socialImage = imageURL ? mapNotionImageUrl(imageURL, block) : null
 
   const socialDescription = getPageDescription(block, recordMap) ?? config.description
 
   let comments: React.ReactNode = null
-  let pageAside: React.ReactChild = null
+  let pageAside: React.ReactChild | null = null
 
   if (config.utterancesGitHubRepo)
     comments = (
@@ -103,7 +102,26 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
     )
   pageAside = <PageSocial />
 
-  const pageLink = ({ href, as, passHref, prefetch, replace, scroll, shallow, locale, ...props }) => (
+  const pageLink = ({
+    href,
+    as,
+    passHref,
+    prefetch,
+    replace,
+    scroll,
+    shallow,
+    locale,
+    ...props
+  }: {
+    href: string
+    as: URL
+    passHref?: boolean
+    prefetch?: boolean
+    replace?: boolean
+    scroll?: boolean
+    shallow?: boolean
+    locale?: string
+  }) => (
     <Link
       href={href}
       as={as}
@@ -161,7 +179,6 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
           collection: Collection,
           collectionRow: CollectionRow,
           modal: Modal,
-          pdf: Pdf,
           equation: Equation,
         }}
         recordMap={recordMap}
