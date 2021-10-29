@@ -29,8 +29,6 @@ import Footer from '@/components/molecules/Footer'
 import { PageSocial } from '../organisms/PageSocial'
 import { ReactUtterances } from '../molecules/ReactUtterances'
 
-import styles from '../styles.module.css'
-
 const Modal = dynamic(() => import('react-notion-x').then(notion => notion.Modal), { ssr: false })
 
 // Main
@@ -172,7 +170,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
       <NotionCustomFont site={site} />
       {isLiteMode && <BodyClassName className="notion-lite" />}
       <NotionRenderer
-        bodyClassName={cs(styles.notion, pageId === site.rootNotionPageId && 'index-page')}
+        bodyClassName={cs(pageId === site.rootNotionPageId && 'index-page')}
         components={{
           pageLink,
           code: Code,
