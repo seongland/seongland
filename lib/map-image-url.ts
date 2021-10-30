@@ -2,7 +2,6 @@ import { Block } from 'notion-types'
 import { imageCDNHost } from './config'
 
 export const mapNotionImageUrl = (url: string, block: Block) => {
-  if (!url) return null
   if (url.startsWith('data:')) return url
   if (imageCDNHost && url.startsWith(imageCDNHost)) return url
   if (url.startsWith('/images')) url = `https://www.notion.so${url}`

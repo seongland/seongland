@@ -8,7 +8,7 @@ import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
-import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
+import { NotionRenderer, Code, Collection, CollectionRow, Equation } from 'react-notion-x'
 
 // utils
 import { getBlockTitle } from 'notion-utils'
@@ -21,18 +21,14 @@ import * as types from 'lib/types'
 import * as config from 'lib/config'
 
 // components
-import { CustomFont } from '../molecules/CustomFont'
+import { NotionCustomFont } from '../molecules/NotionCustomFont'
 import { Loading } from '../molecules/Loading'
-import { Page404 } from '../organisms/Page404'
+import { NotionError } from '@/components/organisms/NotionError'
 import { PageHead } from '../organisms/PageHead'
-import Footer from '../molecules/Footer'
+import Footer from '@/components/molecules/Footer'
 import { PageSocial } from '../organisms/PageSocial'
 import { ReactUtterances } from '../molecules/ReactUtterances'
 
-import styles from '../styles.module.css'
-
-const Pdf = dynamic(() => import('react-notion-x').then(notion => notion.Pdf))
-const Equation = dynamic(() => import('react-notion-x').then(notion => notion.Equation))
 const Modal = dynamic(() => import('react-notion-x').then(notion => notion.Modal), { ssr: false })
 
 // Main
@@ -40,14 +36,26 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const router = useRouter()
   const lite = useSearchParam('lite')
 
-  const params: any = {}
+  const params: { lite?: string } = {}
   if (lite) params.lite = lite
 
   // lite mode is for oembed
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
+  const darkMode = useDarkMode(false, {
+    classNameDark: 'dark',
+    classNameLight: 'light',
+    onChange: isDark => {
+      if (isDark) {
+        document.documentElement.classList.remove('light')
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('light')
+      }
+    },
+  })
 
-  const darkMode = useDarkMode(false)
   const themeColor = useMemo(() => (darkMode.value ? '#2F3437' : '#fff'), [darkMode])
   useEffect(() => {
     document.body.style.background = themeColor
@@ -56,7 +64,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   if (router.isFallback) return <Loading />
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-  if (error || !site || !keys.length || !block) return <Page404 site={site} pageId={pageId} error={error} />
+  if (error || !site || !keys.length || !block) return <NotionError site={site} pageId={pageId} error={error} />
   const title = getBlockTitle(block, recordMap) || site.name
 
   if (!config.isServer) {
@@ -73,12 +81,13 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
-  const socialImage = mapNotionImageUrl((block as PageBlock).format?.page_cover || config.defaultPageCover, block)
+  const imageURL = (block as PageBlock).format?.page_cover || config.defaultPageCover
+  const socialImage = imageURL ? mapNotionImageUrl(imageURL, block) : null
 
   const socialDescription = getPageDescription(block, recordMap) ?? config.description
 
   let comments: React.ReactNode = null
-  let pageAside: React.ReactChild = null
+  let pageAside: React.ReactChild | null = null
 
   if (config.utterancesGitHubRepo)
     comments = (
@@ -91,7 +100,26 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
     )
   pageAside = <PageSocial />
 
-  const pageLink = ({ href, as, passHref, prefetch, replace, scroll, shallow, locale, ...props }) => (
+  const pageLink = ({
+    href,
+    as,
+    passHref,
+    prefetch,
+    replace,
+    scroll,
+    shallow,
+    locale,
+    ...props
+  }: {
+    href: string
+    as: URL
+    passHref?: boolean
+    prefetch?: boolean
+    replace?: boolean
+    scroll?: boolean
+    shallow?: boolean
+    locale?: string
+  }) => (
     <Link
       href={href}
       as={as}
@@ -100,8 +128,7 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
       replace={replace}
       scroll={scroll}
       shallow={shallow}
-      locale={locale}
-    >
+      locale={locale}>
       <a {...props} />
     </Link>
   )
@@ -140,17 +167,16 @@ export const NotionPage: React.FC<types.PageProps> = ({ site, recordMap, error, 
         )}
         <title>{title}</title>
       </Head>
-      <CustomFont site={site} />
+      <NotionCustomFont site={site} />
       {isLiteMode && <BodyClassName className="notion-lite" />}
       <NotionRenderer
-        bodyClassName={cs(styles.notion, pageId === site.rootNotionPageId && 'index-page')}
+        bodyClassName={cs(pageId === site.rootNotionPageId && 'index-page')}
         components={{
           pageLink,
           code: Code,
           collection: Collection,
           collectionRow: CollectionRow,
           modal: Modal,
-          pdf: Pdf,
           equation: Equation,
         }}
         recordMap={recordMap}

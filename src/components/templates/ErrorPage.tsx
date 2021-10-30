@@ -1,31 +1,52 @@
-import React from 'react'
 import Head from 'next/head'
-import { PageHead } from '../organisms/PageHead'
-import Image from 'next/image'
-import error from '@/public/error.png'
+import * as React from 'react'
+import Footer from '@/components/molecules/Footer'
+import useDarkMode from 'use-dark-mode'
 
-import styles from '../styles.module.css'
-
-export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
-  const title = 'Error'
+export const ErrorPage: React.FC<{ statusCode: number; title?: string; subtitle?: string }> = ({
+  statusCode,
+  title,
+  subtitle,
+}) => {
+  if (!title) title = String(statusCode)
+  const darkMode = useDarkMode(false, {
+    classNameDark: 'dark',
+    classNameLight: 'light',
+    onChange: isDark => {
+      if (isDark) {
+        document.documentElement.classList.remove('light')
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('light')
+      }
+    },
+  })
 
   return (
     <>
-      <PageHead />
       <Head>
         <meta property="og:site_name" content={title} />
         <meta property="og:title" content={title} />
 
         <title>{title}</title>
       </Head>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1>Error Loading Page</h1>
 
-          {statusCode && <p>Error code: {statusCode}</p>}
-
-          <Image src={error} alt="Error" className={styles.errorImage} />
+      <div text="dark:white" className="flex absolute inset-0" justify="center">
+        <main className="flex items-center" justify="center" flex="col">
+          <h1 text="5xl" font="semibold">
+            {title}
+          </h1>
+          {subtitle && (
+            <h2 text="2xl" font="semibold">
+              {subtitle}
+            </h2>
+          )}
         </main>
+      </div>
+
+      <div className="absolute bottom-0" w="full">
+        <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
       </div>
     </>
   )

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import styles from '../styles.module.css'
-
 export type MappingType = 'pathname' | 'url' | 'title' | 'og:title' | 'issue-number' | 'issue-term'
 
 export type Theme =
@@ -28,7 +26,7 @@ interface ReactUtterancesState {
 
 export class ReactUtterances extends React.Component<ReactUtterancesProps, ReactUtterancesState> {
   reference: React.RefObject<HTMLDivElement>
-  scriptElement: any
+  scriptElement: HTMLElement
 
   constructor(props: ReactUtterancesProps) {
     super(props)
@@ -42,13 +40,12 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   UNSAFE_componentWillReceiveProps(props) {
     // this.scriptElement.setAttribute('theme', props.theme)
-    const iframe = document.querySelector('iframe.utterances-frame') as any
+    const iframe = document.querySelector('iframe.utterances-frame') as HTMLIFrameElement
     if (iframe) iframe.contentWindow.postMessage({ type: 'set-theme', theme: props.theme }, 'https://utteranc.es/')
   }
 
   componentDidMount(): void {
     const { repo, issueMap, issueTerm, issueNumber, label, theme } = this.props
-    console.log(issueTerm)
     const scriptElement = document.createElement('script')
     scriptElement.src = 'https://utteranc.es/client.js'
     scriptElement.async = true
@@ -71,10 +68,8 @@ export class ReactUtterances extends React.Component<ReactUtterancesProps, React
 
   render(): React.ReactElement {
     return (
-      <div className={styles.comments}>
-        <div className={styles.utterances} ref={this.reference}>
-          {this.state.pending && <p>Loading Comments...</p>}
-        </div>
+      <div w="full" ref={this.reference} m="t-6">
+        {this.state.pending && <p>Loading Comments...</p>}
       </div>
     )
   }

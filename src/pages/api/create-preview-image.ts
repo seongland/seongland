@@ -24,7 +24,7 @@ const previewImage = async (req: NextApiRequest, res: NextApiResponse): Promise<
   res.status(200).json(result)
 }
 
-export async function createPreviewImage(url: string, id: string): Promise<types.PreviewImage> {
+export async function createPreviewImage(url: string, id: string): Promise<types.PreviewImage | types.PreviewError> {
   console.log('createPreviewImage lambda', { url, id })
   const doc = db.images.doc(id)
   try {
@@ -47,7 +47,7 @@ export async function createPreviewImage(url: string, id: string): Promise<types
   } catch (err) {
     console.error('lqip error', err)
     try {
-      const error: any = { url, error: err.message || 'unknown error' }
+      const error: types.PreviewError = { url, error: err.message || 'unknown error' }
       if (err?.response?.statusCode) error.statusCode = err?.response?.statusCode
       await doc.create(error)
       return error
