@@ -9,6 +9,8 @@
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
+    "importHelpers": true,
+    "removeComments": true,
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
@@ -18,7 +20,7 @@
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "target": "es5",
     "typeRoots": ["./node_modules/@types"]
   },

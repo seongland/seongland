@@ -11,10 +11,11 @@
 
 
 ## Made by
+- Next js
+- Windi CSS
 - React Notion X
 - React Three Fiber
 - React Spring
-- Next js
 
 
 ## Build
@@ -47,7 +48,8 @@ docker-compose build
 
 
 
-## Impressed by
+## Reference
 
+- [Next Windi](https://github.com/seonglae/next-windicss)
 - [Nextplate](https://github.com/nextplate-dev/nextplate-chakra-ui)
 - [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)

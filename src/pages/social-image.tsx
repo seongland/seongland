@@ -9,7 +9,15 @@ import type { NextPage } from '@/types/next'
 import type { GetServerSideProps } from 'next'
 import type { SocialImageParams } from '@/types'
 
-const SocialImagePage: NextPage<SocialImageParams> = ({ title, description, path }) => {
+const SocialImagePage: NextPage<SocialImageParams> = ({
+  title,
+  description,
+  path,
+}: {
+  title: string
+  description: string
+  path: string
+}) => {
   return (
     <>
       <NextSeo title={title} description={description} titleTemplate="%s" />
