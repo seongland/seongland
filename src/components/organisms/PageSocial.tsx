@@ -1,13 +1,11 @@
 import React from 'react'
-import cs from 'classnames'
 
 import * as config from 'lib/config'
-
-import styles from './PageSocial.module.css'
 
 interface SocialLink {
   name: string
   title: string
+  text: string
   icon: React.ReactNode
   href?: string
 }
@@ -15,6 +13,7 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     name: 'twitter',
+    text: 'hover:purple-300',
     href: `https://twitter.com/${config.twitter}`,
     title: `Twitter @${config.twitter}`,
     icon: (
@@ -26,6 +25,7 @@ const socialLinks: SocialLink[] = [
 
   {
     name: 'github',
+    text: 'hover:purple-500',
     href: `https://github.com/${config.github}`,
     title: `GitHub @${config.github}`,
     icon: (
@@ -37,6 +37,7 @@ const socialLinks: SocialLink[] = [
 
   {
     name: 'linkedin',
+    text: 'hover:purple-500',
     href: `https://www.linkedin.com/in/${config.linkedin}`,
     title: `LinkedIn ${config.author}`,
     icon: (
@@ -49,22 +50,18 @@ const socialLinks: SocialLink[] = [
 
 export const PageSocial: React.FC = () => {
   return (
-    <div className={styles.pageSocial}>
+    <>
       {socialLinks.map(action => (
         <a
-          className={cs(styles.action, styles[action.name])}
+          text={action.text}
           href={action.href}
           key={action.name}
           title={action.title}
           target="_blank"
           rel="noopener noreferrer">
-          <div className={styles.actionBg}>
-            <div className={styles.actionBgPane} />
-          </div>
-
-          <div className={styles.actionBg}>{action.icon}</div>
+          {action.icon}
         </a>
       ))}
-    </div>
+    </>
   )
 }
