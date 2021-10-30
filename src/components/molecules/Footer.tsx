@@ -33,20 +33,30 @@ const Footer: React.FC<{
         Copyright 2021 {config.author}
       </div>
       {hasMounted ? (
-        <div className={styles.settings} order="2 <sm:1">
-          <a className={styles.toggleDarkMode} onClick={toggleDarkModeCb} title="Tottle dark mode">
+        <div order="2 <sm:1">
+          <a
+            text="hover:light-blue-500 3xl"
+            p="2"
+            className="inline-flex"
+            transition="colors"
+            onClick={toggleDarkModeCb}
+            title="Tottle dark mode">
             {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
           </a>
         </div>
       ) : null}
-      <div className={styles.social} order="3 <sm:2">
+      <div order="3 <sm:2">
         {config.twitter && (
           <a
             cursor="pointer"
-            className={styles.twitter}
+            text="hover:light-blue-500 3xl"
+            p="2"
+            className="inline-flex"
             href={`https://twitter.com/${config.twitter}`}
             title={`Twitter @${config.twitter}`}
             target="_blank"
+            m="r-3"
+            transition="colors"
             rel="noopener noreferrer">
             <FaTwitter />
           </a>
@@ -54,10 +64,14 @@ const Footer: React.FC<{
         {config.github && (
           <a
             cursor="pointer"
-            className={styles.github}
+            text="hover:indigo-500 3xl"
+            p="2"
+            className="inline-flex"
             href={`https://github.com/${config.github}`}
             title={`GitHub @${config.github}`}
             target="_blank"
+            m="r-2"
+            transition="colors"
             rel="noopener noreferrer">
             <FaGithub />
           </a>
@@ -65,10 +79,14 @@ const Footer: React.FC<{
         {config.linkedin && (
           <a
             cursor="pointer"
-            className={styles.linkedin}
+            text="hover:blue-500 3xl"
+            p="2"
+            className="inline-flex"
             href={`https://www.linkedin.com/in/${config.linkedin}`}
             title={`LinkedIn ${config.author}`}
             target="_blank"
+            transition="colors"
+            m="!r-0"
             rel="noopener noreferrer">
             <FaLinkedin />
           </a>
