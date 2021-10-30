@@ -46,8 +46,8 @@ const Document: NextComponentType<DocumentContext, DocumentInitialProps, Documen
         <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
       </Head>
 
-      <body>
-        <script src="noflash.js" type="text/javascript"></script>
+      <body bg="dark:dark-500">
+        <script src="/noflash.js" type="text/javascript"></script>
         <Main />
         <NextScript />
         <script
