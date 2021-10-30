@@ -1,5 +1,5 @@
-import React, { useRef, useMemo } from 'react'
-import { useThree } from '@react-three/fiber'
+import React, { useMemo } from 'react'
+import { useThree, useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { useSpring } from '@react-spring/three'
 
@@ -10,13 +10,15 @@ const DARK_WALL = ['#23262a', '#424242', '#232424', '#23262a']
 const LIGHT_WALL = ['#fff', '#fff', '#fff', '#fff']
 
 export default function ScrollSpace({ isDarkMode }: { isDarkMode: boolean }) {
-  const height = useThree(state => state.viewport.height)
+  const renderPer = 30
+  const height = useThree(state => Math.floor(state.size.height / renderPer) * renderPer)
   const data = useScroll()
   const scrollMax = height * data.pages
 
   // Dark Mode
   const colorSet = useMemo(() => (isDarkMode ? DARK_WALL : LIGHT_WALL), [isDarkMode])
-  const [{ top }] = useSpring(() => ({ top: 0 }))
+  const [{ top }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }))
+  useFrame(() => set.start({ top: data.range(0, 1) * scrollMax }))
 
   // Spring Props
   const starPosition = top.to(top => [0, -1 + top / 20, 0])
