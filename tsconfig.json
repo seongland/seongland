@@ -7,43 +7,23 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "importHelpers": true,
     "removeComments": true,
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "~/*": [
-        "./*"
-      ],
-      "lib/*": [
-        "./lib/*"
-      ]
+      "@/*": ["./src/*"],
+      "~/*": ["./*"],
+      "lib/*": ["./lib/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es5",
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "src/**/*.ts",
-    "lib/**/*.ts",
-    "**/*.tsx",
-    "site-config.js"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "src/**/*.ts", "lib/**/*.ts", "**/*.tsx", "site-config.js"]
 }
