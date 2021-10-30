@@ -1,11 +1,11 @@
 import React from 'react'
+import cs from 'classnames'
 
 import * as config from 'lib/config'
 
 interface SocialLink {
   name: string
   title: string
-  text: string
   icon: React.ReactNode
   href?: string
 }
@@ -13,7 +13,6 @@ interface SocialLink {
 const socialLinks: SocialLink[] = [
   {
     name: 'twitter',
-    text: 'hover:purple-300',
     href: `https://twitter.com/${config.twitter}`,
     title: `Twitter @${config.twitter}`,
     icon: (
@@ -25,7 +24,6 @@ const socialLinks: SocialLink[] = [
 
   {
     name: 'github',
-    text: 'hover:purple-500',
     href: `https://github.com/${config.github}`,
     title: `GitHub @${config.github}`,
     icon: (
@@ -37,7 +35,6 @@ const socialLinks: SocialLink[] = [
 
   {
     name: 'linkedin',
-    text: 'hover:purple-500',
     href: `https://www.linkedin.com/in/${config.linkedin}`,
     title: `LinkedIn ${config.author}`,
     icon: (
@@ -50,18 +47,39 @@ const socialLinks: SocialLink[] = [
 
 export const PageSocial: React.FC = () => {
   return (
-    <>
+    <div display="flex" flex="col">
       {socialLinks.map(action => (
         <a
-          text={action.text}
+          className={cs('relative', 'hover:children:children:w-full hover:children:children:h-full')}
           href={action.href}
+          m="0"
+          w="15"
+          h="15"
           key={action.name}
           title={action.title}
+          flex="col"
           target="_blank"
           rel="noopener noreferrer">
-          {action.icon}
+          <div className={cs('flex', 'items-center', 'inset-0', 'absolute')} flex="col" justify="center">
+            <div transition="all" className={cs('duration-100', 'rounded-1/2')} bg="gray-500" w="0" h="0" />
+          </div>
+
+          <div
+            className={cs(
+              'flex',
+              'items-center',
+              'inset-0',
+              'absolute',
+              '!children:w-1/2',
+              'children:fill-gray-500',
+              'children:hover:fill-white'
+            )}
+            flex="col"
+            justify="center">
+            {action.icon}
+          </div>
         </a>
       ))}
-    </>
+    </div>
   )
 }
