@@ -2,23 +2,21 @@
 
 ![image](https://user-images.githubusercontent.com/27716524/126918573-c8c824bc-70eb-4c8c-ab72-93867451394a.png)
 
-
-
 ## Philosophy
 
 - Atomic Design Pattern
 - Minimalism
 
-
 ## Made by
+
 - Next js
 - Windi CSS
 - React Notion X
 - React Three Fiber
 - React Spring
 
-
 ## Build
+
 ```bash
 VERSION=2.1.1
 set -a; source .env; set +a
@@ -41,12 +39,11 @@ kubectl config use-context docker-desktop
 ```
 
 ### Local
+
 ```bash
 VERSION=2.1.1
 docker-compose build
 ```
-
-
 
 ## Reference
 
