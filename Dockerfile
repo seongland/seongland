@@ -22,6 +22,6 @@ USER seonglae
 
 RUN pnpm i
 RUN pnpm build
-EXPOSE 1234
+EXPOSE 8080
 
 CMD [ "pnpm", "start" ]

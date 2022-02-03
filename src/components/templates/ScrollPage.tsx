@@ -7,7 +7,6 @@ import { NextSeo } from 'next-seo'
 import ScrollSpace from '@/components/molecules/ScrollSpace'
 import Footer from '@/components/molecules/Footer'
 
-import { PageHead } from '../organisms/PageHead'
 import siteConfig from '~/site-config'
 
 export const ScrollPage = () => {
@@ -27,7 +26,6 @@ export const ScrollPage = () => {
 
   return (
     <>
-      <PageHead />
       <NextSeo title={siteConfig.title} titleTemplate="%s" />
       <Canvas>
         <ScrollControls damping={5} pages={5}>

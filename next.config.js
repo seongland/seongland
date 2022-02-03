@@ -21,9 +21,7 @@ const nextConfig = {
     config.externals.push('sharp')
     return config
   },
-  experimental: {
-    pageDataCollectionTimeout: 2000,
-  },
+  pageDataCollectionTimeout: 2000,
   reactStrictMode: true,
   rewrites: async () => [{ source: '/social.png', destination: '/api/social-image' }],
 }
