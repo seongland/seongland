@@ -1,7 +1,5 @@
-# Seongland Next
-
-![image](https://user-images.githubusercontent.com/27716524/126918573-c8c824bc-70eb-4c8c-ab72-93867451394a.png)
-
+# Seongland
+![image](https://user-images.githubusercontent.com/27716524/152371615-9dd137d2-81f7-4339-bca5-5f2fcca2d2eb.png)
 
 
 ## Philosophy
@@ -13,9 +11,6 @@
 ## Made by
 - Next js
 - Windi CSS
-- React Notion X
-- React Three Fiber
-- React Spring
 
 
 ## Build
@@ -50,6 +45,4 @@ docker-compose build
 
 ## Reference
 
-- [Next Windi](https://github.com/seonglae/next-windicss)
-- [Nextplate](https://github.com/nextplate-dev/nextplate-chakra-ui)
-- [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)
+- [Next Windi Template](https://github.com/seonglae/next-windicss)
