@@ -5,7 +5,7 @@ services:
     scale: 16
     image: ghcr.io/seongland/seongland:2.1.1
     ports:
-      - 1234:1234
+      - 8888:8888
     restart: always
     env_file:
       - .env
@@ -26,5 +26,5 @@ endpoints:
     kubernetes.io/ingress.class: nginx
   rules:
     - path: /
-      service: seongland
-      port: 1234
+      service: next
+      port: 8888
