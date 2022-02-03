@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "seongland",
+			"path": ".."
+		},
+		{
+			"name": "components",
+			"path": "..\\src\\components"
+		},
+		{
+			"name": "lib",
+			"path": "..\\lib"
+		},
+		{
+			"name": "pages",
+			"path": "..\\src\\pages"
+		},
+		{
+			"name": "store",
+			"path": "..\\src\\store"
+		},
+		{
+			"name": "src",
+			"path": "..\\src"
+		}
+	],
+	"settings": {}
+}
