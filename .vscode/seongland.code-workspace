@@ -9,10 +9,6 @@
 			"path": "..\\src\\components"
 		},
 		{
-			"name": "lib",
-			"path": "..\\lib"
-		},
-		{
 			"name": "pages",
 			"path": "..\\src\\pages"
 		},
