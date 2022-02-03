@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
-import * as config from 'lib/config'
-
-import styles from '../styles.module.css'
+import pkg from '~/package.json'
 
 const Footer: React.FC<{
   isDarkMode: boolean
@@ -30,7 +28,7 @@ const Footer: React.FC<{
       flex="row <sm:col"
       select="none">
       <div select="none" p="2" text="xs" order="1 <sm:3">
-        Copyright 2021 {config.author}
+        Copyright 2021 {pkg.author}
       </div>
       {hasMounted ? (
         <div order="2 <sm:1">
@@ -46,14 +44,14 @@ const Footer: React.FC<{
         </div>
       ) : null}
       <div order="3 <sm:2">
-        {config.twitter && (
+        {pkg.author.twitter && (
           <a
             cursor="pointer"
             text="hover:light-blue-500 3xl"
             p="2"
             className="inline-flex"
-            href={`https://twitter.com/${config.twitter}`}
-            title={`Twitter @${config.twitter}`}
+            href={`https://twitter.com/${pkg.author.twitter}`}
+            title={`Twitter @${pkg.author.twitter}`}
             target="_blank"
             m="r-3"
             transition="colors"
@@ -61,14 +59,14 @@ const Footer: React.FC<{
             <FaTwitter />
           </a>
         )}
-        {config.github && (
+        {pkg.author.github && (
           <a
             cursor="pointer"
             text="hover:indigo-500 3xl"
             p="2"
             className="inline-flex"
-            href={`https://github.com/${config.github}`}
-            title={`GitHub @${config.github}`}
+            href={`https://github.com/${pkg.author.github}`}
+            title={`GitHub @${pkg.author.github}`}
             target="_blank"
             m="r-2"
             transition="colors"
@@ -76,14 +74,14 @@ const Footer: React.FC<{
             <FaGithub />
           </a>
         )}
-        {config.linkedin && (
+        {pkg.author.linkedin && (
           <a
             cursor="pointer"
             text="hover:blue-500 3xl"
             p="2"
             className="inline-flex"
-            href={`https://www.linkedin.com/in/${config.linkedin}`}
-            title={`LinkedIn ${config.author}`}
+            href={`https://www.linkedin.com/in/${pkg.author.linkedin}`}
+            title={`LinkedIn ${pkg.author.name}`}
             target="_blank"
             transition="colors"
             m="!r-0"
