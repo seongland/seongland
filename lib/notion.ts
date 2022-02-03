@@ -1,12 +1,11 @@
 import { NotionAPI } from 'notion-client'
-import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
+import { Block, ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
 
 import { getPreviewImages } from './get-preview-images'
 import { mapNotionImageUrl } from './map-image-url'
 import { getSiteConfig, getEnv } from './get-config-value'
 
-export const activeUser: string | null = getSiteConfig('notionUserId', null)
-
+export const activeUser: string = getSiteConfig('notionUserId', null)!
 export const notion = new NotionAPI({
   apiBaseUrl: process.env.NOTION_API_BASE_URL,
   authToken: getEnv('NOTION_API_AUTH_TOKEN', null),
@@ -16,8 +15,7 @@ export const notion = new NotionAPI({
 export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
   const recordMap = await notion.getPage(pageId)
   const blockIds = Object.keys(recordMap.block)
-
-  const imageUrls: string[] = blockIds
+  const images = blockIds
     .map(blockId => {
       const block = recordMap.block[blockId]?.value
       if (block) {
@@ -32,10 +30,8 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
       }
       return null
     })
-    .filter(Boolean)
-    .map(({ block, url }) => mapNotionImageUrl(url, block))
-    .filter(Boolean)
-
+    .filter(Boolean) as { block: Block; url: string }[]
+  const imageUrls: string[] = images.map(({ block, url }) => mapNotionImageUrl(url, block)).filter(Boolean)
   const urls = Array.from(new Set(imageUrls))
   const previewImageMap = await getPreviewImages(urls)
   const map = recordMap as any
