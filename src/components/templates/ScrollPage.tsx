@@ -4,7 +4,7 @@ import useDarkMode from 'use-dark-mode'
 import { ScrollControls, Scroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
-import ScrollSpace from '@/components/molecules/ScrollSpace'
+import ScrollSpace from '@/components/organisms/ScrollSpace'
 import Footer from '@/components/molecules/Footer'
 
 import siteConfig from '~/site-config'
