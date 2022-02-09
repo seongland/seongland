@@ -1,6 +1,7 @@
-# Seongland Next
+# Seongland
 
-![image](https://user-images.githubusercontent.com/27716524/126918573-c8c824bc-70eb-4c8c-ab72-93867451394a.png)
+![image](https://user-images.githubusercontent.com/27716524/153127047-f2b9f817-650b-4b26-8b1f-9d093b7ca7e1.png)
+
 
 ## Philosophy
 
