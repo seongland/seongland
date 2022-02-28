@@ -1,5 +1,5 @@
 
-FROM node:14-buster-slim
+FROM node:17-buster-slim
 LABEL email="sungle3737@gmail.com"
 LABEL name="seonglae"
 
