@@ -1,9 +1,9 @@
 
-FROM node:14-buster-slim
+FROM node:14-buster-slim as build
 LABEL email="sungle3737@gmail.com"
 LABEL name="seonglae"
 
-WORKDIR /usr/src/app
+WORKDIR /app
 RUN npm i -g pnpm
 
 ARG GOOGLE_APPLICATION_CREDENTIALS
@@ -17,11 +17,20 @@ COPY lib ./lib/
 COPY scripts ./scripts/
 COPY public ./public/
 
-RUN adduser seonglae && chown -R seonglae /usr/src/app
-USER seonglae
+RUN adduser seongland && chown -R seongland /app
+USER seongland
 
-RUN pnpm i
+# install
+RUN pnpm i --prod
 RUN pnpm build
+
+# post
+RUN rm .git -r
+
+FROM node:14-alpine
+COPY --from=build /app /app
+WORKDIR /app
+RUN npm i -g pnpm
 EXPOSE 8080
 
 CMD [ "pnpm", "start" ]
