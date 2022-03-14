@@ -23,6 +23,11 @@ function App(props: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "c8b3924687ca4bdaaf9bd8f31abbd40b"}'
+        />
       </Head>
 
       <DefaultSeo

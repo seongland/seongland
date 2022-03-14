@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   next:
-    scale: 16
+    scale: 18
     image: ghcr.io/seongland/seongland:2.1.1
     ports:
       - 8888:8888
@@ -20,11 +20,3 @@ services:
 
 volumes:
   redis:
-
-endpoints:
-  labels:
-    kubernetes.io/ingress.class: nginx
-  rules:
-    - path: /
-      service: next
-      port: 8888
