@@ -28,7 +28,7 @@ docker tag ghcr.io/seongland/seongland:$VERSION ghcr.io/seongland/seongland:late
 docker push  ghcr.io/seongland/seongland:latest
 
 # deploy
-okteto namespace
+okteto namespace seonglae
 # deploy to current cluster
 okteto stack deploy --wait
 # if windows, change to default
