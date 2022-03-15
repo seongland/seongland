@@ -8,8 +8,8 @@
   "path": "seongland/seongland",
   "domain": "www.seongland.com",
   "scripts": {
-    "dev": "next dev --port 8080",
-    "start": "next start --port 8080",
+    "dev": "next dev --port 1234",
+    "start": "next start --port 1234",
     "lint": "eslint ./src/**/*.{ts,tsx} --ignore-path .gitignore --fix",
     "css": "windicss-analysis",
     "build": "run-s \"build:**\"",

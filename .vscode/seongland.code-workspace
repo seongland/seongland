@@ -1,25 +1,33 @@
 {
-	"folders": [
-		{
-			"name": "seongland",
-			"path": ".."
-		},
-		{
-			"name": "components",
-			"path": "..\\src\\components"
-		},
-		{
-			"name": "pages",
-			"path": "..\\src\\pages"
-		},
-		{
-			"name": "store",
-			"path": "..\\src\\store"
-		},
-		{
-			"name": "src",
-			"path": "..\\src"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "name": "seongland",
+      "path": ".."
+    },
+    {
+      "name": "app",
+      "path": "..\\app"
+    },
+    {
+      "name": "workflows",
+      "path": "..\\.github\\workflows"
+    },
+    {
+      "name": "components",
+      "path": "..\\src\\components"
+    },
+    {
+      "name": "pages",
+      "path": "..\\src\\pages"
+    },
+    {
+      "name": "store",
+      "path": "..\\src\\store"
+    },
+    {
+      "name": "src",
+      "path": "..\\src"
+    }
+  ],
+  "settings": {}
 }
