@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seongland-deploy
+  labels:
+    run: seongland
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: seongland
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: seongland
+    spec:
+      containers:
+        - name: seongland-container
+          image: ghcr.io/seongland/seongland:0.1.2
+          securityContext:
+            readOnlyRootFilesystem: true
+          ports:
+            - containerPort: 1234
+          resources:
+            limits:
+              memory: 2Gi
+              cpu: '1'
+            requests:
+              memory: 1Gi
+              cpu: '1'
