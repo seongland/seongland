@@ -56,7 +56,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=v16.14.1"
   },
   "dependencies": {
     "@react-spring/three": "^9.2.4",
