@@ -23,6 +23,8 @@ function App(props: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/seongland.svg" />
+        <meta property="fb:app_id" content="419108182355029" />
       </Head>
 
       <DefaultSeo
@@ -35,14 +37,7 @@ function App(props: AppProps) {
           description: siteConfig.description,
           type: 'website',
           site_name: siteConfig.title,
-          images: [
-            {
-              url: `${siteConfig.url}/social-image.png`,
-              width: 1024,
-              height: 512,
-              alt: siteConfig.title,
-            },
-          ],
+          images: [{ url: `${siteConfig.url}/ogtag.png`, alt: siteConfig.title }],
         }}
         twitter={{
           cardType: 'summary_large_image',
