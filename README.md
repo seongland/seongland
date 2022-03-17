@@ -12,9 +12,6 @@
 
 - Next js
 - Windi CSS
-- React Notion X
-- React Three Fiber
-- React Spring
 
 
 
@@ -25,38 +22,6 @@
 <p align="center">
   <a href="https://lgtm.com/projects/g/seongland/seongland/context:javascript"><img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/seongland/seongland.svg?logo=lgtm&logoWidth=18"/></a>
 <p>
-
-
-
-## Docker Deploy
-
-```bash
-VERSION=2.1.1
-set -a; source .env; set +a
-docker build  -t ghcr.io/seongland/seongland:$VERSION \
---build-arg GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS \
---build-arg GCLOUD_PROJECT=$GCLOUD_PROJECT \
---build-arg FIREBASE_COLLECTION_IMAGES=$FIREBASE_COLLECTION_IMAGES \
---build-arg NOTION_API_AUTH_TOKEN=$NOTION_API_AUTH_TOKEN \
-.
-docker push  ghcr.io/seongland/seongland:$VERSION
-docker tag ghcr.io/seongland/seongland:$VERSION ghcr.io/seongland/seongland:latest
-docker push  ghcr.io/seongland/seongland:latest
-
-# deploy
-okteto namespace
-# deploy to current cluster
-okteto stack deploy --wait
-# if windows, change to default
-kubectl config use-context docker-desktop
-```
-
-### Local Docker
-
-```bash
-VERSION=2.1.1
-docker-compose build
-```
 
 
 ## Reference
