@@ -2,11 +2,13 @@ import React, { useRef, useMemo } from 'react'
 import { MathUtils, SphereBufferGeometry, MeshBasicMaterial } from 'three'
 import { useFrame } from '@react-three/fiber'
 import { a } from '@react-spring/three'
+
 import type { Interpolation } from '@react-spring/three'
+import type { GroupProps } from '@react-three/fiber'
 
 /** This component rotates a bunch of stars */
 export default function Stars({ position, isDarkMode }: { position: Interpolation; isDarkMode: boolean }) {
-  const group = useRef(null)
+  const group = useRef<GroupProps>(null)
   let theta = 90
   const tDiff = 0.1
   const rFactor = 5
@@ -14,7 +16,9 @@ export default function Stars({ position, isDarkMode }: { position: Interpolatio
   useFrame(() => {
     const r = rFactor * Math.sin(MathUtils.degToRad((theta += tDiff) / rSlow))
     const s = Math.cos(MathUtils.degToRad(theta))
+    // @ts-ignore
     group.current.rotation.set(r, r, r)
+    // @ts-ignore
     group.current.scale.set(s, s, s)
   })
   const [geo, mat, coords] = useMemo(() => {

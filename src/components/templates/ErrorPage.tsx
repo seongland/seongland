@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import * as React from 'react'
 
-export const ErrorPage: React.FC<{ statusCode?: number; title?: string; subtitle?: string }> = ({
+import type { NextPage } from 'next'
+
+export const ErrorPage: NextPage<{ statusCode?: number; title?: string; subtitle?: string }> = ({
   statusCode,
   title,
   subtitle,
@@ -12,11 +14,10 @@ export const ErrorPage: React.FC<{ statusCode?: number; title?: string; subtitle
       <Head>
         <meta property="og:site_name" content={title} />
         <meta property="og:title" content={title} />
-
         <title>{title}</title>
       </Head>
 
-      <div text="dark:white" className="flex absolute inset-0" justify="center">
+      <div text="dark:white" className="flex absolute inset-0" justify="center" bg="dark:background-dark">
         <main className="flex items-center container mx-10" text="center" justify="center" flex="col">
           <h1 text="5xl" font="semibold">
             {title}

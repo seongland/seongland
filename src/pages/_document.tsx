@@ -1,6 +1,5 @@
 import React from 'react'
 import { Head, Html, Main, NextScript } from 'next/document'
-import siteConfig from '~/site-config'
 
 const Document = () => {
   return (
@@ -12,8 +11,6 @@ const Document = () => {
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="theme-color" content={siteConfig.themeColor} />
-        <meta name="msapplication-TileColor" content={siteConfig.themeColor} />
 
         <link rel="manifest" href="/manifest.json" />
 

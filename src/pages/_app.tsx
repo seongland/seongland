@@ -6,12 +6,12 @@ import Router from 'next/router'
 
 import siteConfig from '~/site-config'
 
-import type { AppProps } from '@/types/next'
-
 import 'windi.css'
 
 import '@/styles/global.css'
 import '@/styles/nprogress.css'
+
+import type { AppProps } from 'next/app'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -23,11 +23,6 @@ function App(props: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "c8b3924687ca4bdaaf9bd8f31abbd40b"}'
-        />
       </Head>
 
       <DefaultSeo
@@ -62,14 +57,7 @@ function App(props: AppProps) {
         url={siteConfig.url}
         sameAs={Object.values(siteConfig.socials)}
       />
-
-      {Component.disableLayout ? (
-        <Component {...pageProps} />
-      ) : (
-        <>
-          <Component {...pageProps} />
-        </>
-      )}
+      <Component {...pageProps} />
     </>
   )
 }

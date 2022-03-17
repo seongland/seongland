@@ -32,5 +32,4 @@ module.exports = {
 
   // Color
   bgColor: pkg.color,
-  themeColor: pkg.color,
 }

@@ -19,6 +19,7 @@ RUN pnpm i --prod
 FROM node:16-alpine
 COPY --from=build /app /app
 WORKDIR /app
+RUN npm i -g pnpm
 
 # make user
 RUN adduser seongland -D -H
@@ -26,6 +27,5 @@ RUN chown -R seongland /app
 USER seongland
 
 # meta
-RUN npm i -g pnpm
 EXPOSE 1234
 CMD [ "pnpm", "start" ]
