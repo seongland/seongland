@@ -6,24 +6,12 @@ import Router from 'next/router'
 
 import siteConfig from '~/site-config'
 
-import type { AppProps } from '@/types/next'
-
 import 'windi.css'
-import 'katex/dist/katex.min.css'
-import 'react-notion-x/src/styles.css'
-
-import 'prismjs'
-import 'prismjs/themes/prism-coy.css'
-import 'prismjs/themes/prism-okaidia.css'
-import 'prismjs/components/prism-bash'
-import 'prismjs/components/prism-markup'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
 
 import '@/styles/global.css'
 import '@/styles/nprogress.css'
-import '@/styles/notion.css'
-import '@/styles/prism-theme.css'
+
+import type { AppProps } from 'next/app'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -35,6 +23,8 @@ function App(props: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/seongland.svg" />
+        <meta property="fb:app_id" content="419108182355029" />
       </Head>
 
       <DefaultSeo
@@ -47,14 +37,7 @@ function App(props: AppProps) {
           description: siteConfig.description,
           type: 'website',
           site_name: siteConfig.title,
-          images: [
-            {
-              url: `${siteConfig.url}/social-image.png`,
-              width: 1024,
-              height: 512,
-              alt: siteConfig.title,
-            },
-          ],
+          images: [{ url: `${siteConfig.url}/ogtag.png`, alt: siteConfig.title }],
         }}
         twitter={{
           cardType: 'summary_large_image',
@@ -69,14 +52,7 @@ function App(props: AppProps) {
         url={siteConfig.url}
         sameAs={Object.values(siteConfig.socials)}
       />
-
-      {Component.disableLayout ? (
-        <Component {...pageProps} />
-      ) : (
-        <>
-          <Component {...pageProps} />
-        </>
-      )}
+      <Component {...pageProps} />
     </>
   )
 }

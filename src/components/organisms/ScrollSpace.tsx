@@ -3,8 +3,8 @@ import { useThree, useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { useSpring } from '@react-spring/three'
 
-import Stars from '@/components/atoms/Stars'
-import GradientWall from '@/components/atoms/GradientWall'
+import Stars from '@/components/molecules/Stars'
+import GradientWall from '@/components/molecules/Wall'
 
 const DARK_WALL = ['#23262a', '#424242', '#232424', '#23262a']
 const LIGHT_WALL = ['#fff', '#fff', '#fff', '#fff']
