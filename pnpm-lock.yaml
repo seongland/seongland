@@ -8,7 +8,7 @@ specifiers:
   '@react-spring/three': ^9.2.4
   '@react-three/drei': ^7.16.4
   '@react-three/fiber': ^7.0.16
-  '@types/node': ^14.14.21
+  '@types/node': ^16.11.26
   '@types/nprogress': ^0.2.0
   '@types/react': ^17.0.0
   '@types/react-body-classname': ^1.1.7
@@ -106,7 +106,7 @@ devDependencies:
   '@babel/core': 7.14.3
   '@babel/eslint-parser': 7.15.8_@babel+core@7.14.3+eslint@7.28.0
   '@next/eslint-plugin-next': 11.1.2
-  '@types/node': 14.17.3
+  '@types/node': 16.11.26
   '@types/nprogress': 0.2.0
   '@types/react': 17.0.10
   '@types/react-body-classname': 1.1.7
@@ -402,7 +402,7 @@ packages:
     resolution: {integrity: sha512-UXepkOKCATJrhHGsxt+CGfpZy9zUn1q9mop5kfcXq1fBkTePxVNPOdnISlCbJFlCtld+pSLGyZCzr9/zVprFKA==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
     dev: false
 
   /@grpc/proto-loader/0.6.2:
@@ -1110,7 +1110,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.0
       '@types/keyv': 3.1.1
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
       '@types/responselike': 1.0.0
     dev: false
 
@@ -1132,7 +1132,7 @@ packages:
   /@types/keyv/3.1.1:
     resolution: {integrity: sha512-MPtoySlAZQ37VoLaPcTHCu1RWJ4llDkULYZIzOYxlhxBqYPB0RsRlmMU0R6tahtFe27mIdkHV+551ZWV4PLmVw==}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
     dev: false
 
   /@types/long/4.0.1:
@@ -1145,8 +1145,8 @@ packages:
       '@types/unist': 2.0.3
     dev: false
 
-  /@types/node/14.17.3:
-    resolution: {integrity: sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==}
+  /@types/node/16.11.26:
+    resolution: {integrity: sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==}
 
   /@types/nprogress/0.2.0:
     resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
@@ -1179,7 +1179,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
     dev: false
 
   /@types/scheduler/0.16.1:
@@ -4937,7 +4937,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.1
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
       long: 4.0.0
     dev: false
 

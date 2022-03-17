@@ -58,7 +58,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=v16.14.1"
   },
   "dependencies": {
     "@google-cloud/firestore": "^4.12.2",
@@ -105,7 +105,7 @@
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.15.8",
     "@next/eslint-plugin-next": "^11.1.2",
-    "@types/node": "^14.14.21",
+    "@types/node": "^16.11.26",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
     "@types/react-body-classname": "^1.1.7",
