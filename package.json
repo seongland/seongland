@@ -19,9 +19,12 @@
     "format:index": "prettier --write \"*.{js,json,md}\"",
     "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\""
   },
-  "color": "#2f3437",
+  "color": {
+    "light": "#e2e2e2",
+    "dark": "#111418"
+  },
   "author": {
-    "name": "Seonglae Cho",
+    "name": "Alan Jo",
     "email": "sungle3737@gmail.com",
     "url": "https://www.seongland.com",
     "twitter": {
