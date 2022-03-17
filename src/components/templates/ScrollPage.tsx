@@ -5,6 +5,10 @@ import useDarkMode from 'use-dark-mode'
 import { ScrollControls, Scroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
+import Title from '@/components/atoms/Title'
+import Activities from '@/components/organisms/Activities'
+import SmallProjects from '@/components/organisms/SmallProjects'
+import BigProjects from '@/components/organisms/BigProjects'
 import ScrollSpace from '@/components/organisms/ScrollSpace'
 import Footer from '@/components/molecules/Footer'
 
@@ -46,9 +50,10 @@ export const ScrollPage = () => {
           </Scroll>
           <Scroll html>
             <div text="dark:white">
-              <h1 style={{ position: 'absolute', top: '30vh', left: '50vw' }}>{title}</h1>
-              <h1 style={{ position: 'absolute', top: '120vh', left: '60vw' }}>be</h1>
-              <h1 style={{ position: 'absolute', top: '198.5vh', left: '0.5vw' }}>home</h1>
+              <Title title={title} />
+              <Activities title={title} />
+              <SmallProjects title={title} />
+              <BigProjects title={title} />
             </div>
           </Scroll>
         </ScrollControls>
