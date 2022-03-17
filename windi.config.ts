@@ -1,4 +1,5 @@
 import { defineConfig } from 'windicss/helpers'
+import { bgColor } from './site-config'
 
 export default defineConfig({
   darkMode: 'class',
@@ -6,5 +7,12 @@ export default defineConfig({
   extract: {
     include: ['**/*.{tsx,css}'],
     exclude: ['node_modules', '.git', '.next'],
+  },
+  theme: {
+    extend: {
+      colors: {
+        background: bgColor,
+      },
+    },
   },
 })
