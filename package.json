@@ -10,14 +10,16 @@
   "scripts": {
     "dev": "next dev --port 1234",
     "start": "next start --port 1234",
-    "lint": "eslint ./src/**/*.{ts,tsx} --ignore-path .gitignore --fix",
+    "lint": "eslint ./**/*.{ts,tsx} --ignore-path .gitignore --fix",
     "css": "windicss-analysis",
     "build": "run-s \"build:**\"",
     "build:scripts": "esmo scripts/build.ts",
     "build:web": "next build",
+    "prepare": "husky install",
     "format": "run-p \"format:**\"",
     "format:index": "prettier --write \"*.{js,json,md}\"",
-    "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\""
+    "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\"",
+    "format:lib": "prettier --write \"lib/**/*.ts\""
   },
   "color": {
     "light": "#e2e2e2",
@@ -37,20 +39,6 @@
     "linkedin": {
       "name": "seonglae"
     }
-  },
-  "husky": {
-    "hooks": {
-      "post-merge": "pnpm i",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "{src}/**/*.{ts,tsx}": [
-      "eslint --fix --ignore-path .gitignore"
-    ],
-    "{src}/**/*.{md,ts,tsx}": [
-      "prettier --write --ignore-path .gitignore"
-    ]
   },
   "browserslist": [
     "since 2017"
