@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { CSSProperties } from 'react'
+import Typed from 'react-typed'
 
-export const Title: React.FC<{ title: string }> = ({ title }) => {
-  return <h1 style={{ position: 'absolute', top: '40vh', fontSize: '7vh', textAlign: 'center', width: '100vw' }}>{title}</h1>
+export const titleStyle: CSSProperties = {
+  fontSize: '6vw',
+  textAlign: 'center',
+  maxWidth: '90vw',
+  fontFamily: 'Raleway',
+}
+
+export const Title: React.FC = () => {
+  const style = { ...titleStyle }
+  return (
+    <Typed
+      style={style}
+      startDelay={100}
+      typeSpeed={50}
+      backSpeed={40}
+      strings={['Welcome to Seongland', 'Projects are below', 'Activities are below', 'SeongLand']}
+    />
+  )
 }
 
 export default Title

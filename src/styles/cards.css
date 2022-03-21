@@ -1,0 +1,66 @@
+.card-title-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 2vw;
+  font-family: 'Raleway', -apple-system, sans-serif, Arial;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1vw;
+}
+
+.card-subtitle.vertical {
+  font-size: 3vw;
+}
+
+.card-title.vertical {
+  font-size: 5vw;
+}
+
+.card-wrapper {
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.card-wrapper > div {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper > div > div {
+  box-shadow: 1vw 1vw 2vw 2vw #20202099;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  max-width: 120vw;
+  max-height: 80vh;
+  will-change: transform;
+  border-radius: 5vw;
+}
+
+.card-wrapper > div > div.card {
+  background-color: rgba(255, 255, 255, 0);
+  min-width: 40vw;
+  min-height: 25vw;
+}
+
+.card-wrapper > div > div.iframe {
+  background-color: rgba(255, 255, 255, 1);
+  min-width: 70vw;
+  box-shadow: 0 12.5px 40px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  min-height: 60vh;
+}

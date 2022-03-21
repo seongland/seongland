@@ -1,7 +1,7 @@
 import React from 'react'
+import type { NextPage } from 'next'
 
 import { ScrollPage } from '@/components/templates/ScrollPage'
-import type { NextPage } from '@/types/next'
 
 const Index: NextPage = () => {
   return <ScrollPage />
