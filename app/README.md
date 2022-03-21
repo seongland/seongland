@@ -1,7 +1,8 @@
 # Register
 
 ```bash
-kubectl config use-context cloud_okteto_com --namespace seonglae
+kubectl config set-context cloud_okteto_com --namespace seonglae
+kubectl config use-context cloud_okteto_com
 kubectl create secret docker-registry ghcred \
 --docker-server="ghcr.io" \
 --docker-username="$USER" \
@@ -15,7 +16,8 @@ kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "ghcred"
 change the image
 
 ```
-kubectl config use-context cloud_okteto_com --namespace seonglae
+kubectl config set-context cloud_okteto_com --namespace seonglae
+kubectl config use-context cloud_okteto_com
 kubectl apply -f seongland-svc.yaml
 kubectl apply -f seongland-deploy.yaml
 ```
