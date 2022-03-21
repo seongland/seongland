@@ -8,6 +8,7 @@ import siteConfig from '~/site-config'
 
 import 'windi.css'
 
+import '@/styles/cards.css'
 import '@/styles/global.css'
 import '@/styles/nprogress.css'
 

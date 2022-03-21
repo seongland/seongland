@@ -5,7 +5,9 @@ import useDarkMode from 'use-dark-mode'
 import { ScrollControls, Scroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
-import Title from '@/components/atoms/Title'
+import TypeTitle from '@/components/atoms/TypeTitle'
+import PageTitle from '@/components/atoms/PageTitle'
+import CenterPage from '@/components/atoms/CenterPage'
 import Activities from '@/components/organisms/Activities'
 import SmallProjects from '@/components/organisms/SmallProjects'
 import BigProjects from '@/components/organisms/BigProjects'
@@ -16,8 +18,11 @@ import { bgColor, title } from '~/site-config'
 
 const DARK_CLASS = 'dark'
 const LIGHT_CLASS = 'light'
+const HEIGHT = 5
+const PAGE = 4
 
 export const ScrollPage = () => {
+  // Theme
   const darkMode = useDarkMode(false, {
     classNameDark: DARK_CLASS,
     classNameLight: LIGHT_CLASS,
@@ -36,6 +41,13 @@ export const ScrollPage = () => {
     document.body.style.background = themeColor
   }, [themeColor])
 
+  // Pages
+  const pageStart: (page: number) => string = page => {
+    const first = 0
+    const last = (HEIGHT - 1) * 100
+    return `${((last - first) / (PAGE - 1)) * (page - 1)}vh`
+  }
+
   return (
     <>
       <Head>
@@ -44,16 +56,27 @@ export const ScrollPage = () => {
       </Head>
       <NextSeo title={title} titleTemplate="%s" />
       <Canvas>
-        <ScrollControls damping={5} pages={5}>
+        <ScrollControls damping={HEIGHT} pages={HEIGHT}>
           <Scroll>
             <ScrollSpace isDarkMode={darkMode.value} />
           </Scroll>
           <Scroll html>
             <div text="dark:white">
-              <Title title={title} />
-              <Activities title={title} />
-              <SmallProjects title={title} />
-              <BigProjects title={title} />
+              <CenterPage top={pageStart(1)}>
+                <TypeTitle />
+              </CenterPage>
+              <CenterPage top={pageStart(2)}>
+                <PageTitle title="Big Project" />
+                <BigProjects />
+              </CenterPage>
+              <CenterPage top={pageStart(3)}>
+                <PageTitle title="Small Project" />
+                <SmallProjects />
+              </CenterPage>
+              <CenterPage top={pageStart(4)}>
+                <PageTitle title="Activities" />
+                <Activities />
+              </CenterPage>
             </div>
           </Scroll>
         </ScrollControls>
