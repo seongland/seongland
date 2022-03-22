@@ -1,16 +1,9 @@
-import React, { CSSProperties } from 'react'
-
-export const titleStyle: CSSProperties = {
-  fontFamily: 'Raleway',
-  top: '30vh',
-}
+import React from 'react'
 
 export const PageTitle: React.FC<{ title: string }> = ({ title }) => {
   return (
-    <h1 text="5vh center" w="full" className="absolute" style={titleStyle}>
+    <h1 text="5vh center" font="900" w="full" className="absolute top-15vh">
       {title}
     </h1>
   )
 }
-
-export default PageTitle

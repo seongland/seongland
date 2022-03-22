@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactDOMAttributes as DragProps } from '@use-gesture/react'
-import { animated, to } from '@react-spring/three'
-import type { SpringValue } from '@react-spring/three'
+import { to, animated } from '@react-spring/web'
+import type { SpringValue } from '@react-spring/web'
 
 export type CardProp = {
   url: string
@@ -10,6 +10,7 @@ export type CardProp = {
   ratio: string
   color: string
   title: string
+  bottom?: boolean
   subtitle: string
 }
 
@@ -25,44 +26,48 @@ const trans = (r: number, s: number) =>
 
 export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: DragProps }> = ({ card, spring, props }) => {
   return (
-    <div className="card-wrapper">
-      {/* @ts-ignore */}
+    <>
       <animated.div
         {...props}
-        className="card"
-        style={{ transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`) }}>
+        className="transition min-h-10rem <sm:min-h-5rem"
+        style={{
+          touchAction: 'pan-x',
+          transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`),
+        }}>
         <animated.div
+          w="full"
+          h="full"
+          text="center"
+          className="rounded-xl max-h-40vh max-h-40vh"
+          overflow="hidden"
           style={{
             background: `${card.background}`,
-            width: '100vw',
-            height: ' 50vh',
-            marginLeft: '20%',
-            marginRight: '20%',
-            border: 'none',
-            overflow: 'hidden',
             transform: to([spring.rotation, spring.scale], trans),
           }}>
           <div
-            className="card-title-wrapper"
+            className="items-center flex"
+            w="full"
+            h="full"
+            flex="col-reverse"
+            justify={card.bottom ? 'flex-end' : 'center'}
+            select="none"
+            cursor="pointer"
             style={{
+              background: `url("${card.icon}")`,
               backgroundPosition: 'center center',
+              backgroundSize: `${card.ratio}`,
               backgroundRepeat: 'no-repeat',
             }}>
-            <div
-              role="button"
-              tabIndex={0}
-              className="card-title"
-              style={{
-                color: card.color,
-                cursor: 'pointer',
-              }}>
-              <label>{card.title}</label>
-              <div className="card-subtitle">{card.subtitle}</div>
-            </div>
+            <a href={card.url} role="button" tabIndex={0} style={{ color: card.color }} m="4">
+              <label text="2rem" cursor="pointer" font="600">
+                {card.title}
+              </label>
+              <div text="1.1rem">{card.subtitle}</div>
+            </a>
           </div>
         </animated.div>
       </animated.div>
-    </div>
+    </>
   )
 }
 
