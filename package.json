@@ -18,8 +18,7 @@
     "prepare": "husky install",
     "format": "run-p \"format:**\"",
     "format:index": "prettier --write \"*.{js,json,md}\"",
-    "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\"",
-    "format:lib": "prettier --write \"lib/**/*.ts\""
+    "format:src": "prettier --write \"src/**/*.{css,js,ts,tsx}\""
   },
   "color": {
     "light": "#e2e2e2",
