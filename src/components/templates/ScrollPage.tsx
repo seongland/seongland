@@ -5,20 +5,20 @@ import useDarkMode from 'use-dark-mode'
 import { ScrollControls, Scroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
-import TypeTitle from '@/components/atoms/TypeTitle'
-import PageTitle from '@/components/atoms/PageTitle'
-import CenterPage from '@/components/atoms/CenterPage'
-import Activities from '@/components/organisms/Activities'
-import SmallProjects from '@/components/organisms/SmallProjects'
-import BigProjects from '@/components/organisms/BigProjects'
-import ScrollSpace from '@/components/organisms/ScrollSpace'
-import Footer from '@/components/molecules/Footer'
+import { TypeTitle } from '@/components/atoms/TypeTitle'
+import { PageTitle } from '@/components/atoms/PageTitle'
+import { CenterPage } from '@/components/atoms/CenterPage'
+import { Applications } from '@/components/organisms/Applications'
+import { Others } from '@/components/organisms/Others'
+import { WebApps } from '@/components/organisms/WebApps'
+import { ScrollSpace } from '@/components/organisms/ScrollSpace'
+import { Footer } from '@/components/molecules/Footer'
 
 import { bgColor, title } from '~/site-config'
 
 const DARK_CLASS = 'dark'
 const LIGHT_CLASS = 'light'
-const HEIGHT = 5
+const HEIGHT = 7
 const PAGE = 4
 
 export const ScrollPage = () => {
@@ -66,16 +66,16 @@ export const ScrollPage = () => {
                 <TypeTitle />
               </CenterPage>
               <CenterPage top={pageStart(2)}>
-                <PageTitle title="Big Project" />
-                <BigProjects />
+                <PageTitle title="Web Apps" />
+                <WebApps />
               </CenterPage>
               <CenterPage top={pageStart(3)}>
-                <PageTitle title="Small Project" />
-                <SmallProjects />
+                <PageTitle title="Other Results" />
+                <Others />
               </CenterPage>
               <CenterPage top={pageStart(4)}>
-                <PageTitle title="Activities" />
-                <Activities />
+                <PageTitle title="Applications" />
+                <Applications />
               </CenterPage>
             </div>
           </Scroll>
