@@ -1,24 +1,14 @@
-import React, { CSSProperties } from 'react'
+import React from 'react'
 import Typed from 'react-typed'
 
-export const titleStyle: CSSProperties = {
-  fontSize: '6vw',
-  textAlign: 'center',
-  maxWidth: '90vw',
-  fontFamily: 'Raleway',
-}
-
-export const Title: React.FC = () => {
-  const style = { ...titleStyle }
+export const TypeTitle: React.FC = () => {
   return (
     <Typed
-      style={style}
+      className="text-5rem <lg:text-2.5rem font-900 text-center"
+      fadeOut={true}
       startDelay={100}
       typeSpeed={50}
-      backSpeed={40}
-      strings={['Welcome to Seongland', 'Projects are below', 'Activities are below', 'SeongLand']}
+      strings={['Welcome to Seongland', 'Projects are below', 'Activities are below', 'Seongland']}
     />
   )
 }
-
-export default Title

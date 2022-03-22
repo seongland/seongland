@@ -9,7 +9,7 @@ import GradientWall from '@/components/molecules/Wall'
 const DARK_WALL = ['#23262a', '#424242', '#232424', '#23262a']
 const LIGHT_WALL = ['#fff', '#fff', '#fff', '#fff']
 
-export default function ScrollSpace({ isDarkMode }: { isDarkMode: boolean }) {
+export const ScrollSpace: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }: { isDarkMode: boolean }) => {
   const renderPer = 30
   const height = useThree(state => Math.floor(state.size.height / renderPer) * renderPer)
   const data = useScroll()

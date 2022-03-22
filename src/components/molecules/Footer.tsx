@@ -3,7 +3,7 @@ import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
 import siteConfig from '~/site-config'
 
-const Footer: React.FC<{
+export const Footer: React.FC<{
   isDarkMode: boolean
   toggleDarkMode: () => void
 }> = ({ isDarkMode, toggleDarkMode }) => {
@@ -93,5 +93,3 @@ const Footer: React.FC<{
     </footer>
   )
 }
-
-export default Footer

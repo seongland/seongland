@@ -9,5 +9,3 @@ export const CenterPage: React.FC<{ top: string; children: React.ReactNode }> = 
     </div>
   )
 }
-
-export default CenterPage
