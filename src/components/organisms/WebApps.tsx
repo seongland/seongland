@@ -12,22 +12,22 @@ const cards = [
     ratio: '50%',
   },
   {
+    title: 'Legacyland',
+    subtitle: 'legacy  project of this app',
+    url: 'https://legacy.seongland.com',
+    icon: 'image/legacy.png',
+    background: '#2f3437',
+    color: 'white',
+    ratio: '150%',
+  },
+  {
     title: 'Pointland',
     subtitle: 'web 3d explorer',
     url: 'https://point.seongland.com',
     icon: 'image/pointland.jpg',
     background: 'black',
     color: 'white',
-    ratio: '333%',
-  },
-  {
-    title: 'Legacyland',
-    subtitle: 'legacy  project of this app',
-    url: 'https://legacy.seongland.com',
-    icon: 'seongland.svg',
-    background: '#2f3437',
-    color: 'white',
-    ratio: '175%',
+    ratio: '400%',
   },
 ]
 
