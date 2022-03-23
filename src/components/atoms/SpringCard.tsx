@@ -24,12 +24,17 @@ export type SpringProp = {
 const trans = (r: number, s: number) =>
   `perspective(1500px) rotateX(10deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
-export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: DragProps }> = ({ card, spring, props }) => {
+export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: DragProps; small?: boolean }> = ({
+  card,
+  spring,
+  props,
+  small = false,
+}) => {
   return (
     <>
       <animated.div
         {...props}
-        className="transition min-h-10rem <sm:min-h-5rem"
+        className={`transition min-h${small ? 5 : 10}rem <sm:min-h${small ? 2.5 : 5}rem`}
         style={{
           touchAction: 'pan-x',
           transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`),
@@ -44,11 +49,12 @@ export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: D
             background: `${card.background}`,
             transform: to([spring.rotation, spring.scale], trans),
           }}>
-          <div
+          <a
             className="items-center flex"
             w="full"
             h="full"
             flex="col-reverse"
+            href={card.url}
             justify={card.bottom ? 'flex-end' : 'center'}
             select="none"
             cursor="pointer"
@@ -58,13 +64,13 @@ export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: D
               backgroundSize: `${card.ratio}`,
               backgroundRepeat: 'no-repeat',
             }}>
-            <a href={card.url} role="button" tabIndex={0} style={{ color: card.color }} m="4">
-              <label text="2rem" cursor="pointer" font="600">
+            <div role="button" tabIndex={0} style={{ color: card.color }} m="4">
+              <label text={small ? '1.5rem' : '2rem'} cursor="pointer" font="600">
                 {card.title}
               </label>
-              <div text="1.1rem">{card.subtitle}</div>
-            </a>
-          </div>
+              <div text={small ? '1rem' : '1.1rem'}>{card.subtitle}</div>
+            </div>
+          </a>
         </animated.div>
       </animated.div>
     </>
