@@ -8,7 +8,7 @@ export default function GradientWall({ color }: { color: Interpolation<number, s
   const viewport = useThree(state => state.viewport)
   const data = useScroll()
   return (
-    <mesh scale={[viewport.width * 2, viewport.height * 2, 1]}>
+    <mesh scale={[viewport.width * 10, viewport.height * 2, 1]}>
       <planeGeometry attach="geometry" args={[1, data.pages * 2]} />
       {/* @ts-ignore */}
       <a.meshBasicMaterial attach="material" color={color} depthTest={false} />
