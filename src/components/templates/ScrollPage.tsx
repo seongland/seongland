@@ -2,26 +2,21 @@ import React, { useMemo, useEffect } from 'react'
 import Head from 'next/head'
 import { Canvas } from '@react-three/fiber'
 import useDarkMode from 'use-dark-mode'
-import { ScrollControls, Scroll } from '@react-three/drei'
+import { ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
-import { TypeTitle } from '@/components/atoms/TypeTitle'
-import { PageTitle } from '@/components/atoms/PageTitle'
-import { CenterPage } from '@/components/atoms/CenterPage'
-import { Applications } from '@/components/organisms/Applications'
-import { Others } from '@/components/organisms/Others'
-import { WebApps } from '@/components/organisms/WebApps'
 import { ScrollSpace } from '@/components/organisms/ScrollSpace'
 import { Footer } from '@/components/molecules/Footer'
-
 import { bgColor, title } from '~/site-config'
 
 const DARK_CLASS = 'dark'
 const LIGHT_CLASS = 'light'
-const HEIGHT = 7
-const PAGE = 4
 
-export const ScrollPage = () => {
+export const ScrollPage: React.FC<{ height: number; damping?: number; children: React.ReactNode }> = ({
+  height,
+  damping = 5,
+  children,
+}) => {
   // Theme
   const darkMode = useDarkMode(false, {
     classNameDark: DARK_CLASS,
@@ -40,13 +35,7 @@ export const ScrollPage = () => {
   useEffect(() => {
     document.body.style.background = themeColor
   }, [themeColor])
-
-  // Pages
-  const pageStart: (page: number) => string = page => {
-    const first = 0
-    const last = (HEIGHT - 1) * 100
-    return `${((last - first) / (PAGE - 1)) * (page - 1)}vh`
-  }
+  useScroll()
 
   return (
     <>
@@ -56,28 +45,12 @@ export const ScrollPage = () => {
       </Head>
       <NextSeo title={title} titleTemplate="%s" />
       <Canvas>
-        <ScrollControls damping={HEIGHT} pages={HEIGHT}>
+        <ScrollControls damping={damping} pages={height}>
           <Scroll>
             <ScrollSpace isDarkMode={darkMode.value} />
           </Scroll>
           <Scroll html>
-            <div text="dark:white">
-              <CenterPage top={pageStart(1)}>
-                <TypeTitle />
-              </CenterPage>
-              <CenterPage top={pageStart(2)}>
-                <PageTitle title="Web Apps" />
-                <WebApps />
-              </CenterPage>
-              <CenterPage top={pageStart(3)}>
-                <PageTitle title="Other Results" />
-                <Others />
-              </CenterPage>
-              <CenterPage top={pageStart(4)}>
-                <PageTitle title="Applications" />
-                <Applications />
-              </CenterPage>
-            </div>
+            <div text="dark:white"> {children}</div>
           </Scroll>
         </ScrollControls>
       </Canvas>
