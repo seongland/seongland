@@ -1,6 +1,8 @@
-import * as React from 'react'
+import React, { MouseEventHandler, useState } from 'react'
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
+import { IoSunnyOutline, IoMoonSharp, IoPauseOutline, IoPlayOutline } from 'react-icons/io5'
+import useSound from 'use-sound'
+
 import siteConfig from '~/site-config'
 
 export const Footer: React.FC<{
@@ -17,6 +19,15 @@ export const Footer: React.FC<{
   )
   React.useEffect(() => setHasMounted(true), [])
 
+  // Background Sound
+  const [playing, setPlay] = useState(false)
+  const [start, { stop }] = useSound('/sound/loop.mp3', { loop: true })
+  const togglePlay: MouseEventHandler = () => {
+    setPlay(!playing)
+    if (playing) stop()
+    else start()
+  }
+
   return (
     <footer
       className="flex items-center"
@@ -27,8 +38,19 @@ export const Footer: React.FC<{
       justify="between"
       flex="row <sm:col"
       select="none">
-      <div select="none" p="2" text="xs" order="1 <sm:3">
-        Copyright 2021 {siteConfig.author}
+      <div select="none" p="2" text="xs" order="1 <sm:3" className="items-center flex">
+        {hasMounted ? (
+          <a
+            text="hover:light-blue-500 3xl"
+            p="2"
+            className="inline-flex "
+            transition="colors"
+            onClick={togglePlay}
+            title="Tottle dark mode">
+            {playing ? <IoPauseOutline /> : <IoPlayOutline />}
+          </a>
+        ) : null}
+        Copyright {new Date().getFullYear()} {siteConfig.author}
       </div>
       {hasMounted ? (
         <div order="2 <sm:1">
