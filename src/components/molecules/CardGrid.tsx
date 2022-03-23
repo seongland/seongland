@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSprings } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
-import { useState } from 'react'
+
 import { SpringCard } from '@/components/atoms/SpringCard'
 import type { CardProp } from '@/components/atoms/SpringCard'
 
@@ -18,16 +18,18 @@ const CardGrid: React.FC<{
   small?: boolean
 }> = ({
   cards,
-  tension = { up: 800, down: 100 },
+  tension = { up: 800, down: 800 },
   friction = 50,
   timeout = 1000,
   offset = 1000,
   angle = 3,
   speed = 0.2,
   magnify = { start: 1.5, select: 1.1 },
+  small = false,
   spin = { divisor: 100, multiplier: 10 },
 }) => {
   // Drop Function
+  if (small) angle = 0
   const from = () => ({ x: 0, rotation: 0, scale: magnify.start, y: 0 })
   const end = () => ({
     x: 0,
@@ -67,17 +69,27 @@ const CardGrid: React.FC<{
       }, timeout)
   })
 
-  // Map Card
-  return (
+  // Children Cards
+  const children = props.map((spring, i) => {
+    const card = cards[i]
+    const props = bind(i)
+    return <SpringCard spring={spring} card={card} key={i} props={props} small={small} />
+  })
+
+  // small or big gallary
+  return small ? (
     <div
-      className="grid gap-10 <sm:gap-5 <sm:grid-cols-1 <md:grid-cols-3 <lg:grid-cols-3 grid-cols-3 max-w-11/12"
+      className="grid gap-5 <sm:gap-4 <sm:grid-cols-3 <md:grid-cols-3 <lg:grid-cols-4 grid-cols-5 max-w-11/12"
       w="full"
       h="50vh">
-      {props.map((spring, i) => {
-        const card = cards[i]
-        const props = bind(i)
-        return <SpringCard spring={spring} card={card} key={i} props={props} />
-      })}
+      {children}
+    </div>
+  ) : (
+    <div
+      className="grid gap-5 <sm:gap-5 <sm:grid-cols-1 <md:grid-cols-3 <lg:grid-cols-3 grid-cols-3 max-w-11/12"
+      w="full"
+      h="50vh">
+      {children}
     </div>
   )
 }
