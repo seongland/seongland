@@ -9,7 +9,7 @@ specifiers:
   '@react-spring/web': ^9.4.4
   '@react-three/drei': ^8.4.0
   '@react-three/fiber': ^7.0.16
-  '@types/node': ^14.14.21
+  '@types/node': ^16.11.26
   '@types/nprogress': ^0.2.0
   '@types/react': ^17.0.0
   '@types/react-dom': ^17.0.0
@@ -1129,7 +1129,7 @@ packages:
   /@types/keyv/3.1.3:
     resolution: {integrity: sha512-FXCJgyyN3ivVgRoml4h94G/p3kY+u/B86La+QptcqJaWtBWtmc6TtkNfS40n9bIvyLteHh7zXOtgbobORKPbDg==}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
     dev: false
 
   /@types/node/16.11.26:
@@ -1161,7 +1161,7 @@ packages:
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
     dev: false
 
   /@types/scheduler/0.16.1:
