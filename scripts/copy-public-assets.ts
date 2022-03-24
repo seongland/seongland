@@ -4,6 +4,6 @@ export default async () =>
   copy(
     'src/public/**/*',
     'public',
-    () => {},
-    () => {}
+    () => ({}),
+    () => ({})
   )

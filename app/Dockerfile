@@ -6,7 +6,7 @@ ARG GIT_TAG
 
 # clone
 RUN apk --no-cache --virtual build-dependencies add git
-RUN git clone -b $GIT_TAG https://$GIT_TOKEN@github.com/seongland/seongland .
+RUN git clone -b $GIT_TAG https://github.com/seongland/seongland .
 RUN rm -r .git
 
 # install
