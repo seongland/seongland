@@ -46,6 +46,7 @@ export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: D
           className="rounded-xl max-h-40vh max-h-40vh"
           overflow="hidden"
           style={{
+            outline: '1px solid transparent',
             background: `${card.background}`,
             transform: to([spring.rotation, spring.scale], trans),
           }}>
@@ -68,7 +69,9 @@ export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: D
               <label text={small ? '1.5rem' : '2rem'} cursor="pointer" font="600">
                 {card.title}
               </label>
-              <div text={small ? '1rem' : '1.1rem'}>{card.subtitle}</div>
+              <div text={small ? '1rem' : '1.1rem'} font="400">
+                {card.subtitle}
+              </div>
             </div>
           </a>
         </animated.div>
