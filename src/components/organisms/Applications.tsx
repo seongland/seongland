@@ -6,7 +6,7 @@ const cards = [
     title: 'Intuiter',
     subtitle: 'productivity app for Windows',
     url: 'https://intuiter.vercel.app',
-    icon: 'icon/intuiter.png',
+    icon: 'icon/intuiter-outline.png',
     background: '#ddd',
     color: 'black',
     ratio: '50%',

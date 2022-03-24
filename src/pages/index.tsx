@@ -19,11 +19,11 @@ const Index: NextPage = () => {
         <TypeTitle />
       </CenterPage>
       <CenterPage page={2} pages={PAGES}>
-        <PageTitle title="Web Apps" />
+        <PageTitle title="Web Pages" />
         <WebApps />
       </CenterPage>
       <CenterPage page={3} pages={PAGES}>
-        <PageTitle title="Other Results" />
+        <PageTitle title="Small Projects" />
         <Others />
       </CenterPage>
       <CenterPage page={4} pages={PAGES}>
