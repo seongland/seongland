@@ -18,7 +18,7 @@ const cards = [
     icon: 'image/legacy.png',
     background: '#2f3437',
     color: 'white',
-    ratio: '150%',
+    ratio: '175%',
   },
   {
     title: 'Pointland',
@@ -27,7 +27,7 @@ const cards = [
     icon: 'image/pointland.jpg',
     background: 'black',
     color: 'white',
-    ratio: '400%',
+    ratio: '500%',
   },
 ]
 

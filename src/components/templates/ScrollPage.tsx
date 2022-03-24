@@ -54,7 +54,7 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
           </Scroll>
         </ScrollControls>
       </Canvas>
-      <div className="absolute bottom-0" w="full">
+      <div className="fixed bottom-0 <sm:left-20vw" w="full <sm:60vw">
         <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
       </div>
     </>
