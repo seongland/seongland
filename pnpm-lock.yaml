@@ -57,7 +57,7 @@ dependencies:
   '@react-spring/three': 9.2.4_8200f891f1ae3ea80a871fd25a116cf5
   '@react-three/drei': 8.4.0_f85402f3c0c0bc35ac0077aa284c45f6
   '@react-three/fiber': 7.0.16_219cd54b391a5f28fe99f6b525368df2
-  '@types/node': 14.17.3
+  '@types/node': 16.11.26
   '@types/nprogress': 0.2.0
   '@types/react': 17.0.10
   '@types/react-dom': 17.0.7
@@ -1066,7 +1066,7 @@ packages:
     dependencies:
       '@types/http-cache-semantics': 4.0.1
       '@types/keyv': 3.1.3
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
       '@types/responselike': 1.0.0
     dev: false
 
@@ -1105,8 +1105,8 @@ packages:
       '@types/node': 16.11.26
     dev: false
 
-  /@types/node/14.17.3:
-    resolution: {integrity: sha512-e6ZowgGJmTuXa3GyaPbTGxX17tnThl2aSSizrFthQ7m9uLGZBXiGhgE55cjRZTF5kjZvYn9EOPOMljdjwbflxw==}
+  /@types/node/16.11.26:
+    resolution: {integrity: sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==}
     dev: false
 
   /@types/nprogress/0.2.0:
@@ -3868,7 +3868,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 14.17.3
+      '@types/node': 16.11.26
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
