@@ -2,22 +2,22 @@ import React, { useMemo, useEffect } from 'react'
 import Head from 'next/head'
 import { Canvas } from '@react-three/fiber'
 import useDarkMode from 'use-dark-mode'
-import { ScrollControls, Scroll } from '@react-three/drei'
+import { ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { NextSeo } from 'next-seo'
 
-import Title from '@/components/atoms/Title'
-import Activities from '@/components/organisms/Activities'
-import SmallProjects from '@/components/organisms/SmallProjects'
-import BigProjects from '@/components/organisms/BigProjects'
-import ScrollSpace from '@/components/organisms/ScrollSpace'
-import Footer from '@/components/molecules/Footer'
-
+import { ScrollSpace } from '@/components/organisms/ScrollSpace'
+import { Footer } from '@/components/molecules/Footer'
 import { bgColor, title } from '~/site-config'
 
 const DARK_CLASS = 'dark'
 const LIGHT_CLASS = 'light'
 
-export const ScrollPage = () => {
+export const ScrollPage: React.FC<{ height: number; damping?: number; children: React.ReactNode }> = ({
+  height,
+  damping = 5,
+  children,
+}) => {
+  // Theme
   const darkMode = useDarkMode(false, {
     classNameDark: DARK_CLASS,
     classNameLight: LIGHT_CLASS,
@@ -35,6 +35,7 @@ export const ScrollPage = () => {
   useEffect(() => {
     document.body.style.background = themeColor
   }, [themeColor])
+  useScroll()
 
   return (
     <>
@@ -44,21 +45,16 @@ export const ScrollPage = () => {
       </Head>
       <NextSeo title={title} titleTemplate="%s" />
       <Canvas>
-        <ScrollControls damping={5} pages={5}>
+        <ScrollControls damping={damping} pages={height}>
           <Scroll>
             <ScrollSpace isDarkMode={darkMode.value} />
           </Scroll>
           <Scroll html>
-            <div text="dark:white">
-              <Title title={title} />
-              <Activities title={title} />
-              <SmallProjects title={title} />
-              <BigProjects title={title} />
-            </div>
+            <div text="dark:white"> {children}</div>
           </Scroll>
         </ScrollControls>
       </Canvas>
-      <div className="absolute bottom-0" w="full">
+      <div className="fixed bottom-0 <sm:left-20vw" w="full <sm:60vw">
         <Footer isDarkMode={darkMode.value} toggleDarkMode={darkMode.toggle} />
       </div>
     </>
