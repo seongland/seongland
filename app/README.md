@@ -20,6 +20,7 @@ kubectl config set-context cloud_okteto_com --namespace seonglae
 kubectl config use-context cloud_okteto_com
 kubectl apply -f seongland-svc.yaml
 kubectl apply -f seongland-deploy.yaml
+kubectl apply -f www.yaml
 ```
 
 # Local Build
