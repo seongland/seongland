@@ -31,6 +31,7 @@ const Document = () => {
         <link href="/apple-touch-icon-180x180.png" rel="icon" sizes="180x180" type="image/png" />
         <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
         <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap" />
       </Head>
 
       <body>

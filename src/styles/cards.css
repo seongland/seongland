@@ -1,0 +1,36 @@
+.card-title-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper {
+  font-family: 'Raleway', -apple-system, sans-serif, Arial;
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  background: rgba(0, 0, 0, 0);
+  position: fixed;
+  overflow: visible;
+  user-select: none;
+}
+
+.card-wrapper > div {
+  position: absolute;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper > div > div {
+  box-shadow: 1vw 1vw 2vw 2vw #20202099;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  will-change: transform;
+  border-radius: 5vw;
+}
+
+.card-wrapper > div > div.iframe {
+  box-shadow: 0 12.5px 40px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+}
