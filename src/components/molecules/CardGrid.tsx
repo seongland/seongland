@@ -18,7 +18,7 @@ const CardGrid: React.FC<{
   small?: boolean
 }> = ({
   cards,
-  tension = { up: 800, down: 800 },
+  tension = { up: 800, down: 100 },
   friction = 50,
   timeout = 1000,
   offset = 1000,
