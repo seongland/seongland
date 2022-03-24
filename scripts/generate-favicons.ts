@@ -8,7 +8,7 @@ export default async () => {
     .catch(() => null)
   return new Promise((resolve, reject) =>
     favicons(
-      join('src', 'public', 'favicon.svg'),
+      join('src', 'public', 'seongland.svg'),
       {
         path: '/',
         appName: pkg.name,
