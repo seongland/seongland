@@ -50,17 +50,15 @@ export const Footer: React.FC<{
       flex="row <sm:col"
       select="none">
       <div select="none" text="xs" order="1 <sm:3" className="items-center flex">
-        {hasMounted ? (
-          <a
-            text="hover:light-blue-500 3xl"
-            p="2"
-            className="inline-flex "
-            transition="colors"
-            onClick={togglePlay}
-            title="Tottle dark mode">
-            {playing ? <IoPauseOutline /> : <IoPlayOutline />}
-          </a>
-        ) : null}
+        <a
+          text="hover:light-blue-500 3xl"
+          p="2"
+          className="inline-flex "
+          transition="colors"
+          onClick={togglePlay}
+          title="Tottle dark mode">
+          {playing ? <IoPauseOutline /> : <IoPlayOutline />}
+        </a>
         <span>
           Copyright {new Date().getFullYear()} {siteConfig.author}
         </span>
