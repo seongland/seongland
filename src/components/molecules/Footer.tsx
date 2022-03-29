@@ -22,7 +22,7 @@ export const Footer: React.FC<{
   const [hasMounted, setHasMounted] = React.useState(false)
   const toggleDarkModeCb = React.useCallback(
     e => {
-      const index = 3
+      const index = Math.floor(Math.random() * claps.length)
       claps[index]()
       e.preventDefault()
       toggleDarkMode()
