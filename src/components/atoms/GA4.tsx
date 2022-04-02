@@ -3,7 +3,7 @@ import Script from 'next/script'
 
 export const GA4: React.FC<{ id: string }> = ({ id }) => {
   return (
-    <div>
+    <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${id}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
@@ -13,7 +13,7 @@ export const GA4: React.FC<{ id: string }> = ({ id }) => {
           gtag('config', '${id}');
         `}
       </Script>
-    </div>
+    </>
   )
 }
 
