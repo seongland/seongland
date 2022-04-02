@@ -16,8 +16,8 @@ export default async () => {
         appDescription: pkg.description,
         developerName: pkg.author.name,
         developerURL: pkg.author.github.url,
-        background: pkg.color,
-        theme_color: pkg.color,
+        background: pkg.color.dark,
+        theme_color: pkg.color.dark,
         icons: {
           android: true,
           appleIcon: true,
