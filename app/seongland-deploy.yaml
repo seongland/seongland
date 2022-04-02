@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: seongland-container
-          image: ghcr.io/seongland/seongland:2.2.7
+          image: ghcr.io/seongland/seongland:2.2.8
           securityContext:
             readOnlyRootFilesystem: true
           ports:
