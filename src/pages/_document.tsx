@@ -1,6 +1,5 @@
 import React from 'react'
 import { Head, Html, Main, NextScript } from 'next/document'
-import { GA4 } from '@/components/atoms/GA4'
 
 const Document = () => {
   return (
@@ -33,7 +32,6 @@ const Document = () => {
         <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
         <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900&display=swap" />
-        <GA4 id="G-CRRP8E78TC" />
       </Head>
 
       <body>
