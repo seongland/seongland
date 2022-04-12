@@ -2,11 +2,11 @@
   "name": "seongland",
   "displayName": "Seongland",
   "description": "Alan Jo portfolio page with diverse service links",
-  "version": "2.2.6",
+  "version": "2.3.0",
   "license": "MIT",
   "repository": "https://github.com/seongland/seongland.git",
   "path": "seongland/seongland",
-  "domain": "www.seongland.com",
+  "domain": "seongland.com",
   "scripts": {
     "dev": "next dev --port 1234",
     "start": "next start --port 1234",
@@ -27,7 +27,7 @@
   "author": {
     "name": "Alan Jo",
     "email": "sungle3737@gmail.com",
-    "url": "https://www.seongland.com",
+    "url": "https://seongland.com",
     "twitter": {
       "name": "@SeonglaeC"
     },
