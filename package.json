@@ -58,7 +58,7 @@
     "@use-gesture/react": "^10.2.10",
     "classnames": "^2.3.1",
     "copy": "^0.3.2",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.1",
     "esbuild-node-loader": "^0.6.3",
     "esno": "^0.14.0",
     "favicons": "^6.2.0",
