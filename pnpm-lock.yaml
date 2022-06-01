@@ -36,7 +36,7 @@ specifiers:
   lqip-modern: ^1.2.0
   next: 12.1.0
   next-seo: ^4.17.0
-  next-transpile-modules: ^8.0.0
+  next-transpile-modules: ^9.0.0
   npm-run-all: ^4.1.5
   nprogress: ^0.2.0
   prettier: ^2.2.1
@@ -79,7 +79,7 @@ dependencies:
   lqip-modern: 1.2.0
   next: 12.1.0_7e3373dfb6a1743f9f70c83b7f2e00c3
   next-seo: 4.24.0_caa633a00319350dbda42996613fe26c
-  next-transpile-modules: 8.0.0
+  next-transpile-modules: 9.0.0
   npm-run-all: 4.1.5
   nprogress: 0.2.0
   react: 17.0.2
@@ -2370,14 +2370,6 @@ packages:
       once: 1.4.0
     dev: false
 
-  /enhanced-resolve/5.8.2:
-    resolution: {integrity: sha512-F27oB3WuHDzvR2DOGNTaYy0D5o0cnrv8TeI482VM4kYgQd/FT9lUQwuNsJ0oOHtBUq7eiW5ytqzp7nBFknL+GA==}
-    engines: {node: '>=10.13.0'}
-    dependencies:
-      graceful-fs: 4.2.9
-      tapable: 2.2.0
-    dev: false
-
   /enhanced-resolve/5.9.2:
     resolution: {integrity: sha512-GIm3fQfwLJ8YZx2smuHpBKkXC1yOk+OBEmKckVyL0i/ea8mqDEykK3ld5dgH1QYPNyT/lIllxV2LULnxCHaHkA==}
     engines: {node: '>=10.13.0'}
@@ -4416,10 +4408,10 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /next-transpile-modules/8.0.0:
-    resolution: {integrity: sha512-Q2f2yB0zMJ8KJbIYAeZoIxG6cSfVk813zr6B5HzsLMBVcJ3FaF8lKr7WG66n0KlHCwjLSmf/6EkgI6QQVWHrDw==}
+  /next-transpile-modules/9.0.0:
+    resolution: {integrity: sha512-VCNFOazIAnXn1hvgYYSTYMnoWgKgwlYh4lm1pKbSfiB3kj5ZYLcKVhfh3jkPOg1cnd9DP+pte9yCUocdPEUBTQ==}
     dependencies:
-      enhanced-resolve: 5.8.2
+      enhanced-resolve: 5.9.2
       escalade: 3.1.1
     dev: false
 
