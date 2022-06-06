@@ -27,7 +27,7 @@ jobs:
           password: ${{ secrets.PAT }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         id: docker_build
         with:
           context: .
