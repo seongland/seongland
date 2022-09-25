@@ -55,7 +55,7 @@ specifiers:
   windicss-analysis: ^0.3.4
   windicss-webpack-plugin: 1.4.10
   worker-loader: ^3.0.8
-  zustand: ^3.5.7
+  zustand: ^4.1.1
 
 dependencies:
   '@react-spring/three': 9.2.4_8200f891f1ae3ea80a871fd25a116cf5
@@ -96,7 +96,7 @@ dependencies:
   windicss: 3.5.1
   windicss-webpack-plugin: 1.4.10
   worker-loader: 3.0.8_webpack@5.70.0
-  zustand: 3.5.7_react@17.0.2
+  zustand: 4.1.1_react@17.0.2
 
 devDependencies:
   '@babel/core': 7.14.3
@@ -6027,6 +6027,14 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
 
+  /use-sync-external-store/1.2.0_react@17.0.2:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 17.0.2
+    dev: false
+
   /utif/2.0.1:
     resolution: {integrity: sha512-Z/S1fNKCicQTf375lIP9G8Sa1H/phcysstNrrSdZKj1f9g58J4NMgb5IgiEZN9/nLMPDwF0W7hdOe9Qq2IYoLg==}
     dependencies:
@@ -6288,13 +6296,18 @@ packages:
       react: 17.0.2
     dev: false
 
-  /zustand/3.5.7_react@17.0.2:
-    resolution: {integrity: sha512-DlVFXJavIHyXTOGz6dB+8QHZsPyJcGJSEBtlp2Ivmd5SwtlCnhPo3L8LB6YRfAOJC2PbqzgoD8NMjk+y+vIF0g==}
+  /zustand/4.1.1_react@17.0.2:
+    resolution: {integrity: sha512-h4F3WMqsZgvvaE0n3lThx4MM81Ls9xebjvrABNzf5+jb3/03YjNTSgZXeyrvXDArMeV9untvWXRw1tY+ntPYbA==}
+    engines: {node: '>=12.7.0'}
     peerDependencies:
+      immer: '>=9.0'
       react: '>=16.8'
     peerDependenciesMeta:
+      immer:
+        optional: true
       react:
         optional: true
     dependencies:
       react: 17.0.2
+      use-sync-external-store: 1.2.0_react@17.0.2
     dev: false
