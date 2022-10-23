@@ -61,7 +61,7 @@
     "dotenv": "^10.0.0",
     "esbuild-node-loader": "^0.6.3",
     "esno": "^0.14.0",
-    "favicons": "^6.2.0",
+    "favicons": "^7.0.2",
     "got": "^11.8.2",
     "isomorphic-unfetch": "^3.1.0",
     "lqip-modern": "^1.2.0",
