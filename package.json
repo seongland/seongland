@@ -43,14 +43,14 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=v16.14.1"
+    "node": ">=v18.12.1"
   },
   "dependencies": {
     "@react-spring/three": "^9.2.4",
     "@react-spring/web": "^9.4.4",
     "@react-three/drei": "^8.4.0",
     "@react-three/fiber": "^7.0.16",
-    "@types/node": "^16.11.26",
+    "@types/node": "^18.11.10",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^18.0.5",
