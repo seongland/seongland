@@ -5,6 +5,7 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 
 import { GA4 } from '@/components/atoms/GA4'
+import { Analytics } from '@vercel/analytics/react'
 import siteConfig from '~/site-config'
 
 import 'windi.css'
@@ -54,6 +55,7 @@ function App(props: AppProps) {
         sameAs={Object.values(siteConfig.socials)}
       />
       <Component {...pageProps} />
+      <Analytics />
       <GA4 id="G-CRRP8E78TC" />
     </>
   )
