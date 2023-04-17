@@ -31,6 +31,9 @@ dependencies:
   '@use-gesture/react':
     specifier: ^10.2.10
     version: 10.2.10(react@17.0.2)
+  '@vercel/analytics':
+    specifier: ^0.1.11
+    version: 0.1.11(react@17.0.2)
   classnames:
     specifier: ^2.3.1
     version: 2.3.1
@@ -1600,6 +1603,14 @@ packages:
     resolution: {integrity: sha512-e6V7vbU8xpuqy4GZkTLExHffOFgxmGHo3kNWnlhzM/zcX2v+idbD/HaJ9sKdQMgTh+L7MIhdRDXGX3SdAViZzA==}
     peerDependencies:
       react: ^16.8.0
+    dependencies:
+      react: 17.0.2
+    dev: false
+
+  /@vercel/analytics@0.1.11(react@17.0.2):
+    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
     dependencies:
       react: 17.0.2
     dev: false
