@@ -11,3 +11,4 @@ public/*
 *.log
 !src/public
 .eslintcache
+.lighthouseci
