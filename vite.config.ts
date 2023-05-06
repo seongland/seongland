@@ -13,9 +13,9 @@ export default defineConfig({
         customResolver: (to, from) => {
           if (from) {
             const froms = from.split(sep)
-            const rootIndex = froms.reverse().findIndex(folder => folder === 'src')
             const tos = to.split(sep)
-            tos.splice(rootIndex, 0, froms[rootIndex])
+            const rootIndex = tos.reverse().findIndex(folder => folder === 'src')
+            tos.reverse().splice(tos.length - 1 - rootIndex, 0, froms[rootIndex])
             return tos.join(sep)
           }
         },
@@ -26,9 +26,9 @@ export default defineConfig({
         customResolver: (to, from) => {
           if (from) {
             const froms = from.split(sep)
-            const rootIndex = froms.reverse().findIndex(folder => folder === 'src')
             const tos = to.split(sep)
-            tos.splice(rootIndex, 0, froms[rootIndex])
+            const rootIndex = tos.reverse().findIndex(folder => folder === 'src')
+            tos.reverse().splice(tos.length - 1 - rootIndex, 1, froms[rootIndex])
             return tos.join(sep)
           }
         },
