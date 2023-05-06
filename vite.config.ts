@@ -1,6 +1,6 @@
 // vite.config.ts
 import { defineConfig } from 'vitest/config'
-import { resolve, sep } from 'path'
+import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -10,28 +10,12 @@ export default defineConfig({
       {
         find: '@',
         replacement: resolve(__dirname, './src'),
-        customResolver: (to, from) => {
-          if (from) {
-            const froms = from.split(sep)
-            const tos = to.split(sep)
-            const rootIndex = tos.findIndex(folder => folder === 'src')
-            tos.splice(rootIndex, 0, froms[rootIndex])
-            return tos.join(sep)
-          }
-        },
+        customResolver: to => to,
       },
       {
         find: '~',
         replacement: resolve(__dirname, '.'),
-        customResolver: (to, from) => {
-          if (from) {
-            const froms = from.split(sep)
-            const tos = to.split(sep)
-            const rootIndex = tos.findIndex(folder => folder === 'src')
-            tos.splice(rootIndex, 0, froms[rootIndex])
-            return tos.join(sep)
-          }
-        },
+        customResolver: to => to,
       },
     ],
   },
