@@ -5,12 +5,8 @@
       "path": ".."
     },
     {
-      "name": "app",
-      "path": "..\\app"
-    },
-    {
-      "name": "workflows",
-      "path": "..\\.github\\workflows"
+      "name": "src",
+      "path": "..\\src"
     },
     {
       "name": "components",
@@ -19,14 +15,6 @@
     {
       "name": "pages",
       "path": "..\\src\\pages"
-    },
-    {
-      "name": "store",
-      "path": "..\\src\\store"
-    },
-    {
-      "name": "src",
-      "path": "..\\src"
     }
   ],
   "settings": {}
