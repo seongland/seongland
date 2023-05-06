@@ -12,3 +12,4 @@ public/*
 !src/public
 .eslintcache
 .lighthouseci
+coverage
