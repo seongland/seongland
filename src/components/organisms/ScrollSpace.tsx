@@ -5,18 +5,22 @@ import { useSpring } from '@react-spring/three'
 
 import { Stars } from '@/components/molecules/Stars'
 import GradientWall from '@/components/molecules/Wall'
+import { useThemeContext } from '@/hooks/useApp'
 
-const DARK_WALL = ['#23262a', '#424242', '#232424', '#23262a']
-const LIGHT_WALL = ['#fff', '#fff', '#fff', '#fff']
+const WALL = {
+  dark: ['#23262a', '#424242', '#232424', '#23262a'],
+  light: ['#fff', '#fff', '#fff', '#fff'],
+}
 const INTERVAL = 30
 
-export const ScrollSpace: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }: { isDarkMode: boolean }) => {
+export const ScrollSpace: React.FC = () => {
   const height = useThree(state => Math.floor(state.size.height / INTERVAL) * INTERVAL)
+  const { theme } = useThemeContext()
   const data = useScroll()
   const scrollMax = height * data.pages
 
   // Dark Mode
-  const colorSet = useMemo(() => (isDarkMode ? DARK_WALL : LIGHT_WALL), [isDarkMode])
+  const colorSet = useMemo(() => WALL[theme], [theme])
   const [{ top }, set] = useSpring(() => ({ top: 0 }))
   useFrame(() => set.start({ top: data.range(0, 1) * scrollMax }))
 
@@ -28,7 +32,7 @@ export const ScrollSpace: React.FC<{ isDarkMode: boolean }> = ({ isDarkMode }: {
   return (
     <>
       <GradientWall color={wallColor} />
-      <Stars isDarkMode={isDarkMode} position={starPosition} />
+      <Stars position={starPosition} />
     </>
   )
 }

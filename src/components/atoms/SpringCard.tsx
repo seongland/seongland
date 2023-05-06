@@ -1,12 +1,14 @@
 import React from 'react'
-import { ReactDOMAttributes as DragProps } from '@use-gesture/react'
 import { to, animated } from '@react-spring/web'
+import Image from 'next/image'
+
 import type { SpringValue } from '@react-spring/web'
+import type { ReactDOMAttributes as DragProps } from '@use-gesture/react/dist/declarations/src/types'
 
 export type CardProp = {
   url: string
+  theme: string
   background: string
-  icon: string
   ratio: string
   color: string
   title: string
@@ -43,29 +45,34 @@ export const SpringCard: React.FC<{ card: CardProp; spring: SpringProp; props: D
           w="full"
           h="full"
           text="center"
-          className="rounded-xl max-h-40vh max-h-40vh"
+          className="flex rounded-xl max-h-40vh max-h-40vh"
           overflow="hidden"
           style={{
             outline: '1px solid transparent',
-            background: `${card.background}`,
+            background: `${card.theme}`,
             transform: to([spring.rotation, spring.scale], trans),
           }}>
           <a
-            className="items-center flex"
-            w="full"
-            h="full"
-            flex="col-reverse"
+            m="auto"
+            className="flex"
             href={card.url}
             justify={card.bottom ? 'flex-end' : 'center'}
             select="none"
-            cursor="pointer"
-            style={{
-              background: `url("${card.icon}")`,
-              backgroundPosition: 'center center',
-              backgroundSize: `${card.ratio}`,
-              backgroundRepeat: 'no-repeat',
-            }}>
-            <div role="button" tabIndex={0} style={{ color: card.color }} m="4">
+            flex="col-reverse">
+            <Image
+              fill
+              alt={card.title}
+              src={card.background}
+              style={{
+                objectFit: 'cover',
+                backgroundPosition: 'center center',
+                scale: `${card.ratio}`,
+                overflow: 'visible',
+                backgroundRepeat: 'no-repeat',
+              }}
+            />
+
+            <div role="button" tabIndex={0} style={{ color: card.color }} m="4" z="1">
               <label text={small ? '1.5rem' : '2rem'} cursor="pointer" font="600">
                 {card.title}
               </label>
