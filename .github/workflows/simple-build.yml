@@ -2,8 +2,6 @@ name: Test before render
 
 on:
   push:
-    branches-ignore:
-      - main
 
 jobs:
   build:
@@ -20,7 +18,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ runner.OS }}-${{ hashFiles('**/*.lock') }}
+          key: ${{ runner.OS }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
@@ -29,5 +27,19 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
-          pnpm lint
+
+      - name: Coverage
+        run: |
+          pnpm coverage
+
+      - name: Build
+        run: |
           pnpm build
+
+      - name: Check Lighthouse CI
+        run: |
+          npm i -g @lhci/cli
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
