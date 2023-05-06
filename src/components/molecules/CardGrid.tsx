@@ -3,10 +3,11 @@ import { useSprings } from '@react-spring/web'
 import { useDrag } from '@use-gesture/react'
 
 import { SpringCard } from '@/components/atoms/SpringCard'
-import type { CardProp } from '@/components/atoms/SpringCard'
+
+import type { Card } from '~/scripts/cards'
 
 const CardGrid: React.FC<{
-  cards: CardProp[]
+  cards: Card[]
   timeout?: number
   speed?: number
   friction?: number

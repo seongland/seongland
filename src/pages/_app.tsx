@@ -24,7 +24,7 @@ function App(props: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/seongland.svg" />
+        <link rel="icon" href="/seongland.png" />
         <meta property="fb:app_id" content="419108182355029" />
       </Head>
 
