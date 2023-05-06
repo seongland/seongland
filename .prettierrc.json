@@ -3,6 +3,6 @@
   "semi": false,
   "tabWidth": 2,
   "printWidth": 125,
-  "jsxBracketSameLine": true,
+  "endOfLine": "lf",
   "arrowParens": "avoid"
 }
