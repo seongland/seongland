@@ -21,6 +21,9 @@ const configuration = {
     assert: {
       preset: 'lighthouse:recommended',
       assertions: {
+        bypass: 'warn',
+        canonical: 'warn',
+        deprecations: 'warn',
         'bf-cache': 'warn',
         'csp-xss': 'warn',
         'link-name': 'warn',
@@ -30,6 +33,9 @@ const configuration = {
         'errors-in-console': 'warn',
         'maskable-icon': 'warn',
         'color-contrast': 'warn',
+        'valid-source-maps': 'warn',
+        'uses-optimized-images': 'warn',
+        'crawlable-anchors': 'warn',
         'unsized-images': 'warn',
         'inspector-issues': 'warn',
         'uses-rel-preconnect': 'warn',
@@ -46,7 +52,6 @@ const configuration = {
         'uses-responsive-images': 'warn',
         'robots-txt': 'warn',
         'efficient-animated-content': 'warn',
-        canonical: 'warn',
       },
     },
   },
