@@ -1,5 +1,7 @@
 import React from 'react'
-import Typed from 'react-typed'
+import dynamic from 'next/dynamic'
+
+export const Typed = dynamic(async () => import('react-typed'))
 
 export const TypeTitle: React.FC = () => {
   return (
