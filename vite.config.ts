@@ -28,7 +28,7 @@ export default defineConfig({
             const froms = from.split(sep)
             const rootIndex = froms.findIndex(folder => folder === 'src')
             const tos = to.split(sep)
-            tos.splice(rootIndex, 0, froms[rootIndex])
+            tos.splice(rootIndex - 1, 0, froms[rootIndex])
             return tos.join(sep)
           }
         },
