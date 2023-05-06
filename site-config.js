@@ -27,7 +27,8 @@ module.exports = {
   linkedin: pkg.author.linkedin.name,
   socials: {
     GitHub: pkg.repository,
-    Twitter: pkg.author.twitter.name,
+    Twitter: pkg.author.twitter.url,
+    LinkedIn: pkg.author.linkedin.url,
   },
 
   // Color
