@@ -14,8 +14,8 @@ export default defineConfig({
           if (from) {
             const froms = from.split(sep)
             const tos = to.split(sep)
-            const rootIndex = tos.reverse().findIndex(folder => folder === 'src')
-            tos.reverse().splice(tos.length - 1 - rootIndex, 0, froms[rootIndex])
+            const rootIndex = tos.findIndex(folder => folder === 'src')
+            tos.splice(rootIndex, 0, froms[rootIndex])
             return tos.join(sep)
           }
         },
@@ -27,8 +27,8 @@ export default defineConfig({
           if (from) {
             const froms = from.split(sep)
             const tos = to.split(sep)
-            const rootIndex = tos.reverse().findIndex(folder => folder === 'src')
-            tos.reverse().splice(tos.length - 1 - rootIndex, 1, froms[rootIndex])
+            const rootIndex = tos.findIndex(folder => folder === 'src')
+            tos.splice(rootIndex, 0, froms[rootIndex])
             return tos.join(sep)
           }
         },
