@@ -8,15 +8,15 @@
   "path": "seongland/seongland",
   "domain": "seongland.com",
   "scripts": {
-    "dev": "next dev --port 1234",
-    "start": "next start --port 1234",
+    "dev": "next dev --port 8080",
+    "start": "next start --port 8080",
     "css": "windicss-analysis",
     "build": "pnpm build:scripts && pnpm build:web",
     "build:scripts": "tsx scripts/build.ts",
     "build:web": "next build",
     "prepare": "husky install",
-    "lint": "eslint \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore --cache",
-    "format": "prettier \"**/*.{js,json,md,css,js,ts,tsx}\" --write --ignore-path .gitignore"
+    "lint": "eslint --cache \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore",
+    "format": "prettier --cache \"**/*.{js,json,md,css,js,ts,tsx}\" --write --ignore-path .gitignore"
   },
   "color": {
     "light": "#e2e2e2",
@@ -85,19 +85,19 @@
     "@types/nprogress": "^0.2.0",
     "@types/react": "17.0.53",
     "@types/react-dom": "^18.2.1",
-    "@types/three": "^0.130.1",
+    "@types/three": "^0.152.0",
     "eslint": "^7.28.0",
-    "eslint-config-next": "^11.1.2",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-next": "^13.4.1",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-next": "^0.0.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "^21.1.1",
     "husky": "^8.0.1",
-    "prettier": "^2.3.1",
+    "prettier": "^2.8.7",
     "vitest": "^0.30.1",
-    "windicss-analysis": "^0.3.4"
+    "windicss-analysis": "^0.3.5"
   }
 }
