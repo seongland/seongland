@@ -32,8 +32,6 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
-  transpilePackages: ['three'],
-  pageDataCollectionTimeout: 2000,
 }
 
 module.exports = nextConfig
