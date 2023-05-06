@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 export const baseRenderer = {
   link({ href, children }: { href: string; children: React.ReactNode }) {
