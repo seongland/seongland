@@ -1,5 +1,13 @@
 node_modules
 .next
 .env
-/public
+public/*
+!public/android*
+!public/apple*
+!public/mstile*
+!public/favicon*
+!public/manifest.json
+!public/browserconfig.xml
 *.log
+!src/public
+.eslintcache
