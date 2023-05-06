@@ -70,6 +70,7 @@ const CardGrid: React.FC<{
   })
 
   // Children Cards
+  // eslint-disable-next-line react/prop-types
   const children = props.map((spring, i) => {
     const card = cards[i]
     const props = bind(i)
