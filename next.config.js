@@ -27,6 +27,7 @@ const nextConfig = {
   images: {
     unoptimized: process.argv.includes('export'),
     formats: ['image/avif', 'image/webp'],
+    domains: ['github.com'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
@@ -34,4 +35,5 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
+module.exports = withBundleAnalyzer(nextConfig)
