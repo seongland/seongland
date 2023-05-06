@@ -8,22 +8,20 @@ import { Footer } from '@/components/molecules/Footer'
 import { bgColor } from '~/site-config'
 import { useThemes } from '@/hooks/useApp'
 
-const DARK_CLASS = 'dark'
-
 export const ScrollPage: React.FC<{ height: number; damping?: number; children: React.ReactNode }> = ({
   height,
-  damping = 5,
+  damping = 0.5,
   children,
 }) => {
   // Theme
-  useThemes()
+  const { theme } = useThemes()
   useScroll()
 
   return (
     <>
       <Head>
-        <meta name="theme-color" content={bgColor[DARK_CLASS]} />
-        <meta name="msapplication-TileColor" content={bgColor[DARK_CLASS]} />
+        <meta name="theme-color" content={bgColor[theme]} />
+        <meta name="msapplication-TileColor" content={bgColor[theme]} />
       </Head>
       <Canvas>
         <ScrollControls damping={damping} pages={height}>
@@ -41,3 +39,5 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
     </>
   )
 }
+
+export default ScrollPage
