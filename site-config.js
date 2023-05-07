@@ -1,17 +1,9 @@
 const pkg = require('./package.json')
 
-const descriptionMd = pkg.description
-const description = descriptionMd
-  .replace(/\[([^\]]+)\](\([^)]+\)|\[[^\]]+\])/g, '$1')
-  .replace(/\n/g, '')
-  .replace(/\s{2,}/g, ' ')
-  .trim()
-
 module.exports = {
   title: pkg.displayName,
   name: pkg.displayName,
-  descriptionMd,
-  description,
+  description: pkg.description,
 
   // Personal Info
   url: `https://${pkg.domain}`,
@@ -27,7 +19,8 @@ module.exports = {
   linkedin: pkg.author.linkedin.name,
   socials: {
     GitHub: pkg.repository,
-    Twitter: pkg.author.twitter.name,
+    Twitter: pkg.author.twitter.url,
+    LinkedIn: pkg.author.linkedin.url,
   },
 
   // Color

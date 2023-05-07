@@ -1,37 +1,75 @@
 import React from 'react'
-import type { NextPage } from 'next'
+import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
-import { ScrollPage } from '@/components/templates/ScrollPage'
+import { dynamicImgCards } from '~/scripts/cards'
 import { TypeTitle } from '@/components/atoms/TypeTitle'
 import { PageTitle } from '@/components/atoms/PageTitle'
-import { CenterPage } from '@/components/atoms/CenterPage'
-import { Applications } from '@/components/organisms/Applications'
-import { Others } from '@/components/organisms/Others'
-import { WebApps } from '@/components/organisms/WebApps'
+import { Cards } from '@/components/organisms/Cards'
+import { description, url, title, domain, twitter } from '~/site-config'
+
+import type { Card } from '~/scripts/cards'
+
+export const CenterPage = dynamic(async () => import('@/components/atoms/CenterPage'))
+export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'))
 
 const HEIGHT = 7
 const PAGES = 4
 
-const Index: NextPage = () => {
+const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Card[] }> = ({
+  applications,
+  publications,
+  webapps,
+}) => {
   return (
-    <ScrollPage height={HEIGHT}>
-      <CenterPage page={1} pages={PAGES}>
-        <TypeTitle />
-      </CenterPage>
-      <CenterPage page={2} pages={PAGES}>
-        <PageTitle title="Web Pages" />
-        <WebApps />
-      </CenterPage>
-      <CenterPage page={3} pages={PAGES}>
-        <PageTitle title="Small Projects" />
-        <Others />
-      </CenterPage>
-      <CenterPage page={4} pages={PAGES}>
-        <PageTitle title="Applications" />
-        <Applications />
-      </CenterPage>
-    </ScrollPage>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+        <meta property="og:site_name" content={title} />
+
+        <meta property="og:image" content="/ogtag.png" />
+        <meta name="twitter:image" content="/ogtag.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content={twitter} />
+
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:description" content={description} />
+
+        <link rel="canonical" href={url} />
+        <meta property="og:url" content={url} />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:domain" content={domain} />
+      </Head>
+
+      <ScrollPage height={HEIGHT}>
+        <CenterPage page={1} pages={PAGES}>
+          <TypeTitle />
+        </CenterPage>
+        <CenterPage page={2} pages={PAGES}>
+          <PageTitle title="Web Pages" />
+          <Cards cards={webapps} />
+        </CenterPage>
+        <CenterPage page={3} pages={PAGES}>
+          <PageTitle title="Publication" />
+          <Cards cards={publications} />
+        </CenterPage>
+        <CenterPage page={4} pages={PAGES}>
+          <PageTitle title="Applications" />
+          <Cards cards={applications} />
+        </CenterPage>
+      </ScrollPage>
+    </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: await dynamicImgCards(),
+  }
 }
 
 export default Index
