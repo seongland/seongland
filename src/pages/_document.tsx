@@ -3,9 +3,9 @@ import { Head, Html, Main, NextScript } from 'next/document'
 
 const noflash = `
 const storageKey = 'theme'
-function setBodyClass(theme) {
-  document.body.classList.remove(...document.body.classList)
-  document.body.classList.add(theme)
+function setDocClass(theme) {
+  document.documentElement.classList.remove(...document.documentElement.classList)
+  document.documentElement.classList.add(theme)
 }
 const preferDarkQuery = '(prefers-color-scheme: dark)'
 const mql = window.matchMedia(preferDarkQuery)
@@ -17,9 +17,9 @@ try {
 const localStorageExists = localStorageTheme !== null
 if (localStorageExists) {
   localStorageTheme = localStorageTheme
-  setBodyClass(localStorageTheme)
+  setDocClass(localStorageTheme)
 } else if (supportsColorSchemeQuery) {
-  setBodyClass(mql.matches ? 'dark' : 'light')
+  setDocClass(mql.matches ? 'dark' : 'light')
 }
 `
 
