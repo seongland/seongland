@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useTheme } from 'next-themes'
+
 import { bgColor } from '~/site-config'
 
 export const useThemes = () => {
