@@ -1,19 +1,20 @@
 import React, { useRef, useMemo, useEffect } from 'react'
-import { MathUtils, SphereBufferGeometry, MeshBasicMaterial } from 'three'
+import { MathUtils, SphereGeometry, MeshBasicMaterial } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { a } from '@react-spring/three'
-import { useSpring } from '@react-spring/three'
+import { a, useSpring } from '@react-spring/three'
+import { useThemeContext } from '@/hooks/useApp'
 
+import type { Group } from 'three'
 import type { Interpolation } from '@react-spring/three'
-import type { GroupProps } from '@react-three/fiber'
 
-const DARK = 0x242424
-const LIGHT = 0xffffff
+const COLOR = {
+  light: 0x242424,
+  dark: 0xffffff,
+}
 
 /** This component rotates a bunch of stars */
 export const Stars: React.FC<{
   position: Interpolation
-  isDarkMode: boolean
   theta?: number
   diff?: number
   cycle?: number
@@ -23,7 +24,6 @@ export const Stars: React.FC<{
   radius?: { star: number; galaxy: number }
 }> = ({
   position,
-  isDarkMode,
   theta = 90,
   cycle = 10,
   diff = 0.1,
@@ -32,13 +32,14 @@ export const Stars: React.FC<{
   segments = 5,
   radius = { star: 1, galaxy: 5 },
 }) => {
-  const color = isDarkMode ? LIGHT : DARK
-  const group = useRef<GroupProps>(null)
+  const group = useRef<Group>(null)
   const camera = useThree(state => state.camera)
+  const { theme } = useThemeContext()
+  const color = COLOR[theme]
 
   // create stars
   const [geo, mat, coords] = useMemo(() => {
-    const geo = new SphereBufferGeometry(radius.star, segments, segments)
+    const geo = new SphereGeometry(radius.star, segments, segments)
     const mat = new MeshBasicMaterial({ color })
     const coords = Array.from({ length: stars }).map(() => [
       Math.random() * spread * 2 - spread,
@@ -88,3 +89,5 @@ export const Stars: React.FC<{
     </a.group>
   )
 }
+
+export default Stars

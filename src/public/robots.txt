@@ -1,3 +1,2 @@
 User-agent: *
-Sitemap: ${host}/sitemap.xml
 Allow: /

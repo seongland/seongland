@@ -1,6 +1,4 @@
-//@ts-check
-const withTM = require('next-transpile-modules')(['three'])
-const WindiCSS = require('windicss-webpack-plugin').default
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 
 /**
  * @type {import('next').NextConfig}
@@ -18,16 +16,24 @@ const nextConfig = {
     },
   ],
   webpack: config => {
-    config.plugins.push(new WindiCSS())
+    // @ts-ignore
+    config.plugins.push(new WindiCSSWebpackPlugin())
     config.externals.push('sharp')
     return config
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  pageDataCollectionTimeout: 2000,
+  images: {
+    unoptimized: process.argv.includes('export'),
+    formats: ['image/avif', 'image/webp'],
+    domains: ['github.com'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+
   reactStrictMode: true,
-  rewrites: async () => [{ source: '/social.png', destination: '/api/social-image' }],
 }
 
-module.exports = withTM(nextConfig)
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
+module.exports = withBundleAnalyzer(nextConfig)

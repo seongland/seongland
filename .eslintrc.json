@@ -3,34 +3,67 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "plugin:import/typescript",
+    "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@next/next/recommended"
+    "plugin:@next/next/recommended",
+    "plugin:import/typescript"
   ],
-  "settings": {
-    "react": { "version": "detect" }
-  },
+  "settings": { "react": { "version": "detect" } },
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false
-  },
-  "globals": {
-    "process": true,
-    "document": true,
-    "window": true
-  },
+  "parserOptions": { "parser": "@babel/eslint-parser", "requireConfigFile": false },
+  "globals": { "process": true, "document": true, "window": true, "global": true },
+  "env": { "browser": true, "node": true },
   "rules": {
-    "no-unused-vars": "off",
-    "react/prop-types": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    // React
+    "react-hooks/rules-of-hooks": "off",
+    "react/no-unknown-property": "off",
+
+    // Next Rules
     "@next/next/no-document-import-in-page": "off",
-    "@typescript-eslint/no-empty-interface": "off",
+    "@next/next/no-img-element": "off",
     "@next/next/no-sync-scripts": "off",
-    "@next/next/no-page-custom-font": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+
+    // Import Rules
+    "import/no-cycle": ["warn", { "maxDepth": "∞" }],
+    "import/no-unresolved": "off",
+    "import/export": "off",
+
+    // TS Rules
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/ban-ts-comment": "off",
-    "prettier/prettier": ["error", { "endOfLine": "auto" }]
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "variableLike", "format": ["camelCase", "PascalCase", "UPPER_CASE"] },
+      {
+        "selector": "memberLike",
+        "format": ["camelCase", "PascalCase", "snake_case", "UPPER_CASE"],
+        "filter": {
+          "regex": "/.*|@.*|[a-z|-|~|@].*",
+          "match": false
+        }
+      },
+      { "selector": "variable", "format": ["camelCase", "PascalCase", "UPPER_CASE"] },
+      { "selector": "parameter", "format": ["camelCase", "PascalCase"], "leadingUnderscore": "allow" },
+      { "selector": "typeLike", "format": ["PascalCase"] }
+    ],
+
+    // Common Rules
+    "no-self-assign": "off",
+    "no-constant-condition": "off",
+    "no-unused-vars": "warn",
+    "curly": ["error", "multi", "consistent"],
+    "no-console": ["error", { "allow": ["warn", "error", "debug", "info", "groupCollapsed", "groupEnd"] }]
   },
-  "ignorePatterns": ["**/*.js"]
+  "ignorePatterns": ["**/*.js", "**/*.test.ts"]
 }
