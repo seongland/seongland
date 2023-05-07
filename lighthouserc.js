@@ -1,22 +1,21 @@
-const { config } = require('dotenv')
+const {config} = require('dotenv')
 
 config()
 const root = 'http://localhost:8080'
 
 const configuration = {
-  ci: {
-    collect: {
-      url: [root],
-      numberOfRuns: 1,
-      startServerCommand: 'pnpm start',
-      upload: process.env.LHCI_TOKEN
-        ? {
-            target: 'lhci',
-            serverBaseUrl: 'https://lhci.fly.dev',
-          }
-        : {
-            target: 'temporary-public-storage',
-          },
+  ci : {
+    collect : {
+      url : [ root ],
+      numberOfRuns : 1,
+      startServerCommand : 'pnpm start',
+      upload : process.env.LHCI_TOKEN ? {
+        target : 'lhci',
+        serverBaseUrl : 'https://lhci.fly.dev',
+      }
+                                      : {
+                                          target : 'temporary-public-storage',
+                                        },
     },
     assert: {
       preset: 'lighthouse:recommended',
@@ -57,4 +56,4 @@ const configuration = {
   },
 }
 
-module.exports = configuration
+                      module.exports = configuration
