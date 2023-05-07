@@ -21,7 +21,6 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
     <>
       <Head>
         <meta name="theme-color" content={bgColor[theme]} />
-        <meta name="msapplication-TileColor" content={bgColor[theme]} />
       </Head>
       <Canvas>
         <ScrollControls damping={damping} pages={height}>
