@@ -32,8 +32,8 @@ function App(props: AppProps) {
           script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com;
           connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com;
           style-src 'self' 'unsafe-hashes' 'unsafe-inline';
-          img-src * data: blob: 'unsafe-inline'; 
-          frame-src * data: blob: ; 
+          img-src * data: blob: 'unsafe-inline';
+          frame-src * data: blob: ;
           media-src * data: blob: ;
           worker-src 'self' blob: ;"
         />
