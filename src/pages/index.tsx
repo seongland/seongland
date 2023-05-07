@@ -1,11 +1,12 @@
 import React from 'react'
-
+import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
 import { TypeTitle } from '@/components/atoms/TypeTitle'
 import { PageTitle } from '@/components/atoms/PageTitle'
 import { Cards } from '@/components/organisms/Cards'
+import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
 
@@ -21,23 +22,47 @@ const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Car
   webapps,
 }) => {
   return (
-    <ScrollPage height={HEIGHT}>
-      <CenterPage page={1} pages={PAGES}>
-        <TypeTitle />
-      </CenterPage>
-      <CenterPage page={2} pages={PAGES}>
-        <PageTitle title="Web Pages" />
-        <Cards cards={webapps} />
-      </CenterPage>
-      <CenterPage page={3} pages={PAGES}>
-        <PageTitle title="Publication" />
-        <Cards cards={publications} />
-      </CenterPage>
-      <CenterPage page={4} pages={PAGES}>
-        <PageTitle title="Applications" />
-        <Cards cards={applications} />
-      </CenterPage>
-    </ScrollPage>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+        <meta property="og:site_name" content={title} />
+
+        <meta property="og:image" content="/ogtag.png" />
+        <meta name="twitter:image" content="/ogtag.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content={twitter} />
+
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:description" content={description} />
+
+        <link rel="canonical" href={url} />
+        <meta property="og:url" content={url} />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:domain" content={domain} />
+      </Head>
+
+      <ScrollPage height={HEIGHT}>
+        <CenterPage page={1} pages={PAGES}>
+          <TypeTitle />
+        </CenterPage>
+        <CenterPage page={2} pages={PAGES}>
+          <PageTitle title="Web Pages" />
+          <Cards cards={webapps} />
+        </CenterPage>
+        <CenterPage page={3} pages={PAGES}>
+          <PageTitle title="Publication" />
+          <Cards cards={publications} />
+        </CenterPage>
+        <CenterPage page={4} pages={PAGES}>
+          <PageTitle title="Applications" />
+          <Cards cards={applications} />
+        </CenterPage>
+      </ScrollPage>
+    </>
   )
 }
 
