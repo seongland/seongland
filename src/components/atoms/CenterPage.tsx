@@ -33,3 +33,5 @@ export const CenterPage: React.FC<{ children: React.ReactNode; page: number; pag
     </div>
   )
 }
+
+export default CenterPage

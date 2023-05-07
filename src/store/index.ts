@@ -1,13 +1,17 @@
-import create from 'zustand'
+import { create } from 'zustand'
 
-type Click = (e: MouseEvent) => void
-
-type StoreState = {
-  click: Click
-  setClick: (click: Click) => void
+type PlayStore = {
+  playing: boolean
+  stop: () => void
+  setPlaying: (play: boolean, stop: () => void) => void
 }
 
-export const useStore = create<StoreState>(set => ({
-  click: () => ({}),
-  setClick: (click: Click) => set({ click }),
+export const usePlayStore = create<PlayStore>((set, get) => ({
+  playing: false,
+  stop: () => ({}),
+  setPlaying: (play: boolean, stop: () => void) => {
+    if (play) set({ stop })
+    else get().stop()
+    set({ playing: play })
+  },
 }))

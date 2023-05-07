@@ -1,12 +1,11 @@
-import * as React from 'react'
-import { DefaultSeo, SocialProfileJsonLd } from 'next-seo'
+import React from 'react'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
+import { ThemeProvider } from 'next-themes'
 
 import { GA4 } from '@/components/atoms/GA4'
 import { Analytics } from '@vercel/analytics/react'
-import siteConfig from '~/site-config'
 
 import 'windi.css'
 
@@ -20,43 +19,31 @@ Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
 function App(props: AppProps) {
-  const { Component, pageProps, router } = props
+  const { Component, pageProps } = props
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/seongland.svg" />
-        <meta property="fb:app_id" content="419108182355029" />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self';
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com;
+          connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com;
+          style-src 'self' 'unsafe-hashes' 'unsafe-inline';
+          img-src * data: blob: 'unsafe-inline'; 
+          frame-src * data: blob: ; 
+          media-src * data: blob: ;
+          worker-src 'self' blob: ;"
+        />
       </Head>
 
-      <DefaultSeo
-        title="Welcome!"
-        titleTemplate={`%s · ${siteConfig.title}`}
-        description={siteConfig.description}
-        canonical={siteConfig.url + (router.asPath || '')}
-        openGraph={{
-          title: siteConfig.title,
-          description: siteConfig.description,
-          type: 'website',
-          site_name: siteConfig.title,
-          images: [{ url: `${siteConfig.url}/ogtag.png`, alt: siteConfig.title }],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-          handle: siteConfig.twitterUsername,
-          site: siteConfig.twitterUsername,
-        }}
-      />
-
-      <SocialProfileJsonLd
-        type="person"
-        name={siteConfig.title}
-        url={siteConfig.url}
-        sameAs={Object.values(siteConfig.socials)}
-      />
-      <Component {...pageProps} />
-      <Analytics />
-      <GA4 id="G-CRRP8E78TC" />
+      <ThemeProvider attribute="class">
+        <Component {...pageProps} />
+      </ThemeProvider>
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-9T961HYDTR" /> : <></>}
     </>
   )
 }
