@@ -99,7 +99,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
-    "jsdom": "^21.1.2",
+    "jsdom": "^22.0.0",
     "prettier": "^2.8.8",
     "vitest": "^0.31.0",
     "windicss-analysis": "^0.3.5"
