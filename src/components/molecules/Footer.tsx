@@ -21,8 +21,8 @@ export const Footer: React.FC = () => {
       select="none">
       <div select="none" text="xs" order="1 <sm:3" className="items-center flex">
         <BGMBtn />
-        <span>Copyright {new Date().getFullYear()}&nbsp;</span>
-        <Link className="notion-link" href="/alan-jo">
+        <span>Copyright &nbsp;</span>
+        <Link id="author" font="900" href="https://threetrees.cloud/alan-jo" text="underline">
           {author}
         </Link>
       </div>
