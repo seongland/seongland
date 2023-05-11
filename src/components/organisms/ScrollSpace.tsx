@@ -8,7 +8,7 @@ import GradientWall from '@/components/molecules/Wall'
 import { useThemeContext } from '@/hooks/useApp'
 
 const WALL = {
-  dark: ['#23262a', '#424242', '#232424', '#23262a'],
+  dark: ['#23262a', '#333639', '#202226', '#23262a'],
   light: ['#fff', '#fff', '#fff', '#fff'],
 }
 const INTERVAL = 30

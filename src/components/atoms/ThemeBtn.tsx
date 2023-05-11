@@ -49,7 +49,7 @@ export const ThemeBtn: React.FC = () => {
     <>
       {hasMounted ? (
         <span
-          text="hover:light-blue-500 2xl"
+          text="hover:yellow-500 2xl"
           p="2"
           className="inline-flex"
           transition="colors"
