@@ -38,29 +38,29 @@ export async function dynamicImgCards() {
 const webapps: Card[] = [
   {
     title: '3 Trees',
-    subtitle: 'knowledge archive with debates',
+    subtitle: 'Knowledge Taxonomy storage',
     url: 'https://threetrees.cloud',
     theme: '#2f3437',
     color: 'white',
-    ratio: '50%',
+    ratio: '75%',
     image: threetrees,
   },
   {
     title: 'Legacyland',
-    subtitle: 'legacy  project of this app',
+    subtitle: 'Seongland version 1',
     url: 'https://legacy.seongland.com',
-    theme: '#2f3437',
+    theme: '#1e1e1e',
     color: 'white',
     ratio: '200%',
     image: legacy,
   },
   {
     title: 'Pointland',
-    subtitle: 'web 3d explorer',
+    subtitle: 'Web 3D Pointcloud walker',
     url: 'https://point.seongland.com',
     theme: 'black',
     color: 'white',
-    ratio: '580%',
+    ratio: '500%',
     image: pointland,
   },
 ]
@@ -107,7 +107,7 @@ const applications: Card[] = [
   },
   {
     title: 'To Spotify',
-    subtitle: 'web 3d explorer',
+    subtitle: 'Spotify migration tool',
     url: 'https://2spotify.vercel.app',
     theme: '#111111',
     color: 'white',
@@ -116,7 +116,7 @@ const applications: Card[] = [
   },
   {
     title: 'Screencast',
-    subtitle: 'status of my web services',
+    subtitle: 'Global screencast mode for Windows',
     url: 'https://github.com/seonglae/screencast',
     theme: '#2f3437',
     color: 'white',
