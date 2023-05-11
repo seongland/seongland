@@ -27,8 +27,8 @@ export const Stars: React.FC<{
   theta = 90,
   cycle = 10,
   diff = 0.1,
-  spread = 400,
-  stars = 500,
+  spread = 350,
+  stars = 200,
   segments = 5,
   radius = { star: 1, galaxy: 5 },
 }) => {
