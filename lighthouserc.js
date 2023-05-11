@@ -29,6 +29,7 @@ const configuration = {
         'link-name': 'warn',
         'offscreen-images': 'warn',
         'document-title': 'warn',
+        'non-composited-animations': 'warn',
         'image-alt': 'warn',
         'errors-in-console': 'warn',
         'maskable-icon': 'warn',
