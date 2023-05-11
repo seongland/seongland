@@ -15,6 +15,7 @@ const nextConfig = {
       ],
     },
   ],
+  productionBrowserSourceMaps: true,
   webpack: config => {
     // @ts-ignore
     config.plugins.push(new WindiCSSWebpackPlugin())
