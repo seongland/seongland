@@ -53,7 +53,7 @@ export const Stars: React.FC<{
   const [, set] = useSpring(() => ({
     mouse: [0, 0],
     onChange({ value }) {
-      camera.position.set(-value.mouse[0] * 10, -value.mouse[1] * 3, camera.position.z)
+      camera.position.set(-value.mouse[0] * 25, -value.mouse[1] * 3, camera.position.z)
     },
   }))
   useEffect(() => {
