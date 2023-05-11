@@ -4,8 +4,9 @@ import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
 import { TypeTitle } from '@/components/atoms/TypeTitle'
-import { PageTitle } from '@/components/atoms/PageTitle'
+import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
+import { Footer } from '@/components/molecules/Footer'
 import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
@@ -50,18 +51,21 @@ const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Car
           <TypeTitle />
         </CenterPage>
         <CenterPage page={2} pages={PAGES}>
-          <PageTitle title="Web Pages" />
+          <GridTitle title="Web Pages" />
           <Cards cards={webapps} />
         </CenterPage>
         <CenterPage page={3} pages={PAGES}>
-          <PageTitle title="Publication" />
+          <GridTitle title="Publication" />
           <Cards cards={publications} />
         </CenterPage>
         <CenterPage page={4} pages={PAGES}>
-          <PageTitle title="Applications" />
+          <GridTitle title="Applications" />
           <Cards cards={applications} />
         </CenterPage>
       </ScrollPage>
+      <div className="fixed bottom-0 <sm:left-20vw" w="full <sm:60vw">
+        <Footer />
+      </div>
     </>
   )
 }

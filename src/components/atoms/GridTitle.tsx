@@ -3,12 +3,13 @@ import Image from 'next/image'
 
 import seongland from '~/public/seongland.png'
 
-export const PageTitle: React.FC<{ title: string }> = ({ title }) => {
+export const GridTitle: React.FC<{ title: string }> = ({ title }) => {
   return (
     <div className="flex absolute top-15vh" font="900">
-      <div w="5vh" h="5vh" m="r-2" style={{ position: 'relative' }}>
+      <div m="r-2" style={{ position: 'relative' }}>
         <Image
-          fill
+          width="45"
+          height="45"
           alt={title}
           src={seongland.src}
           placeholder="blur"
@@ -25,3 +26,5 @@ export const PageTitle: React.FC<{ title: string }> = ({ title }) => {
     </div>
   )
 }
+
+export default GridTitle
