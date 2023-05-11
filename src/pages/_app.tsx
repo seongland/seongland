@@ -10,6 +10,7 @@ import { Analytics } from '@vercel/analytics/react'
 import 'windi.css'
 
 import '@/styles/global.css'
+import '@/styles/card.css'
 import '@/styles/nprogress.css'
 
 import type { AppProps } from 'next/app'
