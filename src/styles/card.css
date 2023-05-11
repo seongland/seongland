@@ -1,0 +1,19 @@
+span span {
+  background: radial-gradient(circle at 100%, #0a3c60, #1289a1 50%, #053957 75%, #0a3c60 75%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animatedTextGradient 3s linear infinite;
+}
+
+.dark span span {
+  background: radial-gradient(circle at 100%, #cddbf3, #b5c4f5 50%, #c7eafe 75%, #cddbf3 75%);
+  background-size: 200% auto;
+  background-clip: text;
+}
+
+@keyframes animatedTextGradient {
+  to {
+    background-position: 200% center;
+  }
+}
