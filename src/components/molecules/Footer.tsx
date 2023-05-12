@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
       <div select="none" text="xs" order="1 <sm:3" className="items-center flex">
         <BGMBtn />
         <span>Copyright &nbsp;</span>
-        <Link id="author" font="900" href="https://threetrees.cloud/alan-jo" text="underline">
+        <Link id="author" font="900" href="https://texonom.com/alan-jo" text="underline">
           {author}
         </Link>
       </div>

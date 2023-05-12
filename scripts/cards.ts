@@ -1,4 +1,4 @@
-import threetrees from '@/public/icon/3trees.png'
+import taxonom from '@/public/icon/taxonom.png'
 import legacy from '@/public/image/legacy.png'
 import pointland from '@/public/image/pointland.jpg'
 
@@ -37,13 +37,13 @@ export async function dynamicImgCards() {
 
 const webapps: Card[] = [
   {
-    title: '3 Trees',
+    title: 'Texonom',
     subtitle: 'Knowledge Taxonomy storage',
-    url: 'https://threetrees.cloud',
+    url: 'https://taxonom.com',
     theme: '#2f3437',
     color: 'white',
     ratio: '75%',
-    image: threetrees,
+    image: taxonom,
   },
   {
     title: 'Legacyland',
@@ -71,7 +71,7 @@ const publications: Card[] = [
     subtitle: 'Module Develop Experience',
     url: 'https://www.npmjs.com/~seonglae',
     theme: '#222',
-    color: 'fff',
+    color: '#fff',
     ratio: '100%',
     image: npm,
   },
