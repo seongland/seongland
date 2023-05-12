@@ -22,9 +22,7 @@ const CardGrid: React.FC<{
   tension = { up: 800, down: 100 },
   friction = 50,
   timeout = 1000,
-  offset = 1000,
   angle = 3,
-  speed = 0.2,
   magnify = { start: 1.5, select: 1.1 },
   small = false,
   spin = { divisor: 100, multiplier: 10 },
@@ -42,17 +40,12 @@ const CardGrid: React.FC<{
   const [props, set] = useSprings(cards.length, () => ({ ...end(), from: from() }))
 
   // Drag Checker
-  const bind = useDrag(({ args: [index], down, delta: [xDelta], direction: [xDir], velocity }) => {
-    const trigger = velocity[0] > speed
-    const dir = xDir > 0 ? 1 : -1
-    if (!down && trigger) gone.add(index)
-
+  const bind = useDrag(({ args: [index], down, delta: [xDelta] }) => {
     // Gone Function
     set(i => {
       if (index !== i) return
-      const isGone = gone.has(index)
-      const x = isGone ? (offset + window.innerWidth) * dir : down ? xDelta : 0
-      const rotation = xDelta / spin.divisor + (isGone ? dir * spin.multiplier * velocity[0] : 0)
+      const x = down ? xDelta : 0
+      const rotation = xDelta / spin.divisor
       const scale = down ? magnify.select : 1
       return {
         x,
