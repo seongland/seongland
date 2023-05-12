@@ -6,10 +6,9 @@ import seongland from '~/public/seongland.png'
 export const GridTitle: React.FC<{ title: string }> = ({ title }) => {
   return (
     <div className="flex absolute top-15vh" font="900">
-      <div m="r-2" style={{ position: 'relative' }}>
+      <div m="r-2" style={{ position: 'relative', width: '5vh', height: '5vh' }}>
         <Image
-          width="45"
-          height="45"
+          fill
           alt={title}
           src={seongland.src}
           placeholder="blur"
@@ -20,9 +19,7 @@ export const GridTitle: React.FC<{ title: string }> = ({ title }) => {
               20vw"
         />
       </div>
-      <span text="5vh center" w="full">
-        {title}
-      </span>
+      <span text="5vh center">{title}</span>
     </div>
   )
 }
