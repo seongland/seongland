@@ -1,4 +1,4 @@
-import taxonom from '@/public/icon/taxonom.png'
+import texonom from '@/public/icon/texonom.png'
 import legacy from '@/public/image/legacy.png'
 import pointland from '@/public/image/pointland.jpg'
 
@@ -39,11 +39,11 @@ const webapps: Card[] = [
   {
     title: 'Texonom',
     subtitle: 'Knowledge Taxonomy storage',
-    url: 'https://taxonom.com',
-    theme: '#2f3437',
+    url: 'https://texonom.com',
+    theme: '#202229',
     color: 'white',
     ratio: '75%',
-    image: taxonom,
+    image: texonom,
   },
   {
     title: 'Legacyland',
