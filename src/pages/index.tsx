@@ -14,7 +14,7 @@ import type { Card } from '~/scripts/cards'
 export const CenterPage = dynamic(async () => import('@/components/atoms/CenterPage'))
 export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'))
 
-const HEIGHT = 7
+const HEIGHT = 5
 const PAGES = 4
 
 const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Card[] }> = ({
