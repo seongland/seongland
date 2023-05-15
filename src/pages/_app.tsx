@@ -44,7 +44,7 @@ function App(props: AppProps) {
         <Component {...pageProps} />
       </ThemeProvider>
       {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-9T961HYDTR" /> : <></>}
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : <></>}
     </>
   )
 }
