@@ -28,13 +28,13 @@ jobs:
           npm i -g pnpm
           pnpm i
 
-      - name: Coverage
-        run: |
-          pnpm coverage
-
       - name: Build
         run: |
           pnpm build
+
+      - name: Coverage
+        run: |
+          pnpm coverage
 
       - name: Check Lighthouse CI
         run: |
