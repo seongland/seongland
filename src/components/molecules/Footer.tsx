@@ -25,6 +25,10 @@ export const Footer: React.FC = () => {
         <Link id="author" font="900" href="https://texonom.com/alan-jo" text="underline">
           {author}
         </Link>
+        &nbsp;
+        <Link id="author" font="900" href="https://texonom.com/resume" text="underline">
+          (Resume)
+        </Link>
       </div>
       <div order="2 <sm:1">
         <ThemeBtn />
