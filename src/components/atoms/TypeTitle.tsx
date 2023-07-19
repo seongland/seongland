@@ -8,7 +8,15 @@ export const TypeTitle: React.FC = () => {
       fadeOut={true}
       startDelay={100}
       typeSpeed={50}
-      strings={['Welcome', 'Projects are below', 'Activities are below', 'Seongland']}
+      strings={[
+        'Welcome',
+        "I'm Alan Jo",
+        'Korean name is 조성래',
+        "I'm styding how the world is built",
+        'and trying to change it for the better.',
+        'Currently focusing on AI',
+        'My timeline is below',
+      ]}
     />
   )
 }
