@@ -12,7 +12,7 @@ export const ThemeBtn: React.FC = () => {
   const [switch5] = useSound('/sound/switch5.mp3')
   const claps = useMemo<Array<typeof switch1>>(
     () => [switch1, switch2, switch3, switch4, switch5],
-    [switch1, switch2, switch3, switch4, switch5]
+    [switch1, switch2, switch3, switch4, switch5],
   )
 
   // Dark Mode
@@ -26,7 +26,7 @@ export const ThemeBtn: React.FC = () => {
       if (theme === 'light') setTheme('dark')
       else setTheme('light')
     },
-    [setTheme, claps, theme]
+    [setTheme, claps, theme],
   )
   React.useEffect(() => setHasMounted(true), [])
 
