@@ -5,5 +5,5 @@ export default async () =>
     'src/public/**/*',
     'public',
     () => ({}),
-    () => ({})
+    () => ({}),
   )
