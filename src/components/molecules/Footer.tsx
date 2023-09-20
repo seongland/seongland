@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
           {author}
         </Link>
         &nbsp;
-        <Link id="author" font="900" href="https://texonom.com/resume" text="underline">
+        <Link id="resume" font="900" href="https://texonom.com/resume" text="underline">
           (Resume)
         </Link>
       </div>
