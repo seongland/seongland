@@ -32,9 +32,9 @@ jobs:
         run: |
           pnpm build
 
-      - name: Coverage
+      - name: Code Test
         run: |
-          pnpm coverage
+          pnpm test -- --run
 
       - name: Check Lighthouse CI
         run: |
