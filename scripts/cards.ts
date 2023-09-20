@@ -10,13 +10,16 @@ import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
 import screencast from '@/public/image/screencast.gif'
 
-export interface Card {
+export interface Activity {
   title: string
   subtitle: string
   url: string
   theme: string
   color: string
   ratio: string
+  type?: 'education' | 'experience' | 'project' | 'skill' | 'incident'
+  start?: Date
+  end?: Date
   image: {
     src?: string
     height?: number
@@ -28,57 +31,42 @@ export interface Card {
 }
 
 export async function dynamicImgCards() {
-  return {
-    applications,
-    publications,
-    webapps,
-  }
+  return timeline
 }
 
-const webapps: Card[] = [
+const timeline: Activity[] = [
   {
     title: 'Texonom',
-    subtitle: 'Knowledge Taxonomy storage',
+    subtitle: 'Knowledge system based on Taxonomy architecture',
     url: 'https://texonom.com',
     theme: '#202229',
+    start: new Date(2021),
     color: 'white',
     ratio: '75%',
     image: texonom,
   },
   {
-    title: 'Legacyland',
-    subtitle: 'Seongland version 1',
-    url: 'https://legacy.seongland.com',
+    title: 'Angryface',
+    subtitle: 'AI summarization combining explicit and implicit summization using knowledge graph concept',
+    url: 'https://angryface.nuxt.space',
     theme: '#1e1e1e',
     color: 'white',
     ratio: '200%',
     image: legacy,
   },
   {
-    title: 'Pointland',
-    subtitle: 'Web 3D Pointcloud walker',
-    url: 'https://point.seongland.com',
-    theme: 'black',
+    title: 'SJYYJS',
+    subtitle: 'AI summarization combining explicit and implicit summization using knowledge graph concept',
+    url: 'https://angryface.nuxt.space',
+    theme: '#1e1e1e',
     color: 'white',
-    ratio: '500%',
-    image: pointland,
-  },
-]
-
-const publications: Card[] = [
-  {
-    title: 'NPM',
-    subtitle: 'Module Develop Experience',
-    url: 'https://www.npmjs.com/~seonglae',
-    theme: '#222',
-    color: '#fff',
-    ratio: '100%',
-    image: npm,
+    ratio: '200%',
+    image: legacy,
   },
   {
-    title: 'VSCode',
-    subtitle: 'Extension Develop Experience',
-    url: 'https://marketplace.visualstudio.com/search?term=seonglae&target=VSCode',
+    title: 'Huggingface',
+    subtitle: 'AI ',
+    url: 'https://huggingface.co/seonglae',
     theme: '#232730',
     color: 'white',
     ratio: '100%',
@@ -93,9 +81,15 @@ const publications: Card[] = [
     ratio: '100%',
     image: github,
   },
-]
-
-const applications: Card[] = [
+  {
+    title: 'NPM',
+    subtitle: 'Module Develop Experience',
+    url: 'https://www.npmjs.com/~seonglae',
+    theme: '#222',
+    color: '#fff',
+    ratio: '100%',
+    image: npm,
+  },
   {
     title: 'Intuiter',
     subtitle: 'productivity app for Windows',
@@ -122,5 +116,42 @@ const applications: Card[] = [
     color: 'white',
     ratio: '400%',
     image: screencast,
+  },
+  {
+    title: 'Pointland',
+    subtitle: 'Web 3D Pointcloud walker',
+    url: 'https://point.seongland.com',
+    theme: 'black',
+    color: 'white',
+    ratio: '500%',
+    image: pointland,
+  },
+  {
+    title: 'To smooth',
+    subtitle: "Chaikin's smooth Algorithm multi dimension library",
+    url: 'https://point.seongland.com',
+    theme: 'black',
+    color: 'white',
+    ratio: '500%',
+    image: pointland,
+  },
+  {
+    title: 'Github Setter',
+    subtitle: "Chaikin's smooth Algorithm multi dimension library",
+    url: 'https://point.seongland.com',
+    theme: 'black',
+    color: 'white',
+    ratio: '500%',
+    image: pointland,
+  },
+  {
+    title: 'Singularity',
+    subtitle: "Read a book 'The Singularity Is Near' written by Ray Kurzweil",
+    url: 'https://point.seongland.com',
+    theme: 'black',
+    type: 'incident',
+    color: 'white',
+    ratio: '500%',
+    image: pointland,
   },
 ]
