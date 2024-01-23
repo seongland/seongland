@@ -158,14 +158,14 @@ devDependencies:
     specifier: ^8.0.3
     version: 8.0.3
   jsdom:
-    specifier: ^23.2.0
-    version: 23.2.0
+    specifier: ^24.0.0
+    version: 24.0.0
   prettier:
     specifier: ^3.1.1
     version: 3.1.1
   vitest:
     specifier: ^0.34.6
-    version: 0.34.6(jsdom@23.2.0)
+    version: 0.34.6(jsdom@24.0.0)
   windicss-analysis:
     specifier: ^0.3.5
     version: 0.3.5
@@ -186,14 +186,6 @@ packages:
 
   /@antfu/utils@0.7.2:
     resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==}
-
-  /@asamuzakjp/dom-selector@2.0.1:
-    resolution: {integrity: sha512-QJAJffmCiymkv6YyQ7voyQb5caCth6jzZsQncYCpHXrJ7RqdYG5y43+is8mnFcYubdOkr7cn1+na9BdFMxqw7w==}
-    dependencies:
-      bidi-js: 1.0.3
-      css-tree: 2.3.1
-      is-potential-custom-element-name: 1.0.1
-    dev: true
 
   /@babel/code-frame@7.22.13:
     resolution: {integrity: sha512-XktuhWlJ5g+3TJXc5upd9Ks1HutSArik6jf2eAjYFyIOf4ej3RN+184cZbzDvbPnuTJIUhPKKJE3cIsYTiAT3w==}
@@ -1876,7 +1868,7 @@ packages:
       std-env: 3.3.3
       test-exclude: 6.0.0
       v8-to-istanbul: 9.1.0
-      vitest: 0.34.6(jsdom@23.2.0)
+      vitest: 0.34.6(jsdom@24.0.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2336,12 +2328,6 @@ packages:
       require-from-string: 2.0.2
     dev: false
 
-  /bidi-js@1.0.3:
-    resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
-    dependencies:
-      require-from-string: 2.0.2
-    dev: true
-
   /big-integer@1.6.51:
     resolution: {integrity: sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==}
     engines: {node: '>=0.6'}
@@ -2658,14 +2644,6 @@ packages:
       domhandler: 4.2.0
       domutils: 2.7.0
       nth-check: 2.0.1
-    dev: true
-
-  /css-tree@2.3.1:
-    resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
-    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
-    dependencies:
-      mdn-data: 2.0.30
-      source-map-js: 1.0.2
     dev: true
 
   /css-what@5.1.0:
@@ -4515,8 +4493,8 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@23.2.0:
-    resolution: {integrity: sha512-L88oL7D/8ufIES+Zjz7v0aes+oBMh2Xnh3ygWvL0OaICOomKEPKuPnIfBJekiXr+BHbbMjrWn/xqrDQuxFTeyA==}
+  /jsdom@24.0.0:
+    resolution: {integrity: sha512-UDS2NayCvmXSXVP6mpTj+73JnNQadZlr9N68189xib2tx5Mls7swlTNao26IoHv46BZJFvXygyRtyXd1feAk1A==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -4524,7 +4502,6 @@ packages:
       canvas:
         optional: true
     dependencies:
-      '@asamuzakjp/dom-selector': 2.0.1
       cssstyle: 4.0.1
       data-urls: 5.0.0
       decimal.js: 10.4.3
@@ -4533,6 +4510,7 @@ packages:
       http-proxy-agent: 7.0.0
       https-proxy-agent: 7.0.2
       is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.7
       parse5: 7.1.2
       rrweb-cssom: 0.6.0
       saxes: 6.0.0
@@ -4767,10 +4745,6 @@ packages:
       resolve-dir: 0.1.1
     dev: false
 
-  /mdn-data@2.0.30:
-    resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
-    dev: true
-
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
 
@@ -4953,6 +4927,10 @@ packages:
     resolution: {integrity: sha512-it1vE95zF6dTT9lBsYbxvqh0Soy4SPowchj0UBGj/V6cTPnXXtQOPUbhZ6CmGzAD/rW22LQK6E96pcdJXk4A4w==}
     dependencies:
       boolbase: 1.0.0
+    dev: true
+
+  /nwsapi@2.2.7:
+    resolution: {integrity: sha512-ub5E4+FBPKwAZx0UwIQOjYWGHTEq5sPqHQNRN8Z9e4A7u3Tj1weLJsL59yH9vmvqEtBHaOmT6cYQKIZOxp35FQ==}
     dev: true
 
   /object-assign@4.1.1:
@@ -5279,14 +5257,9 @@ packages:
     resolution: {integrity: sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==}
     dev: true
 
-  /punycode@2.3.0:
-    resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
-    engines: {node: '>=6'}
-
   /punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
-    dev: true
 
   /querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
@@ -5431,6 +5404,7 @@ packages:
   /require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
+    dev: false
 
   /requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
@@ -6047,7 +6021,7 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       psl: 1.8.0
-      punycode: 2.3.0
+      punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
     dev: true
@@ -6241,7 +6215,7 @@ packages:
   /uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
-      punycode: 2.3.0
+      punycode: 2.3.1
 
   /url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
@@ -6358,7 +6332,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@0.34.6(jsdom@23.2.0):
+  /vitest@0.34.6(jsdom@24.0.0):
     resolution: {integrity: sha512-+5CALsOvbNKnS+ZHMXtuUC7nL8/7F1F2DnHGjSsszX8zCjWSSviphCb/NuS9Nzf4Q03KyyDRBAXhF/8lffME4Q==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -6402,7 +6376,7 @@ packages:
       cac: 6.7.14
       chai: 4.3.10
       debug: 4.3.4
-      jsdom: 23.2.0
+      jsdom: 24.0.0
       local-pkg: 0.4.3
       magic-string: 0.30.1
       pathe: 1.1.1
