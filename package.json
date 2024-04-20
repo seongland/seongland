@@ -21,7 +21,7 @@
     "format": "prettier --cache \"**/*.{js,json,md,css,js,ts,tsx}\" --write --ignore-path .gitignore"
   },
   "color": {
-    "light": "#e2e2e2",
+    "light": "#fefefe",
     "dark": "#111418"
   },
   "author": {
