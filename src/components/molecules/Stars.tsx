@@ -9,7 +9,7 @@ import type { Interpolation } from '@react-spring/three'
 
 const COLOR = {
   light: 0x242424,
-  dark: 0xffffff,
+  dark: 0xfefefe,
 }
 
 /** This component rotates a bunch of stars */
