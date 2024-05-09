@@ -33,7 +33,7 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
       <animated.div
         w="full"
         h="full"
-        text="center"
+        text="left"
         className="flex rounded-xl max-h-40vh max-h-40vh"
         overflow="hidden"
         style={{
@@ -68,11 +68,11 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             }}
           />
 
-          <div role="button" tabIndex={0} style={{ color: card.color }} m="4" z="1">
-            <label text={small ? '1.5rem' : '2rem'} cursor="pointer" font="600">
+          <div role="button" tabIndex={0} style={{ color: card.color, textShadow: `0 0 2px ${card.color}` }} m="4" z="1">
+            <label text={small ? '1.5rem' : '2rem'} cursor="pointer" p="3" font="600">
               {card.title}
             </label>
-            <div text={small ? '1rem' : '1.1rem'} font="400">
+            <div text={small ? '1rem' : '1.3rem'} font="500" p="3" className="leading-7">
               {card.subtitle}
             </div>
           </div>
