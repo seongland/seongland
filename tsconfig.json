@@ -17,14 +17,14 @@
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./*"],
-      "lib/*": ["./lib/*"]
+      "lib/*": ["./lib/*"],
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es5",
     "typeRoots": ["./node_modules/@types"],
-    "incremental": true
+    "incremental": true,
   },
   "exclude": ["node_modules"],
   "include": [
@@ -34,6 +34,6 @@
     "lib/**/*.ts",
     "test/**/*.ts",
     "test/**/*.tsx",
-    "site-config.js"
-  ]
+    "site-config.js",
+  ],
 }
