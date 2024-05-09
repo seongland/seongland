@@ -52,12 +52,12 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
           <Cards cards={ais} />
         </CenterPage>
         <CenterPage page={3} pages={PAGES}>
-          <GridTitle title="AI Services" />
-          <Cards cards={webapps} />
-        </CenterPage>
-        <CenterPage page={4} pages={PAGES}>
           <GridTitle title="Other Developments" />
           <Cards cards={applications} />
+        </CenterPage>
+        <CenterPage page={4} pages={PAGES}>
+          <GridTitle title="AI Services" />
+          <Cards cards={webapps} />
         </CenterPage>
       </ScrollPage>
       <div className="fixed top-0 <sm:left-20vw" w="full <sm:60vw">
