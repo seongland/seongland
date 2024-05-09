@@ -7,6 +7,7 @@ import { TypeTitle } from '@/components/atoms/TypeTitle'
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
 import { Footer } from '@/components/molecules/Footer'
+import { Header } from '@/components/molecules/Header'
 import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
@@ -17,11 +18,7 @@ export const ScrollPage = dynamic(async () => import('@/components/templates/Scr
 const HEIGHT = 5
 const PAGES = 4
 
-const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Card[] }> = ({
-  applications,
-  publications,
-  webapps,
-}) => {
+const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = ({ applications, ais, webapps }) => {
   return (
     <>
       <Head>
@@ -51,18 +48,21 @@ const Index: React.FC<{ applications: Card[]; publications: Card[]; webapps: Car
           <TypeTitle />
         </CenterPage>
         <CenterPage page={2} pages={PAGES}>
-          <GridTitle title="Web Pages" />
-          <Cards cards={webapps} />
+          <GridTitle title="AI Research" />
+          <Cards cards={ais} />
         </CenterPage>
         <CenterPage page={3} pages={PAGES}>
-          <GridTitle title="Publication" />
-          <Cards cards={publications} />
+          <GridTitle title="AI Services" />
+          <Cards cards={webapps} />
         </CenterPage>
         <CenterPage page={4} pages={PAGES}>
-          <GridTitle title="Applications" />
+          <GridTitle title="Other Developments" />
           <Cards cards={applications} />
         </CenterPage>
       </ScrollPage>
+      <div className="fixed top-0 <sm:left-20vw" w="full <sm:60vw">
+        <Header />
+      </div>
       <div className="fixed bottom-0 <sm:left-20vw" w="full <sm:60vw">
         <Footer />
       </div>

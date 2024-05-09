@@ -2,13 +2,16 @@ import texonom from '@/public/icon/texonom.png'
 import legacy from '@/public/image/legacy.png'
 import pointland from '@/public/image/pointland.jpg'
 
-import npm from '@/public/icon/npm.png'
-import vscode from '@/public/icon/vscode.png'
-import github from '@/public/icon/github.png'
+import rtsum from '@/public/image/rtsum.png'
+import resrer from '@/public/image/resrer.png'
 
 import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
 import screencast from '@/public/image/screencast.gif'
+import yokhal from '@/public/image/yokhal.webp'
+import angryface from '@/public/image/angryface.png'
+import mbtigpt from '@/public/image/mbtigpt.png'
+import smooth from '@/public/image/smooth.png'
 
 export interface Card {
   title: string
@@ -30,15 +33,45 @@ export interface Card {
 export async function dynamicImgCards() {
   return {
     applications,
-    publications,
+    ais,
     webapps,
   }
 }
 
+const ais: Card[] = [
+  {
+    title: 'ReSRer',
+    subtitle: 'Retriever-Summarizer-Reader pipeline for LLM ODQA(Open-Domain Question Answering)',
+    url: 'https://github.com/seonglae/ReSRer',
+    theme: '#0e1118',
+    color: 'white',
+    ratio: '125%',
+    image: resrer,
+  },
+  {
+    title: 'RTSum',
+    subtitle: 'Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization',
+    url: 'https://arxiv.org/html/2310.13895v2',
+    theme: '#fff',
+    color: '#000',
+    ratio: '110%',
+    image: rtsum,
+  },
+  {
+    title: 'LLaMa2GPTQ',
+    subtitle: 'Angryface chatbot which has knowledge base on Texonom AI knowledge system',
+    url: 'https://llama2gptq.nuxt.space',
+    theme: '#20232c',
+    color: '#000',
+    ratio: '100%',
+    image: angryface,
+  },
+]
+
 const webapps: Card[] = [
   {
     title: 'Texonom',
-    subtitle: 'Knowledge Taxonomy storage',
+    subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',
     url: 'https://texonom.com',
     theme: '#202229',
     color: 'white',
@@ -46,59 +79,29 @@ const webapps: Card[] = [
     image: texonom,
   },
   {
-    title: 'Legacyland',
-    subtitle: 'Seongland version 1',
-    url: 'https://legacy.seongland.com',
+    title: '',
+    subtitle: '',
+    url: 'https://mbti.texonom.com',
     theme: '#1e1e1e',
     color: 'white',
-    ratio: '200%',
-    image: legacy,
+    ratio: '800%',
+    image: mbtigpt,
   },
   {
-    title: 'Pointland',
-    subtitle: 'Web 3D Pointcloud walker',
-    url: 'https://point.seongland.com',
-    theme: 'black',
-    color: 'white',
-    ratio: '500%',
-    image: pointland,
-  },
-]
-
-const publications: Card[] = [
-  {
-    title: 'NPM',
-    subtitle: 'Module Develop Experience',
-    url: 'https://www.npmjs.com/~seonglae',
-    theme: '#222',
-    color: '#fff',
-    ratio: '100%',
-    image: npm,
-  },
-  {
-    title: 'VSCode',
-    subtitle: 'Extension Develop Experience',
-    url: 'https://marketplace.visualstudio.com/search?term=seonglae&target=VSCode',
-    theme: '#232730',
-    color: 'white',
-    ratio: '100%',
-    image: vscode,
-  },
-  {
-    title: 'Gihub',
-    subtitle: 'Template Repositories',
-    url: 'https://github.com/seonglae?tab=repositories&q=&type=template',
-    theme: '#777',
-    color: '#fff',
-    ratio: '100%',
-    image: github,
+    title: 'Yokhal',
+    subtitle: 'Korean Chatbot trained for aggresive grandmother',
+    url: 'https://huggingface.co/seonglae/yokhal-md',
+    theme: '#fff7d3',
+    color: '#000',
+    ratio: '85%',
+    image: yokhal,
   },
 ]
 
 const applications: Card[] = [
   {
     title: 'Intuiter',
-    subtitle: 'productivity app for Windows',
+    subtitle: 'Globally running vim-level productivity app for Windows',
     url: 'https://intuiter.vercel.app',
     theme: '#ddd',
     color: 'black',
@@ -106,8 +109,35 @@ const applications: Card[] = [
     image: intuiter,
   },
   {
+    title: 'Pointland',
+    subtitle: 'Pointcloud 3D walker with smooth interaction',
+    url: 'https://point.seongland.com',
+    theme: 'black',
+    color: 'white',
+    ratio: '500%',
+    image: pointland,
+  },
+  {
+    title: 'Screencast',
+    subtitle: 'Globally working like VSCode screencast for Windows',
+    url: 'https://github.com/seonglae/screencast',
+    theme: '#2f3437',
+    color: 'white',
+    ratio: '400%',
+    image: screencast,
+  },
+  {
+    title: 'Legacyland',
+    subtitle: 'Seongland version Zero',
+    url: 'https://legacy.seongland.com',
+    theme: '#1e1e1e',
+    color: 'white',
+    ratio: '200%',
+    image: legacy,
+  },
+  {
     title: 'To Spotify',
-    subtitle: 'Spotify migration tool',
+    subtitle: 'Spotify migration tool from other streaming platforms',
     url: 'https://2spotify.vercel.app',
     theme: '#111111',
     color: 'white',
@@ -115,12 +145,12 @@ const applications: Card[] = [
     image: spotify,
   },
   {
-    title: 'Screencast',
-    subtitle: 'Global screencast mode for Windows',
-    url: 'https://github.com/seonglae/screencast',
-    theme: '#2f3437',
-    color: 'white',
-    ratio: '400%',
-    image: screencast,
+    title: 'To Smooth',
+    subtitle: 'Spotify migration tool from other streaming platforms',
+    url: 'https://github.com/seonglae/to-smooth',
+    theme: '#c3d7de',
+    color: 'black',
+    ratio: '150%',
+    image: smooth,
   },
 ]
