@@ -13,9 +13,9 @@ export const TypeTitle: React.FC = () => {
         "I'm Alan Jo",
         'Korean name is 조성래',
         "I'm styding how the world is built",
-        'and trying to change it for the better.',
-        'Currently focusing on AI',
-        'My timeline is below',
+        'and trying to change it for the better',
+        'focusing on AI.',
+        'My results are below',
       ]}
     />
   )
