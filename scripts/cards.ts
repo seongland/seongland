@@ -59,7 +59,7 @@ const ais: Card[] = [
   },
   {
     title: 'LLaMa2GPTQ',
-    subtitle: 'Angryface chatbot which has knowledge base on Texonom AI knowledge system',
+    subtitle: 'Angryface chatbot with a knowledge base on the Texonom AI knowledge system',
     url: 'https://llama2gptq.nuxt.space',
     theme: '#20232c',
     color: '#000',
@@ -89,7 +89,7 @@ const webapps: Card[] = [
   },
   {
     title: 'Yokhal',
-    subtitle: 'Korean Chatbot trained for aggresive grandmother',
+    subtitle: 'Korean Chatbot trained for aggressive grandmother',
     url: 'https://huggingface.co/seonglae/yokhal-md',
     theme: '#fff7d3',
     color: '#000',
@@ -101,7 +101,7 @@ const webapps: Card[] = [
 const applications: Card[] = [
   {
     title: 'Intuiter',
-    subtitle: 'Globally running vim-level productivity app for Windows',
+    subtitle: 'A globally available vim-level productivity app for Windows',
     url: 'https://intuiter.vercel.app',
     theme: '#ddd',
     color: 'black',
@@ -119,7 +119,7 @@ const applications: Card[] = [
   },
   {
     title: 'Screencast',
-    subtitle: 'Globally working like VSCode screencast for Windows',
+    subtitle: "VSCode's screencast like appication for Windows",
     url: 'https://github.com/seonglae/screencast',
     theme: '#2f3437',
     color: 'white',
@@ -137,7 +137,7 @@ const applications: Card[] = [
   },
   {
     title: 'To Spotify',
-    subtitle: 'Spotify migration tool from other streaming platforms',
+    subtitle: 'Tool for migrating to Spotify from other streaming platforms',
     url: 'https://2spotify.vercel.app',
     theme: '#111111',
     color: 'white',
@@ -146,7 +146,7 @@ const applications: Card[] = [
   },
   {
     title: 'To Smooth',
-    subtitle: 'Spotify migration tool from other streaming platforms',
+    subtitle: "Chaikin's smoothing algorithm extended to a multidimensional library",
     url: 'https://github.com/seonglae/to-smooth',
     theme: '#c3d7de',
     color: 'black',
