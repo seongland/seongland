@@ -24,6 +24,7 @@ const configuration = {
         bypass: 'warn',
         canonical: 'warn',
         deprecations: 'warn',
+        'aria-command-name': 'warn',
         'bf-cache': 'warn',
         'csp-xss': 'warn',
         'link-name': 'warn',
