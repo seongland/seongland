@@ -80,7 +80,7 @@
     "@babel/runtime": "^7.25.0",
     "@next/bundle-analyzer": "^13.5.6",
     "@next/eslint-plugin-next": "^13.5.6",
-    "@testing-library/react": "^14.3.1",
+    "@testing-library/react": "^16.0.0",
     "@types/node": "^16.18.104",
     "@types/nprogress": "^0.2.3",
     "@types/react": "18.3.3",
