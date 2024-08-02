@@ -53,7 +53,6 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             fill
             alt={card.title}
             src={card.image.src as string}
-            loading="lazy"
             placeholder="blur"
             blurDataURL={card.image.blurDataURL || card.image.src}
             sizes="(max-width: 768px) 100vw,
@@ -63,7 +62,7 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
               objectFit: 'cover',
               backgroundPosition: 'center center',
               scale: `${card.ratio}`,
-              overflow: 'unset',
+              overflow: 'visible',
               backgroundRepeat: 'no-repeat',
             }}
           />
