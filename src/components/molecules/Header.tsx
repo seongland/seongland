@@ -18,8 +18,8 @@ export const Header: React.FC = () => {
       select="none">
       <div order="1"></div>
       <div order="2"></div>
-      <div select="none" text="md" order="3" className="items-center flex">
-        <Link id="author" font="900 normal" href="https://texonom.com/portfolio" text="underline">
+      <div select="none" text="sm" order="3" className="items-center flex">
+        <Link id="author" font="500" href="https://texonom.com/portfolio" text="underline">
           Portfolio
         </Link>
       </div>
