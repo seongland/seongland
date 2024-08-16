@@ -10,7 +10,7 @@ export const TypeTitle: React.FC = () => {
       typeSpeed={50}
       strings={[
         'Welcome',
-        "I'm Alan Jo",
+        "I'm Seongae Cho",
         'Korean name is 조성래',
         "I'm styding how the world is built",
         'and trying to change it for the better',
