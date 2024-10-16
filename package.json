@@ -1,7 +1,7 @@
 {
   "name": "seongland",
   "displayName": "Seongland",
-  "description": "Alan Jo portfolio page with diverse service links",
+  "description": "Seonglae Cho portfolio page with diverse service links",
   "version": "2.4.1",
   "license": "MIT",
   "repository": "https://github.com/seongland/seongland.git",
@@ -25,7 +25,7 @@
     "dark": "#111418"
   },
   "author": {
-    "name": "Alan Jo",
+    "name": "Seonglae Cho",
     "email": "sungle3737@gmail.com",
     "url": "https://seongland.com",
     "twitter": {
