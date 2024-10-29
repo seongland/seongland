@@ -45,7 +45,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=16.20.2"
+    "node": ">=22.11.0"
   },
   "dependencies": {
     "@react-spring/three": "^9.7.5",
