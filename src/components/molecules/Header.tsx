@@ -19,7 +19,10 @@ export const Header: React.FC = () => {
       <div order="1"></div>
       <div order="2"></div>
       <div select="none" text="sm" order="3" className="items-center flex">
-        <Link id="author" font="500" href="https://texonom.com/portfolio" text="underline">
+        <a id="author" font="500" href="/cv.pdf" text="underline">
+          CV
+        </a>
+        <Link m="l-4" id="author" font="500" href="https://texonom.com/portfolio" text="underline">
           Portfolio
         </Link>
       </div>
