@@ -11,9 +11,7 @@ export const TypeTitle: React.FC = () => {
       strings={[
         'Welcome',
         "I'm Seonglae Cho",
-        'Korean name is 조성래',
-        'Creating a model to understand reality',
-        'and trying to improve it,',
+        'working to improve the world,',
         'with a focus on AI.',
         'See my CV and Portfolio ↗',
         'Results below↓',
