@@ -10,6 +10,8 @@ import spotify from '@/public/icon/2spotify.png'
 import screencast from '@/public/image/screencast.gif'
 import angryface from '@/public/image/angryface.png'
 import mbtigpt from '@/public/image/mbtigpt.png'
+import emgsd from '@/public/image/emgsd.png'
+import smooth from '@/public/image/smooth.png'
 
 export interface Card {
   title: string
@@ -38,31 +40,31 @@ export async function dynamicImgCards() {
 
 const ais: Card[] = [
   {
+    title: 'Hermes',
+    subtitle: 'Steering Vector from Sparse AutoEncoder',
+    url: 'https://github.com/seonglae/emgsd-hermes',
+    theme: '#21242b',
+    color: 'white',
+    ratio: '300%',
+    image: emgsd,
+  },
+  {
     title: 'ReSRer',
-    subtitle: 'Retriever-Summarizer-Reader pipeline for LLM ODQA(Open-Domain Question Answering)',
+    subtitle: 'LLM QA pipeline',
     url: 'https://github.com/seonglae/ReSRer',
     theme: '#0e1118',
     color: 'white',
-    ratio: '125%',
+    ratio: '200%',
     image: resrer,
   },
   {
     title: 'RTSum',
-    subtitle: 'Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization',
-    url: 'https://arxiv.org/html/2310.13895v2',
+    subtitle: 'NAACL 2024 Demo',
+    url: 'https://aclanthology.org/2024.naacl-demo.5/',
     theme: '#fff',
     color: '#000',
-    ratio: '110%',
+    ratio: '150%',
     image: rtsum,
-  },
-  {
-    title: 'LLaMa2GPTQ',
-    subtitle: 'Angryface chatbot with a knowledge base on the Texonom AI knowledge system',
-    url: 'https://llama2gptq.nuxt.space',
-    theme: '#20232c',
-    color: '#000',
-    ratio: '100%',
-    image: angryface,
   },
 ]
 
@@ -80,10 +82,19 @@ const webapps: Card[] = [
     title: '',
     subtitle: '',
     url: 'https://mbti.texonom.com',
-    theme: '#1e1e1e',
+    theme: '#18171c',
     color: 'white',
-    ratio: '800%',
+    ratio: '400%',
     image: mbtigpt,
+  },
+  {
+    title: 'LLaMa2GPTQ',
+    subtitle: 'Angryface chatbot with a knowledge base on the Texonom AI knowledge system',
+    url: 'https://llama2gptq.nuxt.space',
+    theme: '#20232c',
+    color: '#000',
+    ratio: '100%',
+    image: angryface,
   },
 ]
 
@@ -132,5 +143,14 @@ const applications: Card[] = [
     color: 'white',
     ratio: '100%',
     image: spotify,
+  },
+  {
+    title: 'To Smooth',
+    subtitle: "Chaikin's smoothing algorithm extended to a multidimensional library",
+    url: 'https://github.com/seonglae/to-smooth',
+    theme: '#c3d7de',
+    color: 'black',
+    ratio: '150%',
+    image: smooth,
   },
 ]
