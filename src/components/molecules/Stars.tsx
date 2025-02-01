@@ -84,7 +84,7 @@ export const Stars: React.FC<{
   return (
     <a.group ref={group} position={position}>
       {coords.map(([p1, p2, p3], i) => (
-        <mesh key={i} geometry={geo} material={mat} position={[p1, p2, p3]} />
+        <a.mesh key={i} geometry={geo} material={mat} position={[p1, p2, p3]} />
       ))}
     </a.group>
   )

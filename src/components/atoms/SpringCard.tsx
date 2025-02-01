@@ -13,7 +13,6 @@ export type SpringProp = {
   y: SpringValue<number>
 }
 
-
 const AnimatedDiv = animated('div')
 const trans = (r: number, s: number) =>
   `perspective(1500px) rotateX(10deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
