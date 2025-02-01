@@ -13,6 +13,8 @@ export type SpringProp = {
   y: SpringValue<number>
 }
 
+
+const AnimatedDiv = animated('div')
 const trans = (r: number, s: number) =>
   `perspective(1500px) rotateX(10deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`
 
@@ -23,14 +25,14 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
   small = false,
 }) => {
   return (
-    <animated.div
+    <AnimatedDiv
       {...props}
       className={`transition min-h${small ? 5 : 10}rem <sm:min-h${small ? 2.5 : 5}rem`}
       style={{
         touchAction: 'pan-x',
         transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`),
       }}>
-      <animated.div
+      <AnimatedDiv
         w="full"
         h="full"
         text="left"
@@ -76,8 +78,8 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             </div>
           </div>
         </a>
-      </animated.div>
-    </animated.div>
+      </AnimatedDiv>
+    </AnimatedDiv>
   )
 }
 
