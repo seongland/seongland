@@ -68,7 +68,7 @@
     "tslib": "^2.8.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
-    "use-sound": "^4.0.3",
+    "use-sound": "^5.0.0",
     "webpack": "^5.98.0",
     "windicss": "^3.5.6",
     "windicss-webpack-plugin": "^1.8.0",
