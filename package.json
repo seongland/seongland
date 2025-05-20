@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@react-spring/three": "^9.7.5",
-    "@react-spring/web": "^9.7.5",
+    "@react-spring/web": "^10.0.0",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^8.18.0",
     "@use-gesture/react": "^10.3.1",
