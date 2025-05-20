@@ -48,7 +48,7 @@
     "node": ">=16.20.2"
   },
   "dependencies": {
-    "@react-spring/three": "^9.7.5",
+    "@react-spring/three": "^10.0.0",
     "@react-spring/web": "^9.7.5",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^8.18.0",
