@@ -104,5 +104,10 @@
     "prettier": "^3.5.3",
     "vitest": "^3.1.4",
     "windicss-analysis": "^0.3.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "three-stdlib": "^2.36.0"
+    }
   }
 }
