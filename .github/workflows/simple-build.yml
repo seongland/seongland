@@ -27,6 +27,8 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
+          pnpm format
+          pnpm lint
 
       - name: Build
         run: |
