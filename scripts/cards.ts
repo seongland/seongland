@@ -4,6 +4,9 @@ import pointland from '@/public/image/pointland.jpg'
 
 import rtsum from '@/public/image/rtsum.png'
 import resrer from '@/public/image/resrer.png'
+import saedataset from '@/public/image/saedataset.png'
+import faithful from '@/public/image/faithful.png'
+import libvuln from '@/public/image/libvuln.png'
 
 import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
@@ -40,8 +43,44 @@ export async function dynamicImgCards() {
 
 const ais: Card[] = [
   {
+    title: 'FaithfulSAE',
+    subtitle: 'To be published',
+    url: 'https://github.com/seonglae/FaithfulSAE',
+    theme: '#fff',
+    color: 'black',
+    ratio: '200%',
+    image: faithful,
+  },
+  {
+    title: 'LibVulnWatch',
+    subtitle: 'ICML 2025 TAIG',
+    url: 'https://openreview.net/forum?id=MHhrr8QHgR',
+    theme: '#fff',
+    color: '#000',
+    ratio: '150%',
+    image: libvuln,
+  },
+  {
+    title: 'SAE Dataset',
+    subtitle: 'LessWrong & AI Alignment Forum',
+    url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
+    theme: '#fff',
+    color: 'black',
+    ratio: '150%',
+    image: saedataset,
+  },
+  {
+    title: 'RTSum',
+    subtitle: 'NAACL 2024 Demo',
+    url: 'https://aclanthology.org/2024.naacl-demo.5/',
+    theme: '#fff',
+    color: '#000',
+    ratio: '150%',
+    image: rtsum,
+  },
+  {
     title: 'Hermes',
-    subtitle: 'Steering Vector from Sparse AutoEncoder',
+    subtitle: 'Steering Vector from SAE',
     url: 'https://github.com/seonglae/emgsd-hermes',
     theme: '#21242b',
     color: 'white',
@@ -56,15 +95,6 @@ const ais: Card[] = [
     color: 'white',
     ratio: '200%',
     image: resrer,
-  },
-  {
-    title: 'RTSum',
-    subtitle: 'NAACL 2024 Demo',
-    url: 'https://aclanthology.org/2024.naacl-demo.5/',
-    theme: '#fff',
-    color: '#000',
-    ratio: '150%',
-    image: rtsum,
   },
 ]
 
