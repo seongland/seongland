@@ -40,8 +40,44 @@ export async function dynamicImgCards() {
 
 const ais: Card[] = [
   {
+    title: 'FaithfulSAE',
+    subtitle: '',
+    url: 'https://github.com/seonglae/FaithfulSAE',
+    theme: '#21242b',
+    color: 'white',
+    ratio: '200%',
+    image: texonom,
+  },
+  {
+    title: 'LibVulnWatch',
+    subtitle: 'ICML 2025 TAIG',
+    url: 'https://openreview.net/forum?id=MHhrr8QHgR',
+    theme: '#fff',
+    color: '#000',
+    ratio: '150%',
+    image: legacy,
+  },
+  {
+    title: 'SAE Dataset',
+    subtitle: 'LessWrong Post about SAE',
+    url: 'https://www.lesswrong.com/posts/sae-training-dataset-influence-in-feature-matching-and-a-hypothesis-on-position-features',
+    theme: '#fff',
+    color: '#000',
+    ratio: '150%',
+    image: mbtigpt,
+  },
+  {
+    title: 'RTSum',
+    subtitle: 'NAACL 2024 Demo',
+    url: 'https://aclanthology.org/2024.naacl-demo.5/',
+    theme: '#fff',
+    color: '#000',
+    ratio: '150%',
+    image: rtsum,
+  },
+  {
     title: 'Hermes',
-    subtitle: 'Steering Vector from Sparse AutoEncoder',
+    subtitle: 'Steering Vector from SAE',
     url: 'https://github.com/seonglae/emgsd-hermes',
     theme: '#21242b',
     color: 'white',
@@ -56,15 +92,6 @@ const ais: Card[] = [
     color: 'white',
     ratio: '200%',
     image: resrer,
-  },
-  {
-    title: 'RTSum',
-    subtitle: 'NAACL 2024 Demo',
-    url: 'https://aclanthology.org/2024.naacl-demo.5/',
-    theme: '#fff',
-    color: '#000',
-    ratio: '150%',
-    image: rtsum,
   },
 ]
 
