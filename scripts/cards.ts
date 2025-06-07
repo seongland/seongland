@@ -4,6 +4,7 @@ import pointland from '@/public/image/pointland.jpg'
 
 import rtsum from '@/public/image/rtsum.png'
 import resrer from '@/public/image/resrer.png'
+import lesswrong from '@/public/icon/lesswrong.svg'
 
 import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
@@ -64,7 +65,7 @@ const ais: Card[] = [
     theme: '#fff',
     color: '#000',
     ratio: '150%',
-    image: mbtigpt,
+    image: lesswrong,
   },
   {
     title: 'RTSum',
