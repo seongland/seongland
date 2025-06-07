@@ -4,7 +4,9 @@ import pointland from '@/public/image/pointland.jpg'
 
 import rtsum from '@/public/image/rtsum.png'
 import resrer from '@/public/image/resrer.png'
-import lesswrong from '@/public/icon/lesswrong.svg'
+import saedataset from '@/public/image/saedataset.png'
+import faithful from '@/public/image/faithful.png'
+import libvuln from '@/public/image/libvuln.png'
 
 import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
@@ -42,12 +44,12 @@ export async function dynamicImgCards() {
 const ais: Card[] = [
   {
     title: 'FaithfulSAE',
-    subtitle: '',
+    subtitle: 'To be published',
     url: 'https://github.com/seonglae/FaithfulSAE',
-    theme: '#21242b',
-    color: 'white',
+    theme: '#fff',
+    color: 'black',
     ratio: '200%',
-    image: texonom,
+    image: faithful,
   },
   {
     title: 'LibVulnWatch',
@@ -56,16 +58,16 @@ const ais: Card[] = [
     theme: '#fff',
     color: '#000',
     ratio: '150%',
-    image: legacy,
+    image: libvuln,
   },
   {
     title: 'SAE Dataset',
-    subtitle: 'LessWrong Post about SAE',
-    url: 'https://www.lesswrong.com/posts/sae-training-dataset-influence-in-feature-matching-and-a-hypothesis-on-position-features',
+    subtitle: 'LessWrong & AI Alignment Forum',
+    url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
     theme: '#fff',
-    color: '#000',
+    color: 'black',
     ratio: '150%',
-    image: lesswrong,
+    image: saedataset,
   },
   {
     title: 'RTSum',
