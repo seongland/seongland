@@ -52,7 +52,7 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
           <Cards cards={ais} />
         </CenterPage>
         <CenterPage page={3} pages={PAGES}>
-          <GridTitle title="Projects" />
+          <GridTitle title="Apps & Libs" />
           <Cards cards={applications} />
         </CenterPage>
         <CenterPage page={3.95} pages={PAGES}>
