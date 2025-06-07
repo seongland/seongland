@@ -15,7 +15,7 @@
     "build": "pnpm build:scripts && pnpm build:web",
     "build:scripts": "tsx scripts/build.ts",
     "build:web": "next build",
-    "analyze": "cross-env ANALYZE=true next build && windicss-analysis",
+    "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky",
     "lint": "eslint --cache \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore",
     "format": "prettier --cache \"**/*.{js,json,md,css,js,ts,tsx}\" --write --ignore-path .gitignore"
@@ -70,8 +70,10 @@
     "typescript": "^5.8.3",
     "use-sound": "^5.0.0",
     "webpack": "^5.99.9",
-    "windicss": "^3.5.6",
-    "windicss-webpack-plugin": "^1.8.0",
+    "unocss": "^66.1.4",
+    "@unocss/preset-wind": "^66.1.4",
+    "@unocss/preset-attributify": "^66.1.4",
+    "@unocss/webpack": "^66.1.4",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
@@ -102,8 +104,7 @@
     "husky": "9.1.7",
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
-    "vitest": "^3.1.4",
-    "windicss-analysis": "^0.3.5"
+    "vitest": "^3.1.4"
   },
   "pnpm": {
     "overrides": {

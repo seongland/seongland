@@ -1,4 +1,4 @@
-const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+const UnoCSS = require('@unocss/webpack').default
 
 /**
  * @type {import('next').NextConfig}
@@ -18,7 +18,7 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
   webpack: config => {
     // @ts-ignore
-    config.plugins.push(new WindiCSSWebpackPlugin())
+    config.plugins.push(UnoCSS())
     config.externals.push('sharp')
     return config
   },

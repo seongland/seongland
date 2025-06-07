@@ -10,7 +10,7 @@
 ## Made by
 
 - Next js
-- Windi CSS
+- UnoCSS
 - Vitest
 - React Spring
 - React Three
@@ -24,5 +24,5 @@
 
 ## Reference
 
-- [Next Windi](https://github.com/seonglae/next-windicss)
+- [UnoCSS](https://github.com/unocss/unocss)
 - [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)
