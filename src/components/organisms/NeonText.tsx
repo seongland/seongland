@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useMemo } from 'react'
 import { useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
+import { TextGeometry } from 'three/examples/jsm/Addons.js'
 import gsap from 'gsap'
 
 interface Props {
@@ -42,8 +43,8 @@ export default function NeonText({
   useEffect(() => {
     if (!mesh.current) return
     const sizeV = new THREE.Vector3()
-    ;(mesh.current.geometry as THREE.TextGeometry).computeBoundingBox()
-    ;(mesh.current.geometry as THREE.TextGeometry).boundingBox!.getSize(sizeV)
+    ;(mesh.current.geometry as TextGeometry).computeBoundingBox()
+    ;(mesh.current.geometry as TextGeometry).boundingBox!.getSize(sizeV)
     mesh.current.position.x += hAlign === 'center' ? -sizeV.x / 2 : hAlign === 'right' ? 0 : -sizeV.x
     mesh.current.position.y += vAlign === 'center' ? -sizeV.y / 2 : vAlign === 'top' ? 0 : -sizeV.y
 

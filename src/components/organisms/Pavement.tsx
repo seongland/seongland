@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plane, Reflector } from '@react-three/drei'
+import { Plane, MeshReflectorMaterial } from '@react-three/drei'
 
 const { PI } = Math
 
@@ -9,9 +9,10 @@ const Pavement: React.FC = () => {
       <Plane rotation-x={-PI * 0.5} position={[0, -7.9, 0]} args={[200, 200]} receiveShadow>
         <meshBasicMaterial color="#ffcda3" transparent opacity={0.4} />
       </Plane>
-      <Reflector clipBias={0.1} textureWidth={1024} textureHeight={1024} position={[0, -8, 0]} rotation={[-PI * 0.5, 0, 0]}>
-        <planeBufferGeometry args={[200, 200]} />
-      </Reflector>
+      <mesh position={[0, -8, 0]} rotation={[-PI * 0.5, 0, 0]}>
+        <planeGeometry args={[200, 200]} />
+        <MeshReflectorMaterial blur={[0, 0]} mixBlur={0} mixStrength={0.5} resolution={1024} />
+      </mesh>
     </>
   )
 }

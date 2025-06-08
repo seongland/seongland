@@ -8,7 +8,7 @@ import Pavement from './Pavement'
 const HomeScene: React.FC<{ cards: Card[] }> = ({ cards }) => {
   const text = cards.map(c => c.title).join(' ')
   return (
-    <Canvas colorManagement camera={{ fov: 30, position: [0, 90, 180] }}>
+    <Canvas camera={{ fov: 30, position: [0, 90, 180] }}>
       {/* background color */}
       <color attach="background" args={['#ebcfba']} />
       <directionalLight position={[-40, 20, 20]} color="#c59cf1" />

@@ -27,7 +27,7 @@ const PortalMesh: React.FC = () => {
         <meshStandardMaterial metalness={0} roughness={0.45} color="black" />
       </mesh>
       <Environment resolution={1024} frames={Infinity} background={false} blur={0}>
-        <Lightformer position={[20, 0, 10]} scale={[1, 1000, 1]} intensity={100} onCreated={self => self.lookAt(0, 0, 0)} />
+        <Lightformer position={[20, 0, 10]} scale={[1, 1000, 1]} intensity={100} target={[0, 0, 0]} />
       </Environment>
     </>
   )

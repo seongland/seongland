@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import * as THREE from 'three'
 import { GroupProps } from '@react-three/fiber'
 import gsap from 'gsap'
 import AnimatedText from './AnimatedText'

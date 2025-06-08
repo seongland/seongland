@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { GroupProps } from '@react-three/fiber'
 import gsap from 'gsap'
+import * as THREE from 'three'
 import NeonText from './NeonText'
 
 const { PI, sin, cos } = Math

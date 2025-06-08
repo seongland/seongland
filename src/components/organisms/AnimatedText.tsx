@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useMemo } from 'react'
 import { useLoader } from '@react-three/fiber'
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import * as THREE from 'three'
+import { TextGeometry } from 'three/examples/jsm/Addons.js'
 import gsap from 'gsap'
 
 interface Props {
@@ -34,8 +35,8 @@ export default function AnimatedText({ children, vAlign = 'center', hAlign = 'ce
   useEffect(() => {
     if (!text.current) return
     const sizeV = new THREE.Vector3()
-    ;(text.current.geometry as THREE.TextGeometry).computeBoundingBox()
-    ;(text.current.geometry as THREE.TextGeometry).boundingBox!.getSize(sizeV)
+    ;(text.current.geometry as TextGeometry).computeBoundingBox()
+    ;(text.current.geometry as TextGeometry).boundingBox!.getSize(sizeV)
     text.current.position.x += hAlign === 'center' ? -sizeV.x / 2 : hAlign === 'right' ? 0 : -sizeV.x
     text.current.position.y += vAlign === 'center' ? -sizeV.y / 2 : vAlign === 'top' ? 0 : -sizeV.y
 
