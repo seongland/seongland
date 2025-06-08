@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { dynamicImgCards } from '~/scripts/cards'
 import type { Card } from '~/scripts/cards'
 
-const HomeScene = dynamic(() => import('@/components/organisms/HomeScene'), {
+const SpaceScene = dynamic(() => import('@/components/organisms/SpaceScene'), {
   ssr: false,
 })
 
@@ -14,7 +14,7 @@ const Home: React.FC<{ cards: Card[] }> = ({ cards }) => {
       <Head>
         <title>Seongland 3D</title>
       </Head>
-      <HomeScene cards={cards} />
+      <SpaceScene cards={cards} />
     </>
   )
 }
