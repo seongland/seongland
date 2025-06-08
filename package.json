@@ -104,7 +104,8 @@
     "husky": "9.1.7",
     "jsdom": "^26.1.0",
     "prettier": "^3.5.3",
-    "vitest": "^3.1.4"
+    "vitest": "^3.1.4",
+    "@unocss/transformer-attributify-jsx": "^66.1.4"
   },
   "pnpm": {
     "overrides": {

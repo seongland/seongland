@@ -1,5 +1,3 @@
-const UnoCSS = require('@unocss/webpack').default
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -16,7 +14,8 @@ const nextConfig = {
     },
   ],
   productionBrowserSourceMaps: true,
-  webpack: config => {
+  webpack: async config => {
+    const { default: UnoCSS } = await import('@unocss/webpack')
     // @ts-ignore
     config.plugins.push(UnoCSS())
     config.externals.push('sharp')
