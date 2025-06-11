@@ -40,9 +40,7 @@ body,
 }
 
 body.blur-load {
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  transition:
-    -webkit-backdrop-filter 0.7s ease,
-    backdrop-filter 0.7s ease;
+  -webkit-filter: blur(16px);
+  filter: blur(16px);
+  transition: filter 0.7s ease;
 }
