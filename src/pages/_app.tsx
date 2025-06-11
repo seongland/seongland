@@ -7,8 +7,6 @@ import { ThemeProvider } from 'next-themes'
 import { GA4 } from '@/components/atoms/GA4'
 import { Analytics } from '@vercel/analytics/react'
 
-import 'windi.css'
-
 import '@/styles/global.css'
 import '@/styles/card.css'
 import '@/styles/nprogress.css'

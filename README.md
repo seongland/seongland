@@ -10,7 +10,7 @@
 ## Made by
 
 - Next js
-- UnoCSS
+- Tailwind CSS
 - Vitest
 - React Spring
 - React Three
@@ -24,5 +24,5 @@
 
 ## Reference
 
-- [UnoCSS](https://github.com/unocss/unocss)
+- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
 - [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)

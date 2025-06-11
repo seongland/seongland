@@ -14,10 +14,7 @@ const nextConfig = {
     },
   ],
   productionBrowserSourceMaps: true,
-  webpack: async config => {
-    const { default: UnoCSS } = await import('@unocss/webpack')
-    // @ts-ignore
-    config.plugins.push(UnoCSS())
+  webpack: config => {
     config.externals.push('sharp')
     return config
   },

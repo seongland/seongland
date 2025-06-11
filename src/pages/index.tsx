@@ -60,10 +60,10 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
           <Cards cards={webapps} />
         </CenterPage>
       </ScrollPage>
-      <div className="fixed top-0 <sm:left-20vw" w="full <sm:80vw">
+      <div className="fixed top-0 left-[20vw] w-[80vw] sm:left-0 sm:w-full">
         <Header />
       </div>
-      <div className="fixed bottom-0 <sm:left-20vw" w="full <sm:60vw">
+      <div className="fixed bottom-0 left-[20vw] w-[60vw] sm:left-0 sm:w-full">
         <Footer />
       </div>
     </>

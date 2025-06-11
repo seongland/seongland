@@ -49,10 +49,7 @@ export const ThemeBtn: React.FC = () => {
     <>
       {hasMounted ? (
         <span
-          text="hover:yellow-500 2xl"
-          p="2"
-          className="inline-flex"
-          transition="colors"
+          className="inline-flex p-2 text-2xl transition-colors hover:text-yellow-500"
           onClick={toggleTheme}
           title="Tottle dark mode">
           {theme === 'dark' ? <IoMoonSharp /> : <IoSunnyOutline />}

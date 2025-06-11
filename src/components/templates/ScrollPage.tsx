@@ -27,7 +27,7 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
             <ScrollSpace />
           </Scroll>
           <Scroll html>
-            <div text="dark:white"> {children}</div>
+            <div className="dark:text-white"> {children}</div>
           </Scroll>
         </ScrollControls>
       </Canvas>

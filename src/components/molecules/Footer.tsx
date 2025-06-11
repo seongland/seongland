@@ -10,67 +10,44 @@ export const BGMBtn = dynamic(async () => import('../atoms/BGMBtn'))
 
 export const Footer: React.FC = () => {
   return (
-    <footer
-      className="flex items-center"
-      text="dark:white"
-      m="x-auto t-auto b-0"
-      p="4"
-      w="full max-10/12 <sm:max-12/12"
-      justify="between"
-      flex="row <sm:col"
-      select="none">
-      <div select="none" text="xs" order="1 <sm:3" className="items-center flex">
+    <footer className="flex items-center justify-between select-none w-full p-4 mx-auto mt-auto mb-0 dark:text-white flex-col sm:flex-row">
+      <div className="items-center flex select-none text-xs order-1 sm:order-3">
         <BGMBtn />
         <span>Copyright &nbsp;</span>
-        <Link id="author" font="900" href="https://texonom.com/seonglae" text="underline">
+        <Link id="author" className="font-black underline" href="https://texonom.com/seonglae">
           {author}
         </Link>
       </div>
-      <div order="2 <sm:1">
+      <div className="order-2 sm:order-1">
         <ThemeBtn />
       </div>
-      <div order="3 <sm:2">
+      <div className="order-3 sm:order-2">
         {twitter ? (
           <Link
-            cursor="pointer"
-            text="hover:light-blue-500 2xl"
-            p="2"
-            className="inline-flex"
+            className="inline-flex cursor-pointer p-2 text-2xl transition-colors hover:text-sky-500 mr-3"
             href={`https://twitter.com/${twitter}`}
             title={`Twitter @${twitter}`}
             target="_blank"
-            m="r-3"
-            transition="colors"
             rel="noopener noreferrer">
             <FaTwitter />
           </Link>
         ) : null}
         {github ? (
           <Link
-            cursor="pointer"
-            text="hover:indigo-500 2xl"
-            p="2"
-            className="inline-flex"
+            className="inline-flex cursor-pointer p-2 text-2xl transition-colors hover:text-indigo-500 mr-2"
             href={`https://github.com/${github}`}
             title={`GitHub @${github}`}
             target="_blank"
-            m="r-2"
-            transition="colors"
             rel="noopener noreferrer">
             <FaGithub />
           </Link>
         ) : null}
         {linkedin ? (
           <Link
-            cursor="pointer"
-            text="hover:blue-500 2xl"
-            p="2"
-            className="inline-flex"
+            className="inline-flex cursor-pointer p-2 text-2xl transition-colors hover:text-blue-500 mr-0"
             href={`https://www.linkedin.com/in/${linkedin}`}
             title={`LinkedIn ${author}`}
             target="_blank"
-            transition="colors"
-            m="!r-0"
             rel="noopener noreferrer">
             <FaLinkedin />
           </Link>

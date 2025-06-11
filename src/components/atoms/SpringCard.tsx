@@ -25,30 +25,23 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
   return (
     <animated.div
       {...props}
-      className={`transition min-h${small ? 5 : 10}rem <sm:min-h${small ? 2.5 : 5}rem`}
+      className="transition"
       style={{
         touchAction: 'pan-x',
         transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`),
+        minHeight: `${small ? 5 : 10}rem`,
       }}>
       <animated.div
-        w="full"
-        h="full"
-        text="left"
-        className="flex rounded-xl max-h-40vh max-h-40vh"
-        overflow="hidden"
+        className="flex rounded-xl max-h-40vh w-full h-full overflow-hidden text-left"
         style={{
           outline: '1px solid transparent',
           background: `${card.theme}`,
           transform: to([spring.rotation, spring.scale], trans),
         }}>
         <a
-          m="auto"
-          className="flex"
+          className="flex flex-col-reverse justify-center m-auto select-none"
           href={card.url}
-          justify={'center'}
-          select="none"
-          style={{ position: 'relative' }}
-          flex="col-reverse">
+          style={{ position: 'relative' }}>
           <Image
             fill
             alt={card.title}
@@ -67,11 +60,15 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             }}
           />
 
-          <div role="button" tabIndex={0} style={{ color: card.color, textShadow: `0 0 1px ${card.color}` }} m="4" z="1">
-            <label text={small ? '1.5rem' : '2rem'} cursor="pointer" p="3" font="600">
+          <div
+            role="button"
+            tabIndex={0}
+            style={{ color: card.color, textShadow: `0 0 1px ${card.color}`, zIndex: 1 }}
+            className="m-4">
+            <label style={{ fontSize: small ? '1.5rem' : '2rem' }} className="cursor-pointer p-3 font-semibold">
               {card.title}
             </label>
-            <div text={small ? '1rem' : '1.3rem'} font="500" p="3" className="leading-7">
+            <div style={{ fontSize: small ? '1rem' : '1.3rem' }} className="leading-7 p-3 font-medium">
               {card.subtitle}
             </div>
           </div>
