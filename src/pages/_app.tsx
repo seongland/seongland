@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
@@ -21,6 +21,9 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function App(props: AppProps) {
   const { Component, pageProps } = props
+  useEffect(() => {
+    document.body.classList.remove('blur-load')
+  }, [])
   return (
     <>
       <Head>
