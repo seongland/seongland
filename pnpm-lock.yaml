@@ -26,6 +26,9 @@ importers:
       '@use-gesture/react':
         specifier: ^10.3.1
         version: 10.3.1(react@18.3.1)
+      '@vercel/analytics':
+        specifier: ^1.5.0
+        version: 1.5.0(next@15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       copy:
         specifier: ^0.3.2
         version: 0.3.2
@@ -1249,6 +1252,15 @@ packages:
     peerDependencies:
       react: '>= 16.8.0'
 
+  '@vercel/analytics@1.5.0':
+    resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
+    peerDependencies:
+      '@remix-run/react': ^2
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
       vue-router: ^4
     peerDependenciesMeta:
       '@remix-run/react':
@@ -4992,6 +5004,10 @@ snapshots:
       '@use-gesture/core': 10.3.1
       react: 18.3.1
 
+  '@vercel/analytics@1.5.0(next@15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+    optionalDependencies:
+      next: 15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
 
   '@vitejs/plugin-react@4.5.1(vite@5.4.11(@types/node@22.15.30)(terser@5.36.0))':
     dependencies:

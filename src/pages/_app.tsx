@@ -3,6 +3,7 @@ import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
+import dynamic from 'next/dynamic'
 
 import 'windi.css'
 
@@ -11,6 +12,9 @@ import '@/styles/card.css'
 import '@/styles/nprogress.css'
 
 import type { AppProps } from 'next/app'
+
+const Analytics = dynamic(() => import('@vercel/analytics/react').then((m) => m.Analytics), { ssr: false })
+const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeComplete', () => NProgress.done())
@@ -40,6 +44,8 @@ function App(props: AppProps) {
       <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : null}
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : null}
     </>
   )
 }

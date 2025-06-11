@@ -8,8 +8,8 @@ const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle'), {
 })
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
-import { Footer } from '@/components/molecules/Footer'
-import { Header } from '@/components/molecules/Header'
+const Footer = dynamic(() => import('@/components/molecules/Footer'), { ssr: false })
+const Header = dynamic(() => import('@/components/molecules/Header'), { ssr: false })
 import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
