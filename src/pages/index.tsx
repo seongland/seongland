@@ -3,7 +3,9 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
-import { TypeTitle } from '@/components/atoms/TypeTitle'
+const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle'), {
+  ssr: false,
+})
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
 import { Footer } from '@/components/molecules/Footer'
@@ -12,8 +14,12 @@ import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
 
-export const CenterPage = dynamic(async () => import('@/components/atoms/CenterPage'))
-export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'))
+export const CenterPage = dynamic(async () => import('@/components/atoms/CenterPage'), {
+  ssr: false,
+})
+export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'), {
+  ssr: false,
+})
 
 const HEIGHT = 6
 const PAGES = 4

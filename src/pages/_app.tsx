@@ -4,9 +4,6 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
 
-import { GA4 } from '@/components/atoms/GA4'
-import { Analytics } from '@vercel/analytics/react'
-
 import 'windi.css'
 
 import '@/styles/global.css'
@@ -30,8 +27,8 @@ function App(props: AppProps) {
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self';
-          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com;
-          connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://vercel.live;
+          connect-src 'self' https://vitals.vercel-insights.com https://*.pusher.com;
           style-src 'self' 'unsafe-hashes' 'unsafe-inline';
           img-src * data: blob: 'unsafe-inline';
           frame-src * data: blob: ;
@@ -43,8 +40,6 @@ function App(props: AppProps) {
       <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : <></>}
     </>
   )
 }
