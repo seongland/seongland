@@ -26,7 +26,6 @@ importers:
       '@use-gesture/react':
         specifier: ^10.3.1
         version: 10.3.1(react@18.3.1)
-      '@vercel/analytics':
         specifier: ^1.5.0
         version: 1.5.0(next@15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       copy:
@@ -1252,7 +1251,6 @@ packages:
     peerDependencies:
       react: '>= 16.8.0'
 
-  '@vercel/analytics@1.5.0':
     resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
     peerDependencies:
       '@remix-run/react': ^2
@@ -5004,7 +5002,6 @@ snapshots:
       '@use-gesture/core': 10.3.1
       react: 18.3.1
 
-  '@vercel/analytics@1.5.0(next@15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     optionalDependencies:
       next: 15.3.3(@babel/core@7.27.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1

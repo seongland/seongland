@@ -12,6 +12,7 @@ const nextConfig = {
         { key: 'X-XSS-Protection', value: '1' },
         { key: 'Access-Control-Allow-Origin', value: 'https://texonom.com' },
         { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Permissions-Policy', value: '' },
       ],
     },
   ],

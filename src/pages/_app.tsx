@@ -3,10 +3,6 @@ import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
-import dynamic from 'next/dynamic'
-
-const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
-const Analytics = dynamic(() => import('@vercel/analytics/react').then(m => m.Analytics), { ssr: false })
 
 import 'windi.css'
 
@@ -31,8 +27,8 @@ function App(props: AppProps) {
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self';
-          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com https://va.vercel-scripts.com;
-          connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://*.analytics.google.com https://www.google.com https://stats.g.doubleclick.net https://*.pusher.com wss://*.pusher.com https://vercel.live;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval';
+          connect-src 'self';
           style-src 'self' 'unsafe-hashes' 'unsafe-inline';
           img-src * data: blob: 'unsafe-inline';
           font-src * data: blob: ;
@@ -44,8 +40,6 @@ function App(props: AppProps) {
       <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-9T961HYDTR" /> : <></>}
     </>
   )
 }
