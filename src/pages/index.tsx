@@ -3,21 +3,19 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
-const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle'), {
-  ssr: false,
-})
+const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').then(m => m.TypeTitle), { ssr: false })
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
-const Footer = dynamic(() => import('@/components/molecules/Footer'), { ssr: false })
-const Header = dynamic(() => import('@/components/molecules/Header'), { ssr: false })
+const Footer = dynamic(() => import('@/components/molecules/Footer').then(m => m.Footer), { ssr: false })
+const Header = dynamic(() => import('@/components/molecules/Header').then(m => m.Header), { ssr: false })
 import { description, url, title, domain, twitter } from '~/site-config'
 
 import type { Card } from '~/scripts/cards'
 
-export const CenterPage = dynamic(async () => import('@/components/atoms/CenterPage'), {
+export const CenterPage = dynamic(() => import('@/components/atoms/CenterPage'), {
   ssr: false,
 })
-export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'), {
+export const ScrollPage = dynamic(() => import('@/components/templates/ScrollPage'), {
   ssr: false,
 })
 
