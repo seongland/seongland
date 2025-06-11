@@ -48,7 +48,7 @@ const Document = () => {
         <link href="/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" />
       </Head>
 
-      <body>
+      <body className="blur-load">
         <script dangerouslySetInnerHTML={{ __html: noflash }}></script>
         <Main />
         <NextScript />
