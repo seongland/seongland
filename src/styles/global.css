@@ -38,3 +38,11 @@ body,
   width: 320px;
   height: 160px;
 }
+
+body.blur-load {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  transition:
+    -webkit-backdrop-filter 0.7s ease,
+    backdrop-filter 0.7s ease;
+}
