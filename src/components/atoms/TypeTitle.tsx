@@ -7,7 +7,7 @@ export const TypeTitle: React.FC = () => {
       className="text-4rem font-900 <lg:text-2.5rem text-center absolute top-41vh select-none"
       fadeOut={true}
       startDelay={100}
-      typeSpeed={50}
+      typeSpeed={25}
       strings={[
         'Welcome',
         "I'm Seonglae Cho",
