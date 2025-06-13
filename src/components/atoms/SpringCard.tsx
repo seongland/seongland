@@ -62,7 +62,6 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
               objectFit: 'cover',
               backgroundPosition: 'center center',
               scale: `${card.ratio}`,
-              overflow: 'clip',
               backgroundRepeat: 'no-repeat',
             }}
           />
