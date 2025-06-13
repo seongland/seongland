@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
 
-import { GA4 } from '@/components/atoms/GA4'
-import { Analytics } from '@vercel/analytics/react'
+import dynamic from 'next/dynamic'
+
+const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
+const Analytics = dynamic(() => import('@vercel/analytics/react').then(m => m.Analytics), { ssr: false })
 
 import 'windi.css'
 
@@ -21,12 +23,20 @@ Router.events.on('routeChangeError', () => NProgress.done())
 
 function App(props: AppProps) {
   const { Component, pageProps } = props
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      document.body.classList.remove('blur-load')
+    }, 200)
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preload" href="/favicon-32x32.png" as="image" fetchPriority="high" />
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self';
