@@ -17,7 +17,7 @@ export const BGMBtn: React.FC = () => {
     <span
       className="inline-flex p-2 text-2xl transition-colors hover:text-sky-500"
       onClick={togglePlay}
-      title="Tottle dark mode">
+      title="Toggle background music">
       {playing ? <IoPauseOutline /> : <IoPlayOutline />}
     </span>
   )

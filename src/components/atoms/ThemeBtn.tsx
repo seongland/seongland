@@ -51,7 +51,7 @@ export const ThemeBtn: React.FC = () => {
         <span
           className="inline-flex p-2 text-2xl transition-colors hover:text-yellow-500"
           onClick={toggleTheme}
-          title="Tottle dark mode">
+          title="Toggle dark mode">
           {theme === 'dark' ? <IoMoonSharp /> : <IoSunnyOutline />}
         </span>
       ) : (
