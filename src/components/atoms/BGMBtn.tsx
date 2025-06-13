@@ -15,12 +15,15 @@ export const BGMBtn: React.FC = () => {
 
   return (
     <span
+      role="button"
+      tabIndex={0}
+      aria-label={playing ? 'Pause background music' : 'Play background music'}
       text="hover:light-blue-500 2xl"
       p="2"
       className="inline-flex "
       transition="colors"
       onClick={togglePlay}
-      title="Tottle dark mode">
+      title="Toggle background music">
       {playing ? <IoPauseOutline /> : <IoPlayOutline />}
     </span>
   )
