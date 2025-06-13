@@ -3,7 +3,9 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
-import { TypeTitle } from '@/components/atoms/TypeTitle'
+export const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').then(m => m.TypeTitle), {
+  ssr: false,
+})
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
 import { Footer } from '@/components/molecules/Footer'
