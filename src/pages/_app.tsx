@@ -22,10 +22,10 @@ Router.events.on('routeChangeError', () => NProgress.done())
 function App(props: AppProps) {
   const { Component, pageProps } = props
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
+    const timer = setTimeout(() => {
       document.body.classList.remove('blur-load')
-    })
-    return () => cancelAnimationFrame(frame)
+    }, 200)
+    return () => clearTimeout(timer)
   }, [])
   return (
     <>
