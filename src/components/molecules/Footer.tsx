@@ -38,6 +38,7 @@ export const Footer: React.FC = () => {
             className="inline-flex"
             href={`https://twitter.com/${twitter}`}
             title={`Twitter @${twitter}`}
+            aria-label={`Twitter @${twitter}`}
             target="_blank"
             m="r-3"
             transition="colors"
@@ -53,6 +54,7 @@ export const Footer: React.FC = () => {
             className="inline-flex"
             href={`https://github.com/${github}`}
             title={`GitHub @${github}`}
+            aria-label={`GitHub @${github}`}
             target="_blank"
             m="r-2"
             transition="colors"
@@ -68,6 +70,7 @@ export const Footer: React.FC = () => {
             className="inline-flex"
             href={`https://www.linkedin.com/in/${linkedin}`}
             title={`LinkedIn ${author}`}
+            aria-label={`LinkedIn ${author}`}
             target="_blank"
             transition="colors"
             m="!r-0"
