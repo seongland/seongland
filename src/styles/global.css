@@ -39,8 +39,11 @@ body,
   height: 160px;
 }
 
+body {
+  transition: filter 0.7s ease;
+}
+
 body.blur-load {
   -webkit-filter: blur(16px);
   filter: blur(16px);
-  transition: filter 0.7s ease;
 }
