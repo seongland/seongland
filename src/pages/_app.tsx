@@ -4,8 +4,10 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
 
-import { GA4 } from '@/components/atoms/GA4'
-import { Analytics } from '@vercel/analytics/react'
+import dynamic from 'next/dynamic'
+
+const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
+const Analytics = dynamic(() => import('@vercel/analytics/react').then(m => m.Analytics), { ssr: false })
 
 import 'windi.css'
 
@@ -33,6 +35,8 @@ function App(props: AppProps) {
         <meta charSet="utf-8" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preload" href="/favicon-32x32.png" as="image" fetchPriority="high" />
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self';
