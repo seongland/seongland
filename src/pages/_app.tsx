@@ -46,8 +46,14 @@ function App(props: AppProps) {
         />
       </Head>
 
+      <a href="#main" className="sr-only focus:not-sr-only absolute top-0 left-0 p-2 bg-white text-black z-50">
+        Skip to content
+      </a>
+
       <ThemeProvider attribute="class">
-        <Component {...pageProps} />
+        <main id="main">
+          <Component {...pageProps} />
+        </main>
       </ThemeProvider>
       {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
       {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : <></>}
