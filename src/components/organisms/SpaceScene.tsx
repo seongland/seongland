@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Environment } from '@react-three/drei'
 import type { Card } from '~/scripts/cards'
 import FancyStars from './FancyStars'
 import Pavement from './Pavement'
-import MagicRing from './MagicRing'
+import CardRing from './CardRing'
 import PortalMesh from './PortalMesh'
 
 const SpaceScene: React.FC<{ cards: Card[] }> = ({ cards }) => {
@@ -17,7 +17,8 @@ const SpaceScene: React.FC<{ cards: Card[] }> = ({ cards }) => {
         <FancyStars />
         <Pavement />
         <PortalMesh />
-        <MagicRing text={text.toUpperCase()} radius={5} position={[0, 1, 0]} />
+        <Environment preset="sunset" />
+        <CardRing text={text.toUpperCase()} radius={5} position={[0, 1, 0]} />
       </Suspense>
       <OrbitControls />
     </Canvas>
