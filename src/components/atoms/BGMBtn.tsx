@@ -6,7 +6,7 @@ import { usePlayStore } from '@/store/'
 
 export const BGMBtn: React.FC = () => {
   const { playing, setPlaying } = usePlayStore()
-  const [start, { stop }] = useSound('/sound/loop.mp3', { loop: true, preload: false })
+  const [start, { stop }] = useSound('/sound/loop.mp3', { loop: true })
   const togglePlay: MouseEventHandler = () => {
     setPlaying(!playing, stop)
     if (playing) stop()
