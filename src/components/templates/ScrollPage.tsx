@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Canvas } from '@react-three/fiber'
 import { ScrollControls, Scroll, useScroll } from '@react-three/drei'
+import { ScrollRestoration } from '@/components/organisms/ScrollRestoration'
 
 import { ScrollSpace } from '@/components/organisms/ScrollSpace'
 import { bgColor } from '~/site-config'
@@ -23,6 +24,7 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
       </Head>
       <Canvas>
         <ScrollControls damping={damping} pages={height}>
+          <ScrollRestoration />
           <Scroll>
             <ScrollSpace />
           </Scroll>
