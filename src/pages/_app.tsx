@@ -3,9 +3,6 @@ import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
-import dynamic from 'next/dynamic'
-
-const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
 
 import 'windi.css'
 
@@ -30,8 +27,8 @@ function App(props: AppProps) {
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self';
-          script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com;
-          connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com;
+          script-src 'self' 'unsafe-inline' 'unsafe-eval';
+          connect-src 'self';
           style-src 'self' 'unsafe-hashes' 'unsafe-inline';
           img-src * data: blob: 'unsafe-inline';
           font-src * data: blob: ;
@@ -43,7 +40,6 @@ function App(props: AppProps) {
       <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
-      {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : <></>}
     </>
   )
 }
