@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import { dynamicImgCards } from '~/scripts/cards'
 export const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').then(m => m.TypeTitle), {
   ssr: false,
-  loading: () => <h1 className="text-4rem font-900 <lg:text-2.5rem text-center absolute top-41vh select-none">Welcome</h1>,
 })
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
