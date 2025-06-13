@@ -51,7 +51,7 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
           flex="col-reverse">
           <Image
             fill
-            alt={card.title}
+            alt={card.alt ?? card.title}
             src={card.image.src as string}
             placeholder="blur"
             blurDataURL={card.image.blurDataURL || card.image.src}

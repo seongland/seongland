@@ -23,6 +23,7 @@ export interface Card {
   theme: string
   color: string
   ratio: string
+  alt?: string
   image: {
     src?: string
     height?: number
@@ -111,6 +112,7 @@ const webapps: Card[] = [
   {
     title: '',
     subtitle: '',
+    alt: 'MBTI GPT',
     url: 'https://mbti.texonom.com',
     theme: '#18171c',
     color: 'white',
