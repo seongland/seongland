@@ -67,7 +67,13 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             }}
           />
 
-          <div role="button" tabIndex={0} style={{ color: card.color, textShadow: `0 0 1px ${card.color}` }} m="4" z="1">
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label={card.title}
+            style={{ color: card.color, textShadow: `0 0 1px ${card.color}` }}
+            m="4"
+            z="1">
             <label text={small ? '1.5rem' : '2rem'} cursor="pointer" p="3" font="600">
               {card.title}
             </label>

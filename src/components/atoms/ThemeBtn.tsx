@@ -49,12 +49,15 @@ export const ThemeBtn: React.FC = () => {
     <>
       {hasMounted ? (
         <span
+          role="button"
+          tabIndex={0}
+          aria-label="Toggle dark mode"
           text="hover:yellow-500 2xl"
           p="2"
           className="inline-flex"
           transition="colors"
           onClick={toggleTheme}
-          title="Tottle dark mode">
+          title="Toggle dark mode">
           {theme === 'dark' ? <IoMoonSharp /> : <IoSunnyOutline />}
         </span>
       ) : (
