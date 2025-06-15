@@ -1,10 +1,11 @@
 import { MeshTransmissionMaterial } from '@react-three/drei'
 import React from 'react'
+import type { ThreeEvent } from '@react-three/fiber'
 
 export interface PrismProps {
-  onPointerOver?: (e: React.PointerEvent) => void
-  onPointerOut?: (e: React.PointerEvent) => void
-  onPointerMove?: (e: React.PointerEvent) => void
+  onPointerOver?: (e: ThreeEvent<PointerEvent>) => void
+  onPointerOut?: (e: ThreeEvent<PointerEvent>) => void
+  onPointerMove?: (e: ThreeEvent<PointerEvent>) => void
   [key: string]: unknown
 }
 

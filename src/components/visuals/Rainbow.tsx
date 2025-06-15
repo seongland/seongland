@@ -1,6 +1,6 @@
 import React, { forwardRef, useRef } from 'react'
 import { shaderMaterial } from '@react-three/drei'
-import { extend, useFrame, useThree } from '@react-three/fiber'
+import { extend, useFrame, useThree, type ReactThreeFiber } from '@react-three/fiber'
 import * as THREE from 'three'
 
 const RainbowMaterial = shaderMaterial(
@@ -98,7 +98,27 @@ const RainbowMaterial = shaderMaterial(
     }`,
 )
 
+type RainbowMaterialImpl = THREE.ShaderMaterial & {
+  time: number
+  speed: number
+  fade: number
+  startRadius: number
+  endRadius: number
+  emissiveIntensity: number
+  ratio: number
+}
+
 extend({ RainbowMaterial })
+
+/* eslint-disable @typescript-eslint/no-namespace */
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      rainbowMaterial: ReactThreeFiber.Object3DNode<RainbowMaterialImpl, typeof RainbowMaterial>
+    }
+  }
+}
+/* eslint-enable @typescript-eslint/no-namespace */
 
 export interface RainbowProps {
   startRadius?: number
@@ -109,7 +129,7 @@ export interface RainbowProps {
 
 export const Rainbow = forwardRef<THREE.Mesh, RainbowProps>(
   ({ startRadius = 0, endRadius = 0.5, emissiveIntensity = 2.5, fade = 0.25, ...props }, ref) => {
-    const material = useRef<any>(null)
+    const material = useRef<RainbowMaterialImpl | null>(null)
     const { width, height } = useThree(state => state.viewport)
     const length = Math.hypot(width, height) + 1.5
     useFrame((_, delta) => {
