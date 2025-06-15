@@ -13,7 +13,7 @@ function damp3(vec: THREE.Vector3, target: [number, number, number], lambda: num
   vec.z = damp(vec.z, target[2], lambda, dt)
 }
 
-const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
+const inter = 'https://raw.githubusercontent.com/pmndrs/assets/master/fonts/inter_regular.woff'
 
 const IMAGES = [
   '/image/angryface.png',
@@ -142,7 +142,7 @@ function ActiveCard({ hovered, ...props }: ActiveCardProps) {
   const url = hovered !== null ? IMAGES[hovered % IMAGES.length] : IMAGES[0]
   return (
     <Billboard {...props}>
-      <Text font={inter as unknown as string} fontSize={0.5} position={[2.15, 3.85, 0]} anchorX="left" color="black">
+      <Text font={inter} fontSize={0.5} position={[2.15, 3.85, 0]} anchorX="left" color="black">
         {hovered !== null && `${name}\n${hovered}`}
       </Text>
       <Image ref={ref} transparent radius={0.3} position={[0, 1.5, 0]} scale={[3.5, 1.618 * 3.5, 0.2]} url={url} />
