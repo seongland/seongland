@@ -7,20 +7,23 @@ import * as THREE from 'three'
 export const RainbowScene: React.FC = () => {
   const rainbow = useRef<THREE.Mesh>(null!)
 
-  useFrame(state => {
-    if (rainbow.current)
-      rainbow.current.position.set(
-        (state.pointer.x * state.viewport.width) / 2,
-        (state.pointer.y * state.viewport.height) / 2,
-        0,
-      )
-  })
+  const RainbowFollower: React.FC = () => {
+    useFrame(state => {
+      if (rainbow.current)
+        rainbow.current.position.set(
+          (state.pointer.x * state.viewport.width) / 2,
+          (state.pointer.y * state.viewport.height) / 2,
+          0,
+        )
+    })
+    return <Rainbow ref={rainbow} />
+  }
 
   return (
     <Canvas orthographic camera={{ position: [0, 0, 100], zoom: 70 }}>
       <color attach="background" args={['black']} />
       <ambientLight intensity={0.2} />
-      <Rainbow ref={rainbow} />
+      <RainbowFollower />
       <Prism position={[0, -2, 0]} />
     </Canvas>
   )
