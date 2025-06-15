@@ -5,6 +5,7 @@ import Router from 'next/router'
 import { ThemeProvider } from 'next-themes'
 
 import dynamic from 'next/dynamic'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
 const Analytics = dynamic(() => import('@vercel/analytics/react').then(m => m.Analytics), { ssr: false })
@@ -55,6 +56,7 @@ function App(props: AppProps) {
       </ThemeProvider>
       {process.env.NEXT_PUBLIC_VERCEL_URL ? <Analytics /> : <></>}
       {process.env.NEXT_PUBLIC_VERCEL_URL ? <GA4 id="G-CRRP8E78TC" /> : <></>}
+      {process.env.NEXT_PUBLIC_VERCEL_URL ? <SpeedInsights /> : <></>}
     </>
   )
 }
