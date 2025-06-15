@@ -10,7 +10,7 @@ export const StarWarsTitle: React.FC = () => {
   })
 
   return (
-    <group ref={group} position={[0, 0, -10]} rotation={[0, Math.PI, 0]}>
+    <group ref={group} position={[0, 0, -10]}>
       <Text
         color="white"
         anchorX="center"
