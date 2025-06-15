@@ -6,11 +6,11 @@ import type { Group } from 'three'
 export const StarWarsTitle: React.FC = () => {
   const group = useRef<Group>(null)
   useFrame(() => {
-    if (group.current && group.current.position.z < 0) group.current.position.z += 0.05
+    if (group.current && group.current.position.z < 0) group.current.position.z += 0.1
   })
 
   return (
-    <group ref={group} position={[0, 0, -6]}>
+    <group ref={group} position={[0, 0, -10]} rotation={[0, Math.PI, 0]}>
       <Text
         color="white"
         anchorX="center"
