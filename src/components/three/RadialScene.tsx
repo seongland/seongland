@@ -1,10 +1,17 @@
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, extend, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { Image, ScrollControls, useScroll, Billboard, Text } from '@react-three/drei'
-import { easing, geometry } from 'maath'
 
-extend(geometry)
+function damp(value: number, target: number, lambda: number, dt: number) {
+  return value + (target - value) * (1 - Math.exp(-lambda * dt))
+}
+
+function damp3(vec: THREE.Vector3, target: [number, number, number], lambda: number, dt: number) {
+  vec.x = damp(vec.x, target[0], lambda, dt)
+  vec.y = damp(vec.y, target[1], lambda, dt)
+  vec.z = damp(vec.z, target[2], lambda, dt)
+}
 
 const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
 
@@ -43,7 +50,7 @@ function Scene(props: JSX.IntrinsicElements['group']) {
   useFrame((state, delta) => {
     if (ref.current) ref.current.rotation.y = -scroll.offset * (Math.PI * 2)
     state.events.update()
-    easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
+    damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
     state.camera.lookAt(0, 0, 0)
   })
   return (
@@ -105,8 +112,8 @@ function Card({ url, active, hovered, ...props }: CardProps) {
   useFrame((state, delta) => {
     const f = hovered ? 1.4 : active ? 1.25 : 1
     if (ref.current) {
-      easing.damp3(ref.current.position, [0, hovered ? 0.25 : 0, 0], 0.1, delta)
-      easing.damp3(ref.current.scale, [1.618 * f, 1 * f, 1], 0.15, delta)
+      damp3(ref.current.position, [0, hovered ? 0.25 : 0, 0], 0.1, delta)
+      damp3(ref.current.scale, [1.618 * f, 1 * f, 1], 0.15, delta)
     }
   })
   return (
@@ -122,19 +129,20 @@ type ActiveCardProps = JSX.IntrinsicElements['group'] & {
 
 function ActiveCard({ hovered, ...props }: ActiveCardProps) {
   const ref = useRef<THREE.Mesh>(null)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const name = useMemo(() => generateWords(2).join(' '), [hovered])
   useLayoutEffect(() => {
     if (ref.current) ref.current.material.zoom = 0.8
   }, [hovered])
   useFrame((state, delta) => {
     if (!ref.current) return
-    easing.damp(ref.current.material, 'zoom', 1, 0.5, delta)
-    easing.damp(ref.current.material, 'opacity', hovered !== null, 0.3, delta)
+    ref.current.material.zoom = damp(ref.current.material.zoom, 1, 0.5, delta)
+    ref.current.material.opacity = damp(ref.current.material.opacity, hovered !== null ? 1 : 0, 0.3, delta)
   })
   const url = hovered !== null ? IMAGES[hovered % IMAGES.length] : IMAGES[0]
   return (
     <Billboard {...props}>
-      <Text font={inter as any} fontSize={0.5} position={[2.15, 3.85, 0]} anchorX="left" color="black">
+      <Text font={inter as unknown as string} fontSize={0.5} position={[2.15, 3.85, 0]} anchorX="left" color="black">
         {hovered !== null && `${name}\n${hovered}`}
       </Text>
       <Image ref={ref} transparent radius={0.3} position={[0, 1.5, 0]} scale={[3.5, 1.618 * 3.5, 0.2]} url={url} />
