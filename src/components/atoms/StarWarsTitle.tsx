@@ -1,9 +1,10 @@
 import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
+import type { Group } from 'three'
 
 export const StarWarsTitle: React.FC = () => {
-  const group = useRef<THREE.Group>(null)
+  const group = useRef<Group>(null)
   useFrame(() => {
     if (group.current && group.current.position.z < 0) group.current.position.z += 0.05
   })
