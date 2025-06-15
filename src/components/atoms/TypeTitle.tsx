@@ -1,21 +1,13 @@
 import React from 'react'
-import Typed from 'react-typed'
+import { Canvas } from '@react-three/fiber'
+import { StarWarsTitle } from './StarWarsTitle'
 
 export const TypeTitle: React.FC = () => {
   return (
-    <Typed
-      className="text-[4rem] font-black max-lg:text-[2.5rem] text-center absolute top-[41vh] select-none"
-      fadeOut={true}
-      startDelay={100}
-      typeSpeed={25}
-      strings={[
-        'Welcome',
-        "I'm Seonglae Cho",
-        'trying to improve the world',
-        'with a focus on AI',
-        'See my CV and Portfolio ↗',
-        'Results below↓',
-      ]}
-    />
+    <div className="absolute top-[41vh] w-full h-[40vh]" style={{ pointerEvents: 'none' }}>
+      <Canvas camera={{ position: [0, 0, 2], fov: 50 }}>
+        <StarWarsTitle />
+      </Canvas>
+    </div>
   )
 }
