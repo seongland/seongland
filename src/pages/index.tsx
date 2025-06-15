@@ -8,6 +8,9 @@ export const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').th
 })
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
+export const MagicTextRing = dynamic(() => import('@/components/organisms/MagicText').then(m => m.MagicTextRing), {
+  ssr: false,
+})
 import { Footer } from '@/components/molecules/Footer'
 import { Header } from '@/components/molecules/Header'
 import { description, url, title, domain, twitter } from '~/site-config'
@@ -18,7 +21,7 @@ export const CenterPage = dynamic(async () => import('@/components/atoms/CenterP
 export const ScrollPage = dynamic(async () => import('@/components/templates/ScrollPage'))
 
 const HEIGHT = 6
-const PAGES = 4
+const PAGES = 5
 
 const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = ({ applications, ais, webapps }) => {
   return (
@@ -47,17 +50,20 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
 
       <ScrollPage height={HEIGHT}>
         <CenterPage page={1} pages={PAGES}>
-          <TypeTitle />
+          <MagicTextRing />
         </CenterPage>
         <CenterPage page={2} pages={PAGES}>
+          <TypeTitle />
+        </CenterPage>
+        <CenterPage page={3} pages={PAGES}>
           <GridTitle title="AI Research" />
           <Cards cards={ais} />
         </CenterPage>
-        <CenterPage page={3} pages={PAGES}>
+        <CenterPage page={4} pages={PAGES}>
           <GridTitle title="Apps & Libs" />
           <Cards cards={applications} />
         </CenterPage>
-        <CenterPage page={3.95} pages={PAGES}>
+        <CenterPage page={4.95} pages={PAGES}>
           <GridTitle title="AI Services" />
           <Cards cards={webapps} />
         </CenterPage>
