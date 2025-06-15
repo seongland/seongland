@@ -20,11 +20,12 @@ export const RainbowScene: React.FC = () => {
   }
 
   return (
-    <Canvas orthographic camera={{ position: [0, 0, 100], zoom: 70 }}>
+    <Canvas camera={{ position: [0, 0, 5], fov: 60 }} style={{ width: '100vw', height: '100vh' }}>
       <color attach="background" args={['black']} />
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} />
       <RainbowFollower />
-      <Prism position={[0, -2, 0]} />
+      <Prism position={[0, 0, 0]} />
     </Canvas>
   )
 }
