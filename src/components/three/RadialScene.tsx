@@ -46,16 +46,17 @@ export const RadialScene: React.FC = () => (
 function Scene(props: JSX.IntrinsicElements['group']) {
   const ref = useRef<THREE.Group>(null)
   const scroll = useScroll()
-  const [hovered, hover] = useState<number | null>(null)
+  const [hovered, setHovered] = useState<number | null>(null)
+  const handleHover = (index: number | null) => setHovered(index)
   useFrame((state, delta) => {
     if (ref.current) ref.current.rotation.y = -scroll.offset * (Math.PI * 2)
-    state.events.update()
+    state.events.update?.()
     damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
     state.camera.lookAt(0, 0, 0)
   })
   return (
     <group ref={ref} {...props}>
-      <Cards from={0} len={Math.PI * 2} onPointerOver={hover} onPointerOut={hover} />
+      <Cards from={0} len={Math.PI * 2} onChange={handleHover} />
       <ActiveCard hovered={hovered} />
     </group>
   )
@@ -65,11 +66,10 @@ type CardsProps = JSX.IntrinsicElements['group'] & {
   from?: number
   len?: number
   radius?: number
-  onPointerOver: (index: number | null) => void
-  onPointerOut: (index: number | null) => void
+  onChange: (index: number | null) => void
 }
 
-function Cards({ from = 0, len = Math.PI * 2, radius = 5.25, onPointerOver, onPointerOut, ...props }: CardsProps) {
+function Cards({ from = 0, len = Math.PI * 2, radius = 5.25, onChange, ...props }: CardsProps) {
   const [hovered, hover] = useState<number | null>(null)
   const amount = Math.round(len * 22)
   return (
@@ -83,11 +83,11 @@ function Cards({ from = 0, len = Math.PI * 2, radius = 5.25, onPointerOver, onPo
             onPointerOver={e => {
               e.stopPropagation()
               hover(i)
-              onPointerOver(i)
+              onChange(i)
             }}
             onPointerOut={() => {
               hover(null)
-              onPointerOut(null)
+              onChange(null)
             }}
             position={[Math.sin(angle) * radius, 0, Math.cos(angle) * radius]}
             rotation={[0, Math.PI / 2 + angle, 0]}
@@ -118,7 +118,7 @@ function Card({ url, active, hovered, ...props }: CardProps) {
   })
   return (
     <group {...props}>
-      <Image ref={ref} transparent radius={0.075} url={url} scale={[1.618, 1, 1]} side={THREE.DoubleSide} />
+      <Image ref={ref} transparent radius={0.075} url={url} scale={[1.618, 1]} side={THREE.DoubleSide} />
     </group>
   )
 }
@@ -132,12 +132,13 @@ function ActiveCard({ hovered, ...props }: ActiveCardProps) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const name = useMemo(() => generateWords(2).join(' '), [hovered])
   useLayoutEffect(() => {
-    if (ref.current) ref.current.material.zoom = 0.8
+    if (ref.current) (ref.current.material as any).zoom = 0.8
   }, [hovered])
   useFrame((state, delta) => {
     if (!ref.current) return
-    ref.current.material.zoom = damp(ref.current.material.zoom, 1, 0.5, delta)
-    ref.current.material.opacity = damp(ref.current.material.opacity, hovered !== null ? 1 : 0, 0.3, delta)
+    const mat = ref.current.material as any
+    mat.zoom = damp(mat.zoom, 1, 0.5, delta)
+    mat.opacity = damp(mat.opacity, hovered !== null ? 1 : 0, 0.3, delta)
   })
   const url = hovered !== null ? IMAGES[hovered % IMAGES.length] : IMAGES[0]
   return (
@@ -145,7 +146,7 @@ function ActiveCard({ hovered, ...props }: ActiveCardProps) {
       <Text font={inter} fontSize={0.5} position={[2.15, 3.85, 0]} anchorX="left" color="black">
         {hovered !== null && `${name}\n${hovered}`}
       </Text>
-      <Image ref={ref} transparent radius={0.3} position={[0, 1.5, 0]} scale={[3.5, 1.618 * 3.5, 0.2]} url={url} />
+      <Image ref={ref} transparent radius={0.3} position={[0, 1.5, 0]} scale={[3.5, 1.618 * 3.5]} url={url} />
     </Billboard>
   )
 }
