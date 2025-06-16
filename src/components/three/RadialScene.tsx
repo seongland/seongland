@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Image, ScrollControls, useScroll, Billboard, Text } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { Image, useScroll, Billboard, Text } from '@react-three/drei'
 
 function damp(value: number, target: number, lambda: number, dt: number) {
   return value + (target - value) * (1 - Math.exp(-lambda * dt))
@@ -35,13 +35,7 @@ function generateWords(count: number) {
   return result
 }
 
-export const RadialScene: React.FC = () => (
-  <Canvas dpr={[1, 1.5]}>
-    <ScrollControls pages={4} infinite>
-      <Scene position={[0, 1.5, 0]} />
-    </ScrollControls>
-  </Canvas>
-)
+export const RadialScene: React.FC<JSX.IntrinsicElements['group']> = props => <Scene position={[0, 1.5, 0]} {...props} />
 
 function Scene(props: JSX.IntrinsicElements['group']) {
   const ref = useRef<THREE.Group>(null)
