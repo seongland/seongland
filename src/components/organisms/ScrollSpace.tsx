@@ -1,10 +1,13 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { useThree, useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { useSpring } from '@react-spring/three'
 
 import { Stars } from '@/components/molecules/Stars'
 import GradientWall from '@/components/molecules/Wall'
+import { Rainbow } from '@/components/visuals/Rainbow'
+import { Prism } from '@/components/visuals/Prism'
+import * as THREE from 'three'
 import { useThemeContext } from '@/hooks/useApp'
 
 const WALL = {
@@ -22,7 +25,16 @@ export const ScrollSpace: React.FC = () => {
   // Dark Mode
   const colorSet = useMemo(() => WALL[theme], [theme])
   const [{ top }, set] = useSpring(() => ({ top: 0 }))
-  useFrame(() => set.start({ top: data.range(0, 1) * scrollMax }))
+  const rainbow = useRef<THREE.Mesh>(null)
+  useFrame(state => {
+    set.start({ top: data.range(0, 1) * scrollMax })
+    if (rainbow.current)
+      rainbow.current.position.set(
+        (state.pointer.x * state.viewport.width) / 2,
+        (state.pointer.y * state.viewport.height) / 2,
+        0,
+      )
+  })
 
   // Spring Props
   const starPosition = top.to(top => [0, -1 + top / 20, 0])
@@ -33,6 +45,8 @@ export const ScrollSpace: React.FC = () => {
     <>
       <GradientWall color={wallColor} />
       <Stars position={starPosition} />
+      <Rainbow ref={rainbow} />
+      <Prism position={[0, -1, 0]} />
     </>
   )
 }
