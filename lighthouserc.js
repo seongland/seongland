@@ -53,6 +53,7 @@ const configuration = {
         'total-byte-weight': 'warn',
         'uses-responsive-images': 'warn',
         'robots-txt': 'warn',
+        'uses-text-compression': 'warn',
         'efficient-animated-content': 'warn',
         'duplicated-javascript-insight': 'warn',
         'forced-reflow-insight': 'warn',
