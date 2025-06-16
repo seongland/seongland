@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-import seongland from '~/public/seongland.png'
+import seongland from '@/public/seongland.png'
 
 export const GridTitle: React.FC<{ title: string }> = ({ title }) => {
   return (

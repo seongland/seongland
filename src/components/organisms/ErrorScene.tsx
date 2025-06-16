@@ -3,7 +3,6 @@ import React, { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { CameraControls, Environment, Lightformer, MeshTransmissionMaterial, shaderMaterial } from '@react-three/drei'
 import { useControls } from 'leva'
-import glsl from 'babel-plugin-glsl/macro'
 
 export const ErrorScene: React.FC = () => {
   const { background, blur } = useControls({ background: true, blur: { value: 0, min: 0, max: 1 } })
@@ -34,7 +33,8 @@ export const ErrorScene: React.FC = () => {
       </mesh>
       <Environment resolution={1024} frames={Infinity} background={background} blur={blur}>
         <Shader scale={1000} />
-        <Lightformer position={[20, 0, 10]} scale={[1, 1000, 1]} intensity={100} onCreated={self => self.lookAt(0, 0, 0)} />
+        {/* Lightformer to illuminate the environment */}
+        <Lightformer position={[20, 0, 10]} scale={[1, 1000, 1]} intensity={100} />
       </Environment>
       <CameraControls />
     </Canvas>
@@ -57,7 +57,7 @@ function Shader(props: JSX.IntrinsicElements['mesh']) {
 
 const PortalMaterial = shaderMaterial(
   { uTime: 0, uColorStart: new THREE.Color('hotpink'), uColorEnd: new THREE.Color('white') },
-  glsl`
+  `
   varying vec2 vUv;
   void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -67,7 +67,7 @@ const PortalMaterial = shaderMaterial(
     vUv = uv;
   }
   `,
-  glsl`
+  `
   #pragma glslify: cnoise3 = require(glsl-noise/classic/3d.glsl)
   uniform float uTime;
   uniform vec3 uColorStart;

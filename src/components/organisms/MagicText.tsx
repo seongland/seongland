@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import React, { useRef, useEffect, useMemo, Suspense } from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
-import { Environment, OrbitControls, Plane, Reflector } from '@react-three/drei'
+import { Environment, OrbitControls, Plane } from '@react-three/drei'
 import gsap from 'gsap'
 
 export function Text({
@@ -39,7 +39,7 @@ export function Text({
     const self = mesh.current
     if (!self) return
     const sizeVec = new THREE.Vector3()
-    const geo = self.geometry as THREE.TextGeometry
+    const geo = self.geometry as THREE.BufferGeometry
     geo.computeBoundingBox()
     geo.boundingBox?.getSize(sizeVec)
     self.position.x += hAlign === 'center' ? -sizeVec.x / 2 : hAlign === 'right' ? 0 : -sizeVec.x
@@ -126,14 +126,7 @@ export const MagicTextRing: React.FC = () => {
         <Plane rotation-x={-Math.PI * 0.5} position={[0, -7.9, 0]} args={[200, 200]} receiveShadow>
           <meshBasicMaterial color="#ffcda3" attach="material" transparent opacity={0.4} />
         </Plane>
-        <Reflector
-          clipBias={0.1}
-          textureWidth={1024}
-          textureHeight={1024}
-          position={[0, -8, 0]}
-          rotation={[-Math.PI * 0.5, 0, 0]}>
-          <planeBufferGeometry args={[200, 200]} />
-        </Reflector>
+        {/* Ground plane placeholder after removing Reflector */}
         <Environment preset="night" />
         <Magic text="PLAYGROUND" count={11} radius={25} />
       </Suspense>
