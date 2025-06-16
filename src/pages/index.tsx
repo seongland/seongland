@@ -3,7 +3,7 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import { dynamicImgCards } from '~/scripts/cards'
-export const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').then(m => m.TypeTitle), {
+export const StarWarsTitle = dynamic(() => import('@/components/atoms/StarWarsTitle').then(m => m.StarWarsTitle), {
   ssr: false,
 })
 import { GridTitle } from '@/components/atoms/GridTitle'
@@ -45,10 +45,7 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
         <meta property="twitter:domain" content={domain} />
       </Head>
 
-      <ScrollPage height={HEIGHT}>
-        <CenterPage page={1} pages={PAGES}>
-          <TypeTitle />
-        </CenterPage>
+      <ScrollPage height={HEIGHT} three={<StarWarsTitle />}>
         <CenterPage page={2} pages={PAGES}>
           <GridTitle title="AI Research" />
           <Cards cards={ais} />
