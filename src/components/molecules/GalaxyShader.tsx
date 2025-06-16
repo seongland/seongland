@@ -2,12 +2,14 @@ import * as THREE from 'three'
 import React, { useRef } from 'react'
 import { extend, useFrame } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
+import { useThemeContext } from '@/hooks/useApp'
+import { bgColor } from '~/site-config'
 // Use String.raw for template literal indentation
 const glsl = String.raw
 
 // Portal-shader from user provided snippet
 const PortalMaterial = shaderMaterial(
-  { uTime: 0, uColorStart: new THREE.Color(10, 5, 1), uColorEnd: new THREE.Color('#334') },
+  { uTime: 0, uColorStart: new THREE.Color('#111418'), uColorEnd: new THREE.Color('#334') },
   glsl`
   varying vec2 vUv;
   void main() {
@@ -110,13 +112,14 @@ const PortalMaterial = shaderMaterial(
     #include <tonemapping_fragment>
     #include <colorspace_fragment>
   }
-  `
+  `,
 )
 
 extend({ PortalMaterial })
 
 export const GalaxyShader: React.FC<JSX.IntrinsicElements['mesh']> = props => {
   const ref = useRef<any>(null)
+  const { theme } = useThemeContext()
   useFrame((_, delta) => {
     if (ref.current) ref.current.uTime += delta
   })
@@ -124,7 +127,7 @@ export const GalaxyShader: React.FC<JSX.IntrinsicElements['mesh']> = props => {
     <mesh {...props}>
       <sphereGeometry args={[1000, 64, 64]} />
       {/* @ts-ignore */}
-      <portalMaterial ref={ref} side={THREE.BackSide} />
+      <portalMaterial ref={ref} side={THREE.BackSide} uColorStart={bgColor[theme]} uColorEnd="#334" />
     </mesh>
   )
 }
