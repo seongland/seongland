@@ -45,8 +45,8 @@ export async function dynamicImgCards() {
 const ais: Card[] = [
   {
     title: 'FaithfulSAE',
-    subtitle: 'To be published',
-    url: 'https://github.com/seonglae/FaithfulSAE',
+    subtitle: 'ACL 2025 SRW',
+    url: 'https://huggingface.co/papers/2506.17673',
     theme: '#fff',
     color: 'black',
     ratio: '200%',
@@ -55,7 +55,7 @@ const ais: Card[] = [
   {
     title: 'LibVulnWatch',
     subtitle: 'ICML 2025 TAIG',
-    url: 'https://openreview.net/forum?id=MHhrr8QHgR',
+    url: 'https://arxiv.org/abs/2505.08842',
     theme: '#fff',
     color: '#000',
     ratio: '150%',
