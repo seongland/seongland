@@ -5,6 +5,7 @@ import { useSpring } from '@react-spring/three'
 
 import { Stars } from '@/components/molecules/Stars'
 import GradientWall from '@/components/molecules/Wall'
+import { RadialScene } from '@/components/three/RadialScene'
 import { useThemeContext } from '@/hooks/useApp'
 
 const WALL = {
@@ -33,6 +34,7 @@ export const ScrollSpace: React.FC = () => {
     <>
       <GradientWall color={wallColor} />
       <Stars position={starPosition} />
+      <RadialScene />
     </>
   )
 }
