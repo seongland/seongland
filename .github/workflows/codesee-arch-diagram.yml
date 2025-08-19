@@ -45,7 +45,7 @@ jobs:
         uses: actions/setup-python@v5
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).python }}
         with:
-          python-version: '3.13.6'
+          python-version: '3.13.7'
           architecture: 'x64'
 
       - name: Configure Ruby '3.x'
