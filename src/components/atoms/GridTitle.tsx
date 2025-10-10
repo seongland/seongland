@@ -19,7 +19,7 @@ export const GridTitle: React.FC<{ title: string }> = ({ title }) => {
               20vw"
         />
       </div>
-      <span className="text-[4.5vh] text-center">{title}</span>
+      <span className="text-[4.5vh] text-center font-nasalization">{title}</span>
     </div>
   )
 }
