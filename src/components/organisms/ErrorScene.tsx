@@ -1,11 +1,11 @@
 import * as THREE from 'three'
 import React, { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, extend, useFrame, type ReactThreeFiber } from '@react-three/fiber'
 import { CameraControls, Environment, Lightformer, MeshTransmissionMaterial, shaderMaterial } from '@react-three/drei'
-import { useControls } from 'leva'
 
 export const ErrorScene: React.FC = () => {
-  const { background, blur } = useControls({ background: true, blur: { value: 0, min: 0, max: 1 } })
+  const background = true
+  const blur = 0
   return (
     <Canvas>
       <color attach="background" args={['#223']} />
@@ -41,15 +41,16 @@ export const ErrorScene: React.FC = () => {
   )
 }
 
+type PortalMaterialType = THREE.ShaderMaterial & { uTime: number }
+
 function Shader(props: JSX.IntrinsicElements['mesh']) {
-  const ref = useRef<any>(null)
+  const ref = useRef<PortalMaterialType | null>(null)
   useFrame((_, delta) => {
     if (ref.current) ref.current.uTime += delta
   })
   return (
     <mesh {...props}>
       <sphereGeometry args={[1, 64, 64]} />
-      {/* @ts-ignore */}
       <portalMaterial ref={ref} key={PortalMaterial.key} uColorStart={[10, 5, 1]} uColorEnd="#334" side={THREE.BackSide} />
     </mesh>
   )
@@ -87,6 +88,14 @@ const PortalMaterial = shaderMaterial(
   }
   `,
 )
-// @ts-ignore
-import { extend } from '@react-three/fiber'
 extend({ PortalMaterial })
+
+/* eslint-disable @typescript-eslint/no-namespace */
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      portalMaterial: ReactThreeFiber.Node<PortalMaterialType, typeof PortalMaterial>
+    }
+  }
+}
+/* eslint-enable @typescript-eslint/no-namespace */

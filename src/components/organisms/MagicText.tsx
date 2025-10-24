@@ -1,9 +1,9 @@
 import * as THREE from 'three'
-import React, { useRef, useEffect, useMemo, Suspense } from 'react'
-import { Canvas, useLoader } from '@react-three/fiber'
+import React, { useRef, useEffect, useMemo, Suspense, useLayoutEffect } from 'react'
+import { Canvas, useLoader, useFrame } from '@react-three/fiber'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { Environment, OrbitControls, Plane } from '@react-three/drei'
-import gsap from 'gsap'
+import gsapLib from 'gsap'
 
 export function Text({
   children,
@@ -35,32 +35,42 @@ export function Text({
   const group = useRef<THREE.Group>(null)
   const mesh = useRef<THREE.Mesh>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const self = mesh.current
     if (!self) return
     const sizeVec = new THREE.Vector3()
     const geo = self.geometry as THREE.BufferGeometry
     geo.computeBoundingBox()
     geo.boundingBox?.getSize(sizeVec)
-    self.position.x += hAlign === 'center' ? -sizeVec.x / 2 : hAlign === 'right' ? 0 : -sizeVec.x
-    self.position.y += vAlign === 'center' ? -sizeVec.y / 2 : vAlign === 'top' ? 0 : -sizeVec.y
+    self.position.x = hAlign === 'center' ? -sizeVec.x / 2 : hAlign === 'right' ? 0 : -sizeVec.x
+    self.position.y = vAlign === 'center' ? -sizeVec.y / 2 : vAlign === 'top' ? 0 : -sizeVec.y
   }, [children, hAlign, vAlign])
 
   useEffect(() => {
-    gsap.defaults({
+    if (!mesh.current || !group.current) return
+    const baseDelay = 1.5 + i * 0.1
+    const rotationTween = gsapLib.to(mesh.current.rotation, {
       duration: 1.4,
       ease: 'power3.inOut',
-      delay: 1.5 + i * 0.1,
+      delay: baseDelay,
       yoyo: true,
       repeat: -1,
       repeatDelay: 1.6,
-    })
-    gsap.to(mesh.current?.rotation ?? {}, {
       x: Math.PI * 0.5,
     })
-    gsap.to(group.current?.position ?? {}, {
+    const floatTween = gsapLib.to(group.current.position, {
+      duration: 1.4,
+      ease: 'power3.inOut',
+      delay: baseDelay,
+      yoyo: true,
+      repeat: -1,
+      repeatDelay: 1.6,
       y: 1.8,
     })
+    return () => {
+      rotationTween.kill()
+      floatTween.kill()
+    }
   }, [i])
 
   return (
@@ -98,14 +108,13 @@ function Magic({
   position?: [number, number, number]
 }) {
   const ref = useRef<THREE.Group>(null)
-  useEffect(() => {
-    gsap.to(ref.current?.rotation ?? {}, {
-      duration: 6,
-      y: Math.PI * 1.3 + Math.PI * 2,
-      repeat: -1,
-      ease: 'power3.inOut',
-    })
-  }, [])
+  const rotationClock = useRef(0)
+  useFrame((_, delta) => {
+    rotationClock.current += delta * (Math.PI / 3)
+    const group = ref.current
+    if (!group) return
+    group.rotation.y = Math.PI * 1.3 + (rotationClock.current % (Math.PI * 2))
+  })
   return (
     <group ref={ref} position={position} rotation={[0, Math.PI * 1.3, 0]} scale={[-1, 1, 1]}>
       {text.split('').map((l, i) => (
