@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
@@ -27,7 +27,7 @@ jobs:
         uses: Codesee-io/codesee-detect-languages-action@latest
 
       - name: Configure JDK 16
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).java }}
         with:
           java-version: '16'
@@ -36,23 +36,23 @@ jobs:
       # CodeSee Maps Go support uses a static binary so there's no setup step required.
 
       - name: Configure Node.js 14
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).javascript }}
         with:
           node-version: '14.21.3'
 
       - name: Configure Python 3.x
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).python }}
         with:
-          python-version: '3.13.5'
+          python-version: '3.14.0'
           architecture: 'x64'
 
       - name: Configure Ruby '3.x'
         uses: ruby/setup-ruby@v1
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).ruby }}
         with:
-          ruby-version: '3.0'
+          ruby-version: '3.4.7'
 
       # CodeSee Maps Rust support uses a static binary so there's no setup step required.
 
