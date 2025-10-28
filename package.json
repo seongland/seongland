@@ -76,8 +76,8 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.4",
-    "@babel/eslint-parser": "^7.28.4",
+    "@babel/core": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.5",
     "@babel/runtime": "^7.28.4",
     "@next/bundle-analyzer": "^13.5.11",
     "@next/eslint-plugin-next": "^13.5.11",
