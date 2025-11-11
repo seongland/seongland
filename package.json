@@ -64,8 +64,8 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "react-typed": "^1.2.0",
-    "sharp": "0.34.4",
-    "three": "^0.181.0",
+    "sharp": "0.34.5",
+    "three": "^0.181.1",
     "tslib": "^2.8.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
@@ -87,8 +87,8 @@
     "@types/react": "18.3.26",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.181.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.3",
-    "@typescript-eslint/parser": "^8.46.3",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
     "@vitejs/plugin-react": "^4.7.0",
     "@vitest/coverage-v8": "^3.2.4",
     "cross-env": "^10.1.0",
@@ -108,7 +108,7 @@
   },
   "pnpm": {
     "overrides": {
-      "three-stdlib": "^2.36.0"
+      "three-stdlib": "^2.36.1"
     }
   }
 }
