@@ -47,3 +47,21 @@ body.blur-load {
   -webkit-filter: blur(16px);
   filter: blur(16px);
 }
+
+:root {
+  --selection-color: #111418;
+  --selection-background: rgba(17, 20, 24, 0.12);
+}
+
+html.dark {
+  --selection-color: #fefefe;
+  --selection-background: rgba(254, 254, 254, 0.18);
+}
+
+::selection,
+::-moz-selection {
+  color: var(--selection-color);
+  background-color: var(--selection-background);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
