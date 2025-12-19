@@ -1,5 +1,3 @@
-const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -65,8 +63,6 @@ const nextConfig = {
     },
   },
   webpack: config => {
-    // @ts-ignore
-    config.plugins.push(new WindiCSSWebpackPlugin())
     config.externals.push('sharp')
     return config
   },
