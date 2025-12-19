@@ -12,4 +12,4 @@ public/*
 !src/public
 .eslintcache
 .lighthouseci
-coverage
+coverageCLAUDE.md

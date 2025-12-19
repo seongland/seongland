@@ -18,10 +18,7 @@ export const BGMBtn: React.FC = () => {
       role="button"
       tabIndex={0}
       aria-label={playing ? 'Pause background music' : 'Play background music'}
-      text="hover:light-blue-500 2xl"
-      p="2"
-      className="inline-flex "
-      transition="colors"
+      className="inline-flex hover:text-sky-500 text-2xl p-2 transition-colors cursor-pointer"
       onClick={togglePlay}
       title="Toggle background music">
       {playing ? <IoPauseOutline /> : <IoPlayOutline />}
