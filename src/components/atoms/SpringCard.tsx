@@ -25,30 +25,22 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
   return (
     <animated.div
       {...props}
-      className={`transition min-h${small ? 5 : 10}rem <sm:min-h${small ? 2.5 : 5}rem`}
+      className={`transition ${small ? 'min-h-20' : 'min-h-40'} ${small ? 'max-sm:min-h-10' : 'max-sm:min-h-20'}`}
       style={{
         touchAction: 'pan-x',
         transform: to([spring.x, spring.y], (x, y) => `translate3d(${x}px,${y}px,0)`),
       }}>
       <animated.div
-        w="full"
-        h="full"
-        text="left"
-        className="flex rounded-xl max-h-40vh max-h-40vh"
-        overflow="hidden"
+        className="flex rounded-xl max-h-[40vh] w-full h-full text-left overflow-hidden"
         style={{
           outline: '1px solid transparent',
           background: `${card.theme}`,
           transform: to([spring.rotation, spring.scale], trans),
         }}>
         <a
-          m="auto"
-          className="flex"
+          className="flex m-auto justify-center select-none flex-col-reverse"
           href={card.url}
-          justify={'center'}
-          select="none"
-          style={{ position: 'relative' }}
-          flex="col-reverse">
+          style={{ position: 'relative' }}>
           <Image
             fill
             alt={card.alt ?? card.title}
@@ -71,15 +63,10 @@ export const SpringCard: React.FC<{ card: Card; spring: SpringProp; props: DragP
             role="button"
             tabIndex={0}
             aria-label={card.title}
-            style={{ color: card.color, textShadow: `0 0 1px ${card.color}` }}
-            m="4"
-            z="1">
-            <label text={small ? '1.5rem' : '2rem'} cursor="pointer" p="3" font="600">
-              {card.title}
-            </label>
-            <div text={small ? '1rem' : '1.3rem'} font="500" p="3" className="leading-7">
-              {card.subtitle}
-            </div>
+            className="m-4 z-[1]"
+            style={{ color: card.color, textShadow: `0 0 1px ${card.color}` }}>
+            <label className={`cursor-pointer p-3 font-semibold ${small ? 'text-2xl' : 'text-[2rem]'}`}>{card.title}</label>
+            <div className={`font-medium p-3 leading-7 ${small ? 'text-base' : 'text-xl'}`}>{card.subtitle}</div>
           </div>
         </a>
       </animated.div>

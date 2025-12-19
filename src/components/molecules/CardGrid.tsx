@@ -73,17 +73,11 @@ const CardGrid: React.FC<{
 
   // small or big gallary
   return small ? (
-    <div
-      className="grid gap-5 <sm:gap-4 <sm:grid-cols-3 <md:grid-cols-3 <lg:grid-cols-4 grid-cols-5 max-w-11/12"
-      w="full"
-      h="50vh">
+    <div className="grid gap-5 max-sm:gap-4 max-sm:grid-cols-3 max-md:grid-cols-3 max-lg:grid-cols-4 grid-cols-5 max-w-[91.666%] w-full h-[50vh]">
       {children}
     </div>
   ) : (
-    <div
-      className="grid gap-5 <sm:gap-5 <sm:grid-cols-1 <md:grid-cols-3 <lg:grid-cols-3 grid-cols-3 max-w-11/12"
-      w="full"
-      h="50vh">
+    <div className="grid gap-5 max-sm:gap-5 max-sm:grid-cols-1 max-md:grid-cols-3 max-lg:grid-cols-3 grid-cols-3 max-w-[91.666%] w-full h-[50vh]">
       {children}
     </div>
   )
