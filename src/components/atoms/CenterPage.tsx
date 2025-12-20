@@ -20,16 +20,8 @@ export const CenterPage: React.FC<{ children: React.ReactNode; page: number; pag
   })
 
   return (
-    <div
-      ref={centered}
-      className="flex absolute inset-0"
-      justify="center"
-      style={{ top: pageStart(page) }}
-      h="100vh"
-      w="100vw">
-      <div className="flex items-center container" justify="center">
-        {children}
-      </div>
+    <div ref={centered} className="flex absolute inset-0 justify-center h-screen w-screen" style={{ top: pageStart(page) }}>
+      <div className="flex items-center container justify-center">{children}</div>
     </div>
   )
 }

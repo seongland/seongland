@@ -52,10 +52,7 @@ export const ThemeBtn: React.FC = () => {
           role="button"
           tabIndex={0}
           aria-label="Toggle dark mode"
-          text="hover:yellow-500 2xl"
-          p="2"
-          className="inline-flex"
-          transition="colors"
+          className="inline-flex hover:text-yellow-500 text-2xl p-2 transition-colors"
           onClick={toggleTheme}
           title="Toggle dark mode">
           {theme === 'dark' ? <IoMoonSharp /> : <IoSunnyOutline />}
