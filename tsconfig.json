@@ -8,25 +8,39 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "esnext",
     "importHelpers": true,
     "removeComments": true,
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "~/*": ["./*"],
-      "lib/*": ["./lib/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "~/*": [
+        "./*"
+      ],
+      "lib/*": [
+        "./lib/*"
+      ]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es5",
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
     "incremental": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "next-env.d.ts",
     "src/**/*.ts",
