@@ -1,8 +1,12 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   box-sizing: border-box;
 }
 
-a {
+a:where(:not(.underline)) {
   color: inherit;
   text-decoration: none;
 }
