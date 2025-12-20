@@ -55,24 +55,12 @@ const nextConfig = {
     },
   ],
   productionBrowserSourceMaps: true,
-  experimental: {
-    modularizeImports: {
-      'react-icons': {
-        transform: 'react-icons/{{member}}',
-      },
-    },
-  },
-  webpack: config => {
-    config.externals.push('sharp')
-    return config
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Acknowledge Turbopack (Next.js 16 default)
+  turbopack: {},
   images: {
     unoptimized: process.argv.includes('export'),
     formats: ['image/avif', 'image/webp'],
-    domains: ['github.com'],
+    remotePatterns: [{ protocol: 'https', hostname: 'github.com' }],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
