@@ -10,8 +10,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 const GA4 = dynamic(() => import('@/components/atoms/GA4'), { ssr: false })
 const Analytics = dynamic(() => import('@vercel/analytics/react').then(m => m.Analytics), { ssr: false })
 
-import 'windi.css'
-
 import '@/styles/global.css'
 import '@/styles/card.css'
 import '@/styles/nprogress.css'
