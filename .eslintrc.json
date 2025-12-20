@@ -65,5 +65,5 @@
     "curly": ["error", "multi", "consistent"],
     "no-console": ["error", { "allow": ["warn", "error", "debug", "info", "groupCollapsed", "groupEnd"] }]
   },
-  "ignorePatterns": ["**/*.js", "**/*.test.ts"]
+  "ignorePatterns": ["**/*.js", "**/*.test.ts", "next-env.d.ts"]
 }
