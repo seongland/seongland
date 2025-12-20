@@ -1,4 +1,3 @@
-// Build cache invalidation: 2025-12-20T02:05:00Z
 import React, { useEffect } from 'react'
 import Head from 'next/head'
 import NProgress from 'nprogress'
