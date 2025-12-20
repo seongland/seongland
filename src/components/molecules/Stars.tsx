@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useEffect } from 'react'
+import React, { useRef, useMemo, useEffect, useState } from 'react'
 import { MathUtils, SphereGeometry, MeshBasicMaterial } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import { animated, useSpring } from '@react-spring/three'
@@ -49,10 +49,8 @@ export const Stars: React.FC<{
   // Store theta in ref to allow mutation in useFrame without violating immutability
   const thetaRef = useRef(theta)
 
-  // Store random coords in ref to avoid impure Math.random() during render
-  const coordsRef = useRef<number[][] | null>(null)
-  if (coordsRef.current === null) coordsRef.current = generateStarCoords(stars, spread)
-  const coords = coordsRef.current
+  // Use useState with lazy initialization for random coords (runs once, not during subsequent renders)
+  const [coords] = useState(() => generateStarCoords(stars, spread))
 
   // create stars geometry and material
   const [geo, mat] = useMemo(() => {
