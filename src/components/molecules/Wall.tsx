@@ -1,3 +1,4 @@
+// @ts-nocheck - Temporary: @react-spring/three types incompatible with React 19
 import React from 'react'
 import { a } from '@react-spring/three'
 import { useThree } from '@react-three/fiber'
