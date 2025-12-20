@@ -1,14 +1,17 @@
 // vite.config.ts
 import { defineConfig } from 'vitest/config'
-import { resolve } from 'path'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
 import react from '@vitejs/plugin-react'
+
+const ROOT_DIR = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      '~': resolve(__dirname, '.'),
+      '@/': resolve(ROOT_DIR, 'src') + '/',
+      '~/': resolve(ROOT_DIR) + '/',
     },
   },
   test: {
