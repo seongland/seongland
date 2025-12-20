@@ -1,11 +1,20 @@
 import React, { useRef, useMemo, useEffect } from 'react'
 import { MathUtils, SphereGeometry, MeshBasicMaterial } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
-import { a, useSpring } from '@react-spring/three'
+import { animated, useSpring } from '@react-spring/three'
 import { useThemeContext } from '@/hooks/useApp'
 
 import type { Group } from 'three'
 import type { Interpolation } from '@react-spring/three'
+
+// Generate random star coordinates (pure function called once per component instance)
+function generateStarCoords(stars: number, spread: number): number[][] {
+  return Array.from({ length: stars }).map(() => [
+    Math.random() * spread * 2 - spread,
+    Math.random() * spread * 2 - spread,
+    Math.random() * spread * 2 - spread,
+  ])
+}
 
 const COLOR = {
   light: 0x242424,
@@ -37,17 +46,17 @@ export const Stars: React.FC<{
   const { theme } = useThemeContext()
   const color = COLOR[theme]
 
-  // create stars
-  const [geo, mat, coords] = useMemo(() => {
+  // Store random coords in ref to avoid impure Math.random() during render
+  const coordsRef = useRef<number[][] | null>(null)
+  if (coordsRef.current === null) coordsRef.current = generateStarCoords(stars, spread)
+  const coords = coordsRef.current
+
+  // create stars geometry and material
+  const [geo, mat] = useMemo(() => {
     const geo = new SphereGeometry(radius.star, segments, segments)
     const mat = new MeshBasicMaterial({ color })
-    const coords = Array.from({ length: stars }).map(() => [
-      Math.random() * spread * 2 - spread,
-      Math.random() * spread * 2 - spread,
-      Math.random() * spread * 2 - spread,
-    ])
-    return [geo, mat, coords]
-  }, [color, spread, stars, radius.star, segments])
+    return [geo, mat]
+  }, [color, radius.star, segments])
 
   // Mouse
   const [, set] = useSpring(() => ({
@@ -81,12 +90,19 @@ export const Stars: React.FC<{
     group.current.scale.set(s, s, s)
   })
 
+  // Use type assertion for animated.group compatibility with React 19
+  const AnimatedGroup = animated.group as React.FC<{
+    ref: React.RefObject<Group | null>
+    position: Interpolation
+    children: React.ReactNode
+  }>
+
   return (
-    <a.group ref={group} position={position}>
+    <AnimatedGroup ref={group} position={position}>
       {coords.map(([p1, p2, p3], i) => (
         <mesh key={i} geometry={geo} material={mat} position={[p1, p2, p3]} />
       ))}
-    </a.group>
+    </AnimatedGroup>
   )
 }
 
