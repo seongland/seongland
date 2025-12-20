@@ -2,6 +2,8 @@ node_modules
 .next
 .env
 public/*
+!public/fonts/
+!public/fonts/helvetiker_bold.typeface.json
 !public/android*
 !public/apple*
 !public/mstile*
@@ -12,4 +14,4 @@ public/*
 !src/public
 .eslintcache
 .lighthouseci
-coverageCLAUDE.md
+coverage
