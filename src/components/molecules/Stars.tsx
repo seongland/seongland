@@ -46,6 +46,9 @@ export const Stars: React.FC<{
   const { theme } = useThemeContext()
   const color = COLOR[theme]
 
+  // Store theta in ref to allow mutation in useFrame without violating immutability
+  const thetaRef = useRef(theta)
+
   // Store random coords in ref to avoid impure Math.random() during render
   const coordsRef = useRef<number[][] | null>(null)
   if (coordsRef.current === null) coordsRef.current = generateStarCoords(stars, spread)
@@ -82,8 +85,9 @@ export const Stars: React.FC<{
 
   // update
   useFrame(() => {
-    const r = radius.galaxy * Math.sin(MathUtils.degToRad((theta += diff) / cycle))
-    const s = Math.cos(MathUtils.degToRad(theta))
+    thetaRef.current += diff
+    const r = radius.galaxy * Math.sin(MathUtils.degToRad(thetaRef.current / cycle))
+    const s = Math.cos(MathUtils.degToRad(thetaRef.current))
     // @ts-ignore
     group.current.rotation?.set(r, r, r)
     // @ts-ignore
