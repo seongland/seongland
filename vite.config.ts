@@ -6,18 +6,10 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [
-      {
-        find: '@',
-        replacement: resolve(__dirname, './src'),
-        customResolver: to => to,
-      },
-      {
-        find: '~',
-        replacement: resolve(__dirname, '.'),
-        customResolver: to => to,
-      },
-    ],
+    alias: {
+      '@': resolve(__dirname, './src'),
+      '~': resolve(__dirname, '.'),
+    },
   },
   test: {
     includeSource: ['**/*.ts', '**/*.tsx', '**/*.json'],
