@@ -14,7 +14,7 @@
     "coverage": "vitest --coverage --run",
     "build": "pnpm build:scripts && pnpm build:web",
     "build:scripts": "tsx scripts/build.ts",
-    "build:web": "next build",
+    "build:web": "rm -rf .next && next build",
     "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky",
     "lint": "eslint --cache \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore",
