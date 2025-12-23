@@ -9,6 +9,11 @@ const configuration = {
       url: [root],
       numberOfRuns: 1,
       startServerCommand: 'pnpm start',
+      settings: {
+        maxWaitForLoad: 90000,
+        throttlingMethod: 'provided',
+        disableStorageReset: true,
+      },
       upload: process.env.LHCI_TOKEN
         ? {
             target: 'lhci',
