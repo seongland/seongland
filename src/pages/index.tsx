@@ -6,6 +6,9 @@ import { dynamicImgCards } from '~/scripts/cards'
 export const TypeTitle = dynamic(() => import('@/components/atoms/TypeTitle').then(m => m.TypeTitle), {
   ssr: false,
 })
+const HomeScene = dynamic(() => import('@/components/organisms/HomeScene'), {
+  ssr: false,
+})
 import { GridTitle } from '@/components/atoms/GridTitle'
 import { Cards } from '@/components/organisms/Cards'
 import { Footer } from '@/components/molecules/Footer'
@@ -44,6 +47,8 @@ const Index: React.FC<{ applications: Card[]; ais: Card[]; webapps: Card[] }> = 
         <meta property="twitter:url" content={url} />
         <meta property="twitter:domain" content={domain} />
       </Head>
+
+      <HomeScene />
 
       <ScrollPage height={HEIGHT}>
         <CenterPage page={1} pages={PAGES}>
