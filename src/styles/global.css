@@ -51,3 +51,10 @@ body.blur-load {
   -webkit-filter: blur(16px);
   filter: blur(16px);
 }
+
+::selection,
+::-moz-selection {
+  background-color: rgba(18, 137, 161, 0.35);
+  color: inherit;
+  backdrop-filter: blur(8px);
+}
