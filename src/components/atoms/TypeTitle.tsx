@@ -4,7 +4,7 @@ import Typed from 'react-typed'
 export const TypeTitle: React.FC = () => {
   return (
     <Typed
-      className="text-[4rem] font-black max-lg:text-[2.5rem] text-center absolute top-[41vh] select-none"
+      className="text-[4rem] font-black max-lg:text-[2.5rem] text-center absolute top-[41vh] select-none font-nasalization"
       fadeOut={true}
       startDelay={100}
       typeSpeed={25}

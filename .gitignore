@@ -8,6 +8,8 @@ public/*
 !public/favicon*
 !public/manifest.json
 !public/browserconfig.xml
+!public/fonts
+!public/fonts/*
 *.log
 !src/public
 .eslintcache
