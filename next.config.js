@@ -74,3 +74,4 @@ const nextConfig = {
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
 module.exports = withBundleAnalyzer(nextConfig)
+// vercel trigger 1770136060
