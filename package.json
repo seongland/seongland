@@ -17,7 +17,7 @@
     "build:web": "rm -rf .next && next build",
     "analyze": "cross-env ANALYZE=true next build",
     "prepare": "husky",
-    "lint": "eslint --cache \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --cache \"**/*.{ts,tsx}\" --fix --ignore-path .gitignore",
     "format": "prettier --cache \"**/*.{js,json,md,css,js,ts,tsx}\" --write --ignore-path .gitignore"
   },
   "color": {
@@ -92,7 +92,7 @@
     "@vitejs/plugin-react": "^4.7.0",
     "@vitest/coverage-v8": "^4.0.18",
     "cross-env": "^10.1.0",
-    "eslint": "8.57.1",
+    "eslint": "9.26.0",
     "eslint-config-next": "^16.1.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
