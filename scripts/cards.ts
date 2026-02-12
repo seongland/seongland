@@ -7,6 +7,9 @@ import resrer from '@/public/image/resrer.png'
 import saedataset from '@/public/image/saedataset.png'
 import faithful from '@/public/image/faithful.png'
 import libvuln from '@/public/image/libvuln.png'
+import crl from '@/public/image/crl.png'
+import manifold from '@/public/image/manifold.png'
+import corrsteer from '@/public/image/corrsteer.png'
 
 import intuiter from '@/public/icon/intuiter.png'
 import spotify from '@/public/icon/2spotify.png'
@@ -43,6 +46,33 @@ export async function dynamicImgCards() {
 }
 
 const ais: Card[] = [
+  {
+    title: 'CRL',
+    subtitle: 'ICLR 2026',
+    url: 'https://arxiv.org/abs/2602.10437',
+    theme: '#fff',
+    color: 'black',
+    ratio: '200%',
+    image: crl,
+  },
+  {
+    title: 'Confidence Manifold',
+    subtitle: 'ICLR 2026',
+    url: 'https://arxiv.org/abs/2602.08159',
+    theme: '#fff',
+    color: 'black',
+    ratio: '150%',
+    image: manifold,
+  },
+  {
+    title: 'CorrSteer',
+    subtitle: 'EMNLP 2025',
+    url: 'https://arxiv.org/abs/2508.12535',
+    theme: '#fff',
+    color: 'black',
+    ratio: '200%',
+    image: corrsteer,
+  },
   {
     title: 'FaithfulSAE',
     subtitle: 'ACL 2025 SRW',
