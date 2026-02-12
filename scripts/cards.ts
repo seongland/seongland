@@ -48,7 +48,7 @@ export async function dynamicImgCards() {
 const ais: Card[] = [
   {
     title: 'CRL',
-    subtitle: 'ICLR 2026',
+    subtitle: 'arXiv 2025',
     url: 'https://arxiv.org/abs/2602.10437',
     theme: '#fff',
     color: 'black',
@@ -57,7 +57,7 @@ const ais: Card[] = [
   },
   {
     title: 'Confidence Manifold',
-    subtitle: 'ICLR 2026',
+    subtitle: 'arXiv 2025',
     url: 'https://arxiv.org/abs/2602.08159',
     theme: '#fff',
     color: 'black',
@@ -66,7 +66,7 @@ const ais: Card[] = [
   },
   {
     title: 'CorrSteer',
-    subtitle: 'EMNLP 2025',
+    subtitle: 'arXiv 2025',
     url: 'https://arxiv.org/abs/2508.12535',
     theme: '#fff',
     color: 'black',
