@@ -4,6 +4,7 @@ import { useScroll } from '@react-three/drei'
 import { useSpring } from '@react-spring/three'
 
 import { Stars } from '@/components/molecules/Stars'
+import GalaxyShader from '@/components/molecules/GalaxyShader'
 import GradientWall from '@/components/molecules/Wall'
 import { useThemeContext } from '@/hooks/useApp'
 
@@ -32,6 +33,7 @@ export const ScrollSpace: React.FC = () => {
   return (
     <>
       <GradientWall color={wallColor} />
+      <GalaxyShader />
       <Stars position={starPosition} />
     </>
   )
