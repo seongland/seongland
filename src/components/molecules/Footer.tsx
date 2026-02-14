@@ -1,12 +1,11 @@
 import React from 'react'
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
 import { author, twitter, linkedin, github } from '~/site-config'
 
-export const ThemeBtn = dynamic(async () => import('../atoms/ThemeBtn'))
-export const BGMBtn = dynamic(async () => import('../atoms/BGMBtn'))
+import ThemeBtn from '../atoms/ThemeBtn'
+import BGMBtn from '../atoms/BGMBtn'
 
 export const Footer: React.FC = () => {
   return (
