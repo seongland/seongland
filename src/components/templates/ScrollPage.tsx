@@ -7,11 +7,12 @@ import { ScrollSpace } from '@/components/organisms/ScrollSpace'
 import { bgColor } from '~/site-config'
 import { useThemes } from '@/hooks/useApp'
 
-export const ScrollPage: React.FC<{ height: number; damping?: number; children: React.ReactNode }> = ({
-  height,
-  damping = 0.5,
-  children,
-}) => {
+export const ScrollPage: React.FC<{
+  height: number
+  damping?: number
+  children: React.ReactNode
+  three?: React.ReactNode
+}> = ({ height, damping = 0.5, children, three }) => {
   // Theme
   const { theme } = useThemes()
   useScroll()
@@ -24,6 +25,7 @@ export const ScrollPage: React.FC<{ height: number; damping?: number; children: 
       <Canvas>
         <ScrollControls damping={damping} pages={height}>
           <Scroll>
+            {three}
             <ScrollSpace />
           </Scroll>
           <Scroll html>
