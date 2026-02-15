@@ -3,7 +3,7 @@ import { profile } from "@/data/profile";
 ---
 
 <section class="py-12 scroll-reveal">
-  <h2 class="space-heading mb-6 text-lg tracking-widest text-white/90">
+  <h2 class="space-heading mb-6 text-lg tracking-widest text-space-fg/90">
     Research Interests
   </h2>
   <div class="flex flex-wrap gap-3">
@@ -11,7 +11,7 @@ import { profile } from "@/data/profile";
       profile.interests.map((interest) => (
         <a
           href={`/publications?tag=${encodeURIComponent(interest)}`}
-          class="rounded-full border border-white/10 px-4 py-1.5 text-sm text-white/60 transition-colors hover:border-white/30 hover:text-white/80 cursor-pointer"
+          class="rounded-full border border-space-fg/10 px-4 py-1.5 text-sm text-space-fg/60 transition-colors hover:border-space-fg/30 hover:text-space-fg/80 cursor-pointer"
         >
           {interest}
         </a>

@@ -28,7 +28,7 @@ const isSpace = variant === "space";
   class:list={[
     "sticky top-0 z-50 w-full backdrop-blur-md transition-colors",
     isSpace
-      ? "bg-transparent border-b border-white/10"
+      ? "bg-transparent border-b border-space-fg/10"
       : "bg-paper/90 border-b border-rule",
   ]}
 >
@@ -38,7 +38,7 @@ const isSpace = variant === "space";
       href="/"
       class:list={[
         "space-heading text-sm tracking-wider",
-        isSpace ? "text-white" : "text-ink",
+        isSpace ? "text-space-fg" : "text-ink",
       ]}
     >
       Seongland
@@ -54,10 +54,10 @@ const isSpace = variant === "space";
               "rounded-md px-3 py-1.5 text-xs font-medium tracking-wide transition-colors",
               isActive(tab.href)
                 ? isSpace
-                  ? "text-white bg-white/15"
+                  ? "text-space-fg bg-space-fg/15"
                   : "bg-ink text-paper"
                 : isSpace
-                  ? "text-white/60 hover:text-white hover:bg-white/10"
+                  ? "text-space-fg/60 hover:text-space-fg hover:bg-space-fg/10"
                   : "text-ink-3 hover:text-ink hover:bg-ink/5",
             ]}
           >
@@ -78,7 +78,7 @@ const isSpace = variant === "space";
         aria-label="Toggle menu"
         class:list={[
           "flex h-8 w-8 items-center justify-center rounded-md transition-colors",
-          isSpace ? "text-white hover:bg-white/10" : "text-ink hover:bg-ink/5",
+          isSpace ? "text-space-fg hover:bg-space-fg/10" : "text-ink hover:bg-ink/5",
         ]}
       >
         <svg
@@ -118,7 +118,7 @@ const isSpace = variant === "space";
     class:list={[
       "mobile-menu-panel flex-col gap-1 border-t px-6 pb-4 pt-2 md:hidden",
       isSpace
-        ? "border-white/10 bg-black/80 backdrop-blur-xl"
+        ? "border-space-fg/10 bg-black/80 backdrop-blur-xl"
         : "border-rule bg-paper",
     ]}
   >
@@ -130,10 +130,10 @@ const isSpace = variant === "space";
             "rounded-md px-3 py-2 text-sm font-medium transition-colors",
             isActive(tab.href)
               ? isSpace
-                ? "text-white bg-white/15"
+                ? "text-space-fg bg-space-fg/15"
                 : "bg-ink text-paper"
               : isSpace
-                ? "text-white/60 hover:text-white"
+                ? "text-space-fg/60 hover:text-space-fg"
                 : "text-ink-3 hover:text-ink",
           ]}
         >

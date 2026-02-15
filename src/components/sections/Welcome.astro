@@ -3,7 +3,7 @@
 
 <section class="flex min-h-[60vh] flex-col items-center justify-center text-center animate-reveal">
   <h1
-    class="space-heading text-white animate-reveal"
+    class="space-heading text-space-fg animate-reveal"
     style="font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 0.12em;"
   >
     SEONGLAND
@@ -12,9 +12,9 @@
     class="mt-4 animate-reveal d2"
     style="font-family: var(--font-body-space); font-size: clamp(0.9rem, 2vw, 1.2rem);"
   >
-    <span id="typed-text" class="text-white/50 typed-fade">Welcome</span><span
+    <span id="typed-text" class="text-space-fg/50 typed-fade">Welcome</span><span
       id="cursor"
-      class="typed-cursor text-white/70"
+      class="typed-cursor text-space-fg/70"
     ></span>
   </div>
 </section>
@@ -63,7 +63,6 @@
       el!.textContent = current.slice(0, charIdx + 1);
       charIdx++;
       if (charIdx >= current.length) {
-        // Done typing → wait, then fade out
         setTimeout(fadeOut, 2000);
         return;
       }
@@ -73,7 +72,6 @@
     function fadeOut() {
       el!.classList.add("fade-out");
       setTimeout(() => {
-        // After fade, move to next string
         strIdx = (strIdx + 1) % strings.length;
         charIdx = 0;
         el!.textContent = "";
@@ -82,7 +80,6 @@
       }, 400);
     }
 
-    // Start after initial display
     setTimeout(fadeOut, 2500);
   }
 </script>

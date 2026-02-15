@@ -53,6 +53,9 @@
   /* Neutral */
   --color-charcoal: #2d2926;
 
+  /* Space variant foreground (dark mode: white, light mode: ink) */
+  --color-space-fg: #ffffff;
+
   /* Dark variants */
   --color-paper-dark: #111418;
   --color-paper-warm-dark: #1a1d22;
@@ -106,6 +109,10 @@
   [data-theme='dark'] body {
     color: var(--color-ink-dark);
     background-color: transparent;
+  }
+
+  [data-theme='light'] {
+    --color-space-fg: #1a1714;
   }
 
   [data-theme='dark'] {
