@@ -14,25 +14,22 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class="group flex items-start gap-4 bg-paper-warm border border-rule p-5 transition-colors hover:bg-ochre-dim"
+  class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg"
 >
   <img
     src={image}
     alt={title}
-    class="h-16 w-16 flex-shrink-0 rounded object-cover"
+    class="h-14 w-14 flex-shrink-0 rounded-lg object-contain"
     loading="lazy"
   />
-  <div class="flex min-w-0 flex-col gap-1.5">
-    <h3 class="serif text-lg leading-tight text-ink">{title}</h3>
-    <span class="mono text-ink-3" style="font-size: 11px;">{subtitle}</span>
+  <div class="flex min-w-0 flex-col gap-1">
+    <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
+    <span class="mono text-ink-3 text-[11px]">{subtitle}</span>
     {
       tags.length > 0 && (
-        <div class="flex flex-wrap gap-1.5 pt-0.5">
+        <div class="flex flex-wrap gap-1.5 mt-1">
           {tags.map((tag) => (
-            <span
-              class="mono rounded border border-rule px-1.5 py-0.5 text-ink-3"
-              style="font-size: 10px;"
-            >
+            <span class="rounded-full bg-ink/8 px-2.5 py-0.5 text-[10px] text-ink-3 font-medium">
               {tag}
             </span>
           ))}

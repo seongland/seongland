@@ -28,7 +28,7 @@ const { Content } = await render(article)
         {article.data.tags && (
           <div class="flex flex-wrap gap-1 mt-3">
             {article.data.tags.map((tag: string) => (
-              <span class="mono text-[10px] px-2 py-0.5 border border-rule text-ink-3">{tag}</span>
+              <span class="rounded-full bg-ink/8 px-2.5 py-0.5 text-[10px] text-ink-3 font-medium">{tag}</span>
             ))}
           </div>
         )}
