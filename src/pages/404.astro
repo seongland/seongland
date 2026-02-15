@@ -1,0 +1,50 @@
+---
+import StarBackground from "@/components/three/StarBackground";
+import "@/styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Seongland</title>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+        document.documentElement.setAttribute(
+          "data-theme",
+          stored || preferred,
+        );
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col items-center justify-center space-body text-space-fg">
+    <StarBackground client:only="react" />
+    <div class="relative z-10 text-center animate-reveal">
+      <h1
+        class="space-heading text-space-fg"
+        style="font-size: clamp(3rem, 10vw, 6rem); letter-spacing: 0.12em;"
+      >
+        404
+      </h1>
+      <p
+        class="mt-4 text-space-fg/50"
+        style="font-family: var(--font-body-space); font-size: clamp(0.9rem, 2vw, 1.2rem);"
+      >
+        Page not found
+      </p>
+      <a
+        href="/"
+        class="mt-8 inline-block rounded-full border border-space-fg/20 px-6 py-2 text-sm text-space-fg/70 transition-colors hover:border-space-fg/40 hover:text-space-fg"
+        style="font-family: var(--font-body-space);"
+      >
+        Back to Seongland
+      </a>
+    </div>
+  </body>
+</html>
