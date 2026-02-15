@@ -22,6 +22,7 @@ const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.d
             tags={article.data.tags}
             readingTime={article.data.readingTime}
             slug={article.id}
+            externalUrl={article.data.externalUrl}
           />
       ))}
     </div>
