@@ -3018,19 +3018,28 @@
                       var apiAvailable = null
                       var apiBase = ''
 
-                      // Check API availability (try relative first, then localhost:5001 for dev)
+                      // Check API availability - try HF Spaces, then local dev
+                      var HF_API = 'https://seonglae-corrsteer.hf.space'
                       function checkApi() {
-                        return fetch('/api/health', { method: 'GET' })
+                        return fetch(HF_API + '/api/health', { method: 'GET' })
                           .then(function (r) {
-                            if (r.ok) {
+                            if (!r.ok) throw new Error('not ok')
+                            return r.json()
+                          })
+                          .then(function (data) {
+                            if (data && data.status === 'ok') {
                               apiAvailable = true
-                              apiBase = ''
-                            } else throw new Error('not ok')
+                              apiBase = HF_API
+                            } else throw new Error('not corrsteer api')
                           })
                           .catch(function () {
                             return fetch('http://localhost:5001/api/health', { method: 'GET' })
                               .then(function (r) {
-                                if (r.ok) {
+                                if (!r.ok) throw new Error('not ok')
+                                return r.json()
+                              })
+                              .then(function (data) {
+                                if (data && data.status === 'ok') {
                                   apiAvailable = true
                                   apiBase = 'http://localhost:5001'
                                 } else {

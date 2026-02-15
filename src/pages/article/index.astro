@@ -5,24 +5,53 @@ import { getCollection } from 'astro:content'
 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
+
+// CorrSteer hardcoded entry (draft in collection to avoid slug conflict)
+const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
+const allTags = [...new Set([
+  ...corrsteerTags,
+  ...articles.flatMap(a => a.data.tags || [])
+])].sort()
 ---
 
 <BaseLayout title="Articles">
   <div class="mx-auto max-w-4xl px-6 py-12">
-    <header class="mb-8">
+    <header class="mb-6">
       <h1 class="serif italic text-ink anim" style="font-size: 28px;">Articles</h1>
       <p class="text-ink-3 text-sm mt-2 anim d1">Research articles and technical writing.</p>
     </header>
-    <div class="flex flex-col gap-3 anim d2">
-      <ArticleCard
-        title="CorrSteer: Steering LLMs via Correlation-based Corrections"
-        description="An interactive exploration of correlation-guided feature selection for controllable language model behavior using Sparse Autoencoders."
-        publishedAt="2025-08"
-        tags={['Steering', 'Interpretability', 'SAE', 'Alignment']}
-        readingTime="25 min"
-        slug="corrsteer"
-      />
+
+    <div id="tag-bar" class="mb-6 flex flex-wrap items-center gap-2 anim d1">
+      <span class="text-xs text-ink-3 mr-1">Filter:</span>
+      {allTags.map(tag => (
+        <button
+          data-tag={tag}
+          class="tag-btn rounded-full border border-rule px-3 py-1 text-[11px] text-ink-3 transition-colors hover:border-ink-3 hover:text-ink cursor-pointer"
+        >
+          {tag}
+        </button>
+      ))}
+      <button
+        id="clear-tags"
+        class="hidden rounded-full bg-rust/10 px-3 py-1 text-[11px] text-rust transition-colors hover:bg-rust/20 cursor-pointer"
+      >
+        Clear
+      </button>
+    </div>
+
+    <div id="item-list" class="flex flex-col gap-3 anim d2">
+      <div data-tags={JSON.stringify(corrsteerTags)} class="filter-item">
+        <ArticleCard
+          title="CorrSteer: Steering LLMs via Correlation-based Corrections"
+          description="An interactive exploration of correlation-guided feature selection for controllable language model behavior using Sparse Autoencoders."
+          publishedAt="2025-08"
+          tags={corrsteerTags}
+          readingTime="25 min"
+          slug="corrsteer"
+        />
+      </div>
       {articles.map(article => (
+        <div data-tags={JSON.stringify(article.data.tags || [])} class="filter-item">
           <ArticleCard
             title={article.data.title}
             description={article.data.description}
@@ -32,7 +61,68 @@ const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.d
             slug={article.id}
             externalUrl={article.data.externalUrl}
           />
+        </div>
       ))}
     </div>
+
+    <p id="no-results" class="hidden py-8 text-center text-ink-3 text-sm">
+      No articles match the selected tags.
+    </p>
   </div>
 </BaseLayout>
+
+<script>
+  const tagBtns = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
+  const clearBtn = document.getElementById("clear-tags") as HTMLButtonElement;
+  const items = document.querySelectorAll<HTMLElement>(".filter-item");
+  const noResults = document.getElementById("no-results")!;
+  const activeTags = new Set<string>();
+
+  function updateUrl() {
+    const url = new URL(window.location.href);
+    if (activeTags.size === 0) url.searchParams.delete("tag");
+    else url.searchParams.set("tag", [...activeTags].join(","));
+    history.replaceState(null, "", url.toString());
+  }
+
+  function applyFilter() {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const itemTags: string[] = JSON.parse(item.getAttribute("data-tags") || "[]");
+      const show = activeTags.size === 0 || [...activeTags].some((t) => itemTags.includes(t));
+      item.style.display = show ? "" : "none";
+      if (show) visibleCount++;
+    });
+    noResults.classList.toggle("hidden", visibleCount > 0);
+    clearBtn.classList.toggle("hidden", activeTags.size === 0);
+    tagBtns.forEach((btn) => {
+      const tag = btn.getAttribute("data-tag")!;
+      if (activeTags.has(tag)) {
+        btn.classList.add("bg-ink/10", "text-ink", "border-ink/30");
+        btn.classList.remove("text-ink-3", "border-rule");
+      } else {
+        btn.classList.remove("bg-ink/10", "text-ink", "border-ink/30");
+        btn.classList.add("text-ink-3", "border-rule");
+      }
+    });
+    updateUrl();
+  }
+
+  tagBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.getAttribute("data-tag")!;
+      if (activeTags.has(tag)) activeTags.delete(tag);
+      else activeTags.add(tag);
+      applyFilter();
+    });
+  });
+
+  clearBtn.addEventListener("click", () => { activeTags.clear(); applyFilter(); });
+
+  const params = new URLSearchParams(window.location.search);
+  const initialTag = params.get("tag");
+  if (initialTag) {
+    initialTag.split(",").forEach((t) => activeTags.add(t.trim()));
+    applyFilter();
+  }
+</script>
