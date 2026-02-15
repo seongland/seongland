@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Welcome from "@/components/sections/Welcome.astro";
 import Hero from "@/components/sections/Hero.astro";
 import News from "@/components/sections/News.astro";
 import SelectedWorks from "@/components/sections/SelectedWorks.astro";
@@ -7,6 +8,7 @@ import SelectedWorks from "@/components/sections/SelectedWorks.astro";
 
 <BaseLayout title="About" variant="space">
   <div class="mx-auto min-h-screen max-w-[800px] px-8">
+    <Welcome />
     <Hero />
     <News />
     <SelectedWorks />

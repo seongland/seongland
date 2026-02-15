@@ -2,13 +2,8 @@
 import { profile } from "@/data/profile";
 ---
 
-<section class="pt-32 pb-16 animate-reveal">
-  <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
-    <img
-      src={profile.photo}
-      alt={profile.name}
-      class="h-36 w-36 rounded-full border-2 border-white/20 object-cover shadow-lg d1 animate-reveal"
-    />
+<section class="pt-16 pb-12 animate-reveal">
+  <div class="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
     <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
       <h1 class="space-heading text-3xl tracking-widest text-white d2 animate-reveal">
         {profile.name}
@@ -51,22 +46,6 @@ import { profile } from "@/data/profile";
           class="text-sm text-white/50 transition-colors hover:text-white"
         >
           Twitter
-        </a>
-      </div>
-      <div class="mt-3 flex gap-4 d6 animate-reveal">
-        <a
-          href={profile.links.cv}
-          download
-          class="text-xs text-white/40 underline underline-offset-2 transition-colors hover:text-white/80"
-        >
-          CV (PDF)
-        </a>
-        <a
-          href={profile.links.resume}
-          download
-          class="text-xs text-white/40 underline underline-offset-2 transition-colors hover:text-white/80"
-        >
-          Resume (PDF)
         </a>
       </div>
     </div>
