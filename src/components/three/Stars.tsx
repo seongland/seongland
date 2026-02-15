@@ -16,8 +16,8 @@ export default function Stars({
   spread = 350,
   radius = { star: 1, galaxy: 5 },
   segments = 5,
-  cycle = 10,
-  diff = 0.1,
+  cycle = 5,
+  diff = 0.3,
   color = 0xfefefe,
 }: {
   count?: number

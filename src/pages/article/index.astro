@@ -12,11 +12,9 @@ const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.d
     <header class="mb-8">
       <h1 class="serif italic text-ink anim" style="font-size: 28px;">Articles</h1>
       <p class="text-ink-3 text-sm mt-2 anim d1">Research articles and technical writing.</p>
-      <div class="mt-4 border-t-2 border-ink" />
     </header>
-    <div class="flex flex-col anim d2">
+    <div class="flex flex-col gap-3 anim d2">
       {articles.map(article => (
-        <div class="border-b border-rule last:border-b-0">
           <ArticleCard
             title={article.data.title}
             description={article.data.description}
@@ -25,7 +23,6 @@ const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.d
             readingTime={article.data.readingTime}
             slug={article.id}
           />
-        </div>
       ))}
     </div>
   </div>
