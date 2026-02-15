@@ -2,26 +2,121 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import FlatCard from "@/components/ui/FlatCard.astro";
 import { publications } from "@/data/cards";
+
+// Collect all unique tags
+const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
 ---
 
 <BaseLayout title="Publications">
   <div class="mx-auto max-w-4xl px-6 py-12">
-    <header class="mb-8">
-      <h1 class="serif italic text-ink" style="font-size: 28px;">Publications</h1>
+    <header class="mb-6">
+      <h1 class="serif italic text-ink" style="font-size: 28px;">
+        Publications
+      </h1>
       <p class="mt-2 text-ink-3">Research papers and technical writing.</p>
     </header>
-    <div class="flex flex-col gap-3">
+
+    {/* Tag filter bar */}
+    <div id="tag-bar" class="mb-6 flex flex-wrap items-center gap-2">
+      <span class="text-xs text-ink-3 mr-1">Filter:</span>
+      {
+        allTags.map((tag) => (
+          <button
+            data-tag={tag}
+            class="tag-btn rounded-full border border-rule px-3 py-1 text-[11px] text-ink-3 transition-colors hover:border-ink-3 hover:text-ink cursor-pointer"
+          >
+            {tag}
+          </button>
+        ))
+      }
+      <button
+        id="clear-tags"
+        class="hidden rounded-full bg-rust/10 px-3 py-1 text-[11px] text-rust transition-colors hover:bg-rust/20 cursor-pointer"
+      >
+        Clear
+      </button>
+    </div>
+
+    <div id="pub-list" class="flex flex-col gap-3">
       {
         publications.map((card) => (
-          <FlatCard
-            title={card.title}
-            subtitle={card.subtitle}
-            url={card.url}
-            image={card.image}
-            tags={card.tags}
-          />
+          <div data-tags={JSON.stringify(card.tags || [])} class="pub-item">
+            <FlatCard
+              title={card.title}
+              subtitle={card.subtitle}
+              url={card.url}
+              image={card.image}
+              tags={card.tags}
+            />
+          </div>
         ))
       }
     </div>
+
+    <p id="no-results" class="hidden py-8 text-center text-ink-3 text-sm">
+      No publications match the selected tags.
+    </p>
   </div>
 </BaseLayout>
+
+<script>
+  const tagBtns = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
+  const clearBtn = document.getElementById("clear-tags") as HTMLButtonElement;
+  const items = document.querySelectorAll<HTMLElement>(".pub-item");
+  const noResults = document.getElementById("no-results")!;
+
+  const activeTags = new Set<string>();
+
+  function applyFilter() {
+    let visibleCount = 0;
+    items.forEach((item) => {
+      const itemTags: string[] = JSON.parse(
+        item.getAttribute("data-tags") || "[]"
+      );
+      const show =
+        activeTags.size === 0 ||
+        [...activeTags].some((t) => itemTags.includes(t));
+      item.style.display = show ? "" : "none";
+      if (show) visibleCount++;
+    });
+
+    noResults.classList.toggle("hidden", visibleCount > 0);
+    clearBtn.classList.toggle("hidden", activeTags.size === 0);
+
+    tagBtns.forEach((btn) => {
+      const tag = btn.getAttribute("data-tag")!;
+      if (activeTags.has(tag)) {
+        btn.classList.add("bg-ink", "text-paper", "border-ink");
+        btn.classList.remove("text-ink-3", "border-rule");
+      } else {
+        btn.classList.remove("bg-ink", "text-paper", "border-ink");
+        btn.classList.add("text-ink-3", "border-rule");
+      }
+    });
+  }
+
+  tagBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tag = btn.getAttribute("data-tag")!;
+      if (activeTags.has(tag)) {
+        activeTags.delete(tag);
+      } else {
+        activeTags.add(tag);
+      }
+      applyFilter();
+    });
+  });
+
+  clearBtn.addEventListener("click", () => {
+    activeTags.clear();
+    applyFilter();
+  });
+
+  // Check URL for initial tag parameter
+  const params = new URLSearchParams(window.location.search);
+  const initialTag = params.get("tag");
+  if (initialTag) {
+    activeTags.add(initialTag);
+    applyFilter();
+  }
+</script>
