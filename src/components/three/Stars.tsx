@@ -19,6 +19,7 @@ export default function Stars({
   cycle = 10,
   diff = 0.1,
   color = 0xfefefe,
+  scrollOffset = 0,
 }: {
   count?: number
   spread?: number
@@ -27,6 +28,7 @@ export default function Stars({
   cycle?: number
   diff?: number
   color?: number
+  scrollOffset?: number
 }) {
   const group = useRef<Group>(null)
   const thetaRef = useRef(90)
@@ -68,6 +70,8 @@ export default function Stars({
     if (group.current) {
       group.current.rotation.set(r, r, r)
       group.current.scale.set(s, s, s)
+      // Parallax: shift star group Y position based on scroll
+      group.current.position.y = scrollOffset * 0.05
     }
   })
 
