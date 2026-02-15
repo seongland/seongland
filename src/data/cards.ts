@@ -69,13 +69,6 @@ export const projects: CardData[] = [
     tags: ['Summarization'],
   },
   {
-    title: 'SAE Feature Sensitivity',
-    subtitle: 'Dataset sensitivity in feature matching',
-    url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
-    image: '/image/saedataset.png',
-    tags: ['SAE', 'Interpretability'],
-  },
-  {
     title: 'To Smooth',
     subtitle: "Chaikin's smoothing algorithm extended to a multidimensional library",
     url: 'https://github.com/seonglae/to-smooth',

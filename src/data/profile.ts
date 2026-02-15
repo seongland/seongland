@@ -4,7 +4,7 @@ export const profile = {
   bio: 'Research scientist focused on LLM safety, interpretability, and steering. Building tools to understand and control language model behavior.',
   photo: '/image/yokhal.webp',
   links: {
-    scholar: 'https://scholar.google.com/citations?user=XIMB1PoAAAAJ&hl=ko',
+    scholar: 'https://scholar.google.com/citations?user=XIMB1PoAAAAJ',
     github: 'https://github.com/seonglae',
     linkedin: 'https://www.linkedin.com/in/seonglae/',
     twitter: 'https://twitter.com/SeonglaeC',
