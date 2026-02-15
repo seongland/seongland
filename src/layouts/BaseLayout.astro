@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 
 const isSpace = variant === "space";
+const isPaper = variant === "paper";
 ---
 
 <!doctype html>
@@ -52,8 +53,10 @@ const isSpace = variant === "space";
         : "font-sans bg-paper text-ink",
     ]}
   >
-    {isSpace && <StarBackground client:only="react" />}
-    <div class={isSpace ? "relative z-10" : ""}>
+    <div class:list={[isPaper && "opacity-30"]}>
+      <StarBackground client:only="react" />
+    </div>
+    <div class="relative z-10">
       <Nav variant={variant} />
       <main class="flex-1">
         <slot />
