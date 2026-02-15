@@ -1,0 +1,51 @@
+---
+interface Props {
+  variant?: "space" | "paper";
+}
+
+const { variant = "paper" } = Astro.props;
+const year = new Date().getFullYear();
+const isSpace = variant === "space";
+---
+
+<footer
+  class:list={[
+    "w-full border-t py-8",
+    isSpace
+      ? "border-white/10 bg-transparent text-white/40"
+      : "border-rule bg-paper text-ink-3",
+  ]}
+>
+  <div
+    class="mx-auto flex max-w-4xl flex-col items-center gap-3 px-6 sm:flex-row sm:justify-between"
+  >
+    <span class="mono text-xs">
+      &copy; {year} Seonglae Cho
+    </span>
+
+    <div class="flex items-center gap-4">
+      <a
+        href="https://github.com/seonglae"
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={[
+          "mono text-xs transition-colors",
+          isSpace ? "hover:text-white/70" : "hover:text-ink",
+        ]}
+      >
+        GitHub
+      </a>
+      <a
+        href="https://scholar.google.com/citations?user=X0MhHyMAAAAJ"
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={[
+          "mono text-xs transition-colors",
+          isSpace ? "hover:text-white/70" : "hover:text-ink",
+        ]}
+      >
+        Scholar
+      </a>
+    </div>
+  </div>
+</footer>
