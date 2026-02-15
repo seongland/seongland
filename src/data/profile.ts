@@ -9,13 +9,7 @@ export const profile = {
     linkedin: 'https://linkedin.com/in/seonglae',
     twitter: 'https://twitter.com/seonglaecho',
   },
-  interests: [
-    'LLM Safety',
-    'Mechanistic Interpretability',
-    'Sparse Autoencoders',
-    'Steering Vectors',
-    'Summarization',
-  ],
+  interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Summarization'],
   news: [
     { date: '2026.02', text: 'CRL paper published on arXiv' },
     { date: '2026.02', text: 'Confidence Manifold paper published on arXiv' },
