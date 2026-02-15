@@ -12,18 +12,35 @@
     class="mt-4 animate-reveal d2"
     style="font-family: var(--font-body-space); font-size: clamp(0.9rem, 2vw, 1.2rem);"
   >
-    <span id="typed-text" class="text-white/50">Welcome to Seongland</span><span
+    <span id="typed-text" class="text-white/50 typed-fade">Welcome</span><span
       id="cursor"
-      class="text-white/70"
-      style="display: inline-block; width: 2px; height: 1.2em; background: currentColor; margin-left: 2px; vertical-align: text-bottom; animation: blink 0.7s step-end infinite;"
+      class="typed-cursor text-white/70"
     ></span>
   </div>
 </section>
 
 <style>
+  .typed-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: currentColor;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.7s step-end infinite;
+  }
+
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+
+  .typed-fade {
+    transition: opacity 0.4s ease;
+  }
+
+  .typed-fade.fade-out {
+    opacity: 0;
   }
 </style>
 
@@ -31,46 +48,41 @@
   const el = document.getElementById("typed-text");
   if (el) {
     const strings = [
-      "Welcome to Seongland",
-      "Research & Engineering",
-      "LLM Safety · Interpretability · Steering",
-      "Seongland",
+      "Welcome",
+      "I'm Seonglae Cho",
+      "trying to improve the world",
+      "with a focus on AI",
+      "See my CV and Portfolio ↗",
+      "Results below↓",
     ];
     let strIdx = 0;
     let charIdx = 0;
-    let deleting = false;
 
-    function tick() {
+    function typeIn() {
       const current = strings[strIdx];
-      if (!deleting) {
-        el!.textContent = current.slice(0, charIdx + 1);
-        charIdx++;
-        if (charIdx >= current.length) {
-          setTimeout(() => {
-            deleting = true;
-            tick();
-          }, 2000);
-          return;
-        }
-        setTimeout(tick, 60);
-      } else {
-        el!.textContent = current.slice(0, charIdx);
-        charIdx--;
-        if (charIdx <= 0) {
-          deleting = false;
-          strIdx = (strIdx + 1) % strings.length;
-          setTimeout(tick, 400);
-          return;
-        }
-        setTimeout(tick, 30);
+      el!.textContent = current.slice(0, charIdx + 1);
+      charIdx++;
+      if (charIdx >= current.length) {
+        // Done typing → wait, then fade out
+        setTimeout(fadeOut, 2000);
+        return;
       }
+      setTimeout(typeIn, 25);
+    }
+
+    function fadeOut() {
+      el!.classList.add("fade-out");
+      setTimeout(() => {
+        // After fade, move to next string
+        strIdx = (strIdx + 1) % strings.length;
+        charIdx = 0;
+        el!.textContent = "";
+        el!.classList.remove("fade-out");
+        setTimeout(typeIn, 200);
+      }, 400);
     }
 
     // Start after initial display
-    setTimeout(() => {
-      deleting = true;
-      charIdx = strings[0].length;
-      tick();
-    }, 2500);
+    setTimeout(fadeOut, 2500);
   }
 </script>
