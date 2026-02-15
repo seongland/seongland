@@ -4,20 +4,33 @@ import { useState, useEffect } from 'react'
 
 export default function StarBackground() {
   const [isDark, setIsDark] = useState(true)
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    const check = () => {
+    const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme')
       setIsDark(theme !== 'light')
     }
-    check()
-    const observer = new MutationObserver(check)
+    checkTheme()
+    const observer = new MutationObserver(checkTheme)
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-    return () => observer.disconnect()
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   const bgColor = isDark ? '#111418' : '#f5f0e8'
   const starColor = isDark ? 0xfefefe : 0x2d2926
+
+  // Parallax: stars move at 0.3x scroll rate for depth effect
+  const parallaxOffset = scrollY * 0.3
 
   return (
     <div
@@ -31,7 +44,7 @@ export default function StarBackground() {
         pointerEvents: 'none',
       }}>
       <Canvas camera={{ position: [0, 0, 100], fov: 75 }} style={{ background: bgColor }}>
-        <Stars color={starColor} />
+        <Stars color={starColor} scrollOffset={parallaxOffset} />
       </Canvas>
     </div>
   )
