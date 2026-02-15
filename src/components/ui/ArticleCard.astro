@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string
+  description?: string
+  publishedAt: string
+  tags?: string[]
+  readingTime?: string
+  slug: string
+}
+
+const { title, description, publishedAt, tags = [], readingTime, slug } = Astro.props
+---
+
+<a href={`/articles/${slug}`} class="group block bg-paper-warm border border-rule p-6 hover:bg-ochre-dim transition-colors">
+  <div class="flex items-baseline justify-between gap-4">
+    <h3 class="serif text-lg text-ink group-hover:text-rust transition-colors">{title}</h3>
+    <span class="mono text-[11px] text-ink-3 shrink-0">{publishedAt}</span>
+  </div>
+  {description && <p class="text-sm text-ink-2 mt-2 line-clamp-2">{description}</p>}
+  <div class="flex items-center gap-3 mt-3">
+    {readingTime && <span class="mono text-[10px] text-ink-3">{readingTime} read</span>}
+    {tags.map(tag => (
+      <span class="mono text-[10px] px-2 py-0.5 border border-rule text-ink-3">{tag}</span>
+    ))}
+  </div>
+</a>
