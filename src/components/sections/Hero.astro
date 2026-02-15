@@ -2,19 +2,19 @@
 import { profile } from "@/data/profile";
 ---
 
-<section class="pt-16 pb-12 animate-reveal">
+<section class="pt-16 pb-12 scroll-reveal">
   <div class="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
     <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
-      <h1 class="space-heading text-3xl tracking-widest text-white d2 animate-reveal">
+      <h1 class="space-heading text-3xl tracking-widest text-white">
         {profile.name}
       </h1>
-      <p class="space-heading mt-2 text-sm tracking-wider text-white/60 d3 animate-reveal">
+      <p class="space-heading mt-2 text-sm tracking-wider text-white/60">
         {profile.title}
       </p>
-      <p class="mt-4 max-w-md leading-relaxed text-white/80 d4 animate-reveal">
+      <p class="mt-4 max-w-md leading-relaxed text-white/80">
         {profile.bio}
       </p>
-      <div class="mt-6 flex gap-5 d5 animate-reveal">
+      <div class="mt-6 flex gap-5">
         <a
           href={profile.links.scholar}
           target="_blank"
