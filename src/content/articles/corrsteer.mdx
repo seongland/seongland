@@ -4,10 +4,10 @@ description: 'A fully automated method for steering LLMs using Sparse Autoencode
 publishedAt: '2025-08'
 tags: ['Steering', 'Interpretability', 'SAE', 'Alignment']
 readingTime: '25 min'
-draft: false
+draft: true
 ---
 
-*Seonglae Cho, Zekun Wu, Adriano Koshiyama — Holistic AI & University College London*
+_Seonglae Cho, Zekun Wu, Adriano Koshiyama — Holistic AI & University College London_
 
 ## TL;DR
 
@@ -31,7 +31,7 @@ CorrSteer solves these problems with a simple two-stage approach: **correlate**,
 
 ### Stage 1: Correlation-Guided Feature Selection
 
-Given a dataset of prompts, we generate responses and capture SAE activations at each layer. For each feature *z_i*, we compute its Pearson correlation with task outcomes *y*:
+Given a dataset of prompts, we generate responses and capture SAE activations at each layer. For each feature _z_i_, we compute its Pearson correlation with task outcomes _y_:
 
 ```
 r_i = Cov(z_i, y) / sqrt(Var(z_i) · Var(y))
@@ -79,9 +79,10 @@ High-frequency features fire on many inputs and represent broad patterns (e.g., 
 
 ## Exploring the Feature Space
 
-What do the selected features look like? Each SAE feature has a human-readable description from Neuronpedia, allowing us to inspect *what the model is doing differently* when steered.
+What do the selected features look like? Each SAE feature has a human-readable description from Neuronpedia, allowing us to inspect _what the model is doing differently_ when steered.
 
 Features cluster into interpretable categories:
+
 - **Structured-output features** for multiple-choice tasks (MMLU, BBQ) encoding format patterns
 - **Refusal features** for safety tasks (HarmBench) encoding rejection behavior
 - **Neutrality features** for bias mitigation (BBQ) encoding balanced perspective
@@ -107,13 +108,14 @@ The layer-by-layer distribution of top features reveals how different tasks enga
 
 CorrSteer's safety improvements come from **discrimination**, not indiscriminate refusal. The XSTest benchmark separates safe prompts (e.g., asking about historical events) from unsafe contrast prompts (similar wording but genuinely harmful intent).
 
-Safe prompts like *historical events*, *definitions*, and *figurative language* show 0% over-refusal. The steered model correctly identifies these as benign. Meanwhile, contrast categories with genuinely harmful intent show refusal rates of 22-73%.
+Safe prompts like _historical events_, _definitions_, and _figurative language_ show 0% over-refusal. The steered model correctly identifies these as benign. Meanwhile, contrast categories with genuinely harmful intent show refusal rates of 22-73%.
 
 ## Cross-Task Transfer
 
 Can features selected for one task improve performance on others?
 
 Three patterns emerge:
+
 1. **MMLU features transfer broadly** to MMLU-Pro (+5.67%) and BBQ Ambig (+4.91%), sharing multiple-choice format
 2. **BBQ features transfer to MMLU**, indicating bias-mitigation features encode general QA capabilities
 3. **Task-specific features outperform transferred features** in most cases, confirming the value of targeted selection
@@ -153,6 +155,7 @@ The method's interpretability advantage is unique: every steering decision is tr
 ---
 
 **Resources:**
+
 - Paper: [arXiv:2508.12535](https://arxiv.org/abs/2508.12535)
 - Code: [github.com/seonglae/CorrSteer](https://github.com/seonglae/CorrSteer)
 - Interactive Demo: [huggingface.co/spaces/seonglae/corrsteer](https://huggingface.co/spaces/seonglae/corrsteer)
