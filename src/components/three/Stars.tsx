@@ -34,10 +34,7 @@ export default function Stars({
   const [coords] = useState(() => generateStarCoords(count, spread))
 
   const [geo, mat] = useMemo(() => {
-    return [
-      new SphereGeometry(radius.star, segments, segments),
-      new MeshBasicMaterial({ color }),
-    ]
+    return [new SphereGeometry(radius.star, segments, segments), new MeshBasicMaterial({ color })]
   }, [color, radius.star, segments])
 
   useEffect(() => {
@@ -46,17 +43,11 @@ export default function Stars({
       camera.position.y = -y * 3
     }
     const handleMouse = (e: MouseEvent) => {
-      onMove(
-        (e.clientX / window.innerWidth) * 2 - 1,
-        -(e.clientY / window.innerHeight) * 2 + 1
-      )
+      onMove((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
     }
     const handleTouch = (e: TouchEvent) => {
       const t = e.changedTouches[0]
-      onMove(
-        (t.clientX / window.innerWidth) * 2 - 1,
-        -(t.clientY / window.innerHeight) * 2 + 1
-      )
+      onMove((t.clientX / window.innerWidth) * 2 - 1, -(t.clientY / window.innerHeight) * 2 + 1)
     }
     window.addEventListener('mousemove', handleMouse)
     window.addEventListener('touchmove', handleTouch)
