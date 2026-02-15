@@ -1,0 +1,58 @@
+---
+import { profile } from "@/data/profile";
+---
+
+<section class="pt-32 pb-16 animate-reveal">
+  <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
+    <img
+      src={profile.photo}
+      alt={profile.name}
+      class="h-36 w-36 rounded-full border-2 border-white/20 object-cover shadow-lg d1 animate-reveal"
+    />
+    <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
+      <h1 class="space-heading text-3xl tracking-widest text-white d2 animate-reveal">
+        {profile.name}
+      </h1>
+      <p class="space-heading mt-2 text-sm tracking-wider text-white/60 d3 animate-reveal">
+        {profile.title}
+      </p>
+      <p class="mt-4 max-w-md leading-relaxed text-white/80 d4 animate-reveal">
+        {profile.bio}
+      </p>
+      <div class="mt-6 flex gap-5 d5 animate-reveal">
+        <a
+          href={profile.links.scholar}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-white/50 transition-colors hover:text-white"
+        >
+          Scholar
+        </a>
+        <a
+          href={profile.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-white/50 transition-colors hover:text-white"
+        >
+          GitHub
+        </a>
+        <a
+          href={profile.links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-white/50 transition-colors hover:text-white"
+        >
+          LinkedIn
+        </a>
+        <a
+          href={profile.links.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-white/50 transition-colors hover:text-white"
+        >
+          Twitter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
