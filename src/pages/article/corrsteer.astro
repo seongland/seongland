@@ -1,0 +1,10 @@
+---
+// Serve the pre-built CorrSteer interactive article
+// This overrides the [slug].astro dynamic route
+import fs from 'node:fs'
+import path from 'node:path'
+
+const htmlPath = path.resolve('public/article/corrsteer/index.html')
+const html = fs.readFileSync(htmlPath, 'utf-8')
+---
+<Fragment set:html={html} />

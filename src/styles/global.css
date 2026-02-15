@@ -38,9 +38,9 @@
   --color-rule: #d5cfc5;
   --color-rule-light: #e5e0d6;
 
-  /* Accent: Rust */
-  --color-rust: #c4553a;
-  --color-rust-dim: rgba(196, 85, 58, 0.08);
+  /* Accent */
+  --color-rust: #2a9d8f;
+  --color-rust-dim: rgba(42, 157, 143, 0.08);
 
   /* Accent: Slate */
   --color-slate: #3d5a80;
@@ -125,7 +125,7 @@
     --color-rule: var(--color-rule-dark);
     --color-rule-light: var(--color-rule-light-dark);
     --color-ochre-dim: rgba(196, 154, 58, 0.12);
-    --color-rust-dim: rgba(196, 85, 58, 0.12);
+    --color-rust-dim: rgba(42, 157, 143, 0.12);
     --color-slate-dim: rgba(61, 90, 128, 0.12);
   }
 
@@ -182,10 +182,10 @@
     color: var(--color-ink-2-dark);
   }
   [data-theme='dark'] .prose a {
-    color: #e49a6a;
+    color: #5ec4b6;
   }
   [data-theme='dark'] .prose a:hover {
-    color: #f0b88a;
+    color: #7ed4c8;
   }
   [data-theme='dark'] .prose strong {
     color: var(--color-ink-dark);
