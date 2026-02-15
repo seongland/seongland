@@ -1,0 +1,30 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FlatCard from "@/components/ui/FlatCard.astro";
+import { projects } from "@/data/cards";
+---
+
+<BaseLayout title="Projects">
+  <div class="mx-auto max-w-4xl px-6 py-12">
+    <header class="mb-8">
+      <h1 class="serif italic text-ink" style="font-size: 28px;">Projects</h1>
+      <p class="mt-2 text-ink-3">Web applications and platforms.</p>
+      <div class="mt-4 border-t-2 border-ink"></div>
+    </header>
+    <div class="flex flex-col">
+      {
+        projects.map((card) => (
+          <div class="border-b border-rule">
+            <FlatCard
+              title={card.title}
+              subtitle={card.subtitle}
+              url={card.url}
+              image={card.image}
+              tags={card.tags}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
