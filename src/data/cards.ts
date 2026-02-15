@@ -55,13 +55,6 @@ export const publications: CardData[] = [
 
 export const projects: CardData[] = [
   {
-    title: 'Texonom',
-    subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',
-    url: 'https://texonom.com',
-    image: '/icon/texonom.png',
-    tags: ['Knowledge', 'Web'],
-  },
-  {
     title: 'Hermes',
     subtitle: 'Steering Vector from SAE',
     url: 'https://github.com/seonglae/emgsd-hermes',
