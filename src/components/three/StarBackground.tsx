@@ -29,8 +29,8 @@ export default function StarBackground() {
   const bgColor = isDark ? '#111418' : '#f5f0e8'
   const starColor = isDark ? 0xfefefe : 0x2d2926
 
-  // Parallax: stars move at 0.3x scroll rate for depth effect
-  const parallaxOffset = scrollY * 0.3
+  // Parallax: stars move at 0.5x scroll rate for depth effect
+  const parallaxOffset = scrollY * 0.5
 
   return (
     <div
