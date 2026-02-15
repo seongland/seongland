@@ -14,6 +14,14 @@ const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.d
       <p class="text-ink-3 text-sm mt-2 anim d1">Research articles and technical writing.</p>
     </header>
     <div class="flex flex-col gap-3 anim d2">
+      <ArticleCard
+        title="CorrSteer: Steering LLMs via Correlation-based Corrections"
+        description="An interactive exploration of correlation-guided feature selection for controllable language model behavior using Sparse Autoencoders."
+        publishedAt="2025-08"
+        tags={['Steering', 'Interpretability', 'SAE', 'Alignment']}
+        readingTime="25 min"
+        slug="corrsteer"
+      />
       {articles.map(article => (
           <ArticleCard
             title={article.data.title}

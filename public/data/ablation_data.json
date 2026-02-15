@@ -1,0 +1,104 @@
+{
+  "pooling": [
+    {
+      "task": "MMLU",
+      "non": 52.23,
+      "max": 56.32,
+      "mean": 56.32,
+      "all": 52.91
+    },
+    {
+      "task": "MMLU-Pro",
+      "non": 30.3,
+      "max": 31.0,
+      "mean": 31.0,
+      "all": 30.16
+    },
+    {
+      "task": "BBQ Disambig",
+      "non": 75.42,
+      "max": 76.53,
+      "mean": 76.53,
+      "all": 75.0
+    },
+    {
+      "task": "BBQ Ambig",
+      "non": 59.1,
+      "max": 62.08,
+      "mean": 62.08,
+      "all": 57.98
+    },
+    {
+      "task": "HarmBench",
+      "non": 44.64,
+      "max": 67.5,
+      "mean": 0.0,
+      "all": 47.14
+    },
+    {
+      "task": "XSTest",
+      "non": 86.35,
+      "max": 87.3,
+      "mean": 53.65,
+      "all": 86.35
+    },
+    {
+      "task": "SimpleQA",
+      "non": 3.63,
+      "max": 3.8,
+      "mean": 3.76,
+      "all": 3.73
+    }
+  ],
+  "negative": [
+    {
+      "task": "MMLU",
+      "non": 52.23,
+      "pos": 56.32,
+      "neg_s": 52.24,
+      "neg_a": 49.45
+    },
+    {
+      "task": "MMLU-Pro",
+      "non": 14.0,
+      "pos": 17.56,
+      "neg_s": 14.24,
+      "neg_a": 0.66
+    },
+    {
+      "task": "BBQ Disambig",
+      "non": 75.42,
+      "pos": 76.53,
+      "neg_s": 75.37,
+      "neg_a": 12.15
+    },
+    {
+      "task": "BBQ Ambig",
+      "non": 59.1,
+      "pos": 62.08,
+      "neg_s": 59.22,
+      "neg_a": 60.85
+    },
+    {
+      "task": "HarmBench",
+      "non": 44.64,
+      "pos": 67.5,
+      "neg_s": 44.64,
+      "neg_a": 47.86
+    },
+    {
+      "task": "XSTest",
+      "non": 86.35,
+      "pos": 87.3,
+      "neg_s": 86.35,
+      "neg_a": 86.67
+    },
+    {
+      "task": "SimpleQA",
+      "non": 3.63,
+      "pos": 3.8,
+      "neg_s": 3.76,
+      "neg_a": 3.76
+    }
+  ]
+}
