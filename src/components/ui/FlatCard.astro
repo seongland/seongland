@@ -14,7 +14,7 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg"
+  class="flat-card group flex items-start gap-5 rounded-xl p-5 transition-all duration-200"
 >
   <img
     src={image}
@@ -29,7 +29,7 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
       tags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-1">
           {tags.map((tag) => (
-            <span class="rounded-full bg-ink/8 px-2.5 py-0.5 text-[10px] text-ink-3 font-medium">
+            <span class="rounded-full px-2.5 py-0.5 text-[10px] text-ink-3 font-medium">
               {tag}
             </span>
           ))}
@@ -38,3 +38,45 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
     }
   </div>
 </a>
+
+<style>
+  .flat-card {
+    background: var(--color-paper-warm);
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.06),
+      -6px -6px 12px rgba(255, 255, 255, 0.7);
+  }
+
+  .flat-card:hover {
+    box-shadow:
+      8px 8px 16px rgba(0, 0, 0, 0.1),
+      -8px -8px 16px rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+  }
+
+  .flat-card:active {
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.6);
+    transform: translateY(0);
+  }
+
+  [data-theme='dark'] .flat-card {
+    background: var(--color-paper-warm-dark);
+    box-shadow:
+      6px 6px 12px rgba(0, 0, 0, 0.3),
+      -6px -6px 12px rgba(255, 255, 255, 0.03);
+  }
+
+  [data-theme='dark'] .flat-card:hover {
+    box-shadow:
+      8px 8px 16px rgba(0, 0, 0, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.05);
+  }
+
+  [data-theme='dark'] .flat-card:active {
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+  }
+</style>
