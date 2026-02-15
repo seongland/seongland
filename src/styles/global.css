@@ -1,20 +1,20 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ─── Google Fonts ─── */
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 /* ─── Local Fonts ─── */
 @font-face {
-  font-family: "Nasalization";
-  src: url("/fonts/nasalization.woff2") format("woff2");
+  font-family: 'Nasalization';
+  src: url('/fonts/nasalization.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Universe";
-  src: url("/fonts/universe.woff2") format("woff2");
+  font-family: 'Universe';
+  src: url('/fonts/universe.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -61,11 +61,11 @@
   --color-rule-light-dark: #2a2d31;
 
   /* Font families */
-  --font-heading: "Nasalization", system-ui, sans-serif;
-  --font-body-space: "Universe", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-heading: 'Nasalization', system-ui, sans-serif;
+  --font-body-space: 'Universe', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   /* Reveal animation */
   --animate-reveal: reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -103,12 +103,12 @@
   }
 
   /* Dark mode */
-  [data-theme="dark"] body {
+  [data-theme='dark'] body {
     color: var(--color-ink-dark);
     background-color: var(--color-paper-dark);
   }
 
-  [data-theme="dark"] {
+  [data-theme='dark'] {
     --color-paper: var(--color-paper-dark);
     --color-paper-warm: var(--color-paper-warm-dark);
     --color-ink: var(--color-ink-dark);
