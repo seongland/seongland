@@ -116,7 +116,7 @@ const isSpace = variant === "space";
   <div
     id="mobile-menu"
     class:list={[
-      "hidden flex-col gap-1 border-t px-6 pb-4 pt-2 md:hidden",
+      "mobile-menu-panel flex-col gap-1 border-t px-6 pb-4 pt-2 md:hidden",
       isSpace
         ? "border-white/10 bg-black/80 backdrop-blur-xl"
         : "border-rule bg-paper",
@@ -150,18 +150,31 @@ const isSpace = variant === "space";
   const hamburgerIcon = document.getElementById("hamburger-icon");
   const closeIcon = document.getElementById("close-icon");
 
+  function openMenu() {
+    menu?.classList.remove("menu-closed");
+    menu?.classList.add("menu-open");
+    hamburgerIcon?.classList.add("hidden");
+    closeIcon?.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    menu?.classList.remove("menu-open");
+    menu?.classList.add("menu-closed");
+    hamburgerIcon?.classList.remove("hidden");
+    closeIcon?.classList.add("hidden");
+  }
+
   btn?.addEventListener("click", () => {
-    const isOpen = menu?.classList.contains("flex");
+    const isOpen = menu?.classList.contains("menu-open");
     if (isOpen) {
-      menu?.classList.remove("flex");
-      menu?.classList.add("hidden");
-      hamburgerIcon?.classList.remove("hidden");
-      closeIcon?.classList.add("hidden");
+      closeMenu();
     } else {
-      menu?.classList.remove("hidden");
-      menu?.classList.add("flex");
-      hamburgerIcon?.classList.add("hidden");
-      closeIcon?.classList.remove("hidden");
+      openMenu();
     }
+  });
+
+  // Close mobile menu when a nav link is clicked
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
   });
 </script>
