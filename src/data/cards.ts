@@ -10,42 +10,42 @@ export interface CardData {
 
 export const publications: CardData[] = [
   {
-    title: 'CRL',
+    title: 'CRL: Concept Bottleneck Sparse Autoencoders for Scalable Concept Representation Learning',
     subtitle: 'arXiv 2026',
     url: 'https://arxiv.org/abs/2602.10437',
     image: '/image/crl.png',
     tags: ['Interpretability', 'SAE'],
   },
   {
-    title: 'Confidence Manifold',
+    title: 'Confidence Manifold: Revealing LLM Internal States via Topological Inconsistency Analysis',
     subtitle: 'arXiv 2026',
     url: 'https://arxiv.org/abs/2602.08159',
     image: '/image/manifold.png',
     tags: ['LLM Safety', 'Confidence'],
   },
   {
-    title: 'CorrSteer',
+    title: 'CorrSteer: Steering LLMs via Correlation-based Corrections',
     subtitle: 'arXiv 2025',
     url: 'https://arxiv.org/abs/2508.12535',
     image: '/image/corrsteer.png',
     tags: ['Steering', 'Interpretability'],
   },
   {
-    title: 'FaithfulSAE',
+    title: 'FaithfulSAE: Evaluating Faithfulness of Sparse Autoencoders in Large Language Models',
     subtitle: 'ACL 2025 SRW',
     url: 'https://huggingface.co/papers/2506.17673',
     image: '/image/faithful.png',
     tags: ['SAE', 'Faithfulness'],
   },
   {
-    title: 'LibVulnWatch',
+    title: 'LibVulnWatch: Automated Vulnerability Monitoring Using LLMs for Open-Source Libraries',
     subtitle: 'ICML 2025 TAIG',
     url: 'https://arxiv.org/abs/2505.08842',
     image: '/image/libvuln.png',
     tags: ['Security', 'LLM'],
   },
   {
-    title: 'RTSum',
+    title: 'RTSum: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization',
     subtitle: 'NAACL 2024 Demo',
     url: 'https://aclanthology.org/2024.naacl-demo.5/',
     image: '/image/rtsum.png',
