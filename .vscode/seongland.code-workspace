@@ -2,20 +2,20 @@
   "folders": [
     {
       "name": "seongland",
-      "path": ".."
+      "path": "..",
     },
     {
       "name": "src",
-      "path": "..\\src"
+      "path": "..\\src",
     },
     {
       "name": "components",
-      "path": "..\\src\\components"
+      "path": "..\\src\\components",
     },
     {
       "name": "pages",
-      "path": "..\\src\\pages"
-    }
+      "path": "..\\src\\pages",
+    },
   ],
-  "settings": {}
+  "settings": {},
 }
