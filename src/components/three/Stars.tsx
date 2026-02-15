@@ -71,9 +71,9 @@ export default function Stars({
       group.current.rotation.set(r, r, r)
       group.current.scale.set(s, s, s)
     }
-    // Parallax: camera follows scroll at reduced rate for depth effect
-    const targetY = scrollOffset * 0.3
-    camera.position.y += (targetY - camera.position.y) * 0.15
+    // Parallax: camera follows at 0.5x scroll speed
+    const targetY = scrollOffset * 0.02
+    camera.position.y += (targetY - camera.position.y) * 0.1
   })
 
   return (
