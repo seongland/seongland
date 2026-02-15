@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import News from "@/components/sections/News.astro";
+import SelectedWorks from "@/components/sections/SelectedWorks.astro";
 ---
 
 <BaseLayout title="About" variant="space">
-  <div class="flex min-h-[60vh] items-center justify-center">
-    <h1 class="space-heading text-2xl tracking-widest text-white/80">
-      Seongland v3
-    </h1>
+  <div class="mx-auto min-h-screen max-w-[800px] px-8">
+    <Hero />
+    <News />
+    <SelectedWorks />
   </div>
 </BaseLayout>
