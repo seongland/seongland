@@ -14,46 +14,53 @@ export const publications: CardData[] = [
     subtitle: 'arXiv 2026',
     url: 'https://arxiv.org/abs/2602.10437',
     image: '/image/crl.png',
-    tags: ['Interpretability', 'SAE'],
+    tags: ['Mechanistic Interpretability', 'Sparse Autoencoders'],
   },
   {
     title: 'Confidence Manifold: Revealing LLM Internal States via Topological Inconsistency Analysis',
     subtitle: 'arXiv 2026',
     url: 'https://arxiv.org/abs/2602.08159',
     image: '/image/manifold.png',
-    tags: ['LLM Safety', 'Confidence'],
+    tags: ['LLM Safety', 'Mechanistic Interpretability'],
   },
   {
     title: 'CorrSteer: Steering LLMs via Correlation-based Corrections',
     subtitle: 'arXiv 2025',
     url: 'https://arxiv.org/abs/2508.12535',
     image: '/image/corrsteer.png',
-    tags: ['Steering', 'Interpretability'],
+    tags: ['Steering Vectors', 'Mechanistic Interpretability'],
   },
   {
     title: 'FaithfulSAE: Evaluating Faithfulness of Sparse Autoencoders in Large Language Models',
     subtitle: 'ACL 2025 SRW',
     url: 'https://huggingface.co/papers/2506.17673',
     image: '/image/faithful.png',
-    tags: ['SAE', 'Faithfulness'],
+    tags: ['Sparse Autoencoders', 'Mechanistic Interpretability'],
   },
   {
     title: 'LibVulnWatch: Automated Vulnerability Monitoring Using LLMs for Open-Source Libraries',
     subtitle: 'ICML 2025 TAIG',
     url: 'https://arxiv.org/abs/2505.08842',
     image: '/image/libvuln.png',
-    tags: ['Security', 'LLM'],
+    tags: ['LLM Safety'],
   },
   {
     title: 'RTSum: Relation Triple-based Interpretable Summarization with Multi-level Salience Visualization',
     subtitle: 'NAACL 2024 Demo',
     url: 'https://aclanthology.org/2024.naacl-demo.5/',
     image: '/image/rtsum.png',
-    tags: ['Summarization', 'Demo'],
+    tags: ['Summarization'],
   },
 ]
 
 export const projects: CardData[] = [
+  {
+    title: 'Texonom',
+    subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',
+    url: 'https://texonom.com',
+    image: '/icon/texonom.png',
+    tags: ['Knowledge', 'Web'],
+  },
   {
     title: 'Hermes',
     subtitle: 'Steering Vector from SAE',
@@ -66,15 +73,32 @@ export const projects: CardData[] = [
     subtitle: 'Summarization-driven LLM Optimization',
     url: 'https://github.com/seonglae/ReSRer',
     image: '/image/resrer.png',
-    tags: ['Summarization', 'Optimization'],
+    tags: ['Summarization'],
   },
   {
     title: 'SAE Feature Sensitivity',
     subtitle: 'Dataset sensitivity in feature matching',
     url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
     image: '/image/saedataset.png',
-    tags: ['SAE', 'Dataset'],
+    tags: ['SAE', 'Interpretability'],
   },
+  {
+    title: 'To Smooth',
+    subtitle: "Chaikin's smoothing algorithm extended to a multidimensional library",
+    url: 'https://github.com/seonglae/to-smooth',
+    image: '/image/smooth.png',
+    tags: ['Algorithm', 'Library'],
+  },
+  {
+    title: 'LLaMa2GPTQ',
+    subtitle: 'Angryface chatbot with knowledge base on Texonom AI',
+    url: 'https://llama2gptq.nuxt.space',
+    image: '/image/angryface.png',
+    tags: ['LLM', 'Chat'],
+  },
+]
+
+export const apps: CardData[] = [
   {
     title: 'Texonom',
     subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',
@@ -89,16 +113,6 @@ export const projects: CardData[] = [
     image: '/image/mbtigpt.png',
     tags: ['LLM', 'Chat'],
   },
-  {
-    title: 'LLaMa2GPTQ',
-    subtitle: 'Angryface chatbot with knowledge base on Texonom AI',
-    url: 'https://llama2gptq.nuxt.space',
-    image: '/image/angryface.png',
-    tags: ['LLM', 'Chat'],
-  },
-]
-
-export const apps: CardData[] = [
   {
     title: 'Intuiter',
     subtitle: 'A globally applicable Vim-like productivity app for Windows',
@@ -133,12 +147,5 @@ export const apps: CardData[] = [
     url: 'https://2spotify.vercel.app',
     image: '/icon/2spotify.png',
     tags: ['Music', 'Migration'],
-  },
-  {
-    title: 'To Smooth',
-    subtitle: "Chaikin's smoothing algorithm extended to a multidimensional library",
-    url: 'https://github.com/seonglae/to-smooth',
-    image: '/image/smooth.png',
-    tags: ['Algorithm', 'Library'],
   },
 ]
