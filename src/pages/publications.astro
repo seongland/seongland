@@ -86,10 +86,10 @@ const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
     tagBtns.forEach((btn) => {
       const tag = btn.getAttribute("data-tag")!;
       if (activeTags.has(tag)) {
-        btn.classList.add("bg-ink", "text-paper", "border-ink");
+        btn.classList.add("bg-ink/10", "text-ink", "border-ink/30");
         btn.classList.remove("text-ink-3", "border-rule");
       } else {
-        btn.classList.remove("bg-ink", "text-paper", "border-ink");
+        btn.classList.remove("bg-ink/10", "text-ink", "border-ink/30");
         btn.classList.add("text-ink-3", "border-rule");
       }
     });
