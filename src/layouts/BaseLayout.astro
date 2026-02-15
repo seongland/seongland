@@ -1,0 +1,60 @@
+---
+import Nav from "@/components/ui/Nav.astro";
+import Footer from "@/components/ui/Footer.astro";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  variant?: "space" | "paper";
+}
+
+const {
+  title,
+  description = "Seonglae Cho - Research & Engineering Portfolio",
+  variant = "paper",
+} = Astro.props;
+
+const isSpace = variant === "space";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>{title} | Seongland</title>
+
+    {/* Theme flash prevention */}
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+        document.documentElement.setAttribute(
+          "data-theme",
+          stored || preferred
+        );
+      })();
+    </script>
+  </head>
+  <body
+    class:list={[
+      "min-h-screen flex flex-col",
+      isSpace
+        ? "space-body bg-transparent text-white"
+        : "font-sans bg-paper text-ink",
+    ]}
+  >
+    <Nav variant={variant} />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer variant={variant} />
+  </body>
+</html>
