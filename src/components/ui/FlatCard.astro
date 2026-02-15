@@ -24,12 +24,12 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
   />
   <div class="flex min-w-0 flex-col gap-1">
     <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
-    <span class="mono text-ink-3 text-[11px]">{subtitle}</span>
+    <span class="serif italic text-ink-3 text-[11px]">{subtitle}</span>
     {
       tags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-1">
           {tags.map((tag) => (
-            <span class="rounded-full px-2.5 py-0.5 text-[10px] text-ink-3 font-medium">
+            <span class="text-[10px] text-ink-3 font-medium">
               {tag}
             </span>
           ))}

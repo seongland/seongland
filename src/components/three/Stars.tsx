@@ -70,9 +70,9 @@ export default function Stars({
     if (group.current) {
       group.current.rotation.set(r, r, r)
       group.current.scale.set(s, s, s)
-      // Parallax: shift star group Y position based on scroll
-      group.current.position.y = scrollOffset * 0.05
     }
+    // Parallax: move camera Y with scroll for depth effect
+    camera.position.y += (scrollOffset * 0.15 - camera.position.y) * 0.1
   })
 
   return (
