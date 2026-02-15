@@ -48,15 +48,17 @@ const isSpace = variant === "space";
     class:list={[
       "min-h-screen flex flex-col",
       isSpace
-        ? "space-body bg-transparent text-white"
+        ? "space-body text-white"
         : "font-sans bg-paper text-ink",
     ]}
   >
     {isSpace && <StarBackground client:only="react" />}
-    <Nav variant={variant} />
-    <main class="flex-1">
-      <slot />
-    </main>
-    <Footer variant={variant} />
+    <div class={isSpace ? "relative z-10" : ""}>
+      <Nav variant={variant} />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer variant={variant} />
+    </div>
   </body>
 </html>
