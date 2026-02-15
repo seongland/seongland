@@ -1,5 +1,5 @@
 import { useRef, useState, useMemo, useEffect } from 'react'
-import { MathUtils, SphereGeometry, MeshBasicMaterial } from 'three'
+import { MathUtils, SphereGeometry, MeshBasicMaterial, Color } from 'three'
 import { useFrame, useThree } from '@react-three/fiber'
 import type { Group } from 'three'
 
@@ -16,8 +16,8 @@ export default function Stars({
   spread = 350,
   radius = { star: 1, galaxy: 5 },
   segments = 5,
-  cycle = 5,
-  diff = 0.3,
+  cycle = 10,
+  diff = 0.1,
   color = 0xfefefe,
 }: {
   count?: number
@@ -33,9 +33,13 @@ export default function Stars({
   const camera = useThree(state => state.camera)
   const [coords] = useState(() => generateStarCoords(count, spread))
 
-  const [geo, mat] = useMemo(() => {
-    return [new SphereGeometry(radius.star, segments, segments), new MeshBasicMaterial({ color })]
-  }, [color, radius.star, segments])
+  const geo = useMemo(() => new SphereGeometry(radius.star, segments, segments), [radius.star, segments])
+  const mat = useMemo(() => new MeshBasicMaterial({ color }), [])
+
+  // Update material color when prop changes
+  useEffect(() => {
+    mat.color = new Color(color)
+  }, [color, mat])
 
   useEffect(() => {
     const onMove = (x: number, y: number) => {

@@ -1,0 +1,67 @@
+---
+---
+
+<section class="flex min-h-[60vh] flex-col items-center justify-center text-center animate-reveal">
+  <h1
+    class="space-heading text-white animate-reveal"
+    style="font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 0.12em;"
+  >
+    SEONGLAND
+  </h1>
+  <p
+    id="typed-text"
+    class="mt-4 text-white/50 animate-reveal d2"
+    style="font-family: var(--font-body-space); font-size: clamp(0.9rem, 2vw, 1.2rem);"
+  >
+    Welcome to Seongland
+  </p>
+</section>
+
+<script>
+  const el = document.getElementById("typed-text");
+  if (el) {
+    const strings = [
+      "Welcome to Seongland",
+      "Research & Engineering",
+      "LLM Safety · Interpretability · Steering",
+      "Seongland",
+    ];
+    let strIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
+
+    function tick() {
+      const current = strings[strIdx];
+      if (!deleting) {
+        el!.textContent = current.slice(0, charIdx + 1);
+        charIdx++;
+        if (charIdx >= current.length) {
+          timeout = setTimeout(() => {
+            deleting = true;
+            tick();
+          }, 2000);
+          return;
+        }
+        timeout = setTimeout(tick, 60);
+      } else {
+        el!.textContent = current.slice(0, charIdx);
+        charIdx--;
+        if (charIdx <= 0) {
+          deleting = false;
+          strIdx = (strIdx + 1) % strings.length;
+          timeout = setTimeout(tick, 400);
+          return;
+        }
+        timeout = setTimeout(tick, 30);
+      }
+    }
+
+    // Start after initial display
+    setTimeout(() => {
+      deleting = true;
+      charIdx = strings[0].length;
+      tick();
+    }, 2500);
+  }
+</script>
