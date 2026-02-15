@@ -114,8 +114,86 @@
     --color-ink: var(--color-ink-dark);
     --color-ink-2: var(--color-ink-2-dark);
     --color-ink-3: var(--color-ink-3-dark);
+    --color-ink-4: #555a60;
     --color-rule: var(--color-rule-dark);
     --color-rule-light: var(--color-rule-light-dark);
+    --color-ochre-dim: rgba(196, 154, 58, 0.12);
+    --color-rust-dim: rgba(196, 85, 58, 0.12);
+    --color-slate-dim: rgba(61, 90, 128, 0.12);
+  }
+
+  /* Dark mode: explicit class overrides for card components */
+  [data-theme='dark'] .bg-paper-warm {
+    background-color: var(--color-paper-warm-dark);
+  }
+  [data-theme='dark'] .text-ink {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .text-ink-2 {
+    color: var(--color-ink-2-dark);
+  }
+  [data-theme='dark'] .text-ink-3 {
+    color: var(--color-ink-3-dark);
+  }
+  [data-theme='dark'] .border-ink {
+    border-color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .border-rule {
+    border-color: var(--color-rule-dark);
+  }
+  [data-theme='dark'] .hover\:bg-ochre-dim:hover {
+    background-color: rgba(196, 154, 58, 0.12);
+  }
+
+  /* Dark mode: nav and footer backgrounds */
+  [data-theme='dark'] .bg-paper\/90 {
+    background-color: rgba(17, 20, 24, 0.9);
+  }
+  [data-theme='dark'] .bg-paper {
+    background-color: var(--color-paper-dark);
+  }
+
+  /* Dark mode: active tab styling */
+  [data-theme='dark'] .bg-ink {
+    background-color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .text-paper {
+    color: var(--color-paper-dark);
+  }
+  [data-theme='dark'] .bg-ink.text-paper {
+    background-color: var(--color-ink-dark);
+    color: var(--color-paper-dark);
+  }
+
+  /* Dark mode: prose content in articles */
+  [data-theme='dark'] .prose {
+    color: var(--color-ink-2-dark);
+  }
+  [data-theme='dark'] .prose a {
+    color: #e49a6a;
+  }
+  [data-theme='dark'] .prose a:hover {
+    color: #f0b88a;
+  }
+  [data-theme='dark'] .prose strong {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .prose h1,
+  [data-theme='dark'] .prose h2,
+  [data-theme='dark'] .prose h3,
+  [data-theme='dark'] .prose h4 {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .prose code {
+    color: var(--color-ink-dark);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  [data-theme='dark'] .prose blockquote {
+    border-color: var(--color-rule-dark);
+    color: var(--color-ink-3-dark);
+  }
+  [data-theme='dark'] .prose hr {
+    border-color: var(--color-rule-dark);
   }
 
   /* Selection */
@@ -144,6 +222,29 @@
   }
 }
 
+/* ─── Mobile nav menu animation ─── */
+.mobile-menu-panel {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.mobile-menu-panel.menu-open {
+  display: flex;
+  max-height: 20rem;
+  opacity: 1;
+}
+
+.mobile-menu-panel.menu-closed {
+  display: none;
+  max-height: 0;
+  opacity: 0;
+}
+
 /* ─── Utility classes ─── */
 @layer utilities {
   .serif {
@@ -163,6 +264,11 @@
 
   .space-body {
     font-family: var(--font-body-space);
+  }
+
+  /* Reveal animation */
+  .anim {
+    animation: var(--animate-reveal);
   }
 
   /* Reveal animation delay classes */
