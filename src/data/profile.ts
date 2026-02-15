@@ -2,12 +2,14 @@ export const profile = {
   name: 'Seonglae Cho',
   title: 'Research Scientist',
   bio: 'Research scientist focused on LLM safety, interpretability, and steering. Building tools to understand and control language model behavior.',
-  photo: '/image/profile.jpg',
+  photo: '/image/yokhal.webp',
   links: {
-    scholar: 'https://scholar.google.com/citations?user=YOUR_ID',
+    scholar: 'https://scholar.google.com/citations?user=X0MhHyMAAAAJ',
     github: 'https://github.com/seonglae',
-    linkedin: 'https://linkedin.com/in/seonglae',
-    twitter: 'https://twitter.com/seonglaecho',
+    linkedin: 'https://www.linkedin.com/in/seonglae/',
+    twitter: 'https://twitter.com/SeonglaeC',
+    cv: '/cv.pdf',
+    resume: '/resume.pdf',
   },
   interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Summarization'],
   news: [

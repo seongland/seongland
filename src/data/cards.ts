@@ -45,19 +45,15 @@ export const publications: CardData[] = [
     tags: ['Security', 'LLM'],
   },
   {
-    title: 'SAE Dataset',
-    subtitle: 'LessWrong & AI Alignment Forum',
-    url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
-    image: '/image/saedataset.png',
-    tags: ['SAE', 'Dataset'],
-  },
-  {
     title: 'RTSum',
     subtitle: 'NAACL 2024 Demo',
     url: 'https://aclanthology.org/2024.naacl-demo.5/',
     image: '/image/rtsum.png',
     tags: ['Summarization', 'Demo'],
   },
+]
+
+export const projects: CardData[] = [
   {
     title: 'Hermes',
     subtitle: 'Steering Vector from SAE',
@@ -72,9 +68,13 @@ export const publications: CardData[] = [
     image: '/image/resrer.png',
     tags: ['Summarization', 'Optimization'],
   },
-]
-
-export const projects: CardData[] = [
+  {
+    title: 'SAE Feature Sensitivity',
+    subtitle: 'Dataset sensitivity in feature matching',
+    url: 'https://www.lesswrong.com/posts/ATsvzF77ZsfWzyTak/dataset-sensitivity-in-feature-matching-and-a-hypothesis-on-1',
+    image: '/image/saedataset.png',
+    tags: ['SAE', 'Dataset'],
+  },
   {
     title: 'Texonom',
     subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',

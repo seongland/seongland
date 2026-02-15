@@ -9,20 +9,17 @@ import { publications } from "@/data/cards";
     <header class="mb-8">
       <h1 class="serif italic text-ink" style="font-size: 28px;">Publications</h1>
       <p class="mt-2 text-ink-3">Research papers and technical writing.</p>
-      <div class="mt-4 border-t-2 border-ink"></div>
     </header>
-    <div class="flex flex-col">
+    <div class="flex flex-col gap-3">
       {
         publications.map((card) => (
-          <div class="border-b border-rule">
-            <FlatCard
-              title={card.title}
-              subtitle={card.subtitle}
-              url={card.url}
-              image={card.image}
-              tags={card.tags}
-            />
-          </div>
+          <FlatCard
+            title={card.title}
+            subtitle={card.subtitle}
+            url={card.url}
+            image={card.image}
+            tags={card.tags}
+          />
         ))
       }
     </div>
