@@ -1,6 +1,7 @@
 ---
 import Nav from "@/components/ui/Nav.astro";
 import Footer from "@/components/ui/Footer.astro";
+import StarBackground from "@/components/three/StarBackground";
 import "@/styles/global.css";
 
 interface Props {
@@ -51,6 +52,7 @@ const isSpace = variant === "space";
         : "font-sans bg-paper text-ink",
     ]}
   >
+    {isSpace && <StarBackground client:only="react" />}
     <Nav variant={variant} />
     <main class="flex-1">
       <slot />
