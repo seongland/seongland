@@ -67,6 +67,16 @@ const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
 
   const activeTags = new Set<string>();
 
+  function updateUrl() {
+    const url = new URL(window.location.href);
+    if (activeTags.size === 0) {
+      url.searchParams.delete("tag");
+    } else {
+      url.searchParams.set("tag", [...activeTags].join(","));
+    }
+    history.replaceState(null, "", url.toString());
+  }
+
   function applyFilter() {
     let visibleCount = 0;
     items.forEach((item) => {
@@ -93,6 +103,8 @@ const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
         btn.classList.add("text-ink-3", "border-rule");
       }
     });
+
+    updateUrl();
   }
 
   tagBtns.forEach((btn) => {
@@ -112,11 +124,11 @@ const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
     applyFilter();
   });
 
-  // Check URL for initial tag parameter
+  // Check URL for initial tag parameter (supports comma-separated)
   const params = new URLSearchParams(window.location.search);
   const initialTag = params.get("tag");
   if (initialTag) {
-    activeTags.add(initialTag);
+    initialTag.split(",").forEach((t) => activeTags.add(t.trim()));
     applyFilter();
   }
 </script>
