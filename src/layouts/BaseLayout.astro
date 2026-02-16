@@ -53,7 +53,7 @@ const isSpace = variant === "space";
     ]}
   >
     <StarBackground client:only="react" />
-    <div class="relative z-10">
+    <div id="content" class="relative z-10" style={isSpace ? 'filter:blur(6px);transition:filter 0.3s ease' : ''}>
       <Nav variant={variant} />
       <main class="flex-1">
         <slot />
@@ -61,22 +61,26 @@ const isSpace = variant === "space";
       <Footer variant={variant} />
     </div>
 
-    {/* Scroll-triggered reveal observer */}
     <script is:inline>
       (function () {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
+        // Blur removal for main page
+        var content = document.getElementById('content');
+        if (content && content.style.filter) {
+          setTimeout(function () { content.style.filter = ''; }, 100);
+        }
+
+        // Scroll-triggered reveal observer
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
             });
           },
-          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
         );
-        document
-          .querySelectorAll(".scroll-reveal")
-          .forEach((el) => observer.observe(el));
+        document.querySelectorAll('.scroll-reveal').forEach(function (el) {
+          observer.observe(el);
+        });
       })();
     </script>
   </body>
