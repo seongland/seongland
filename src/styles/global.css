@@ -96,6 +96,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    background-color: var(--color-paper);
+  }
+
+  [data-theme='dark'] html {
+    background-color: var(--color-paper-dark);
   }
 
   body {
@@ -103,6 +108,10 @@
     color: var(--color-ink);
     background-color: transparent;
     transition: color 0.3s ease;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 
   /* Dark mode */
