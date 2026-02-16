@@ -54,6 +54,11 @@ const isProduction = import.meta.env.PROD;
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:domain" content="seongland.com" />
 
+    {/* Theme color for Safari/mobile address bar */}
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#111418" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fefefe" media="(prefers-color-scheme: light)" />
+
     {/* Favicons */}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -101,15 +106,20 @@ const isProduction = import.meta.env.PROD;
     {/* Theme flash prevention */}
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem("theme");
-        const preferred = window.matchMedia("(prefers-color-scheme: dark)")
+        var stored = localStorage.getItem("theme");
+        var preferred = window.matchMedia("(prefers-color-scheme: dark)")
           .matches
           ? "dark"
           : "light";
-        document.documentElement.setAttribute(
-          "data-theme",
-          stored || preferred
-        );
+        var theme = stored || preferred;
+        document.documentElement.setAttribute("data-theme", theme);
+        var tc = document.querySelector('meta[name="theme-color"]:not([media])');
+        if (!tc) {
+          tc = document.createElement('meta');
+          tc.setAttribute('name', 'theme-color');
+          document.head.appendChild(tc);
+        }
+        tc.setAttribute('content', theme === 'dark' ? '#111418' : '#fefefe');
       })();
     </script>
   </head>
