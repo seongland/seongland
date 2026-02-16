@@ -1,8 +1,8 @@
 {
   "name": "seongland",
   "displayName": "Seongland",
-  "description": "Seonglae Cho portfolio page with diverse service links",
-  "version": "2.4.1",
+  "description": "Seonglae Cho - Research & Engineering Portfolio",
+  "version": "3.0.0",
   "license": "MIT",
   "repository": "https://github.com/seongland/seongland.git",
   "path": "seongland/seongland",
