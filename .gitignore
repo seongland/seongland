@@ -9,3 +9,4 @@ coverage
 .playwright-mcp
 *-article/app/node_modules
 *-article/app/dist
+public/article/
