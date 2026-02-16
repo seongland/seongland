@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  url: string;
+  image: string;
+  tags?: string[];
+}
+
+const { title, subtitle, url, image, tags = [] } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg"
+>
+  <img
+    src={image}
+    alt={title}
+    class="h-14 w-14 flex-shrink-0 rounded-full object-cover"
+    loading="lazy"
+  />
+  <div class="flex min-w-0 flex-col gap-1">
+    <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
+    <span class="serif italic text-ink-3 text-[11px]">{subtitle}</span>
+    {
+      tags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5 mt-1">
+          {tags.map((tag) => (
+            <span class="text-[10px] text-ink-3 font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</a>

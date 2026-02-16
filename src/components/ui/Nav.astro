@@ -1,0 +1,180 @@
+---
+import ThemeToggle from "./ThemeToggle.tsx";
+
+interface Props {
+  variant?: "space" | "paper";
+}
+
+const { variant = "paper" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const tabs = [
+  { label: "About", href: "/" },
+  { label: "Articles", href: "/article" },
+  { label: "Publications", href: "/publications" },
+  { label: "Projects", href: "/projects" },
+  { label: "Apps", href: "/apps" },
+];
+
+function isActive(href: string): boolean {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
+
+const isSpace = variant === "space";
+---
+
+<nav
+  class:list={[
+    "sticky top-0 z-50 w-full backdrop-blur-md transition-colors",
+    isSpace
+      ? "bg-transparent border-b border-space-fg/10"
+      : "bg-paper/90 border-b border-rule",
+  ]}
+>
+  <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-3">
+    {/* Logo / site name */}
+    <a
+      href="/"
+      class:list={[
+        "space-heading text-sm tracking-wider",
+        isSpace ? "text-space-fg" : "text-ink",
+      ]}
+    >
+      Seongland
+    </a>
+
+    {/* Desktop tabs */}
+    <div class="hidden items-center gap-1 md:flex">
+      {
+        tabs.map((tab) => (
+          <a
+            href={tab.href}
+            class:list={[
+              "rounded-md px-3 py-1.5 text-xs font-medium tracking-wide transition-colors",
+              isActive(tab.href)
+                ? isSpace
+                  ? "text-space-fg bg-space-fg/15"
+                  : "text-ink bg-ink/10"
+                : isSpace
+                  ? "text-space-fg/60 hover:text-space-fg hover:bg-space-fg/10"
+                  : "text-ink-3 hover:text-ink hover:bg-ink/5",
+            ]}
+          >
+            {tab.label}
+          </a>
+        ))
+      }
+      <div class="ml-2">
+        <ThemeToggle client:load />
+      </div>
+    </div>
+
+    {/* Mobile hamburger */}
+    <div class="flex items-center gap-2 md:hidden">
+      <ThemeToggle client:load />
+      <button
+        id="mobile-menu-btn"
+        aria-label="Toggle menu"
+        class:list={[
+          "flex h-8 w-8 items-center justify-center rounded-md transition-colors",
+          isSpace ? "text-space-fg hover:bg-space-fg/10" : "text-ink hover:bg-ink/5",
+        ]}
+      >
+        <svg
+          id="hamburger-icon"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg
+          id="close-icon"
+          class="hidden h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile dropdown */}
+  <div
+    id="mobile-menu"
+    class:list={[
+      "mobile-menu-panel flex-col gap-1 border-t px-6 pb-4 pt-2 md:hidden",
+      isSpace
+        ? "border-space-fg/10 bg-black/80 backdrop-blur-xl"
+        : "border-rule bg-paper",
+    ]}
+  >
+    {
+      tabs.map((tab) => (
+        <a
+          href={tab.href}
+          class:list={[
+            "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+            isActive(tab.href)
+              ? isSpace
+                ? "text-space-fg bg-space-fg/15"
+                : "text-ink bg-ink/10"
+              : isSpace
+                ? "text-space-fg/60 hover:text-space-fg"
+                : "text-ink-3 hover:text-ink",
+          ]}
+        >
+          {tab.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  function openMenu() {
+    menu?.classList.remove("menu-closed");
+    menu?.classList.add("menu-open");
+    hamburgerIcon?.classList.add("hidden");
+    closeIcon?.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    menu?.classList.remove("menu-open");
+    menu?.classList.add("menu-closed");
+    hamburgerIcon?.classList.remove("hidden");
+    closeIcon?.classList.add("hidden");
+  }
+
+  btn?.addEventListener("click", () => {
+    const isOpen = menu?.classList.contains("menu-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Close mobile menu when a nav link is clicked
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
+  });
+</script>

@@ -1,0 +1,84 @@
+---
+---
+
+<section class="flex min-h-[60vh] flex-col items-center justify-center text-center animate-reveal">
+  <h1
+    class="space-heading text-space-fg animate-reveal"
+    style="font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 0.12em;"
+  >
+    SEONGLAND
+  </h1>
+  <div
+    class="mt-4 animate-reveal d2"
+    style="font-family: var(--font-body-space); font-size: clamp(0.9rem, 2vw, 1.2rem);"
+  >
+    <span id="typed-text" class="text-space-fg/50 typed-fade">Welcome</span><span
+      id="cursor"
+      class="typed-cursor text-space-fg/70"
+    ></span>
+  </div>
+</section>
+
+<style>
+  .typed-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background: currentColor;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: blink 0.7s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typed-fade {
+    transition: opacity 0.4s ease;
+  }
+
+  .typed-fade.fade-out {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  const el = document.getElementById("typed-text");
+  if (el) {
+    const strings = [
+      "Welcome to Seongland",
+      "I'm Seonglae Cho, AI Researcher",
+      "Exploring Mechanistic Interpretability",
+      "Building Safer Language Models",
+      "AI Control from the Inside",
+    ];
+    let strIdx = 0;
+    let charIdx = 0;
+
+    function typeIn() {
+      const current = strings[strIdx];
+      el!.textContent = current.slice(0, charIdx + 1);
+      charIdx++;
+      if (charIdx >= current.length) {
+        setTimeout(fadeOut, 2000);
+        return;
+      }
+      setTimeout(typeIn, 25);
+    }
+
+    function fadeOut() {
+      el!.classList.add("fade-out");
+      setTimeout(() => {
+        strIdx = (strIdx + 1) % strings.length;
+        charIdx = 0;
+        el!.textContent = "";
+        el!.classList.remove("fade-out");
+        setTimeout(typeIn, 200);
+      }, 400);
+    }
+
+    setTimeout(fadeOut, 2500);
+  }
+</script>

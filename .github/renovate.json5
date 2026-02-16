@@ -5,7 +5,7 @@
   pin: false,
   rangeStrategy: 'bump',
   packageRules: [{ depTypeList: ['peerDependencies'], enabled: false }],
-  dependencyDashboardTitle: "deps: renovate dependency dashboard",
-  branchPrefix: "deps/",
-  commitMessagePrefix: "deps:"
+  dependencyDashboardTitle: 'deps: renovate dependency dashboard',
+  branchPrefix: 'deps/',
+  commitMessagePrefix: 'deps:',
 }
