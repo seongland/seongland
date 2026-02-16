@@ -13,7 +13,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "vitest"
   },
   "color": {
     "light": "#fefefe",
@@ -69,7 +70,8 @@
     "husky": "9.1.7",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.55.0"
+    "typescript-eslint": "^8.55.0",
+    "vitest": "^4.0.18"
   },
   "pnpm": {
     "overrides": {
