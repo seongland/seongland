@@ -1,5 +1,14 @@
 ---
 import { profile } from "@/data/profile";
+
+function renderText(text: string, links?: Record<string, string>): string {
+  if (!links) return text;
+  return text.replace(/\{([^}]+)\}/g, (_, name) => {
+    const href = links[name];
+    if (!href) return name;
+    return `<a href="${href}" class="text-space-fg underline underline-offset-2 decoration-space-fg/30 hover:decoration-space-fg/60 transition-colors">${name}</a>`;
+  });
+}
 ---
 
 <section class="py-12 scroll-reveal">
@@ -11,7 +20,7 @@ import { profile } from "@/data/profile";
       profile.news.map((item) => (
         <li class="flex gap-4 text-sm">
           <span class="mono w-20 shrink-0 text-space-fg/40">{item.date}</span>
-          <span class="text-space-fg/70">{item.text}</span>
+          <span class="text-space-fg/70" set:html={renderText(item.text, item.links)} />
         </li>
       ))
     }
