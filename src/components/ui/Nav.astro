@@ -29,7 +29,7 @@ const isSpace = variant === "space";
     "sticky top-0 z-50 w-full transition-colors",
     isSpace
       ? "bg-transparent"
-      : "bg-paper/90 backdrop-blur-md border-b border-rule",
+      : "bg-paper/30 backdrop-blur-md border-b border-rule",
   ]}
 >
   <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-3">
@@ -44,7 +44,7 @@ const isSpace = variant === "space";
     </a>
 
     {/* Desktop tabs */}
-    <div class="hidden items-center gap-1 sm:flex">
+    <div class="hidden items-center gap-1 md:flex">
       {
         tabs.map((tab) => (
           <a
@@ -69,8 +69,8 @@ const isSpace = variant === "space";
       </div>
     </div>
 
-    {/* Mobile */}
-    <div class="flex items-center gap-2 sm:hidden">
+    {/* Mobile hamburger */}
+    <div class="flex items-center gap-2 md:hidden">
       <ThemeToggle client:load />
       <button
         id="mobile-menu-btn"
@@ -80,21 +80,45 @@ const isSpace = variant === "space";
           isSpace ? "text-space-fg hover:bg-space-fg/10" : "text-ink hover:bg-ink/5",
         ]}
       >
-        <svg id="hamburger-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+        <svg
+          id="hamburger-icon"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
-        <svg id="close-icon" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+        <svg
+          id="close-icon"
+          class="hidden h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
     </div>
   </div>
 
-  {/* Mobile menu */}
+  {/* Mobile dropdown */}
   <div
     id="mobile-menu"
     class:list={[
-      "mobile-menu-panel hidden flex-col gap-0.5 px-6 pb-3 sm:hidden",
+      "mobile-menu-panel absolute left-0 right-0 flex-col gap-1 px-6 pb-4 pt-2 md:hidden",
+      isSpace
+        ? ""
+        : "border-t border-rule bg-paper",
     ]}
   >
     {
@@ -105,10 +129,10 @@ const isSpace = variant === "space";
             "rounded-md px-3 py-2 text-sm font-medium transition-colors",
             isActive(tab.href)
               ? isSpace
-                ? "text-space-fg bg-space-fg/10"
-                : "text-ink bg-ink/8"
+                ? "text-space-fg bg-space-fg/15"
+                : "text-ink bg-ink/10"
               : isSpace
-                ? "text-space-fg/50 hover:text-space-fg"
+                ? "text-space-fg/60 hover:text-space-fg"
                 : "text-ink-3 hover:text-ink",
           ]}
         >
@@ -119,33 +143,36 @@ const isSpace = variant === "space";
   </div>
 </nav>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", function () {
-    var btn = document.getElementById("mobile-menu-btn");
-    var menu = document.getElementById("mobile-menu");
-    var hamburgerIcon = document.getElementById("hamburger-icon");
-    var closeIcon = document.getElementById("close-icon");
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
 
-    btn.addEventListener("click", function () {
-      var isOpen = !menu.classList.contains("hidden");
-      if (isOpen) {
-        menu.classList.add("hidden");
-        hamburgerIcon.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-      } else {
-        menu.classList.remove("hidden");
-        menu.classList.add("flex");
-        hamburgerIcon.classList.add("hidden");
-        closeIcon.classList.remove("hidden");
-      }
-    });
+  function openMenu() {
+    menu?.classList.remove("menu-closed");
+    menu?.classList.add("menu-open");
+    hamburgerIcon?.classList.add("hidden");
+    closeIcon?.classList.remove("hidden");
+  }
 
-    menu.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        menu.classList.add("hidden");
-        hamburgerIcon.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-      });
-    });
+  function closeMenu() {
+    menu?.classList.remove("menu-open");
+    menu?.classList.add("menu-closed");
+    hamburgerIcon?.classList.remove("hidden");
+    closeIcon?.classList.add("hidden");
+  }
+
+  btn?.addEventListener("click", () => {
+    const isOpen = menu?.classList.contains("menu-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
   });
 </script>
