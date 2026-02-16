@@ -36,6 +36,10 @@ for dir in *-article; do
     exit 1
   fi
 
+  # Fix root-relative asset paths to be relative for subdirectory serving
+  # e.g. "/_astro/foo.css" → "./_astro/foo.css"
+  perl -pi -e 's|="/([^/])|="./$1|g' "public/article/$name/index.html"
+
   echo "=== Done: $name ==="
 done
 
