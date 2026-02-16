@@ -72,7 +72,7 @@ export default function Stars({
       group.current.scale.set(s, s, s)
     }
     // Parallax: camera follows at 0.5x scroll speed
-    const targetY = scrollOffset * 0.02
+    const targetY = scrollOffset * 0.008
     camera.position.y += (targetY - camera.position.y) * 0.1
   })
 
