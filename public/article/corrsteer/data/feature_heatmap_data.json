@@ -1,0 +1,3372 @@
+{
+  "gemma2b": {
+    "mmlu": [
+      {
+        "layer": 1,
+        "correlation": 0.1399,
+        "coefficient": 0.4033,
+        "feature_index": 13714,
+        "description": " colons and semicolons used in lists or programming syntax",
+        "frequency": 26.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1747,
+        "coefficient": 1.5481,
+        "feature_index": 6273,
+        "description": "specific medical terminology and its implications",
+        "frequency": 98.5
+      },
+      {
+        "layer": 3,
+        "correlation": 0.164,
+        "coefficient": 1.0943,
+        "feature_index": 12378,
+        "description": " programming-related elements and commands",
+        "frequency": 47.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.2247,
+        "coefficient": 2.9438,
+        "feature_index": 11047,
+        "description": "certain types of mathematical or programming syntax",
+        "frequency": 100.0
+      },
+      {
+        "layer": 5,
+        "correlation": 0.1149,
+        "coefficient": 0.0766,
+        "feature_index": 8581,
+        "description": " phrases that indicate research findings or results",
+        "frequency": 2.5
+      },
+      {
+        "layer": 6,
+        "correlation": 0.1396,
+        "coefficient": 4.9389,
+        "feature_index": 5275,
+        "description": "sentences expressing doubt or conditionality in arguments",
+        "frequency": 100.0
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1591,
+        "coefficient": 2.5315,
+        "feature_index": 14726,
+        "description": " periods and other punctuation marks that signify sentence endings or significant separations in text",
+        "frequency": 96.0
+      },
+      {
+        "layer": 8,
+        "correlation": 0.1517,
+        "coefficient": 0.3089,
+        "feature_index": 15039,
+        "description": "terms related to research methodologies and experimental design",
+        "frequency": 9.0
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1364,
+        "coefficient": 0.4138,
+        "feature_index": 15654,
+        "description": "variations of the word \"correct\" in various contexts",
+        "frequency": 12.0
+      },
+      {
+        "layer": 10,
+        "correlation": 0.1735,
+        "coefficient": 2.919,
+        "feature_index": 11729,
+        "description": " coding attributes and properties related to light types in a 3D programming context",
+        "frequency": 75.0
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1265,
+        "coefficient": 5.3686,
+        "feature_index": 13204,
+        "description": "code syntax and structure, particularly related to variable assignments and function calls",
+        "frequency": 98.0
+      },
+      {
+        "layer": 12,
+        "correlation": 0.2004,
+        "coefficient": 1.0325,
+        "feature_index": 6392,
+        "description": " XML-like structured data elements",
+        "frequency": 23.0
+      },
+      {
+        "layer": 13,
+        "correlation": 0.2539,
+        "coefficient": 0.9189,
+        "feature_index": 12281,
+        "description": "mathematical expressions and concepts related to positive values",
+        "frequency": 16.0
+      },
+      {
+        "layer": 14,
+        "correlation": 0.1699,
+        "coefficient": 6.0019,
+        "feature_index": 7,
+        "description": "significant scientific findings and their specific details",
+        "frequency": 79.5
+      },
+      {
+        "layer": 15,
+        "correlation": 0.2808,
+        "coefficient": 4.9058,
+        "feature_index": 8678,
+        "description": " phrases related to announcements or updates",
+        "frequency": 65.5
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2511,
+        "coefficient": 5.5932,
+        "feature_index": 12421,
+        "description": "programming constructs and their structures within code snippets",
+        "frequency": 74.5
+      },
+      {
+        "layer": 17,
+        "correlation": 0.2942,
+        "coefficient": 9.7904,
+        "feature_index": 13214,
+        "description": "error messages and diagnostic codes",
+        "frequency": 94.5
+      },
+      {
+        "layer": 18,
+        "correlation": 0.3756,
+        "coefficient": 4.8045,
+        "feature_index": 1127,
+        "description": "references to gender and associated options/choices in forms",
+        "frequency": 40.0
+      },
+      {
+        "layer": 19,
+        "correlation": 0.4016,
+        "coefficient": 8.4055,
+        "feature_index": 2174,
+        "description": "input fields and value assignments in a form-like structure",
+        "frequency": 68.5
+      },
+      {
+        "layer": 20,
+        "correlation": 0.3937,
+        "coefficient": 20.8844,
+        "feature_index": 12748,
+        "description": " structured data representations and their attributes",
+        "frequency": 90.0
+      },
+      {
+        "layer": 21,
+        "correlation": 0.3616,
+        "coefficient": 13.2281,
+        "feature_index": 14337,
+        "description": " code-related keywords and method definitions in programming contexts",
+        "frequency": 62.0
+      },
+      {
+        "layer": 22,
+        "correlation": 0.3129,
+        "coefficient": 5.5822,
+        "feature_index": 5939,
+        "description": "technical jargon and terminology related to chemistry and biochemistry",
+        "frequency": 32.5
+      },
+      {
+        "layer": 23,
+        "correlation": 0.3996,
+        "coefficient": 25.7238,
+        "feature_index": 10424,
+        "description": "statistical terms and symbols related to data analysis and significance testing",
+        "frequency": 98.5
+      },
+      {
+        "layer": 24,
+        "correlation": 0.3665,
+        "coefficient": 36.0766,
+        "feature_index": 16355,
+        "description": "definitions and mathematical notation in text",
+        "frequency": 99.0
+      },
+      {
+        "layer": 25,
+        "correlation": 0.3358,
+        "coefficient": 33.8993,
+        "feature_index": 10388,
+        "description": " phrases related to health-related actions and topics",
+        "frequency": 99.5
+      }
+    ],
+    "mmlupro": [
+      {
+        "layer": 1,
+        "correlation": 0.1685,
+        "coefficient": 1.8595,
+        "feature_index": 9317,
+        "description": "phrases related to changes in social and organizational dynamics",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 2,
+        "correlation": 0.2263,
+        "coefficient": 0.7606,
+        "feature_index": 3714,
+        "description": "mathematical notation, specifically related to set notation and expressions involving functions",
+        "frequency": 24.125
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1529,
+        "coefficient": 3.6989,
+        "feature_index": 11980,
+        "description": " statements providing answers or conclusions regarding questions or hypotheses",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1697,
+        "coefficient": 6.8172,
+        "feature_index": 15960,
+        "description": "terms related to medical procedures and conditions",
+        "frequency": 100.0
+      },
+      {
+        "layer": 5,
+        "correlation": 0.0855,
+        "coefficient": 2.1867,
+        "feature_index": 7502,
+        "description": "expressions of honesty and self-awareness in discourse",
+        "frequency": 82.9749984741211
+      },
+      {
+        "layer": 6,
+        "correlation": 0.2103,
+        "coefficient": 14.8769,
+        "feature_index": 6201,
+        "description": "numeric representations of system specifications or configurations",
+        "frequency": 100.0
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1815,
+        "coefficient": 1.2091,
+        "feature_index": 8790,
+        "description": " structured data formats and their attributes",
+        "frequency": 22.400001525878906
+      },
+      {
+        "layer": 8,
+        "correlation": 0.2087,
+        "coefficient": 2.1764,
+        "feature_index": 11297,
+        "description": " structured data and programming constructs",
+        "frequency": 43.70000076293945
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1999,
+        "coefficient": 6.4067,
+        "feature_index": 15336,
+        "description": "references to mathematical or computational problems and their solutions",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 10,
+        "correlation": 0.2374,
+        "coefficient": 1.2765,
+        "feature_index": 10805,
+        "description": "terms related to medical conditions and biological factors",
+        "frequency": 13.449999809265137
+      },
+      {
+        "layer": 11,
+        "correlation": 0.226,
+        "coefficient": 2.2956,
+        "feature_index": 1909,
+        "description": "affirmative or negative responses in the context of questions",
+        "frequency": 26.875001907348633
+      },
+      {
+        "layer": 12,
+        "correlation": 0.2528,
+        "coefficient": 1.3687,
+        "feature_index": 14752,
+        "description": "legal and governmental terms related to authority and judgment",
+        "frequency": 11.424999237060547
+      },
+      {
+        "layer": 13,
+        "correlation": 0.2389,
+        "coefficient": 2.5604,
+        "feature_index": 12991,
+        "description": " mathematical operations and expressions",
+        "frequency": 25.774999618530273
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2519,
+        "coefficient": 1.4555,
+        "feature_index": 10780,
+        "description": "comments and documentation markers in code",
+        "frequency": 9.024999618530273
+      },
+      {
+        "layer": 15,
+        "correlation": 0.3342,
+        "coefficient": 1.1829,
+        "feature_index": 2262,
+        "description": " references to variable declarations and data structures in programming contexts",
+        "frequency": 2.575000047683716
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2851,
+        "coefficient": 5.6906,
+        "feature_index": 3142,
+        "description": "mathematical symbols and notation used in equations",
+        "frequency": 40.474998474121094
+      },
+      {
+        "layer": 17,
+        "correlation": 0.4834,
+        "coefficient": 3.0913,
+        "feature_index": 1175,
+        "description": " mathematical expressions and applications related to programming or data structures",
+        "frequency": 5.849999904632568
+      },
+      {
+        "layer": 18,
+        "correlation": 0.4475,
+        "coefficient": 3.4058,
+        "feature_index": 682,
+        "description": "function declarations and their return types in a programming context",
+        "frequency": 7.199999809265137
+      },
+      {
+        "layer": 19,
+        "correlation": 0.414,
+        "coefficient": 2.1441,
+        "feature_index": 11641,
+        "description": " technical components or elements in code",
+        "frequency": 2.625
+      },
+      {
+        "layer": 20,
+        "correlation": 0.5293,
+        "coefficient": 7.1336,
+        "feature_index": 12748,
+        "description": " structured data representations and their attributes",
+        "frequency": 8.425000190734863
+      },
+      {
+        "layer": 21,
+        "correlation": 0.4561,
+        "coefficient": 9.2506,
+        "feature_index": 1944,
+        "description": " code structures and syntax related to programming and mathematics",
+        "frequency": 18.875
+      },
+      {
+        "layer": 22,
+        "correlation": 0.4398,
+        "coefficient": 11.241,
+        "feature_index": 12947,
+        "description": "scientific terminology related to healthcare and medical research",
+        "frequency": 16.625
+      },
+      {
+        "layer": 23,
+        "correlation": 0.4975,
+        "coefficient": 10.133,
+        "feature_index": 5752,
+        "description": "associations and relationships among scientific variables and observations",
+        "frequency": 14.749999046325684
+      },
+      {
+        "layer": 24,
+        "correlation": 0.4817,
+        "coefficient": 11.8613,
+        "feature_index": 8188,
+        "description": " syntax related to code structure and operations",
+        "frequency": 12.67500114440918
+      },
+      {
+        "layer": 25,
+        "correlation": 0.5452,
+        "coefficient": 11.4388,
+        "feature_index": 8643,
+        "description": "scientific terms and concepts related to biochemistry and cellular processes",
+        "frequency": 8.925000190734863
+      }
+    ],
+    "simpleqa": [
+      {
+        "layer": 1,
+        "correlation": 0.1921,
+        "coefficient": 0.2632,
+        "feature_index": 14904,
+        "description": "references to Congress and legislative processes",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 2,
+        "correlation": 0.2284,
+        "coefficient": 0.2249,
+        "feature_index": 1089,
+        "description": "terms and concepts related to integrals and the importance of integration in various contexts",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1777,
+        "coefficient": 0.2195,
+        "feature_index": 12843,
+        "description": "terms related to durability and long-lasting qualities",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1935,
+        "coefficient": 0.0546,
+        "feature_index": 680,
+        "description": "references to standards, particularly in legal and medical contexts",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 5,
+        "correlation": 0.1931,
+        "coefficient": 0.0933,
+        "feature_index": 4460,
+        "description": "references to legal cases and court rulings",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 6,
+        "correlation": 0.192,
+        "coefficient": 0.1527,
+        "feature_index": 9777,
+        "description": "expressions of agreement or dissent and the context surrounding them",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 7,
+        "correlation": 0.2125,
+        "coefficient": 0.2532,
+        "feature_index": 2431,
+        "description": "phrases related to time management and constraints",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 8,
+        "correlation": 0.1936,
+        "coefficient": 0.0972,
+        "feature_index": 14209,
+        "description": "HTML coding elements and formatting commands",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1958,
+        "coefficient": 0.2567,
+        "feature_index": 7856,
+        "description": "terms related to penalties and scoring in sporting events",
+        "frequency": 0.42844903469085693
+      },
+      {
+        "layer": 10,
+        "correlation": 0.1769,
+        "coefficient": 0.35,
+        "feature_index": 2446,
+        "description": "terms related to health and legal matters",
+        "frequency": 1.2853471040725708
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1938,
+        "coefficient": 0.1641,
+        "feature_index": 7954,
+        "description": "legal terminology and references to court cases and proceedings",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 12,
+        "correlation": 0.1949,
+        "coefficient": 0.2083,
+        "feature_index": 1495,
+        "description": "phrases related to the duration and continuity of experiences over time",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 13,
+        "correlation": 0.1937,
+        "coefficient": 0.1484,
+        "feature_index": 12119,
+        "description": "references to various parameters and aspects within scientific or technical contexts",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2011,
+        "coefficient": 0.3767,
+        "feature_index": 6355,
+        "description": "references to India and its cultural context",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 15,
+        "correlation": 0.1937,
+        "coefficient": 0.177,
+        "feature_index": 4385,
+        "description": " programming constructs related to class and method declarations in Java",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2158,
+        "coefficient": 0.4573,
+        "feature_index": 7182,
+        "description": "expressions of enthusiasm or amazement",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 17,
+        "correlation": 0.1937,
+        "coefficient": 0.2744,
+        "feature_index": 6346,
+        "description": "references to offices or organizational structures",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 18,
+        "correlation": 0.2004,
+        "coefficient": 0.8434,
+        "feature_index": 5258,
+        "description": "terms related to legal charges and prosecutions",
+        "frequency": 0.9425878524780273
+      },
+      {
+        "layer": 19,
+        "correlation": 0.1937,
+        "coefficient": 0.2621,
+        "feature_index": 4202,
+        "description": "technical terms and concepts related to physical phenomena and their mathematical descriptions",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 20,
+        "correlation": 0.2195,
+        "coefficient": 0.9532,
+        "feature_index": 6557,
+        "description": "legal terms and phrases related to criminal charges and legal proceedings",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 21,
+        "correlation": 0.1958,
+        "coefficient": 8.0896,
+        "feature_index": 13830,
+        "description": "references to political leaders and government roles",
+        "frequency": 6.940873622894287
+      },
+      {
+        "layer": 22,
+        "correlation": 0.2371,
+        "coefficient": 0.6482,
+        "feature_index": 15897,
+        "description": "phrases related to international relations and cooperation, particularly in the context of political statements and actions",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 23,
+        "correlation": 0.2371,
+        "coefficient": 0.8316,
+        "feature_index": 15190,
+        "description": "terms related to health, well-being, and interventions for obesity and mental illness",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 24,
+        "correlation": 0.2225,
+        "coefficient": 2.0431,
+        "feature_index": 15228,
+        "description": " references to political figures and their actions",
+        "frequency": 1.1996573209762573
+      },
+      {
+        "layer": 25,
+        "correlation": 0.2003,
+        "coefficient": 1.6636,
+        "feature_index": 2531,
+        "description": " expressions of political opinion regarding government spending and fiscal policies",
+        "frequency": 0.8568980693817139
+      }
+    ],
+    "bbq_ambig": [
+      {
+        "layer": 1,
+        "correlation": 0.1339,
+        "coefficient": 2.2799,
+        "feature_index": 6088,
+        "description": "specific formatting or structural elements within text, such as timestamps and code",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1657,
+        "coefficient": 4.8978,
+        "feature_index": 15089,
+        "description": "key actions and processes related to achievements and collaboration",
+        "frequency": 100.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.0914,
+        "coefficient": 3.5374,
+        "feature_index": 6151,
+        "description": "references to statistical or numerical data in research contexts",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1214,
+        "coefficient": 2.854,
+        "feature_index": 11047,
+        "description": "certain types of mathematical or programming syntax",
+        "frequency": 100.0
+      },
+      {
+        "layer": 5,
+        "correlation": 0.199,
+        "coefficient": 3.1169,
+        "feature_index": 7502,
+        "description": "expressions of honesty and self-awareness in discourse",
+        "frequency": 100.0
+      },
+      {
+        "layer": 6,
+        "correlation": 0.1691,
+        "coefficient": 2.8857,
+        "feature_index": 324,
+        "description": "structured sentences that present facts, warnings, or errors, often with an emphasis on important details",
+        "frequency": 99.80000305175781
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1017,
+        "coefficient": 4.9962,
+        "feature_index": 4487,
+        "description": " the presence of detailed structured elements within a document, such as headings or separators in a legal or formal layout",
+        "frequency": 100.0
+      },
+      {
+        "layer": 8,
+        "correlation": 0.1467,
+        "coefficient": 4.3779,
+        "feature_index": 4669,
+        "description": " special tokens or specific formatting in the text",
+        "frequency": 100.0
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1074,
+        "coefficient": 8.7374,
+        "feature_index": 1435,
+        "description": "elements related to copyright and licensing information",
+        "frequency": 97.92500305175781
+      },
+      {
+        "layer": 10,
+        "correlation": 0.2019,
+        "coefficient": 4.2463,
+        "feature_index": 4557,
+        "description": "interactions involving guessing or determining the correctness of information",
+        "frequency": 95.0999984741211
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1919,
+        "coefficient": 4.3474,
+        "feature_index": 6144,
+        "description": "return statements in code",
+        "frequency": 97.875
+      },
+      {
+        "layer": 12,
+        "correlation": 0.2142,
+        "coefficient": 2.7179,
+        "feature_index": 15862,
+        "description": " punctuation marks and formatting elements in the text",
+        "frequency": 69.52499389648438
+      },
+      {
+        "layer": 13,
+        "correlation": 0.1654,
+        "coefficient": 6.7788,
+        "feature_index": 4379,
+        "description": " punctuation symbols and their frequency",
+        "frequency": 99.67500305175781
+      },
+      {
+        "layer": 14,
+        "correlation": 0.1812,
+        "coefficient": 1.754,
+        "feature_index": 12922,
+        "description": "dialogue or conversational exchanges involving questioning and responses",
+        "frequency": 30.950000762939453
+      },
+      {
+        "layer": 15,
+        "correlation": 0.2416,
+        "coefficient": 3.5371,
+        "feature_index": 12813,
+        "description": "medical terms related to respiratory health and conditions",
+        "frequency": 48.0
+      },
+      {
+        "layer": 16,
+        "correlation": 0.33,
+        "coefficient": 2.6064,
+        "feature_index": 9006,
+        "description": "declarations regarding conflicts of interest and funding in research publications",
+        "frequency": 28.099998474121094
+      },
+      {
+        "layer": 17,
+        "correlation": 0.5544,
+        "coefficient": 6.7766,
+        "feature_index": 11021,
+        "description": "phrases related to scientific research and findings",
+        "frequency": 48.375
+      },
+      {
+        "layer": 18,
+        "correlation": 0.5328,
+        "coefficient": 9.6673,
+        "feature_index": 14447,
+        "description": "references to medical data and statistics",
+        "frequency": 68.69999694824219
+      },
+      {
+        "layer": 19,
+        "correlation": 0.5375,
+        "coefficient": 10.4288,
+        "feature_index": 11289,
+        "description": " assignment and return statements in programming contexts",
+        "frequency": 59.67500305175781
+      },
+      {
+        "layer": 20,
+        "correlation": 0.5234,
+        "coefficient": 9.1664,
+        "feature_index": 2040,
+        "description": "occurrences of logical values and conditions in programming or data handling contexts",
+        "frequency": 49.14999771118164
+      },
+      {
+        "layer": 21,
+        "correlation": 0.4403,
+        "coefficient": 5.9833,
+        "feature_index": 8433,
+        "description": "keywords related to programming functions and their definitions",
+        "frequency": 32.875
+      },
+      {
+        "layer": 22,
+        "correlation": 0.4578,
+        "coefficient": 14.9185,
+        "feature_index": 10377,
+        "description": " code snippets that include assignments and return statements",
+        "frequency": 83.85000610351562
+      },
+      {
+        "layer": 23,
+        "correlation": 0.4417,
+        "coefficient": 34.4824,
+        "feature_index": 6394,
+        "description": " structured data or code-like formats",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 24,
+        "correlation": 0.413,
+        "coefficient": 25.0981,
+        "feature_index": 14051,
+        "description": " references to education systems and their impact on health initiatives",
+        "frequency": 100.0
+      },
+      {
+        "layer": 25,
+        "correlation": 0.394,
+        "coefficient": 18.4137,
+        "feature_index": 12534,
+        "description": "references to emotional states or descriptions of personal experiences",
+        "frequency": 97.625
+      }
+    ],
+    "bbq_disambig": [
+      {
+        "layer": 1,
+        "correlation": 0.1137,
+        "coefficient": 2.1259,
+        "feature_index": 7001,
+        "description": "code structure and elements in programming, particularly related to class and variable definitions",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1401,
+        "coefficient": 2.4176,
+        "feature_index": 8432,
+        "description": "HTML and JavaScript code related to the Bootstrap framework",
+        "frequency": 100.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1337,
+        "coefficient": 2.383,
+        "feature_index": 10179,
+        "description": "terms related to health and medical supplements",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.114,
+        "coefficient": 2.1921,
+        "feature_index": 3444,
+        "description": " various types of headers, specifically those that denote responses and results within the context of exchanges or interactions",
+        "frequency": 99.82499694824219
+      },
+      {
+        "layer": 5,
+        "correlation": 0.0879,
+        "coefficient": 3.7655,
+        "feature_index": 697,
+        "description": "terms related to price dynamics and economic relationships",
+        "frequency": 100.0
+      },
+      {
+        "layer": 6,
+        "correlation": 0.1098,
+        "coefficient": 2.6182,
+        "feature_index": 2491,
+        "description": " references to sources or citations in a document",
+        "frequency": 97.42500305175781
+      },
+      {
+        "layer": 7,
+        "correlation": 0.135,
+        "coefficient": 1.2927,
+        "feature_index": 6269,
+        "description": "references to visual elements such as figures and tables",
+        "frequency": 50.67499923706055
+      },
+      {
+        "layer": 8,
+        "correlation": 0.2591,
+        "coefficient": 3.3467,
+        "feature_index": 5927,
+        "description": "mathematical examples and notations",
+        "frequency": 100.0
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1887,
+        "coefficient": 10.4748,
+        "feature_index": 7854,
+        "description": " structures related to the declaration and manipulation of result variables in a programming context",
+        "frequency": 100.0
+      },
+      {
+        "layer": 10,
+        "correlation": 0.2151,
+        "coefficient": 6.1452,
+        "feature_index": 15705,
+        "description": " references to file operations and data management in code",
+        "frequency": 100.0
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1539,
+        "coefficient": 8.2028,
+        "feature_index": 13926,
+        "description": " mathematical expressions and calculations",
+        "frequency": 100.0
+      },
+      {
+        "layer": 12,
+        "correlation": 0.2205,
+        "coefficient": 1.8389,
+        "feature_index": 1085,
+        "description": "references to court cases and legal statutes",
+        "frequency": 44.775001525878906
+      },
+      {
+        "layer": 13,
+        "correlation": 0.178,
+        "coefficient": 4.417,
+        "feature_index": 536,
+        "description": " technical details related to manufacturing processes",
+        "frequency": 91.57500457763672
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2246,
+        "coefficient": 5.0301,
+        "feature_index": 10612,
+        "description": " structured data or code snippets related to databases",
+        "frequency": 93.25
+      },
+      {
+        "layer": 15,
+        "correlation": 0.1758,
+        "coefficient": 1.6323,
+        "feature_index": 2822,
+        "description": "structured data formats or code snippets related to programming",
+        "frequency": 28.75
+      },
+      {
+        "layer": 16,
+        "correlation": 0.3003,
+        "coefficient": 6.7727,
+        "feature_index": 6602,
+        "description": " the presence of specific numerical or coding patterns in data",
+        "frequency": 87.7750015258789
+      },
+      {
+        "layer": 17,
+        "correlation": 0.5592,
+        "coefficient": 8.4826,
+        "feature_index": 5137,
+        "description": " mathematical symbols and functions related to field theories",
+        "frequency": 85.625
+      },
+      {
+        "layer": 18,
+        "correlation": 0.5075,
+        "coefficient": 7.8514,
+        "feature_index": 3178,
+        "description": "code or programming-related elements",
+        "frequency": 77.70000457763672
+      },
+      {
+        "layer": 19,
+        "correlation": 0.4144,
+        "coefficient": 16.336,
+        "feature_index": 11641,
+        "description": " technical components or elements in code",
+        "frequency": 93.42500305175781
+      },
+      {
+        "layer": 20,
+        "correlation": 0.3943,
+        "coefficient": 28.0252,
+        "feature_index": 12748,
+        "description": " structured data representations and their attributes",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 21,
+        "correlation": 0.392,
+        "coefficient": 20.4529,
+        "feature_index": 14337,
+        "description": " code-related keywords and method definitions in programming contexts",
+        "frequency": 88.52499389648438
+      },
+      {
+        "layer": 22,
+        "correlation": 0.4202,
+        "coefficient": 18.5102,
+        "feature_index": 13921,
+        "description": "elements related to database structure and definitions",
+        "frequency": 100.0
+      },
+      {
+        "layer": 23,
+        "correlation": 0.3306,
+        "coefficient": 5.8932,
+        "feature_index": 12349,
+        "description": " technical terms related to software or code management",
+        "frequency": 30.17500114440918
+      },
+      {
+        "layer": 24,
+        "correlation": 0.3259,
+        "coefficient": 39.91,
+        "feature_index": 16355,
+        "description": "definitions and mathematical notation in text",
+        "frequency": 100.0
+      },
+      {
+        "layer": 25,
+        "correlation": 0.3844,
+        "coefficient": 19.4602,
+        "feature_index": 4307,
+        "description": " occurrences of programming syntax related to object-oriented structures",
+        "frequency": 87.6500015258789
+      }
+    ],
+    "harmbench": [
+      {
+        "layer": 1,
+        "correlation": 0.6924,
+        "coefficient": 5.2061,
+        "feature_index": 9572,
+        "description": " occurrences of the semicolon character",
+        "frequency": 67.59259033203125
+      },
+      {
+        "layer": 2,
+        "correlation": 0.692,
+        "coefficient": 5.6994,
+        "feature_index": 6712,
+        "description": "references to worship and its related symbols or icons",
+        "frequency": 67.59259033203125
+      },
+      {
+        "layer": 3,
+        "correlation": 0.6858,
+        "coefficient": 2.583,
+        "feature_index": 16207,
+        "description": "syntax elements and formatting in code or mathematical expressions",
+        "frequency": 75.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.696,
+        "coefficient": 5.8908,
+        "feature_index": 3109,
+        "description": "forms of the verb \"to be\" and its variations",
+        "frequency": 74.0740737915039
+      },
+      {
+        "layer": 5,
+        "correlation": 0.7374,
+        "coefficient": 16.934,
+        "feature_index": 11099,
+        "description": " sentences that include personal affirmations or declarations of identity",
+        "frequency": 72.22222137451172
+      },
+      {
+        "layer": 6,
+        "correlation": 0.7345,
+        "coefficient": 7.3383,
+        "feature_index": 12241,
+        "description": "instances of the verb \"to be\" in various forms and their contexts",
+        "frequency": 73.14814758300781
+      },
+      {
+        "layer": 7,
+        "correlation": 0.7794,
+        "coefficient": 5.0351,
+        "feature_index": 11722,
+        "description": "phrases related to legal terms and the rejection of arguments in court cases",
+        "frequency": 71.29629516601562
+      },
+      {
+        "layer": 8,
+        "correlation": 0.7455,
+        "coefficient": 8.7294,
+        "feature_index": 8642,
+        "description": "expressions of self-identity and subjective experience",
+        "frequency": 72.22222137451172
+      },
+      {
+        "layer": 9,
+        "correlation": 0.7751,
+        "coefficient": 7.5245,
+        "feature_index": 9298,
+        "description": "strongly negative or dismissive opinions about claims and arguments",
+        "frequency": 75.9259262084961
+      },
+      {
+        "layer": 10,
+        "correlation": 0.723,
+        "coefficient": 6.6667,
+        "feature_index": 3037,
+        "description": "references to legal issues and compliance",
+        "frequency": 76.85185241699219
+      },
+      {
+        "layer": 11,
+        "correlation": 0.7349,
+        "coefficient": 13.8096,
+        "feature_index": 6905,
+        "description": " statements of identity and self-description",
+        "frequency": 75.0
+      },
+      {
+        "layer": 12,
+        "correlation": 0.7407,
+        "coefficient": 5.2533,
+        "feature_index": 12039,
+        "description": "phrases related to providing assistance and support",
+        "frequency": 71.29629516601562
+      },
+      {
+        "layer": 13,
+        "correlation": 0.7092,
+        "coefficient": 6.9916,
+        "feature_index": 6715,
+        "description": "text that discusses accountability and the need for forgiveness",
+        "frequency": 74.0740737915039
+      },
+      {
+        "layer": 14,
+        "correlation": 0.7391,
+        "coefficient": 16.6202,
+        "feature_index": 2949,
+        "description": "statements and phrases related to political criticism and condemnation",
+        "frequency": 78.70370483398438
+      },
+      {
+        "layer": 15,
+        "correlation": 0.7418,
+        "coefficient": 23.8238,
+        "feature_index": 1570,
+        "description": "judgments regarding moral and ethical standards related to exploitation and human rights issues",
+        "frequency": 79.62963104248047
+      },
+      {
+        "layer": 16,
+        "correlation": 0.7427,
+        "coefficient": 21.832,
+        "feature_index": 5113,
+        "description": "expressions of personal identity and emotional states",
+        "frequency": 74.0740737915039
+      },
+      {
+        "layer": 17,
+        "correlation": 0.7196,
+        "coefficient": 11.3889,
+        "feature_index": 5887,
+        "description": "references to tools and functional capabilities related to programming or software development",
+        "frequency": 75.9259262084961
+      },
+      {
+        "layer": 18,
+        "correlation": 0.7119,
+        "coefficient": 20.5374,
+        "feature_index": 1411,
+        "description": "negative statements or denials",
+        "frequency": 70.37036895751953
+      },
+      {
+        "layer": 19,
+        "correlation": 0.7102,
+        "coefficient": 35.6101,
+        "feature_index": 324,
+        "description": "phrases related to legal procedures and considerations",
+        "frequency": 80.55555725097656
+      },
+      {
+        "layer": 20,
+        "correlation": 0.7175,
+        "coefficient": 45.6623,
+        "feature_index": 5192,
+        "description": "questions that seek clarification or challenge assumptions",
+        "frequency": 79.62963104248047
+      },
+      {
+        "layer": 21,
+        "correlation": 0.7211,
+        "coefficient": 33.2255,
+        "feature_index": 7129,
+        "description": "negative sentiments and expressions of doubt or denial",
+        "frequency": 71.29629516601562
+      },
+      {
+        "layer": 22,
+        "correlation": 0.7465,
+        "coefficient": 19.0001,
+        "feature_index": 3311,
+        "description": "references to food and culinary experiences",
+        "frequency": 71.29629516601562
+      },
+      {
+        "layer": 23,
+        "correlation": 0.7108,
+        "coefficient": 61.6424,
+        "feature_index": 11246,
+        "description": "instances of strong negative sentiment or rejection",
+        "frequency": 74.0740737915039
+      },
+      {
+        "layer": 24,
+        "correlation": 0.6995,
+        "coefficient": 50.3317,
+        "feature_index": 12773,
+        "description": "first-person pronouns and references to personal experiences or actions",
+        "frequency": 75.9259262084961
+      },
+      {
+        "layer": 25,
+        "correlation": 0.7106,
+        "coefficient": 57.4309,
+        "feature_index": 3912,
+        "description": "negative sentiments or refusals",
+        "frequency": 74.0740737915039
+      }
+    ],
+    "xstest": [
+      {
+        "layer": 1,
+        "correlation": 0.3328,
+        "coefficient": 1.9399,
+        "feature_index": 4509,
+        "description": "terms and concepts related to scientific and mathematical structures and functions",
+        "frequency": 90.0826416015625
+      },
+      {
+        "layer": 2,
+        "correlation": 0.3013,
+        "coefficient": 1.5843,
+        "feature_index": 4679,
+        "description": "financial metrics and forecasts related to stock performance",
+        "frequency": 78.51239776611328
+      },
+      {
+        "layer": 3,
+        "correlation": 0.2555,
+        "coefficient": 4.088,
+        "feature_index": 1326,
+        "description": "legal terminology and references to statutes and claims",
+        "frequency": 49.58677673339844
+      },
+      {
+        "layer": 4,
+        "correlation": 0.2586,
+        "coefficient": 0.9615,
+        "feature_index": 12152,
+        "description": "references to geographical locations and their associated attributes",
+        "frequency": 40.49586486816406
+      },
+      {
+        "layer": 5,
+        "correlation": 0.2481,
+        "coefficient": 3.3913,
+        "feature_index": 5939,
+        "description": "terms related to signals and their coding in biological contexts",
+        "frequency": 54.54545593261719
+      },
+      {
+        "layer": 6,
+        "correlation": 0.2588,
+        "coefficient": 6.7134,
+        "feature_index": 4376,
+        "description": " numerical values and specific formatting related to data structures or coding",
+        "frequency": 50.4132194519043
+      },
+      {
+        "layer": 7,
+        "correlation": 0.2863,
+        "coefficient": 3.0741,
+        "feature_index": 4886,
+        "description": " representations of numerical data, particularly in scientific contexts",
+        "frequency": 71.07437896728516
+      },
+      {
+        "layer": 8,
+        "correlation": 0.2962,
+        "coefficient": 5.1937,
+        "feature_index": 10825,
+        "description": "punctuation marks and special characters",
+        "frequency": 64.46281433105469
+      },
+      {
+        "layer": 9,
+        "correlation": 0.3226,
+        "coefficient": 4.7124,
+        "feature_index": 9228,
+        "description": " punctuation marks, especially periods and quotation marks",
+        "frequency": 74.38016510009766
+      },
+      {
+        "layer": 10,
+        "correlation": 0.2705,
+        "coefficient": 2.7597,
+        "feature_index": 13244,
+        "description": "information related to military casualties and incidents",
+        "frequency": 58.67768478393555
+      },
+      {
+        "layer": 11,
+        "correlation": 0.2432,
+        "coefficient": 4.3036,
+        "feature_index": 5734,
+        "description": " sections or punctuation that denote lists or explanations",
+        "frequency": 48.76033020019531
+      },
+      {
+        "layer": 12,
+        "correlation": 0.282,
+        "coefficient": 15.3726,
+        "feature_index": 12342,
+        "description": "symbols and mathematical notation related to expressions or equations in mathematical contexts",
+        "frequency": 100.0
+      },
+      {
+        "layer": 13,
+        "correlation": 0.2736,
+        "coefficient": 16.6222,
+        "feature_index": 10964,
+        "description": "mathematical terms and symbols",
+        "frequency": 100.0
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2748,
+        "coefficient": 16.1954,
+        "feature_index": 7655,
+        "description": "structured data, such as XML or JSON formats",
+        "frequency": 100.0
+      },
+      {
+        "layer": 15,
+        "correlation": 0.248,
+        "coefficient": 23.117,
+        "feature_index": 5114,
+        "description": "terms related to evaluation and validation processes",
+        "frequency": 100.0
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2828,
+        "coefficient": 21.5274,
+        "feature_index": 1547,
+        "description": "code or programming-related syntax",
+        "frequency": 99.17355346679688
+      },
+      {
+        "layer": 17,
+        "correlation": 0.2427,
+        "coefficient": 9.6619,
+        "feature_index": 10813,
+        "description": "references to movies, actors, and significant film industry terms",
+        "frequency": 60.33057403564453
+      },
+      {
+        "layer": 18,
+        "correlation": 0.2821,
+        "coefficient": 9.0058,
+        "feature_index": 8615,
+        "description": "legal terminology and concepts related to judicial authority and precedent",
+        "frequency": 53.71900939941406
+      },
+      {
+        "layer": 19,
+        "correlation": 0.2446,
+        "coefficient": 13.9564,
+        "feature_index": 2998,
+        "description": " elements related to research findings, including factors, conclusions, and reasoning",
+        "frequency": 49.58677673339844
+      },
+      {
+        "layer": 20,
+        "correlation": 0.2718,
+        "coefficient": 10.6475,
+        "feature_index": 9419,
+        "description": "names of individuals and titles",
+        "frequency": 63.6363639831543
+      },
+      {
+        "layer": 21,
+        "correlation": 0.2636,
+        "coefficient": 36.8035,
+        "feature_index": 15170,
+        "description": "isolated segments of code or technical content",
+        "frequency": 100.0
+      },
+      {
+        "layer": 22,
+        "correlation": 0.2942,
+        "coefficient": 28.482,
+        "feature_index": 11042,
+        "description": " punctuation marks that indicate the start or end of lists or key points in a text",
+        "frequency": 84.29752349853516
+      },
+      {
+        "layer": 23,
+        "correlation": 0.2801,
+        "coefficient": 23.4466,
+        "feature_index": 8993,
+        "description": "structured API documentation elements and syntax",
+        "frequency": 70.24794006347656
+      },
+      {
+        "layer": 24,
+        "correlation": 0.2873,
+        "coefficient": 16.649,
+        "feature_index": 4448,
+        "description": "terms related to scientific analysis and results reporting",
+        "frequency": 61.15702438354492
+      },
+      {
+        "layer": 25,
+        "correlation": 0.3075,
+        "coefficient": 9.8625,
+        "feature_index": 7968,
+        "description": "elements related to health assessments and metrics",
+        "frequency": 55.37189865112305
+      }
+    ],
+    "gsm8k": [
+      {
+        "layer": 1,
+        "correlation": 0.2509,
+        "coefficient": 9.9355,
+        "feature_index": 13475,
+        "description": " specific quantitative or statistical information",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1805,
+        "coefficient": 3.08,
+        "feature_index": 2098,
+        "description": "references to leadership and management isolation in workplace contexts",
+        "frequency": 100.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.2503,
+        "coefficient": 6.3017,
+        "feature_index": 8338,
+        "description": "significant quantities within code snippets, likely indicating important operations or constructs",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1885,
+        "coefficient": 2.0368,
+        "feature_index": 687,
+        "description": "HTML tags and attributes related to layout and styling",
+        "frequency": 80.9000015258789
+      },
+      {
+        "layer": 5,
+        "correlation": 0.193,
+        "coefficient": 6.0911,
+        "feature_index": 697,
+        "description": "terms related to price dynamics and economic relationships",
+        "frequency": 100.0
+      },
+      {
+        "layer": 6,
+        "correlation": 0.2193,
+        "coefficient": 9.501,
+        "feature_index": 13460,
+        "description": "references to safety and regulatory issues in automobile contexts",
+        "frequency": 100.0
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1666,
+        "coefficient": 1.3095,
+        "feature_index": 9514,
+        "description": " structured data or code snippets, potentially relating to geographical regions and associated identifiers",
+        "frequency": 39.70000076293945
+      },
+      {
+        "layer": 8,
+        "correlation": 0.2099,
+        "coefficient": 14.3837,
+        "feature_index": 2024,
+        "description": "names of notable performance venues and cultural institutions",
+        "frequency": 100.0
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1879,
+        "coefficient": 5.0739,
+        "feature_index": 15115,
+        "description": "discussions related to crime scene investigations and forensic evidence",
+        "frequency": 98.5999984741211
+      },
+      {
+        "layer": 10,
+        "correlation": 0.1876,
+        "coefficient": 5.6016,
+        "feature_index": 2794,
+        "description": "elements of conversation or dialogue",
+        "frequency": 99.29999542236328
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1761,
+        "coefficient": 26.2522,
+        "feature_index": 7313,
+        "description": "mathematical equations and expressions",
+        "frequency": 99.9000015258789
+      },
+      {
+        "layer": 12,
+        "correlation": 0.245,
+        "coefficient": 2.8598,
+        "feature_index": 12707,
+        "description": "technical or scientific terminology related to systems and processes",
+        "frequency": 52.70000076293945
+      },
+      {
+        "layer": 13,
+        "correlation": 0.253,
+        "coefficient": 2.7309,
+        "feature_index": 14319,
+        "description": "code snippets and their associated structures within documents",
+        "frequency": 48.5
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2458,
+        "coefficient": 3.7724,
+        "feature_index": 4217,
+        "description": "expressions of emotional reactions and feedback",
+        "frequency": 47.900001525878906
+      },
+      {
+        "layer": 15,
+        "correlation": 0.2551,
+        "coefficient": 7.2823,
+        "feature_index": 1685,
+        "description": " instances of structured data or messages indicating communication or queries",
+        "frequency": 74.9000015258789
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2231,
+        "coefficient": 24.774,
+        "feature_index": 14919,
+        "description": "instances of unique identifiers or markers in a dataset",
+        "frequency": 100.0
+      },
+      {
+        "layer": 17,
+        "correlation": 0.252,
+        "coefficient": 6.245,
+        "feature_index": 7185,
+        "description": "curly braces and structured programming syntax elements",
+        "frequency": 57.20000457763672
+      },
+      {
+        "layer": 18,
+        "correlation": 0.2494,
+        "coefficient": 4.0643,
+        "feature_index": 3732,
+        "description": "code syntax elements such as brackets and semicolons",
+        "frequency": 33.70000076293945
+      },
+      {
+        "layer": 19,
+        "correlation": 0.2774,
+        "coefficient": 8.8021,
+        "feature_index": 2015,
+        "description": "structures related to function definitions and method calls in programming code",
+        "frequency": 57.30000305175781
+      },
+      {
+        "layer": 20,
+        "correlation": 0.258,
+        "coefficient": 4.3495,
+        "feature_index": 15616,
+        "description": "elements of code structure and syntax in programming contexts",
+        "frequency": 30.5
+      },
+      {
+        "layer": 21,
+        "correlation": 0.2507,
+        "coefficient": 24.2113,
+        "feature_index": 12547,
+        "description": "phrases and words that express confusion or dissatisfaction with situations",
+        "frequency": 96.5999984741211
+      },
+      {
+        "layer": 22,
+        "correlation": 0.313,
+        "coefficient": 7.295,
+        "feature_index": 7903,
+        "description": "mathematical notation and symbols used in equations",
+        "frequency": 44.400001525878906
+      },
+      {
+        "layer": 23,
+        "correlation": 0.2935,
+        "coefficient": 19.2016,
+        "feature_index": 12425,
+        "description": " mathematical expressions and symbols",
+        "frequency": 91.19999694824219
+      },
+      {
+        "layer": 24,
+        "correlation": 0.3477,
+        "coefficient": 10.2052,
+        "feature_index": 2274,
+        "description": " programming syntax and structure specific to coding languages",
+        "frequency": 36.19999694824219
+      },
+      {
+        "layer": 25,
+        "correlation": 0.2838,
+        "coefficient": 23.1576,
+        "feature_index": 3469,
+        "description": " technical aspects related to semiconductor devices and their manufacturing processes",
+        "frequency": 87.9000015258789
+      }
+    ]
+  },
+  "llama8": {
+    "mmlu": [
+      {
+        "layer": 1,
+        "correlation": 0.0971,
+        "coefficient": 0.6947,
+        "feature_index": 4557,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1578,
+        "coefficient": 0.348,
+        "feature_index": 27893,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1388,
+        "coefficient": 1.0366,
+        "feature_index": 204,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1328,
+        "coefficient": 0.4184,
+        "feature_index": 3630,
+        "description": "No description available",
+        "frequency": 94.57499694824219
+      },
+      {
+        "layer": 5,
+        "correlation": 0.1236,
+        "coefficient": 0.4969,
+        "feature_index": 17458,
+        "description": "No description available",
+        "frequency": 95.45000457763672
+      },
+      {
+        "layer": 6,
+        "correlation": 0.11,
+        "coefficient": 0.7797,
+        "feature_index": 650,
+        "description": "No description available",
+        "frequency": 99.29999542236328
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1224,
+        "coefficient": 0.8861,
+        "feature_index": 13659,
+        "description": "No description available",
+        "frequency": 95.9000015258789
+      },
+      {
+        "layer": 8,
+        "correlation": 0.119,
+        "coefficient": 0.8712,
+        "feature_index": 1649,
+        "description": "No description available",
+        "frequency": 92.4749984741211
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1126,
+        "coefficient": 0.3955,
+        "feature_index": 19730,
+        "description": "No description available",
+        "frequency": 81.7249984741211
+      },
+      {
+        "layer": 10,
+        "correlation": 0.0992,
+        "coefficient": 0.9495,
+        "feature_index": 20495,
+        "description": "No description available",
+        "frequency": 97.375
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1045,
+        "coefficient": 0.8952,
+        "feature_index": 20851,
+        "description": "No description available",
+        "frequency": 99.67500305175781
+      },
+      {
+        "layer": 12,
+        "correlation": 0.1043,
+        "coefficient": 0.4541,
+        "feature_index": 26346,
+        "description": "No description available",
+        "frequency": 76.20000457763672
+      },
+      {
+        "layer": 13,
+        "correlation": 0.1449,
+        "coefficient": 0.8315,
+        "feature_index": 551,
+        "description": "No description available",
+        "frequency": 96.67500305175781
+      },
+      {
+        "layer": 14,
+        "correlation": 0.1654,
+        "coefficient": 0.3655,
+        "feature_index": 11013,
+        "description": "No description available",
+        "frequency": 38.275001525878906
+      },
+      {
+        "layer": 15,
+        "correlation": 0.1899,
+        "coefficient": 0.3263,
+        "feature_index": 9446,
+        "description": "No description available",
+        "frequency": 36.89999771118164
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2706,
+        "coefficient": 1.0923,
+        "feature_index": 6219,
+        "description": "No description available",
+        "frequency": 69.45000457763672
+      },
+      {
+        "layer": 17,
+        "correlation": 0.3012,
+        "coefficient": 0.9573,
+        "feature_index": 26604,
+        "description": "No description available",
+        "frequency": 66.0
+      },
+      {
+        "layer": 18,
+        "correlation": 0.2882,
+        "coefficient": 0.9351,
+        "feature_index": 28750,
+        "description": "No description available",
+        "frequency": 66.92500305175781
+      },
+      {
+        "layer": 19,
+        "correlation": 0.3646,
+        "coefficient": 1.5871,
+        "feature_index": 6432,
+        "description": "No description available",
+        "frequency": 86.7750015258789
+      },
+      {
+        "layer": 20,
+        "correlation": 0.3194,
+        "coefficient": 1.0513,
+        "feature_index": 28406,
+        "description": "No description available",
+        "frequency": 71.4000015258789
+      },
+      {
+        "layer": 21,
+        "correlation": 0.3475,
+        "coefficient": 1.0152,
+        "feature_index": 15538,
+        "description": "No description available",
+        "frequency": 64.3499984741211
+      },
+      {
+        "layer": 22,
+        "correlation": 0.3163,
+        "coefficient": 1.2665,
+        "feature_index": 11286,
+        "description": "No description available",
+        "frequency": 79.5250015258789
+      },
+      {
+        "layer": 23,
+        "correlation": 0.2825,
+        "coefficient": 1.1291,
+        "feature_index": 15096,
+        "description": "No description available",
+        "frequency": 67.9000015258789
+      },
+      {
+        "layer": 24,
+        "correlation": 0.2563,
+        "coefficient": 1.6307,
+        "feature_index": 18010,
+        "description": "No description available",
+        "frequency": 90.5
+      },
+      {
+        "layer": 25,
+        "correlation": 0.2894,
+        "coefficient": 1.2083,
+        "feature_index": 22713,
+        "description": "No description available",
+        "frequency": 75.625
+      },
+      {
+        "layer": 26,
+        "correlation": 0.3266,
+        "coefficient": 2.3301,
+        "feature_index": 22133,
+        "description": "No description available",
+        "frequency": 99.82499694824219
+      },
+      {
+        "layer": 27,
+        "correlation": 0.3076,
+        "coefficient": 0.8254,
+        "feature_index": 19268,
+        "description": "No description available",
+        "frequency": 44.47500228881836
+      },
+      {
+        "layer": 28,
+        "correlation": 0.3043,
+        "coefficient": 2.3189,
+        "feature_index": 23202,
+        "description": "No description available",
+        "frequency": 98.19999694824219
+      },
+      {
+        "layer": 29,
+        "correlation": 0.2546,
+        "coefficient": 3.5456,
+        "feature_index": 3168,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 30,
+        "correlation": 0.2743,
+        "coefficient": 0.9839,
+        "feature_index": 23403,
+        "description": "No description available",
+        "frequency": 40.224998474121094
+      },
+      {
+        "layer": 31,
+        "correlation": 0.1617,
+        "coefficient": 0.5378,
+        "feature_index": 6722,
+        "description": "No description available",
+        "frequency": 16.150001525878906
+      }
+    ],
+    "mmlupro": [
+      {
+        "layer": 1,
+        "correlation": 0.2161,
+        "coefficient": 0.2862,
+        "feature_index": 2403,
+        "description": "No description available",
+        "frequency": 76.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.2587,
+        "coefficient": 0.2117,
+        "feature_index": 85,
+        "description": "No description available",
+        "frequency": 56.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.2652,
+        "coefficient": 0.9962,
+        "feature_index": 204,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.2503,
+        "coefficient": 0.4315,
+        "feature_index": 14539,
+        "description": "No description available",
+        "frequency": 89.45000457763672
+      },
+      {
+        "layer": 5,
+        "correlation": 0.2772,
+        "coefficient": 0.3479,
+        "feature_index": 2831,
+        "description": "No description available",
+        "frequency": 64.42499542236328
+      },
+      {
+        "layer": 6,
+        "correlation": 0.2652,
+        "coefficient": 0.1529,
+        "feature_index": 7784,
+        "description": "No description available",
+        "frequency": 30.325000762939453
+      },
+      {
+        "layer": 7,
+        "correlation": 0.2816,
+        "coefficient": 0.4462,
+        "feature_index": 22238,
+        "description": "No description available",
+        "frequency": 48.0
+      },
+      {
+        "layer": 8,
+        "correlation": 0.2441,
+        "coefficient": 0.6304,
+        "feature_index": 7704,
+        "description": "No description available",
+        "frequency": 82.20000457763672
+      },
+      {
+        "layer": 9,
+        "correlation": 0.2485,
+        "coefficient": 0.2984,
+        "feature_index": 4007,
+        "description": "No description available",
+        "frequency": 38.974998474121094
+      },
+      {
+        "layer": 10,
+        "correlation": 0.2813,
+        "coefficient": 0.4543,
+        "feature_index": 3783,
+        "description": "No description available",
+        "frequency": 43.724998474121094
+      },
+      {
+        "layer": 11,
+        "correlation": 0.2608,
+        "coefficient": 0.8073,
+        "feature_index": 7301,
+        "description": "No description available",
+        "frequency": 63.125003814697266
+      },
+      {
+        "layer": 12,
+        "correlation": 0.306,
+        "coefficient": 0.5634,
+        "feature_index": 28750,
+        "description": "No description available",
+        "frequency": 34.72500228881836
+      },
+      {
+        "layer": 13,
+        "correlation": 0.2854,
+        "coefficient": 0.3657,
+        "feature_index": 16587,
+        "description": "No description available",
+        "frequency": 35.275001525878906
+      },
+      {
+        "layer": 14,
+        "correlation": 0.3117,
+        "coefficient": 0.4898,
+        "feature_index": 28135,
+        "description": "No description available",
+        "frequency": 30.100000381469727
+      },
+      {
+        "layer": 15,
+        "correlation": 0.3369,
+        "coefficient": 0.4253,
+        "feature_index": 9446,
+        "description": "No description available",
+        "frequency": 24.32499885559082
+      },
+      {
+        "layer": 16,
+        "correlation": 0.3231,
+        "coefficient": 0.342,
+        "feature_index": 6219,
+        "description": "No description available",
+        "frequency": 15.600000381469727
+      },
+      {
+        "layer": 17,
+        "correlation": 0.3572,
+        "coefficient": 0.4693,
+        "feature_index": 26604,
+        "description": "No description available",
+        "frequency": 15.274999618530273
+      },
+      {
+        "layer": 18,
+        "correlation": 0.3715,
+        "coefficient": 0.478,
+        "feature_index": 2624,
+        "description": "No description available",
+        "frequency": 13.850000381469727
+      },
+      {
+        "layer": 19,
+        "correlation": 0.3814,
+        "coefficient": 0.9662,
+        "feature_index": 6432,
+        "description": "No description available",
+        "frequency": 37.02499771118164
+      },
+      {
+        "layer": 20,
+        "correlation": 0.3683,
+        "coefficient": 0.6283,
+        "feature_index": 28406,
+        "description": "No description available",
+        "frequency": 21.950000762939453
+      },
+      {
+        "layer": 21,
+        "correlation": 0.3448,
+        "coefficient": 0.3909,
+        "feature_index": 15538,
+        "description": "No description available",
+        "frequency": 11.90000057220459
+      },
+      {
+        "layer": 22,
+        "correlation": 0.3803,
+        "coefficient": 0.6975,
+        "feature_index": 11286,
+        "description": "No description available",
+        "frequency": 23.149999618530273
+      },
+      {
+        "layer": 23,
+        "correlation": 0.3479,
+        "coefficient": 0.8531,
+        "feature_index": 21146,
+        "description": "No description available",
+        "frequency": 32.025001525878906
+      },
+      {
+        "layer": 24,
+        "correlation": 0.3496,
+        "coefficient": 0.8365,
+        "feature_index": 7967,
+        "description": "No description available",
+        "frequency": 29.44999885559082
+      },
+      {
+        "layer": 25,
+        "correlation": 0.3466,
+        "coefficient": 0.8636,
+        "feature_index": 16619,
+        "description": "No description available",
+        "frequency": 31.099998474121094
+      },
+      {
+        "layer": 26,
+        "correlation": 0.4126,
+        "coefficient": 0.8126,
+        "feature_index": 22133,
+        "description": "No description available",
+        "frequency": 24.524999618530273
+      },
+      {
+        "layer": 27,
+        "correlation": 0.2708,
+        "coefficient": 0.3176,
+        "feature_index": 19268,
+        "description": "No description available",
+        "frequency": 7.224999904632568
+      },
+      {
+        "layer": 28,
+        "correlation": 0.3043,
+        "coefficient": 1.1195,
+        "feature_index": 23202,
+        "description": "No description available",
+        "frequency": 41.150001525878906
+      },
+      {
+        "layer": 29,
+        "correlation": 0.2491,
+        "coefficient": 2.528,
+        "feature_index": 12442,
+        "description": "No description available",
+        "frequency": 99.47500610351562
+      },
+      {
+        "layer": 30,
+        "correlation": 0.3111,
+        "coefficient": 0.3743,
+        "feature_index": 19427,
+        "description": "No description available",
+        "frequency": 7.599999904632568
+      },
+      {
+        "layer": 31,
+        "correlation": 0.2799,
+        "coefficient": 10.3483,
+        "feature_index": 9926,
+        "description": "No description available",
+        "frequency": 100.0
+      }
+    ],
+    "simpleqa": [
+      {
+        "layer": 1,
+        "correlation": 0.4535,
+        "coefficient": 1.5804,
+        "feature_index": 28160,
+        "description": "No description available",
+        "frequency": 0.5998286604881287
+      },
+      {
+        "layer": 2,
+        "correlation": 0.3827,
+        "coefficient": 0.1482,
+        "feature_index": 16190,
+        "description": "No description available",
+        "frequency": 0.5141388177871704
+      },
+      {
+        "layer": 3,
+        "correlation": 0.4958,
+        "coefficient": 0.5413,
+        "feature_index": 24193,
+        "description": "No description available",
+        "frequency": 0.6855184435844421
+      },
+      {
+        "layer": 4,
+        "correlation": 0.4569,
+        "coefficient": 0.2048,
+        "feature_index": 25100,
+        "description": "No description available",
+        "frequency": 0.7712082266807556
+      },
+      {
+        "layer": 5,
+        "correlation": 0.4175,
+        "coefficient": 0.3962,
+        "feature_index": 15924,
+        "description": "No description available",
+        "frequency": 0.5998286604881287
+      },
+      {
+        "layer": 6,
+        "correlation": 0.3828,
+        "coefficient": 2.4023,
+        "feature_index": 7008,
+        "description": "No description available",
+        "frequency": 2.2279348373413086
+      },
+      {
+        "layer": 7,
+        "correlation": 0.3807,
+        "coefficient": 2.0494,
+        "feature_index": 6257,
+        "description": "No description available",
+        "frequency": 0.42844903469085693
+      },
+      {
+        "layer": 8,
+        "correlation": 0.377,
+        "coefficient": 0.0292,
+        "feature_index": 30264,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 9,
+        "correlation": 0.377,
+        "coefficient": 0.0893,
+        "feature_index": 23784,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 10,
+        "correlation": 0.377,
+        "coefficient": 0.0569,
+        "feature_index": 30120,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 11,
+        "correlation": 0.4101,
+        "coefficient": 0.3962,
+        "feature_index": 962,
+        "description": "No description available",
+        "frequency": 1.7137961387634277
+      },
+      {
+        "layer": 12,
+        "correlation": 0.4368,
+        "coefficient": 0.4721,
+        "feature_index": 31391,
+        "description": "No description available",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 13,
+        "correlation": 0.387,
+        "coefficient": 2.6183,
+        "feature_index": 19013,
+        "description": "No description available",
+        "frequency": 2.827763557434082
+      },
+      {
+        "layer": 14,
+        "correlation": 0.377,
+        "coefficient": 0.077,
+        "feature_index": 12579,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 15,
+        "correlation": 0.3857,
+        "coefficient": 2.0039,
+        "feature_index": 18867,
+        "description": "No description available",
+        "frequency": 0.42844903469085693
+      },
+      {
+        "layer": 16,
+        "correlation": 0.4171,
+        "coefficient": 2.3638,
+        "feature_index": 22032,
+        "description": "No description available",
+        "frequency": 1.7137961387634277
+      },
+      {
+        "layer": 17,
+        "correlation": 0.377,
+        "coefficient": 0.8839,
+        "feature_index": 30566,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 18,
+        "correlation": 0.4105,
+        "coefficient": 0.952,
+        "feature_index": 24624,
+        "description": "No description available",
+        "frequency": 1.2853471040725708
+      },
+      {
+        "layer": 19,
+        "correlation": 0.3948,
+        "coefficient": 1.1395,
+        "feature_index": 25841,
+        "description": "No description available",
+        "frequency": 2.313624620437622
+      },
+      {
+        "layer": 20,
+        "correlation": 0.4089,
+        "coefficient": 0.4375,
+        "feature_index": 23840,
+        "description": "No description available",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 21,
+        "correlation": 0.377,
+        "coefficient": 0.2578,
+        "feature_index": 9851,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 22,
+        "correlation": 0.3999,
+        "coefficient": 0.7439,
+        "feature_index": 20579,
+        "description": "No description available",
+        "frequency": 1.4567266702651978
+      },
+      {
+        "layer": 23,
+        "correlation": 0.423,
+        "coefficient": 0.3231,
+        "feature_index": 11708,
+        "description": "No description available",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 24,
+        "correlation": 0.5298,
+        "coefficient": 0.2919,
+        "feature_index": 14877,
+        "description": "No description available",
+        "frequency": 0.17137961089611053
+      },
+      {
+        "layer": 25,
+        "correlation": 0.4691,
+        "coefficient": 0.5424,
+        "feature_index": 18055,
+        "description": "No description available",
+        "frequency": 0.34275922179222107
+      },
+      {
+        "layer": 26,
+        "correlation": 0.4354,
+        "coefficient": 0.317,
+        "feature_index": 10617,
+        "description": "No description available",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 27,
+        "correlation": 0.3801,
+        "coefficient": 0.9241,
+        "feature_index": 135,
+        "description": "No description available",
+        "frequency": 0.7712082266807556
+      },
+      {
+        "layer": 28,
+        "correlation": 0.377,
+        "coefficient": 0.9643,
+        "feature_index": 29877,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 29,
+        "correlation": 0.3817,
+        "coefficient": 0.4096,
+        "feature_index": 4392,
+        "description": "No description available",
+        "frequency": 0.2570694088935852
+      },
+      {
+        "layer": 30,
+        "correlation": 0.377,
+        "coefficient": 0.3103,
+        "feature_index": 22633,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      },
+      {
+        "layer": 31,
+        "correlation": 0.377,
+        "coefficient": 1.4286,
+        "feature_index": 6171,
+        "description": "No description available",
+        "frequency": 0.08568980544805527
+      }
+    ],
+    "bbq_ambig": [
+      {
+        "layer": 1,
+        "correlation": 0.1111,
+        "coefficient": 0.4629,
+        "feature_index": 23207,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.1172,
+        "coefficient": 0.0017,
+        "feature_index": 2680,
+        "description": "No description available",
+        "frequency": 0.5
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1272,
+        "coefficient": 0.4873,
+        "feature_index": 23846,
+        "description": "No description available",
+        "frequency": 99.2750015258789
+      },
+      {
+        "layer": 4,
+        "correlation": 0.1278,
+        "coefficient": 0.0885,
+        "feature_index": 30896,
+        "description": "No description available",
+        "frequency": 46.67499923706055
+      },
+      {
+        "layer": 5,
+        "correlation": 0.1374,
+        "coefficient": 0.1928,
+        "feature_index": 18555,
+        "description": "No description available",
+        "frequency": 73.2750015258789
+      },
+      {
+        "layer": 6,
+        "correlation": 0.1474,
+        "coefficient": 0.2771,
+        "feature_index": 25246,
+        "description": "No description available",
+        "frequency": 87.80000305175781
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1781,
+        "coefficient": 0.3648,
+        "feature_index": 11878,
+        "description": "No description available",
+        "frequency": 69.95000457763672
+      },
+      {
+        "layer": 8,
+        "correlation": 0.1631,
+        "coefficient": 0.1722,
+        "feature_index": 4790,
+        "description": "No description available",
+        "frequency": 34.474998474121094
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1865,
+        "coefficient": 0.3538,
+        "feature_index": 2700,
+        "description": "No description available",
+        "frequency": 69.6500015258789
+      },
+      {
+        "layer": 10,
+        "correlation": 0.1684,
+        "coefficient": 0.8122,
+        "feature_index": 23355,
+        "description": "No description available",
+        "frequency": 99.0
+      },
+      {
+        "layer": 11,
+        "correlation": 0.181,
+        "coefficient": 0.1672,
+        "feature_index": 18132,
+        "description": "No description available",
+        "frequency": 28.125
+      },
+      {
+        "layer": 12,
+        "correlation": 0.1887,
+        "coefficient": 0.0841,
+        "feature_index": 14096,
+        "description": "No description available",
+        "frequency": 10.225000381469727
+      },
+      {
+        "layer": 13,
+        "correlation": 0.2035,
+        "coefficient": 0.4928,
+        "feature_index": 26526,
+        "description": "No description available",
+        "frequency": 71.10000610351562
+      },
+      {
+        "layer": 14,
+        "correlation": 0.3244,
+        "coefficient": 0.1921,
+        "feature_index": 13393,
+        "description": "No description available",
+        "frequency": 9.899999618530273
+      },
+      {
+        "layer": 15,
+        "correlation": 0.4332,
+        "coefficient": 0.2593,
+        "feature_index": 25166,
+        "description": "No description available",
+        "frequency": 12.0
+      },
+      {
+        "layer": 16,
+        "correlation": 0.3627,
+        "coefficient": 0.5429,
+        "feature_index": 21816,
+        "description": "No description available",
+        "frequency": 40.900001525878906
+      },
+      {
+        "layer": 17,
+        "correlation": 0.2977,
+        "coefficient": 0.3683,
+        "feature_index": 5782,
+        "description": "No description available",
+        "frequency": 28.799999237060547
+      },
+      {
+        "layer": 18,
+        "correlation": 0.3901,
+        "coefficient": 0.3027,
+        "feature_index": 28196,
+        "description": "No description available",
+        "frequency": 11.225000381469727
+      },
+      {
+        "layer": 19,
+        "correlation": 0.4402,
+        "coefficient": 0.8115,
+        "feature_index": 29460,
+        "description": "No description available",
+        "frequency": 45.82499694824219
+      },
+      {
+        "layer": 20,
+        "correlation": 0.4735,
+        "coefficient": 1.4131,
+        "feature_index": 13319,
+        "description": "No description available",
+        "frequency": 69.5
+      },
+      {
+        "layer": 21,
+        "correlation": 0.3494,
+        "coefficient": 2.7195,
+        "feature_index": 8518,
+        "description": "No description available",
+        "frequency": 99.7249984741211
+      },
+      {
+        "layer": 22,
+        "correlation": 0.4644,
+        "coefficient": 1.024,
+        "feature_index": 28263,
+        "description": "No description available",
+        "frequency": 38.42499923706055
+      },
+      {
+        "layer": 23,
+        "correlation": 0.496,
+        "coefficient": 1.0539,
+        "feature_index": 638,
+        "description": "No description available",
+        "frequency": 43.70000076293945
+      },
+      {
+        "layer": 24,
+        "correlation": 0.4646,
+        "coefficient": 1.89,
+        "feature_index": 19174,
+        "description": "No description available",
+        "frequency": 77.07499694824219
+      },
+      {
+        "layer": 25,
+        "correlation": 0.4284,
+        "coefficient": 1.1475,
+        "feature_index": 10753,
+        "description": "No description available",
+        "frequency": 33.57500076293945
+      },
+      {
+        "layer": 26,
+        "correlation": 0.4518,
+        "coefficient": 1.0247,
+        "feature_index": 27899,
+        "description": "No description available",
+        "frequency": 31.575000762939453
+      },
+      {
+        "layer": 27,
+        "correlation": 0.3842,
+        "coefficient": 2.5966,
+        "feature_index": 1765,
+        "description": "No description available",
+        "frequency": 99.9000015258789
+      },
+      {
+        "layer": 28,
+        "correlation": 0.3231,
+        "coefficient": 0.8557,
+        "feature_index": 21019,
+        "description": "No description available",
+        "frequency": 32.79999923706055
+      },
+      {
+        "layer": 29,
+        "correlation": 0.3852,
+        "coefficient": 1.7355,
+        "feature_index": 17998,
+        "description": "No description available",
+        "frequency": 64.4749984741211
+      },
+      {
+        "layer": 30,
+        "correlation": 0.3896,
+        "coefficient": 1.3083,
+        "feature_index": 17084,
+        "description": "No description available",
+        "frequency": 39.724998474121094
+      },
+      {
+        "layer": 31,
+        "correlation": 0.2386,
+        "coefficient": 1.5305,
+        "feature_index": 10728,
+        "description": "No description available",
+        "frequency": 31.349998474121094
+      }
+    ],
+    "bbq_disambig": [
+      {
+        "layer": 1,
+        "correlation": 0.0861,
+        "coefficient": 0.1537,
+        "feature_index": 5891,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 2,
+        "correlation": 0.0836,
+        "coefficient": 0.784,
+        "feature_index": 21865,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 3,
+        "correlation": 0.1002,
+        "coefficient": 0.3319,
+        "feature_index": 3413,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.086,
+        "coefficient": 0.4577,
+        "feature_index": 3712,
+        "description": "No description available",
+        "frequency": 99.1500015258789
+      },
+      {
+        "layer": 5,
+        "correlation": 0.1179,
+        "coefficient": 0.2289,
+        "feature_index": 18066,
+        "description": "No description available",
+        "frequency": 75.875
+      },
+      {
+        "layer": 6,
+        "correlation": 0.1192,
+        "coefficient": 0.3006,
+        "feature_index": 28294,
+        "description": "No description available",
+        "frequency": 80.22500610351562
+      },
+      {
+        "layer": 7,
+        "correlation": 0.1244,
+        "coefficient": 0.4158,
+        "feature_index": 7762,
+        "description": "No description available",
+        "frequency": 88.4000015258789
+      },
+      {
+        "layer": 8,
+        "correlation": 0.124,
+        "coefficient": 1.0315,
+        "feature_index": 25466,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 9,
+        "correlation": 0.1395,
+        "coefficient": 0.6451,
+        "feature_index": 5313,
+        "description": "No description available",
+        "frequency": 99.0250015258789
+      },
+      {
+        "layer": 10,
+        "correlation": 0.152,
+        "coefficient": 0.2561,
+        "feature_index": 13407,
+        "description": "No description available",
+        "frequency": 70.32499694824219
+      },
+      {
+        "layer": 11,
+        "correlation": 0.1282,
+        "coefficient": 0.8997,
+        "feature_index": 18350,
+        "description": "No description available",
+        "frequency": 99.9000015258789
+      },
+      {
+        "layer": 12,
+        "correlation": 0.1442,
+        "coefficient": 0.3774,
+        "feature_index": 13336,
+        "description": "No description available",
+        "frequency": 76.5250015258789
+      },
+      {
+        "layer": 13,
+        "correlation": 0.1668,
+        "coefficient": 0.6952,
+        "feature_index": 15793,
+        "description": "No description available",
+        "frequency": 94.1500015258789
+      },
+      {
+        "layer": 14,
+        "correlation": 0.2167,
+        "coefficient": 1.3836,
+        "feature_index": 31962,
+        "description": "No description available",
+        "frequency": 98.625
+      },
+      {
+        "layer": 15,
+        "correlation": 0.2769,
+        "coefficient": 0.9765,
+        "feature_index": 2128,
+        "description": "No description available",
+        "frequency": 86.7750015258789
+      },
+      {
+        "layer": 16,
+        "correlation": 0.2919,
+        "coefficient": 0.8302,
+        "feature_index": 6219,
+        "description": "No description available",
+        "frequency": 68.4000015258789
+      },
+      {
+        "layer": 17,
+        "correlation": 0.2751,
+        "coefficient": 0.7062,
+        "feature_index": 12610,
+        "description": "No description available",
+        "frequency": 54.57500076293945
+      },
+      {
+        "layer": 18,
+        "correlation": 0.2849,
+        "coefficient": 2.1134,
+        "feature_index": 16458,
+        "description": "No description available",
+        "frequency": 99.9749984741211
+      },
+      {
+        "layer": 19,
+        "correlation": 0.2845,
+        "coefficient": 0.9085,
+        "feature_index": 6432,
+        "description": "No description available",
+        "frequency": 80.6500015258789
+      },
+      {
+        "layer": 20,
+        "correlation": 0.2972,
+        "coefficient": 0.9424,
+        "feature_index": 28406,
+        "description": "No description available",
+        "frequency": 85.0999984741211
+      },
+      {
+        "layer": 21,
+        "correlation": 0.1988,
+        "coefficient": 0.3877,
+        "feature_index": 15538,
+        "description": "No description available",
+        "frequency": 36.79999923706055
+      },
+      {
+        "layer": 22,
+        "correlation": 0.2446,
+        "coefficient": 0.5315,
+        "feature_index": 11286,
+        "description": "No description available",
+        "frequency": 47.72500228881836
+      },
+      {
+        "layer": 23,
+        "correlation": 0.2225,
+        "coefficient": 1.2111,
+        "feature_index": 30672,
+        "description": "No description available",
+        "frequency": 91.0999984741211
+      },
+      {
+        "layer": 24,
+        "correlation": 0.2222,
+        "coefficient": 1.1521,
+        "feature_index": 5888,
+        "description": "No description available",
+        "frequency": 88.1500015258789
+      },
+      {
+        "layer": 25,
+        "correlation": 0.2535,
+        "coefficient": 1.2354,
+        "feature_index": 22713,
+        "description": "No description available",
+        "frequency": 90.375
+      },
+      {
+        "layer": 26,
+        "correlation": 0.2695,
+        "coefficient": 1.9529,
+        "feature_index": 22133,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 27,
+        "correlation": 0.1799,
+        "coefficient": 0.5392,
+        "feature_index": 12321,
+        "description": "No description available",
+        "frequency": 23.325000762939453
+      },
+      {
+        "layer": 28,
+        "correlation": 0.2675,
+        "coefficient": 1.8974,
+        "feature_index": 23202,
+        "description": "No description available",
+        "frequency": 98.57500457763672
+      },
+      {
+        "layer": 29,
+        "correlation": 0.253,
+        "coefficient": 3.1747,
+        "feature_index": 3168,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 30,
+        "correlation": 0.1667,
+        "coefficient": 3.2191,
+        "feature_index": 22450,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 31,
+        "correlation": 0.1877,
+        "coefficient": 1.4404,
+        "feature_index": 18173,
+        "description": "No description available",
+        "frequency": 52.85000228881836
+      }
+    ],
+    "harmbench": [
+      {
+        "layer": 1,
+        "correlation": 0.5236,
+        "coefficient": 0.4913,
+        "feature_index": 15747,
+        "description": "No description available",
+        "frequency": 9.259259223937988
+      },
+      {
+        "layer": 2,
+        "correlation": 0.5895,
+        "coefficient": 1.0318,
+        "feature_index": 25715,
+        "description": "No description available",
+        "frequency": 60.18518829345703
+      },
+      {
+        "layer": 3,
+        "correlation": 0.5796,
+        "coefficient": 1.1156,
+        "feature_index": 23621,
+        "description": "No description available",
+        "frequency": 85.18518829345703
+      },
+      {
+        "layer": 4,
+        "correlation": 0.5861,
+        "coefficient": 3.4677,
+        "feature_index": 26750,
+        "description": "No description available",
+        "frequency": 50.92593002319336
+      },
+      {
+        "layer": 5,
+        "correlation": 0.7339,
+        "coefficient": 1.5872,
+        "feature_index": 300,
+        "description": "No description available",
+        "frequency": 51.85185241699219
+      },
+      {
+        "layer": 6,
+        "correlation": 0.5899,
+        "coefficient": 1.4578,
+        "feature_index": 21616,
+        "description": "No description available",
+        "frequency": 39.814815521240234
+      },
+      {
+        "layer": 7,
+        "correlation": 0.6391,
+        "coefficient": 1.1279,
+        "feature_index": 17622,
+        "description": "No description available",
+        "frequency": 45.37036895751953
+      },
+      {
+        "layer": 8,
+        "correlation": 0.6481,
+        "coefficient": 1.3219,
+        "feature_index": 6508,
+        "description": "No description available",
+        "frequency": 59.25925827026367
+      },
+      {
+        "layer": 9,
+        "correlation": 0.6191,
+        "coefficient": 1.4252,
+        "feature_index": 27026,
+        "description": "No description available",
+        "frequency": 67.59259033203125
+      },
+      {
+        "layer": 10,
+        "correlation": 0.6334,
+        "coefficient": 1.3239,
+        "feature_index": 9364,
+        "description": "No description available",
+        "frequency": 25.925926208496094
+      },
+      {
+        "layer": 11,
+        "correlation": 0.6078,
+        "coefficient": 1.81,
+        "feature_index": 16561,
+        "description": "No description available",
+        "frequency": 34.25925827026367
+      },
+      {
+        "layer": 12,
+        "correlation": 0.694,
+        "coefficient": 1.2711,
+        "feature_index": 5839,
+        "description": "No description available",
+        "frequency": 20.370370864868164
+      },
+      {
+        "layer": 13,
+        "correlation": 0.5694,
+        "coefficient": 1.6374,
+        "feature_index": 15443,
+        "description": "No description available",
+        "frequency": 40.74074172973633
+      },
+      {
+        "layer": 14,
+        "correlation": 0.5819,
+        "coefficient": 0.7498,
+        "feature_index": 22046,
+        "description": "No description available",
+        "frequency": 17.592592239379883
+      },
+      {
+        "layer": 15,
+        "correlation": 0.609,
+        "coefficient": 0.6958,
+        "feature_index": 5498,
+        "description": "No description available",
+        "frequency": 13.88888931274414
+      },
+      {
+        "layer": 16,
+        "correlation": 0.6138,
+        "coefficient": 0.9376,
+        "feature_index": 8375,
+        "description": "No description available",
+        "frequency": 25.0
+      },
+      {
+        "layer": 17,
+        "correlation": 0.6603,
+        "coefficient": 0.582,
+        "feature_index": 15876,
+        "description": "No description available",
+        "frequency": 16.666667938232422
+      },
+      {
+        "layer": 18,
+        "correlation": 0.6414,
+        "coefficient": 0.9644,
+        "feature_index": 6210,
+        "description": "No description available",
+        "frequency": 21.296297073364258
+      },
+      {
+        "layer": 19,
+        "correlation": 0.5638,
+        "coefficient": 1.1482,
+        "feature_index": 5854,
+        "description": "No description available",
+        "frequency": 24.074073791503906
+      },
+      {
+        "layer": 20,
+        "correlation": 0.6329,
+        "coefficient": 3.4901,
+        "feature_index": 11388,
+        "description": "No description available",
+        "frequency": 41.666664123535156
+      },
+      {
+        "layer": 21,
+        "correlation": 0.5592,
+        "coefficient": 0.7121,
+        "feature_index": 9674,
+        "description": "No description available",
+        "frequency": 6.481481552124023
+      },
+      {
+        "layer": 22,
+        "correlation": 0.5601,
+        "coefficient": 2.2353,
+        "feature_index": 4650,
+        "description": "No description available",
+        "frequency": 21.296297073364258
+      },
+      {
+        "layer": 23,
+        "correlation": 0.6358,
+        "coefficient": 2.1645,
+        "feature_index": 28291,
+        "description": "No description available",
+        "frequency": 26.851850509643555
+      },
+      {
+        "layer": 24,
+        "correlation": 0.6791,
+        "coefficient": 2.3566,
+        "feature_index": 21055,
+        "description": "No description available",
+        "frequency": 11.111111640930176
+      },
+      {
+        "layer": 25,
+        "correlation": 0.6023,
+        "coefficient": 2.4152,
+        "feature_index": 16450,
+        "description": "No description available",
+        "frequency": 14.814814567565918
+      },
+      {
+        "layer": 26,
+        "correlation": 0.593,
+        "coefficient": 1.5409,
+        "feature_index": 6648,
+        "description": "No description available",
+        "frequency": 11.111111640930176
+      },
+      {
+        "layer": 27,
+        "correlation": 0.6551,
+        "coefficient": 1.6526,
+        "feature_index": 10654,
+        "description": "No description available",
+        "frequency": 16.666667938232422
+      },
+      {
+        "layer": 28,
+        "correlation": 0.5776,
+        "coefficient": 0.9154,
+        "feature_index": 522,
+        "description": "No description available",
+        "frequency": 9.259259223937988
+      },
+      {
+        "layer": 29,
+        "correlation": 0.6391,
+        "coefficient": 2.977,
+        "feature_index": 13883,
+        "description": "No description available",
+        "frequency": 30.55555534362793
+      },
+      {
+        "layer": 30,
+        "correlation": 0.5863,
+        "coefficient": 1.4802,
+        "feature_index": 4588,
+        "description": "No description available",
+        "frequency": 14.814814567565918
+      },
+      {
+        "layer": 31,
+        "correlation": 0.6392,
+        "coefficient": 1.2178,
+        "feature_index": 31181,
+        "description": "No description available",
+        "frequency": 7.407407283782959
+      }
+    ],
+    "xstest": [
+      {
+        "layer": 1,
+        "correlation": 0.3667,
+        "coefficient": 0.2565,
+        "feature_index": 6754,
+        "description": "No description available",
+        "frequency": 76.0330581665039
+      },
+      {
+        "layer": 2,
+        "correlation": 0.3313,
+        "coefficient": 0.2761,
+        "feature_index": 5332,
+        "description": "No description available",
+        "frequency": 28.099172592163086
+      },
+      {
+        "layer": 3,
+        "correlation": 0.394,
+        "coefficient": 1.2651,
+        "feature_index": 16461,
+        "description": "No description available",
+        "frequency": 100.0
+      },
+      {
+        "layer": 4,
+        "correlation": 0.3341,
+        "coefficient": 0.3098,
+        "feature_index": 2446,
+        "description": "No description available",
+        "frequency": 63.6363639831543
+      },
+      {
+        "layer": 5,
+        "correlation": 0.3543,
+        "coefficient": 0.8622,
+        "feature_index": 25000,
+        "description": "No description available",
+        "frequency": 61.98347091674805
+      },
+      {
+        "layer": 6,
+        "correlation": 0.3552,
+        "coefficient": 0.2204,
+        "feature_index": 10424,
+        "description": "No description available",
+        "frequency": 36.3636360168457
+      },
+      {
+        "layer": 7,
+        "correlation": 0.3639,
+        "coefficient": 0.7838,
+        "feature_index": 20235,
+        "description": "No description available",
+        "frequency": 80.16529083251953
+      },
+      {
+        "layer": 8,
+        "correlation": 0.4114,
+        "coefficient": 0.4197,
+        "feature_index": 22807,
+        "description": "No description available",
+        "frequency": 48.76033020019531
+      },
+      {
+        "layer": 9,
+        "correlation": 0.4554,
+        "coefficient": 0.6363,
+        "feature_index": 16423,
+        "description": "No description available",
+        "frequency": 69.4214859008789
+      },
+      {
+        "layer": 10,
+        "correlation": 0.3654,
+        "coefficient": 0.8804,
+        "feature_index": 11238,
+        "description": "No description available",
+        "frequency": 68.59503936767578
+      },
+      {
+        "layer": 11,
+        "correlation": 0.3826,
+        "coefficient": 0.6182,
+        "feature_index": 29172,
+        "description": "No description available",
+        "frequency": 61.15702438354492
+      },
+      {
+        "layer": 12,
+        "correlation": 0.3843,
+        "coefficient": 0.7353,
+        "feature_index": 19663,
+        "description": "No description available",
+        "frequency": 63.6363639831543
+      },
+      {
+        "layer": 13,
+        "correlation": 0.4033,
+        "coefficient": 0.608,
+        "feature_index": 19506,
+        "description": "No description available",
+        "frequency": 65.28926086425781
+      },
+      {
+        "layer": 14,
+        "correlation": 0.3687,
+        "coefficient": 4.6589,
+        "feature_index": 13505,
+        "description": "No description available",
+        "frequency": 99.17355346679688
+      },
+      {
+        "layer": 15,
+        "correlation": 0.3997,
+        "coefficient": 0.6819,
+        "feature_index": 23853,
+        "description": "No description available",
+        "frequency": 48.76033020019531
+      },
+      {
+        "layer": 16,
+        "correlation": 0.3735,
+        "coefficient": 1.2197,
+        "feature_index": 1652,
+        "description": "No description available",
+        "frequency": 67.76860046386719
+      },
+      {
+        "layer": 17,
+        "correlation": 0.357,
+        "coefficient": 2.046,
+        "feature_index": 21476,
+        "description": "No description available",
+        "frequency": 61.15702438354492
+      },
+      {
+        "layer": 18,
+        "correlation": 0.3527,
+        "coefficient": 0.9409,
+        "feature_index": 25543,
+        "description": "No description available",
+        "frequency": 51.23966979980469
+      },
+      {
+        "layer": 19,
+        "correlation": 0.3665,
+        "coefficient": 1.6911,
+        "feature_index": 2102,
+        "description": "No description available",
+        "frequency": 42.14876174926758
+      },
+      {
+        "layer": 20,
+        "correlation": 0.3846,
+        "coefficient": 2.1827,
+        "feature_index": 21486,
+        "description": "No description available",
+        "frequency": 52.89255905151367
+      },
+      {
+        "layer": 21,
+        "correlation": 0.3825,
+        "coefficient": 2.0076,
+        "feature_index": 8477,
+        "description": "No description available",
+        "frequency": 44.62809753417969
+      },
+      {
+        "layer": 22,
+        "correlation": 0.3656,
+        "coefficient": 2.8371,
+        "feature_index": 16870,
+        "description": "No description available",
+        "frequency": 78.51239776611328
+      },
+      {
+        "layer": 23,
+        "correlation": 0.4004,
+        "coefficient": 1.8336,
+        "feature_index": 15524,
+        "description": "No description available",
+        "frequency": 45.45454788208008
+      },
+      {
+        "layer": 24,
+        "correlation": 0.3915,
+        "coefficient": 1.7469,
+        "feature_index": 15231,
+        "description": "No description available",
+        "frequency": 44.62809753417969
+      },
+      {
+        "layer": 25,
+        "correlation": 0.3755,
+        "coefficient": 0.7626,
+        "feature_index": 16855,
+        "description": "No description available",
+        "frequency": 30.57851219177246
+      },
+      {
+        "layer": 26,
+        "correlation": 0.3379,
+        "coefficient": 0.9476,
+        "feature_index": 1578,
+        "description": "No description available",
+        "frequency": 37.19008255004883
+      },
+      {
+        "layer": 27,
+        "correlation": 0.3675,
+        "coefficient": 1.3002,
+        "feature_index": 11758,
+        "description": "No description available",
+        "frequency": 35.53718948364258
+      },
+      {
+        "layer": 28,
+        "correlation": 0.3596,
+        "coefficient": 2.2906,
+        "feature_index": 425,
+        "description": "No description available",
+        "frequency": 49.58677673339844
+      },
+      {
+        "layer": 29,
+        "correlation": 0.3118,
+        "coefficient": 0.8884,
+        "feature_index": 17372,
+        "description": "No description available",
+        "frequency": 36.3636360168457
+      },
+      {
+        "layer": 30,
+        "correlation": 0.3518,
+        "coefficient": 4.6433,
+        "feature_index": 11223,
+        "description": "No description available",
+        "frequency": 97.52066040039062
+      },
+      {
+        "layer": 31,
+        "correlation": 0.2759,
+        "coefficient": 1.6136,
+        "feature_index": 2111,
+        "description": "No description available",
+        "frequency": 39.6694221496582
+      }
+    ]
+  }
+}
