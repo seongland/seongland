@@ -14,7 +14,9 @@
     "preview": "astro preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest --coverage --run",
+    "prepare": "husky"
   },
   "color": {
     "light": "#fefefe",
