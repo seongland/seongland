@@ -1,63 +1,37 @@
 # Seongland
 
-![Seongland screenshot](https://user-images.githubusercontent.com/27716524/153127047-f2b9f817-650b-4b26-8b1f-9d093b7ca7e1.png)
-
-Portfolio site for **Seonglae Cho** built with Next.js and React Three.
-
-## Philosophy
-
-- Atomic Design Pattern
-- Minimalism
+Portfolio site for **Seonglae Cho** — Research & Engineering.
 
 ## Tech Stack
 
-- **Next.js** with **TypeScript**
-- **Windi CSS** for styling
-- **React Spring** and **React Three** for animations and 3D scenes
-- **zustand** for global state
-- **use-sound** for audio effects
+- **Astro 5** with static site generation
+- **React Three Fiber** for 3D star background
+- **Tailwind CSS v4** for styling
 - **Vitest** for testing
+- **Vercel** for deployment with analytics and speed insights
 
 ## Architecture
 
-- `src/components` contains atomic-design layers: atoms, molecules, organisms and templates.
-- `src/pages` defines the Next.js pages; `index.tsx` assembles the landing page from reusable parts.
-- `scripts/` holds build helpers like `cards.ts` and `build.ts`.
-- `src/store` implements lightweight state with zustand.
-- Configuration values live in `site-config.js`.
-
-## Data Flow
-
-1. Build scripts prepare static assets and card metadata.
-2. `getStaticProps` loads the cards during the build and passes them to `index.tsx`.
-3. Components like `ScrollPage` react to user scroll to drive the 3D scene.
-4. Background music state is shared through `usePlayStore`.
-
-## Security
-
-- `next.config.js` sets headers such as `X-Frame-Options`, `X-XSS-Protection`, `Access-Control-Allow-Origin` and `X-Content-Type-Options`.
-- `_app.tsx` injects a strict Content Security Policy for runtime pages.
+- `src/components/sections/` — Page sections (Welcome, Hero, News, SelectedWorks)
+- `src/components/three/` — React Three Fiber 3D components
+- `src/components/ui/` — Reusable UI components (Nav, Footer, Cards)
+- `src/pages/` — Astro pages (index, publications, projects, apps, articles)
+- `src/content/articles/` — MDX article content collection
+- `src/data/` — Card metadata and profile data
+- `scripts/` — Build helpers (article submodule builder)
 
 ## Development
 
 ```bash
 pnpm install      # install dependencies
-pnpm dev          # run the development server
-pnpm test         # execute unit tests
-pnpm build        # build for production
-pnpm start        # start the production server
-pnpm lint         # run ESLint
-pnpm format       # format using Prettier
+pnpm dev          # dev server on port 8080
+pnpm build        # build (articles + astro)
+pnpm preview      # preview built output
+pnpm test         # run tests
+pnpm lint         # eslint
+pnpm format       # prettier
 ```
 
-## How to Contribute
+## Article Submodules
 
-See the [Code Structure](https://app.codesee.io/maps/public/69f7dc50-7824-11ec-9a06-254b579c0ec0) visualization for module relationships.
-Pull requests are welcome—please run `pnpm lint`, `pnpm format` and `pnpm test` before submitting.
-
-![Code Structure](https://user-images.githubusercontent.com/27716524/153126956-5aab4f44-066a-4666-a147-fedb4d15a238.png)
-
-## Reference
-
-- [Next Windi](https://github.com/seonglae/next-windicss)
-- [Next Notion](https://github.com/transitive-bullshit/nextjs-notion-starter-kit)
+Interactive articles (e.g. CorrSteer) are built from git submodules at build time via `scripts/build-articles.sh`. Each `*-article` directory is built with the correct `base` path and copied to `public/article/<name>/`.
