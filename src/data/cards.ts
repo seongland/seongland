@@ -32,8 +32,8 @@ export const publications: CardData[] = [
   },
   {
     title: 'FaithfulSAE: Evaluating Faithfulness of Sparse Autoencoders in Large Language Models',
-    subtitle: 'Preprint',
-    url: 'https://huggingface.co/papers/2506.17673',
+    subtitle: 'ACL 2025 SRW',
+    url: 'https://aclanthology.org/2025.acl-srw.20/',
     image: '/image/faithful.png',
     tags: ['Sparse Autoencoders', 'Mechanistic Interpretability'],
   },
