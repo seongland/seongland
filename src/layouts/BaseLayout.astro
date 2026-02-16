@@ -122,7 +122,7 @@ const isProduction = import.meta.env.PROD;
     ]}
   >
     <StarBackground client:only="react" />
-    <div id="content" class="relative z-10" style={isSpace ? 'filter:blur(6px);transition:filter 0.3s ease' : ''}>
+    <div id="content" class="relative z-10">
       <Nav variant={variant} />
       <main class="flex-1">
         <slot />
@@ -132,12 +132,6 @@ const isProduction = import.meta.env.PROD;
 
     <script is:inline>
       (function () {
-        // Blur removal for main page
-        var content = document.getElementById('content');
-        if (content && content.style.filter) {
-          setTimeout(function () { content.style.filter = ''; }, 100);
-        }
-
         // Scroll-triggered reveal observer
         var observer = new IntersectionObserver(
           function (entries) {
