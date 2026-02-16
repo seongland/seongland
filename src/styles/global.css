@@ -1,53 +1,319 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* ─── Google Fonts ─── */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-* {
-  box-sizing: border-box;
+/* ─── Local Fonts ─── */
+@font-face {
+  font-family: 'Nasalization';
+  src:
+    url('/fonts/nasalization.woff2') format('woff2'),
+    url('/fonts/Nasalization.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-a:where(:not(.underline)) {
-  color: inherit;
-  text-decoration: none;
+@font-face {
+  font-family: 'Universe';
+  src: url('/fonts/universe.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body,
-html {
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-  font-family:
-    'Raleway',
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+/* ─── Design Tokens ─── */
+@theme {
+  /* Paper palette */
+  --color-paper: #f5f0e8;
+  --color-paper-warm: #efe9de;
+
+  /* Ink palette */
+  --color-ink: #1a1714;
+  --color-ink-2: #4a4540;
+  --color-ink-3: #8a8478;
+  --color-ink-4: #b5afa5;
+
+  /* Rules / borders */
+  --color-rule: #d5cfc5;
+  --color-rule-light: #e5e0d6;
+
+  /* Accent */
+  --color-rust: #2a9d8f;
+  --color-rust-dim: rgba(42, 157, 143, 0.08);
+
+  /* Accent: Slate */
+  --color-slate: #3d5a80;
+  --color-slate-dim: rgba(61, 90, 128, 0.08);
+
+  /* Accent: Ochre */
+  --color-ochre: #c49a3a;
+  --color-ochre-dim: rgba(196, 154, 58, 0.08);
+
+  /* Neutral */
+  --color-charcoal: #2d2926;
+
+  /* Space variant foreground (dark mode: white, light mode: ink) */
+  --color-space-fg: #ffffff;
+
+  /* Dark variants */
+  --color-paper-dark: #111418;
+  --color-paper-warm-dark: #1a1d22;
+  --color-ink-dark: #e8e4dc;
+  --color-ink-2-dark: #b5afa5;
+  --color-ink-3-dark: #8a8478;
+  --color-rule-dark: #333639;
+  --color-rule-light-dark: #2a2d31;
+
+  /* Font families */
+  --font-heading: 'Nasalization', system-ui, sans-serif;
+  --font-body-space: 'Universe', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Reveal animation */
+  --animate-reveal: reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-html,
-body,
-#__next {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+/* ─── Reveal keyframes ─── */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.my-atropos {
-  width: 320px;
-  height: 160px;
+/* ─── Base styles ─── */
+@layer base {
+  html {
+    font-size: 14px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: transparent;
+    transition: color 0.3s ease;
+  }
+
+  /* Dark mode */
+  [data-theme='dark'] body {
+    color: var(--color-ink-dark);
+    background-color: transparent;
+  }
+
+  [data-theme='light'] {
+    --color-space-fg: #1a1714;
+  }
+
+  [data-theme='dark'] {
+    --color-paper: var(--color-paper-dark);
+    --color-paper-warm: var(--color-paper-warm-dark);
+    --color-ink: var(--color-ink-dark);
+    --color-ink-2: var(--color-ink-2-dark);
+    --color-ink-3: var(--color-ink-3-dark);
+    --color-ink-4: #555a60;
+    --color-rule: var(--color-rule-dark);
+    --color-rule-light: var(--color-rule-light-dark);
+    --color-ochre-dim: rgba(196, 154, 58, 0.12);
+    --color-rust-dim: rgba(42, 157, 143, 0.12);
+    --color-slate-dim: rgba(61, 90, 128, 0.12);
+  }
+
+  /* Dark mode: explicit class overrides for card components */
+  [data-theme='dark'] .bg-paper-warm {
+    background-color: var(--color-paper-warm-dark);
+  }
+  [data-theme='dark'] .text-ink {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .text-ink-2 {
+    color: var(--color-ink-2-dark);
+  }
+  [data-theme='dark'] .text-ink-3 {
+    color: var(--color-ink-3-dark);
+  }
+  [data-theme='dark'] .border-ink {
+    border-color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .border-rule {
+    border-color: var(--color-rule-dark);
+  }
+  [data-theme='dark'] .hover\:bg-ochre-dim:hover {
+    background-color: rgba(196, 154, 58, 0.12);
+  }
+
+  /* Dark mode: nav and footer backgrounds */
+  [data-theme='dark'] .bg-paper\/90 {
+    background-color: rgba(17, 20, 24, 0.9);
+  }
+  [data-theme='dark'] .bg-paper {
+    background-color: var(--color-paper-dark);
+  }
+
+  /* Light mode: nav bg */
+  .bg-paper\/90 {
+    background-color: rgba(245, 240, 232, 0.9);
+  }
+
+  /* Dark mode: active tab styling */
+  [data-theme='dark'] .bg-ink {
+    background-color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .text-paper {
+    color: var(--color-paper-dark);
+  }
+  [data-theme='dark'] .bg-ink.text-paper {
+    background-color: var(--color-ink-dark);
+    color: var(--color-paper-dark);
+  }
+
+  /* Dark mode: prose content in articles */
+  [data-theme='dark'] .prose {
+    color: var(--color-ink-2-dark);
+  }
+  [data-theme='dark'] .prose a {
+    color: #5ec4b6;
+  }
+  [data-theme='dark'] .prose a:hover {
+    color: #7ed4c8;
+  }
+  [data-theme='dark'] .prose strong {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .prose h1,
+  [data-theme='dark'] .prose h2,
+  [data-theme='dark'] .prose h3,
+  [data-theme='dark'] .prose h4 {
+    color: var(--color-ink-dark);
+  }
+  [data-theme='dark'] .prose code {
+    color: var(--color-ink-dark);
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  [data-theme='dark'] .prose blockquote {
+    border-color: var(--color-rule-dark);
+    color: var(--color-ink-3-dark);
+  }
+  [data-theme='dark'] .prose hr {
+    border-color: var(--color-rule-dark);
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-rust);
+    color: var(--color-paper);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-4);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-3);
+  }
 }
 
-body {
-  transition: filter 0.7s ease;
+/* ─── Mobile nav menu animation ─── */
+.mobile-menu-panel {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease;
 }
 
-body.blur-load {
-  -webkit-filter: blur(16px);
-  filter: blur(16px);
+.mobile-menu-panel.menu-open {
+  display: flex;
+  max-height: 20rem;
+  opacity: 1;
+}
+
+.mobile-menu-panel.menu-closed {
+  display: none;
+  max-height: 0;
+  opacity: 0;
+}
+
+/* ─── Utility classes ─── */
+@layer utilities {
+  .serif {
+    font-family: var(--font-serif);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .space-heading {
+    font-family: var(--font-heading);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .space-body {
+    font-family: var(--font-body-space);
+  }
+
+  /* Reveal animation */
+  .anim {
+    animation: var(--animate-reveal);
+  }
+
+  /* Scroll-triggered reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Reveal animation delay classes */
+  .d1 {
+    animation-delay: 0.1s;
+  }
+  .d2 {
+    animation-delay: 0.2s;
+  }
+  .d3 {
+    animation-delay: 0.3s;
+  }
+  .d4 {
+    animation-delay: 0.4s;
+  }
+  .d5 {
+    animation-delay: 0.5s;
+  }
+  .d6 {
+    animation-delay: 0.6s;
+  }
 }

@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string
+  description?: string
+  publishedAt: string
+  tags?: string[]
+  readingTime?: string
+  slug: string
+  externalUrl?: string
+}
+
+const { title, description, publishedAt, tags = [], readingTime, slug, externalUrl } = Astro.props
+const href = externalUrl || `/article/${slug}`
+const isExternal = !!externalUrl
+---
+
+<a
+  href={href}
+  target={isExternal ? '_blank' : undefined}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+  class="group block rounded-xl bg-paper-warm/60 p-6 hover:bg-paper-warm hover:shadow-lg transition-all"
+>
+  <div class="flex items-baseline justify-between gap-4">
+    <h3 class="serif text-lg text-ink group-hover:text-rust transition-colors">
+      {title}
+    </h3>
+    <span class="mono text-[11px] text-ink-3 shrink-0">{publishedAt}</span>
+  </div>
+  {description && <p class="text-sm text-ink-2 mt-2 line-clamp-2">{description}</p>}
+  <div class="flex items-center gap-3 mt-3">
+    {readingTime && <span class="mono text-[10px] text-ink-3">{readingTime} read</span>}
+    {tags.map(tag => (
+      <span class="text-[10px] text-ink-3 font-medium">{tag}</span>
+    ))}
+  </div>
+</a>

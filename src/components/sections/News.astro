@@ -1,0 +1,19 @@
+---
+import { profile } from "@/data/profile";
+---
+
+<section class="py-12 scroll-reveal">
+  <h2 class="space-heading mb-6 text-lg tracking-widest text-space-fg/90">
+    News
+  </h2>
+  <ul class="space-y-3">
+    {
+      profile.news.map((item) => (
+        <li class="flex gap-4 text-sm">
+          <span class="mono w-20 shrink-0 text-space-fg/40">{item.date}</span>
+          <span class="text-space-fg/70">{item.text}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

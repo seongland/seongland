@@ -1,0 +1,156 @@
+---
+import Nav from "@/components/ui/Nav.astro";
+import Footer from "@/components/ui/Footer.astro";
+import StarBackground from "@/components/three/StarBackground";
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  variant?: "space" | "paper";
+}
+
+const {
+  title,
+  description = "Seonglae Cho - Research & Engineering Portfolio",
+  image = "/ogtag.png",
+  variant = "paper",
+} = Astro.props;
+
+const isSpace = variant === "space";
+const siteUrl = "https://seongland.com";
+const fullTitle = `${title} | Seongland`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(image, siteUrl).href;
+const isProduction = import.meta.env.PROD;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+
+    {/* Canonical & SEO */}
+    <link rel="canonical" href={canonicalUrl} />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:site_name" content="Seongland" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@SeonglaeC" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:domain" content="seongland.com" />
+
+    {/* Favicons */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="/favicon-48x48.png" rel="icon" sizes="48x48" type="image/png" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+
+    {/* PWA */}
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.json" />
+    <link href="/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+    <link href="/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
+    <link href="/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+    <link href="/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+    <link href="/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+    <link href="/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+    <link href="/apple-touch-icon-167x167.png" rel="apple-touch-icon" sizes="167x167" />
+
+    {/* CSP */}
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com https://va.vercel-scripts.com; connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com; style-src 'self' 'unsafe-hashes' 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob:; media-src * data: blob:; worker-src 'self' blob:; font-src 'self' https://fonts.gstatic.com;"
+    />
+
+    {/* Resource hints */}
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preload" href="/favicon-32x32.png" as="image" />
+
+    {/* GA4 - production only */}
+    {isProduction && (
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-CRRP8E78TC"></script>
+    )}
+    {isProduction && (
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CRRP8E78TC');
+      </script>
+    )}
+
+    {/* Theme flash prevention */}
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+        document.documentElement.setAttribute(
+          "data-theme",
+          stored || preferred
+        );
+      })();
+    </script>
+  </head>
+  <body
+    class:list={[
+      "min-h-screen flex flex-col",
+      isSpace
+        ? "space-body text-space-fg"
+        : "font-sans bg-paper text-ink",
+    ]}
+  >
+    <StarBackground client:only="react" />
+    <div id="content" class="relative z-10" style={isSpace ? 'filter:blur(6px);transition:filter 0.3s ease' : ''}>
+      <Nav variant={variant} />
+      <main class="flex-1">
+        <slot />
+      </main>
+      <Footer variant={variant} />
+    </div>
+
+    <script is:inline>
+      (function () {
+        // Blur removal for main page
+        var content = document.getElementById('content');
+        if (content && content.style.filter) {
+          setTimeout(function () { content.style.filter = ''; }, 100);
+        }
+
+        // Scroll-triggered reveal observer
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        document.querySelectorAll('.scroll-reveal').forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
