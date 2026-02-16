@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "astro dev --port 8080",
     "build": "pnpm build:corrsteer && astro build",
-    "build:corrsteer": "cp -r corrsteer-article/app/dist/ public/article/corrsteer/",
+    "build:corrsteer": "git submodule update --init corrsteer-article && cp -r corrsteer-article/app/dist/ public/article/corrsteer/",
     "preview": "astro preview",
     "lint": "eslint .",
     "format": "prettier --write .",
