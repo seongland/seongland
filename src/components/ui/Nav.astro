@@ -26,10 +26,10 @@ const isSpace = variant === "space";
 
 <nav
   class:list={[
-    "sticky top-0 z-50 w-full backdrop-blur-md transition-colors",
+    "sticky top-0 z-50 w-full transition-colors",
     isSpace
       ? "bg-transparent"
-      : "bg-paper/90 border-b border-rule",
+      : "bg-paper/90 backdrop-blur-md border-b border-rule",
   ]}
 >
   <div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-3">
