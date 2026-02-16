@@ -16,8 +16,15 @@ for dir in *-article; do
   # LFS
   (cd "$dir" && git lfs install --skip-smudge && git lfs pull)
 
-  # Build
-  (cd "$dir/app" && npm install && npm run build)
+  # Build with base path so asset URLs resolve under /article/<name>/
+  base="/article/$name"
+  cat > "$dir/app/astro.config.build.mjs" <<BUILDCFG
+import config from './astro.config.mjs';
+config.base = '$base';
+export default config;
+BUILDCFG
+  (cd "$dir/app" && npm install && npx astro build --config astro.config.build.mjs)
+  rm -f "$dir/app/astro.config.build.mjs"
 
   # Verify build output
   if [ ! -f "$dir/app/dist/index.html" ]; then
@@ -35,10 +42,6 @@ for dir in *-article; do
     echo "ERROR: copy failed - public/article/$name/index.html missing"
     exit 1
   fi
-
-  # Fix root-relative asset paths to be relative for subdirectory serving
-  # e.g. "/_astro/foo.css" → "./_astro/foo.css"
-  perl -pi -e 's|="/([^/])|="./$1|g' "public/article/$name/index.html"
 
   echo "=== Done: $name ==="
 done
