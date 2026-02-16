@@ -10,8 +10,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 8080",
-    "build": "pnpm build:corrsteer && astro build",
-    "build:corrsteer": "git submodule update --init corrsteer-article && cd corrsteer-article && git lfs install --skip-smudge && git lfs pull && cd app && npm install && npm run build && cd ../.. && mkdir -p public/article/corrsteer && cp -r corrsteer-article/app/dist/ public/article/corrsteer/",
+    "build": "bash scripts/build-articles.sh && astro build",
     "preview": "astro preview",
     "lint": "eslint .",
     "format": "prettier --write .",
