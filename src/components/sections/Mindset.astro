@@ -1,0 +1,75 @@
+---
+const categories = [
+  {
+    label: 'Philosophy',
+    items: [
+      { name: 'Optimistic Nihilism', id: 'd90a29108c014e2988a56eacd8384c88' },
+    ],
+  },
+  {
+    label: 'Consciousness',
+    items: [{ name: 'Bundle Theory', id: '8abf86d926924961bf1efb172a32436a' }],
+  },
+  {
+    label: 'Prediction',
+    items: [
+      { name: 'Statistical Thinking', id: 'd65f51261f834979a9d6faeb350cff66' },
+      { name: 'Techno Optimism', id: 'f9af5eecb50c4f219e19729d81a84a22' },
+    ],
+  },
+  {
+    label: 'Future',
+    items: [
+      { name: 'Technological Singularity', id: '4a2e2f5be15a4947ab1515a9ea8e1903' },
+      { name: 'Culture War', id: '12bc3c96247d803c9d0bcb395ccb0f52' },
+    ],
+  },
+  {
+    label: 'Planning',
+    items: [
+      { name: 'GTD', id: '9722a5fa5e6f44bd9d1a6871af4475e2' },
+      { name: 'RICE Framework', id: 'd24c94950d6b427896846f9818ba9bb6' },
+    ],
+  },
+  {
+    label: 'Creation',
+    items: [{ name: 'First Principles Thinking', id: '37f9263c7833496b98e0198e9d265be1' }],
+  },
+  {
+    label: 'Attitude',
+    items: [{ name: 'Critical Thinking', id: '794f32deb9e4471c89ba33bf2ef2450d' }],
+  },
+  {
+    label: 'Computing',
+    items: [{ name: 'Extended Church-Turing Thesis', id: '1ece05de5a8d443683dbeab4307877ac' }],
+  },
+]
+---
+
+<section class="py-12 scroll-reveal">
+  <h2 class="space-heading mb-6 text-lg tracking-widest text-space-fg/90">
+    Mindset
+  </h2>
+  <ul class="space-y-2">
+    {categories.map((cat) => (
+      <li class="flex gap-3 text-sm">
+        <span class="mono w-28 shrink-0 text-space-fg/40">{cat.label}</span>
+        <span class="text-space-fg/70">
+          {cat.items.map((item, i) => (
+            <>
+              <a
+                href={`https://texonom.com/${item.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline underline-offset-2 decoration-space-fg/30 hover:decoration-space-fg/60 hover:text-space-fg transition-colors"
+              >
+                {item.name}
+              </a>
+              {i < cat.items.length - 1 && ', '}
+            </>
+          ))}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>

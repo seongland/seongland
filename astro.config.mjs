@@ -12,11 +12,7 @@ export default defineConfig({
     webAnalytics: { enabled: true },
     speedInsights: { enabled: true },
   }),
-  integrations: [
-    react(),
-    mdx(),
-    sitemap({ customPages: ['https://seongland.com/article/corrsteer/'] }),
-  ],
+  integrations: [react(), mdx(), sitemap({ customPages: ['https://seongland.com/article/corrsteer/'] })],
   vite: {
     plugins: [tailwindcss()],
     esbuild: {
