@@ -43,7 +43,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=24.13.0"
+    "node": ">=24.13.1"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -53,17 +53,17 @@
     "@react-spring/three": "^10.0.3",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
-    "@tailwindcss/vite": "^4.1.18",
+    "@tailwindcss/vite": "^4.2.0",
     "astro": "^5.17.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwindcss": "^4.1.18",
-    "three": "^0.182.0"
+    "tailwindcss": "^4.2.0",
+    "three": "^0.183.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^24.10.11",
-    "@types/react": "19.2.13",
+    "@types/node": "^24.10.13",
+    "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.182.0",
     "eslint": "10.0.0",
@@ -72,7 +72,7 @@
     "husky": "9.1.7",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.55.0",
+    "typescript-eslint": "^8.56.0",
     "vitest": "^4.0.18"
   },
   "pnpm": {
