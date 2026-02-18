@@ -6,12 +6,7 @@ import { getCollection } from 'astro:content'
 const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
-// CorrSteer hardcoded entry (draft in collection to avoid slug conflict)
-const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
-const allTags = [...new Set([
-  ...corrsteerTags,
-  ...articles.flatMap(a => a.data.tags || [])
-])].sort()
+const allTags = [...new Set(articles.flatMap(a => a.data.tags || []))].sort()
 ---
 
 <BaseLayout title="Articles">
@@ -40,16 +35,6 @@ const allTags = [...new Set([
     </div>
 
     <div id="item-list" class="flex flex-col gap-3 anim d2">
-      <div data-tags={JSON.stringify(corrsteerTags)} class="filter-item">
-        <ArticleCard
-          title="CorrSteer: Steering LLMs via Correlation-based Corrections"
-          description="An interactive exploration of correlation-guided feature selection for controllable language model behavior using Sparse Autoencoders."
-          publishedAt="2025-08"
-          tags={corrsteerTags}
-          readingTime="25 min"
-          slug="corrsteer"
-        />
-      </div>
       {articles.map(article => (
         <div data-tags={JSON.stringify(article.data.tags || [])} class="filter-item">
           <ArticleCard
