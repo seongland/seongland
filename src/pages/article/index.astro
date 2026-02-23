@@ -7,9 +7,11 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
 // Submodule articles (draft in collection to avoid slug conflict)
+const confidenceManifoldTags = ['LLM Safety', 'Confidence', 'Geometry']
 const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment', 'RL']
 const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
 const allTags = [...new Set([
+  ...confidenceManifoldTags,
   ...crlTags,
   ...corrsteerTags,
   ...articles.flatMap(a => a.data.tags || [])
@@ -42,6 +44,16 @@ const allTags = [...new Set([
     </div>
 
     <div id="item-list" class="flex flex-col gap-3 anim d2">
+      <div data-tags={JSON.stringify(confidenceManifoldTags)} class="filter-item">
+        <ArticleCard
+          title="Confidence Manifold: Geometric Analysis of LLM Confidence"
+          description="Interactive exploration of how language models encode confidence — intrinsic dimension analysis, layer evolution, activation steering, and cross-architecture transfer."
+          publishedAt="2026-02"
+          tags={confidenceManifoldTags}
+          readingTime="20 min"
+          slug="confidence-manifold"
+        />
+      </div>
       <div data-tags={JSON.stringify(crlTags)} class="filter-item">
         <ArticleCard
           title="CRL: Interpretable Token-Level Steering of LLMs via SAE Features"
