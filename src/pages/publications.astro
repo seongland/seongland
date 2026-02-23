@@ -47,6 +47,7 @@ const allTags = [...new Set(publications.flatMap((c) => c.tags || []))].sort();
               url={card.url}
               image={card.image}
               tags={card.tags}
+              links={card.links}
             />
           </div>
         ))

@@ -5,16 +5,15 @@ interface Props {
   url: string;
   image: string;
   tags?: string[];
+  links?: { label: string; url: string }[];
 }
 
-const { title, subtitle, url, image, tags = [] } = Astro.props;
+const { title, subtitle, url, image, tags = [], links = [] } = Astro.props;
 ---
 
-<a
-  href={url}
-  target="_blank"
-  rel="noopener noreferrer"
-  class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg"
+<div
+  class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg cursor-pointer"
+  data-href={url}
 >
   <img
     src={image}
@@ -24,7 +23,12 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
   />
   <div class="flex min-w-0 flex-col gap-1">
     <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
-    <span class="serif italic text-ink-3 text-[11px]">{subtitle}</span>
+    <span class="serif italic text-ink-3 text-[11px]">
+      {subtitle}
+      {links.map((link) => (
+        <> · <a href={link.url} class="text-rust hover:underline">{link.label}</a></>
+      ))}
+    </span>
     {
       tags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-1">
@@ -37,4 +41,13 @@ const { title, subtitle, url, image, tags = [] } = Astro.props;
       )
     }
   </div>
-</a>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-href]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).tagName === 'A') return;
+      window.open(el.dataset.href!, '_blank', 'noopener,noreferrer');
+    });
+  });
+</script>
