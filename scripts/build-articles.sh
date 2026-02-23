@@ -32,6 +32,9 @@ BUILDCFG
     exit 1
   fi
 
+  # Inject <base> tag so relative fetch paths resolve correctly
+  sed -i'' -e "s|<head>|<head><base href=\"$base/\">|" "$dir/app/dist/index.html"
+
   # Copy
   rm -rf "public/article/$name"
   mkdir -p "public/article/$name"
