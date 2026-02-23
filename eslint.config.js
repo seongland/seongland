@@ -7,7 +7,16 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   eslintPluginPrettier,
   {
-    ignores: ['dist/', '.astro/', 'node_modules/', 'corrsteer-article/', 'crl-article/', 'confidence-manifold-article/', '**/*.js', '!eslint.config.js'],
+    ignores: [
+      'dist/',
+      '.astro/',
+      'node_modules/',
+      'corrsteer-article/',
+      'crl-article/',
+      'confidence-manifold-article/',
+      '**/*.js',
+      '!eslint.config.js',
+    ],
   },
   {
     rules: {
