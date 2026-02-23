@@ -89,6 +89,13 @@ export const projects: CardData[] = [
 
 export const apps: CardData[] = [
   {
+    title: 'Conference Arena',
+    subtitle: 'Rating leaderboard by making papers fight each other',
+    url: 'https://confarena.com',
+    image: '/icon/conference-arena.svg',
+    tags: ['AI', 'Research'],
+  },
+  {
     title: 'Texonom',
     subtitle: 'Zettelkasten-style knowledge system with Recommender System and Search',
     url: 'https://texonom.com',
