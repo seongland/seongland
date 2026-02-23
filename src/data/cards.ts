@@ -15,6 +15,7 @@ export const publications: CardData[] = [
     url: 'https://arxiv.org/abs/2602.10437',
     image: '/image/crl.png',
     tags: ['Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'LLM Safety'],
+    links: [{ label: 'Article', url: '/article/crl' }],
   },
   {
     title: 'Confidence Manifold: Revealing LLM Internal States via Topological Inconsistency Analysis',
@@ -22,6 +23,7 @@ export const publications: CardData[] = [
     url: 'https://arxiv.org/abs/2602.08159',
     image: '/image/manifold.png',
     tags: ['LLM Safety', 'Mechanistic Interpretability'],
+    links: [{ label: 'Article', url: '/article/confidence-manifold' }],
   },
   {
     title: 'CorrSteer: Steering LLMs via Correlation-based Corrections',
@@ -29,6 +31,7 @@ export const publications: CardData[] = [
     url: 'https://arxiv.org/abs/2508.12535',
     image: '/image/corrsteer.png',
     tags: ['Steering Vectors', 'Mechanistic Interpretability', 'LLM Safety'],
+    links: [{ label: 'Article', url: '/article/corrsteer' }],
   },
   {
     title: 'FaithfulSAE: Evaluating Faithfulness of Sparse Autoencoders in Large Language Models',
