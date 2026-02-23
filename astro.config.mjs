@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sitemap({ customPages: ['https://seongland.com/article/crl/', 'https://seongland.com/article/corrsteer/'] }),
+    sitemap({ customPages: ['https://seongland.com/article/crl/', 'https://seongland.com/article/corrsteer/', 'https://seongland.com/article/confidence-manifold/'] }),
   ],
   vite: {
     plugins: [tailwindcss()],
