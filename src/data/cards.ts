@@ -59,7 +59,7 @@ export const publications: CardData[] = [
 export const projects: CardData[] = [
   {
     title: 'Hermes',
-    subtitle: 'Steering Vector from SAE',
+    subtitle: 'Bias Amplification and Mitigation Using Correlated SAE Features · Holistic AI Hackathon 2024 Grand Prize',
     url: 'https://github.com/seonglae/emgsd-hermes',
     image: '/image/emgsd.png',
     tags: ['Steering', 'SAE'],
@@ -104,7 +104,7 @@ export const apps: CardData[] = [
   },
   {
     title: 'MBTI GPT',
-    subtitle: 'MBTI personality chatbot',
+    subtitle: 'In-memory RAG Conversation-based MBTI Analyser · Yonsei GenAI Competition Grand Prize',
     url: 'https://mbti.texonom.com',
     image: '/image/mbtigpt.png',
     tags: ['LLM', 'Chat'],
