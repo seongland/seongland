@@ -6,9 +6,11 @@ import { getCollection } from 'astro:content'
 const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
-// CorrSteer served by submodule (draft in collection to avoid slug conflict)
+// Submodule articles (draft in collection to avoid slug conflict)
+const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment', 'RL']
 const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
 const allTags = [...new Set([
+  ...crlTags,
   ...corrsteerTags,
   ...articles.flatMap(a => a.data.tags || [])
 ])].sort()
@@ -40,6 +42,16 @@ const allTags = [...new Set([
     </div>
 
     <div id="item-list" class="flex flex-col gap-3 anim d2">
+      <div data-tags={JSON.stringify(crlTags)} class="filter-item">
+        <ArticleCard
+          title="CRL: Interpretable Token-Level Steering of LLMs via SAE Features"
+          description="Interactive exploration of Control Reinforcement Learning — learned per-token feature steering with branch analysis, critic trajectories, and layer-wise interpretability."
+          publishedAt="2026-02"
+          tags={crlTags}
+          readingTime="30 min"
+          slug="crl"
+        />
+      </div>
       <div data-tags={JSON.stringify(corrsteerTags)} class="filter-item">
         <ArticleCard
           title="CorrSteer: Steering LLMs via Correlation-based Corrections"
