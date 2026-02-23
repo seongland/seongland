@@ -1,4 +1,6 @@
 corrsteer-article/
+crl-article/
+confidence-manifold-article/
 dist/
 .astro/
 node_modules/

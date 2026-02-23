@@ -1,3 +1,9 @@
 [submodule "corrsteer-article"]
 	path = corrsteer-article
 	url = https://huggingface.co/spaces/seonglae/CorrSteer
+[submodule "crl-article"]
+	path = crl-article
+	url = https://huggingface.co/spaces/seonglae/ControlRL
+[submodule "confidence-manifold-article"]
+	path = confidence-manifold-article
+	url = https://huggingface.co/spaces/seonglae/ConfidenceManifold
