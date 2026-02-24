@@ -43,7 +43,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=24.13.1"
+    "node": ">=24.14.0"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -53,26 +53,26 @@
     "@react-spring/three": "^10.0.3",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
-    "@tailwindcss/vite": "^4.2.0",
-    "astro": "^5.17.2",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwindcss": "^4.2.0",
-    "three": "^0.183.0"
+    "tailwindcss": "^4.2.1",
+    "three": "^0.183.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.10.13",
     "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@types/three": "^0.182.0",
-    "eslint": "10.0.0",
+    "@types/three": "^0.183.1",
+    "eslint": "10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "husky": "9.1.7",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.0",
+    "typescript-eslint": "^8.56.1",
     "vitest": "^4.0.18"
   },
   "pnpm": {
