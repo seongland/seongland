@@ -34,6 +34,7 @@ export default function Stars({
   const thetaRef = useRef(90)
   const camera = useThree(state => state.camera)
   const [coords] = useState(() => generateStarCoords(count, spread))
+  const mouseTarget = useRef({ x: 0, y: 0 })
 
   const geo = useMemo(() => new SphereGeometry(radius.star, segments, segments), [radius.star, segments])
   const mat = useMemo(() => new MeshBasicMaterial({ color }), [])
@@ -45,8 +46,8 @@ export default function Stars({
 
   useEffect(() => {
     const onMove = (x: number, y: number) => {
-      camera.position.x = -x * 25
-      camera.position.y = -y * 3
+      mouseTarget.current.x = -x * 25
+      mouseTarget.current.y = -y * 3
     }
     const handleMouse = (e: MouseEvent) => {
       onMove((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1)
@@ -61,7 +62,7 @@ export default function Stars({
       window.removeEventListener('mousemove', handleMouse)
       window.removeEventListener('touchmove', handleTouch)
     }
-  }, [camera])
+  }, [])
 
   useFrame(() => {
     thetaRef.current += diff
@@ -71,9 +72,10 @@ export default function Stars({
       group.current.rotation.set(r, r, r)
       group.current.scale.set(s, s, s)
     }
-    // Parallax: camera follows at 0.5x scroll speed
-    const targetY = scrollOffset * 0.008
-    camera.position.y += (targetY - camera.position.y) * 0.1
+    // Smooth lerp toward mouse + scroll target
+    const scrollTargetY = scrollOffset * 0.008
+    camera.position.x += (mouseTarget.current.x - camera.position.x) * 0.04
+    camera.position.y += (mouseTarget.current.y + scrollTargetY - camera.position.y) * 0.04
   })
 
   return (

@@ -4,25 +4,33 @@ interface Props {
   subtitle: string;
   url: string;
   image: string;
+  year?: number;
+  category?: string;
   tags?: string[];
   links?: { label: string; url: string }[];
+  imageClass?: string;
 }
 
-const { title, subtitle, url, image, tags = [], links = [] } = Astro.props;
+const { title, subtitle, url, image, year, category, tags = [], links = [], imageClass } = Astro.props;
 ---
 
 <div
   class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg cursor-pointer"
   data-href={url}
 >
-  <img
-    src={image}
-    alt={title}
-    class="h-14 w-14 flex-shrink-0 rounded-full object-cover"
-    loading="lazy"
-  />
+  <div class="h-14 w-14 flex-shrink-0 rounded-full overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      class:list={["h-full w-full", imageClass || "object-cover"]}
+      loading="lazy"
+    />
+  </div>
   <div class="flex min-w-0 flex-col gap-1">
-    <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
+    <div class="flex items-baseline gap-2">
+      <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
+      {category && <span class="text-[11px] text-ink-3/60">{category}</span>}
+    </div>
     <span class="serif italic text-ink-3 text-[11px]">
       {subtitle}
       {links.map((link) => (
