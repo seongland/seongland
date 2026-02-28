@@ -4,13 +4,15 @@ import FlatCard from "@/components/ui/FlatCard.astro";
 import { projects } from "@/data/cards";
 
 const allTags = [...new Set(projects.flatMap((c) => c.tags || []))].sort();
+const years = [...new Set(projects.map((c) => c.year || 0))].sort((a, b) => b - a);
+const grouped = Object.groupBy(projects, (c) => String(c.year || 0));
 ---
 
 <BaseLayout title="Projects">
   <div class="mx-auto max-w-4xl px-6 py-12">
     <header class="mb-6">
       <h1 class="serif italic text-ink" style="font-size: 28px;">Projects</h1>
-      <p class="mt-2 text-ink-3">Research tools and open source projects.</p>
+      <p class="mt-2 text-ink-3">Apps, demos, and libraries.</p>
     </header>
 
     <div id="tag-bar" class="mb-6 flex flex-wrap items-center gap-2">
@@ -31,18 +33,31 @@ const allTags = [...new Set(projects.flatMap((c) => c.tags || []))].sort();
       </button>
     </div>
 
-    <div id="item-list" class="flex flex-col gap-3">
-      {projects.map((card) => (
-        <div data-tags={JSON.stringify(card.tags || [])} class="filter-item">
-          <FlatCard
-            title={card.title}
-            subtitle={card.subtitle}
-            url={card.url}
-            image={card.image}
-            tags={card.tags}
-          />
-        </div>
-      ))}
+    <div id="item-list" class="flex flex-col gap-8">
+      {years.map((year) => {
+        const items = grouped[String(year)] || [];
+        if (items.length === 0) return null;
+        return (
+          <section class="year-section" data-year={year}>
+            <h2 class="serif italic text-ink-3 text-sm mb-3">{year}</h2>
+            <div class="flex flex-col gap-3">
+              {items.map((card) => (
+                <div data-tags={JSON.stringify(card.tags || [])} class="filter-item">
+                  <FlatCard
+                    title={card.title}
+                    subtitle={card.subtitle}
+                    url={card.url}
+                    image={card.image}
+                    category={card.category}
+                    tags={card.tags}
+                    imageClass={card.imageClass}
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </div>
 
     <p id="no-results" class="hidden py-8 text-center text-ink-3 text-sm">
@@ -55,6 +70,7 @@ const allTags = [...new Set(projects.flatMap((c) => c.tags || []))].sort();
   const tagBtns = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
   const clearBtn = document.getElementById("clear-tags") as HTMLButtonElement;
   const items = document.querySelectorAll<HTMLElement>(".filter-item");
+  const sections = document.querySelectorAll<HTMLElement>(".year-section");
   const noResults = document.getElementById("no-results")!;
   const activeTags = new Set<string>();
 
@@ -72,6 +88,10 @@ const allTags = [...new Set(projects.flatMap((c) => c.tags || []))].sort();
       const show = activeTags.size === 0 || [...activeTags].some((t) => itemTags.includes(t));
       item.style.display = show ? "" : "none";
       if (show) visibleCount++;
+    });
+    sections.forEach((section) => {
+      const visibleItems = section.querySelectorAll<HTMLElement>('.filter-item:not([style*="display: none"])');
+      section.style.display = visibleItems.length > 0 ? "" : "none";
     });
     noResults.classList.toggle("hidden", visibleCount > 0);
     clearBtn.classList.toggle("hidden", activeTags.size === 0);
