@@ -13,7 +13,7 @@ export interface CardData {
 
 export const publications: CardData[] = [
   {
-    title: 'CRL: Concept Bottleneck Sparse Autoencoders for Scalable Concept Representation Learning',
+    title: 'ControlRL: Concept Bottleneck Sparse Autoencoders for Scalable Concept Representation Learning',
     subtitle: 'ICLR 2026 Trustworthy AI',
     url: 'https://arxiv.org/abs/2602.10437',
     image: '/image/crl.png',
