@@ -15,6 +15,7 @@ export default tseslint.config(
       'crl-article/',
       'confidence-manifold-article/',
       '**/*.js',
+      '**/*.cjs',
       '!eslint.config.js',
     ],
   },
