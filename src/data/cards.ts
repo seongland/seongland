@@ -14,7 +14,7 @@ export interface CardData {
 export const publications: CardData[] = [
   {
     title: 'CRL: Concept Bottleneck Sparse Autoencoders for Scalable Concept Representation Learning',
-    subtitle: 'Preprint',
+    subtitle: 'ICLR 2026 Trustworthy AI',
     url: 'https://arxiv.org/abs/2602.10437',
     image: '/image/crl.png',
     tags: ['Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'LLM Safety'],
@@ -22,7 +22,7 @@ export const publications: CardData[] = [
   },
   {
     title: 'Confidence Manifold: Revealing LLM Internal States via Topological Inconsistency Analysis',
-    subtitle: 'Preprint',
+    subtitle: 'ICLR 2026 Reliable Autonomy',
     url: 'https://arxiv.org/abs/2602.08159',
     image: '/image/manifold.png',
     tags: ['LLM Safety', 'Mechanistic Interpretability'],
@@ -68,7 +68,7 @@ export const projects: CardData[] = [
     image: '/icon/conference-arena.svg',
     year: 2026,
     category: 'App',
-    tags: ['Arena', 'Leaderboard'],
+    tags: ['AI'],
   },
   {
     title: 'MBTI GPT',
@@ -77,7 +77,7 @@ export const projects: CardData[] = [
     image: '/image/mbtigpt.png',
     year: 2025,
     category: 'App',
-    tags: ['LLM', 'Chat'],
+    tags: ['LLM'],
   },
   {
     title: 'LLaMa2GPTQ',
@@ -86,7 +86,7 @@ export const projects: CardData[] = [
     image: '/image/angryface.png',
     year: 2023,
     category: 'App',
-    tags: ['LLM', 'Chat'],
+    tags: ['LLM'],
   },
   {
     title: 'Pointland',
@@ -95,7 +95,7 @@ export const projects: CardData[] = [
     image: '/image/pointland.jpg',
     year: 2022,
     category: 'App',
-    tags: ['3D', 'Three.js', 'Pointcloud'],
+    tags: ['3D'],
   },
   {
     title: 'Screencast',
@@ -104,7 +104,7 @@ export const projects: CardData[] = [
     image: '/image/screencast.gif',
     year: 2021,
     category: 'App',
-    tags: ['Utility', 'Presentation'],
+    tags: ['Utility'],
   },
   {
     title: 'Texonom',
@@ -113,7 +113,7 @@ export const projects: CardData[] = [
     image: '/icon/texonom.png',
     year: 2020,
     category: 'App',
-    tags: ['Knowledge', 'Web'],
+    tags: ['Web'],
   },
   {
     title: 'Intuiter',
@@ -122,7 +122,7 @@ export const projects: CardData[] = [
     image: '/icon/intuiter.png',
     year: 2019,
     category: 'App',
-    tags: ['Productivity', 'Windows'],
+    tags: ['Utility'],
     imageClass: 'object-contain p-1.5',
   },
   {
@@ -132,7 +132,7 @@ export const projects: CardData[] = [
     image: '/image/legacy.png',
     year: 2019,
     category: 'App',
-    tags: ['3D', 'Portfolio'],
+    tags: ['3D'],
     imageClass: 'object-cover scale-125',
   },
   // Demos
@@ -143,7 +143,7 @@ export const projects: CardData[] = [
     image: '/image/emgsd.png',
     year: 2024,
     category: 'Demo',
-    tags: ['Steering', 'SAE'],
+    tags: ['AI'],
   },
   {
     title: 'ReSRer',
@@ -152,7 +152,7 @@ export const projects: CardData[] = [
     image: '/image/resrer.png',
     year: 2024,
     category: 'Demo',
-    tags: ['Summarization', 'LLM'],
+    tags: ['LLM'],
   },
   // Libraries
   {
@@ -162,7 +162,7 @@ export const projects: CardData[] = [
     image: '/image/smooth.png',
     year: 2023,
     category: 'Library',
-    tags: ['Algorithm', 'Library'],
+    tags: ['Algorithm'],
   },
   {
     title: 'To Spotify',
@@ -171,6 +171,6 @@ export const projects: CardData[] = [
     image: '/icon/2spotify.png',
     year: 2021,
     category: 'Library',
-    tags: ['Music', 'Migration'],
+    tags: ['Web'],
   },
 ]

@@ -3,7 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import FlatCard from "@/components/ui/FlatCard.astro";
 import { projects } from "@/data/cards";
 
-const allTags = [...new Set(projects.flatMap((c) => c.tags || []))].sort();
 const years = [...new Set(projects.map((c) => c.year || 0))].sort((a, b) => b - a);
 const grouped = Object.groupBy(projects, (c) => String(c.year || 0));
 ---
@@ -15,114 +14,29 @@ const grouped = Object.groupBy(projects, (c) => String(c.year || 0));
       <p class="mt-2 text-ink-3">Apps, demos, and libraries.</p>
     </header>
 
-    <div id="tag-bar" class="mb-6 flex flex-wrap items-center gap-2">
-      <span class="text-xs text-ink-3 mr-1">Filter:</span>
-      {allTags.map(tag => (
-        <button
-          data-tag={tag}
-          class="tag-btn rounded-full border border-rule px-3 py-1 text-[11px] text-ink-3 transition-colors hover:border-ink-3 hover:text-ink cursor-pointer"
-        >
-          {tag}
-        </button>
-      ))}
-      <button
-        id="clear-tags"
-        class="hidden rounded-full bg-rust/10 px-3 py-1 text-[11px] text-rust transition-colors hover:bg-rust/20 cursor-pointer"
-      >
-        Clear
-      </button>
-    </div>
-
-    <div id="item-list" class="flex flex-col gap-8">
+    <div class="flex flex-col gap-8">
       {years.map((year) => {
         const items = grouped[String(year)] || [];
         if (items.length === 0) return null;
         return (
-          <section class="year-section" data-year={year}>
+          <section>
             <h2 class="serif italic text-ink-3 text-sm mb-3">{year}</h2>
             <div class="flex flex-col gap-3">
               {items.map((card) => (
-                <div data-tags={JSON.stringify(card.tags || [])} class="filter-item">
-                  <FlatCard
-                    title={card.title}
-                    subtitle={card.subtitle}
-                    url={card.url}
-                    image={card.image}
-                    category={card.category}
-                    tags={card.tags}
-                    imageClass={card.imageClass}
-                  />
-                </div>
+                <FlatCard
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  url={card.url}
+                  image={card.image}
+                  category={card.category}
+                  tags={card.tags}
+                  imageClass={card.imageClass}
+                />
               ))}
             </div>
           </section>
         );
       })}
     </div>
-
-    <p id="no-results" class="hidden py-8 text-center text-ink-3 text-sm">
-      No projects match the selected tags.
-    </p>
   </div>
 </BaseLayout>
-
-<script>
-  const tagBtns = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
-  const clearBtn = document.getElementById("clear-tags") as HTMLButtonElement;
-  const items = document.querySelectorAll<HTMLElement>(".filter-item");
-  const sections = document.querySelectorAll<HTMLElement>(".year-section");
-  const noResults = document.getElementById("no-results")!;
-  const activeTags = new Set<string>();
-
-  function updateUrl() {
-    const url = new URL(window.location.href);
-    if (activeTags.size === 0) url.searchParams.delete("tag");
-    else url.searchParams.set("tag", [...activeTags].join(","));
-    history.replaceState(null, "", url.toString());
-  }
-
-  function applyFilter() {
-    let visibleCount = 0;
-    items.forEach((item) => {
-      const itemTags: string[] = JSON.parse(item.getAttribute("data-tags") || "[]");
-      const show = activeTags.size === 0 || [...activeTags].some((t) => itemTags.includes(t));
-      item.style.display = show ? "" : "none";
-      if (show) visibleCount++;
-    });
-    sections.forEach((section) => {
-      const visibleItems = section.querySelectorAll<HTMLElement>('.filter-item:not([style*="display: none"])');
-      section.style.display = visibleItems.length > 0 ? "" : "none";
-    });
-    noResults.classList.toggle("hidden", visibleCount > 0);
-    clearBtn.classList.toggle("hidden", activeTags.size === 0);
-    tagBtns.forEach((btn) => {
-      const tag = btn.getAttribute("data-tag")!;
-      if (activeTags.has(tag)) {
-        btn.classList.add("bg-ink/10", "text-ink", "border-ink/30");
-        btn.classList.remove("text-ink-3", "border-rule");
-      } else {
-        btn.classList.remove("bg-ink/10", "text-ink", "border-ink/30");
-        btn.classList.add("text-ink-3", "border-rule");
-      }
-    });
-    updateUrl();
-  }
-
-  tagBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const tag = btn.getAttribute("data-tag")!;
-      if (activeTags.has(tag)) activeTags.delete(tag);
-      else activeTags.add(tag);
-      applyFilter();
-    });
-  });
-
-  clearBtn.addEventListener("click", () => { activeTags.clear(); applyFilter(); });
-
-  const params = new URLSearchParams(window.location.search);
-  const initialTag = params.get("tag");
-  if (initialTag) {
-    initialTag.split(",").forEach((t) => activeTags.add(t.trim()));
-    applyFilter();
-  }
-</script>
