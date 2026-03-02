@@ -23,7 +23,11 @@ export const profile = {
       text: '{Confidence Manifold} accepted at ICLR 2026 Reliable Autonomy',
       links: { 'Confidence Manifold': '/publications' },
     },
-    { date: '2025.08', text: '{CorrSteer} paper published on arXiv', links: { CorrSteer: '/publications' } },
+    {
+      date: '2026.03',
+      text: '{CorrSteer} accepted at ICLR 2026 RE-Align',
+      links: { CorrSteer: '/publications' },
+    },
     { date: '2025', text: '{FaithfulSAE} accepted at ACL 2025 SRW', links: { FaithfulSAE: '/publications' } },
     { date: '2025', text: '{LibVulnWatch} accepted at ICML 2025 TAIG', links: { LibVulnWatch: '/publications' } },
   ],
