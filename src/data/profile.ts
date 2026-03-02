@@ -13,10 +13,14 @@ export const profile = {
   },
   interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Summarization'],
   news: [
-    { date: '2026.02', text: '{CRL} paper published on arXiv', links: { CRL: '/publications' } },
     {
-      date: '2026.02',
-      text: '{Confidence Manifold} paper published on arXiv',
+      date: '2026.03',
+      text: '{CRL} accepted at ICLR 2026 Trustworthy AI',
+      links: { CRL: '/publications' },
+    },
+    {
+      date: '2026.03',
+      text: '{Confidence Manifold} accepted at ICLR 2026 Reliable Autonomy',
       links: { 'Confidence Manifold': '/publications' },
     },
     { date: '2025.08', text: '{CorrSteer} paper published on arXiv', links: { CorrSteer: '/publications' } },
