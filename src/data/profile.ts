@@ -15,8 +15,8 @@ export const profile = {
   news: [
     {
       date: '2026.03',
-      text: '{CRL} accepted at ICLR 2026 Trustworthy AI',
-      links: { CRL: '/publications' },
+      text: '{ControlRL} accepted at ICLR 2026 Trustworthy AI',
+      links: { ControlRL: '/publications' },
     },
     {
       date: '2026.03',
