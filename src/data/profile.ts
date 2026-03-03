@@ -11,7 +11,14 @@ export const profile = {
     cv: '/cv.pdf',
     resume: '/resume.pdf',
   },
-  interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Agent', 'Summarization'],
+  interests: [
+    'LLM Safety',
+    'Mechanistic Interpretability',
+    'Sparse Autoencoders',
+    'Steering Vectors',
+    'Agent',
+    'Summarization',
+  ],
   news: [
     {
       date: '2026.03',
