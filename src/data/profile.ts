@@ -11,7 +11,7 @@ export const profile = {
     cv: '/cv.pdf',
     resume: '/resume.pdf',
   },
-  interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Summarization'],
+  interests: ['LLM Safety', 'Mechanistic Interpretability', 'Sparse Autoencoders', 'Steering Vectors', 'Agent', 'Summarization'],
   news: [
     {
       date: '2026.03',
@@ -28,6 +28,7 @@ export const profile = {
       text: '{CorrSteer} accepted at ICLR 2026 RE-Align',
       links: { CorrSteer: '/publications' },
     },
+    { date: '2025.10', text: '{AgentGraph} accepted at AAAI 2026 Demo', links: { AgentGraph: '/publications' } },
     { date: '2025', text: '{FaithfulSAE} accepted at ACL 2025 SRW', links: { FaithfulSAE: '/publications' } },
     { date: '2025', text: '{LibVulnWatch} accepted at ICML 2025 TAIG', links: { LibVulnWatch: '/publications' } },
   ],
