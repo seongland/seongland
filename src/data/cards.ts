@@ -37,6 +37,13 @@ export const publications: CardData[] = [
     links: [{ label: 'Article', url: '/article/corrsteer' }],
   },
   {
+    title: 'AgentGraph: Trace-to-Graph Platform for Interactive Analysis and Robustness Testing in Agentic AI Systems',
+    subtitle: 'AAAI 2026 Demo',
+    url: 'https://www.holisticai.com/papers/agentgraph-trace-to-graph-platform-for-interactive-analysis-and-robustness-testing-in-agentic-ai-systems',
+    image: '/image/agentgraph.png',
+    tags: ['Agent', 'LLM Safety'],
+  },
+  {
     title: 'FaithfulSAE: Evaluating Faithfulness of Sparse Autoencoders in Large Language Models',
     subtitle: 'ACL 2025 SRW',
     url: 'https://aclanthology.org/2025.acl-srw.20/',
