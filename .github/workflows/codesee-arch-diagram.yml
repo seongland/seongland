@@ -39,20 +39,20 @@ jobs:
         uses: actions/setup-node@v6
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).javascript }}
         with:
-          node-version: '24.13.1'
+          node-version: '24.14.1'
 
       - name: Configure Python 3.x
         uses: actions/setup-python@v6
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).python }}
         with:
-          python-version: '3.14.3'
+          python-version: '3.14.4'
           architecture: 'x64'
 
       - name: Configure Ruby '3.x'
         uses: ruby/setup-ruby@v1
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).ruby }}
         with:
-          ruby-version: '4.0.1'
+          ruby-version: '4.0.2'
 
       # CodeSee Maps Rust support uses a static binary so there's no setup step required.
 
