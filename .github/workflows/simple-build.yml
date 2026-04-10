@@ -44,7 +44,7 @@ jobs:
       - name: Check Lighthouse CI
         run: |
           npm i -g @lhci/cli
-          lhci autorun
+          lhci autorun --config=lighthouserc.cjs
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
