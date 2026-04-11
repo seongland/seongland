@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24.13.1
+          node-version: 24.14.1
 
       - name: Cache node modules
         uses: actions/cache@v5
@@ -44,7 +44,7 @@ jobs:
       - name: Check Lighthouse CI
         run: |
           npm i -g @lhci/cli
-          lhci autorun --config=lighthouserc.cjs
+          lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
