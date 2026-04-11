@@ -46,15 +46,15 @@
     "node": ">=24.14.1"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/react": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.2",
     "@react-spring/three": "^10.0.3",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^5.18.1",
+    "astro": "^6.1.5",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwindcss": "^4.2.2",
