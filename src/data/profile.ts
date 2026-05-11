@@ -21,6 +21,11 @@ export const profile = {
   ],
   news: [
     {
+      date: '2026.05',
+      text: '{CorrSteer} accepted at ICML 2026 Main',
+      links: { CorrSteer: '/publications' },
+    },
+    {
       date: '2026.03',
       text: '{ControlRL} accepted at ICLR 2026 Trustworthy AI',
       links: { ControlRL: '/publications' },
@@ -29,11 +34,6 @@ export const profile = {
       date: '2026.03',
       text: '{Confidence Manifold} accepted at ICLR 2026 Reliable Autonomy',
       links: { 'Confidence Manifold': '/publications' },
-    },
-    {
-      date: '2026.03',
-      text: '{CorrSteer} accepted at ICLR 2026 RE-Align',
-      links: { CorrSteer: '/publications' },
     },
     { date: '2025.10', text: '{AgentGraph} accepted at AAAI 2026 Demo', links: { AgentGraph: '/publications' } },
     { date: '2025', text: '{FaithfulSAE} accepted at ACL 2025 SRW', links: { FaithfulSAE: '/publications' } },

@@ -30,7 +30,7 @@ export const publications: CardData[] = [
   },
   {
     title: 'CorrSteer: Steering LLMs via Correlation-based Corrections',
-    subtitle: 'ICLR 2026 RE-Align',
+    subtitle: 'ICML 2026 Main',
     url: 'https://arxiv.org/abs/2508.12535',
     image: '/image/corrsteer.png',
     tags: ['Steering Vectors', 'Mechanistic Interpretability', 'LLM Safety'],
