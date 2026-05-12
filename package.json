@@ -76,6 +76,10 @@
     "vitest": "^4.1.6"
   },
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ],
     "overrides": {
       "three-stdlib": "^2.36.1"
     }
