@@ -8,7 +8,6 @@
   "path": "seongland/seongland",
   "domain": "seongland.com",
   "type": "module",
-  "packageManager": "pnpm@11.1.0",
   "scripts": {
     "dev": "astro dev --port 8080",
     "build": "bash scripts/build-articles.sh && astro build",
