@@ -5,11 +5,12 @@ interface Props {
   publishedAt: string
   tags?: string[]
   readingTime?: string
+  venue?: string
   slug: string
   externalUrl?: string
 }
 
-const { title, description, publishedAt, tags = [], readingTime, slug, externalUrl } = Astro.props
+const { title, description, publishedAt, tags = [], readingTime, venue, slug, externalUrl } = Astro.props
 const href = externalUrl || `/article/${slug}`
 const isExternal = !!externalUrl
 ---
@@ -28,6 +29,7 @@ const isExternal = !!externalUrl
   </div>
   {description && <p class="text-sm text-ink-2 mt-2 line-clamp-2">{description}</p>}
   <div class="flex items-center gap-3 mt-3">
+    {venue && <span class="serif italic text-[11px] text-ink-2" set:html={venue.replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')} />}
     {readingTime && <span class="mono text-[10px] text-ink-3">{readingTime} read</span>}
     {tags.map(tag => (
       <span class="text-[10px] text-ink-3 font-medium">{tag}</span>

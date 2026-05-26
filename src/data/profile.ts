@@ -22,8 +22,13 @@ export const profile = {
   news: [
     {
       date: '2026.05',
-      text: '{CorrSteer} accepted at ICML 2026 Main',
+      text: '{CorrSteer} accepted at ICML 2026',
       links: { CorrSteer: '/publications' },
+    },
+    {
+      date: '2026.05',
+      text: '{ASG} accepted at ICML 2026 AIWILD',
+      links: { ASG: '/publications' },
     },
     {
       date: '2026.03',
