@@ -50,6 +50,10 @@
   --color-ochre: #c49a3a;
   --color-ochre-dim: rgba(196, 154, 58, 0.08);
 
+  /* Accent: Crimson */
+  --color-crimson: #c44536;
+  --color-crimson-dim: rgba(196, 69, 54, 0.08);
+
   /* Neutral */
   --color-charcoal: #2d2926;
 

@@ -31,12 +31,10 @@ const { title, subtitle, url, image, year, category, tags = [], links = [], imag
       <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>
       {category && <span class="text-[11px] text-ink-3/60">{category}</span>}
     </div>
-    <span class="serif italic text-ink-3 text-[11px]">
-      {subtitle}
-      {links.map((link) => (
-        <> · <a href={link.url} class="text-rust hover:underline">{link.label}</a></>
-      ))}
-    </span>
+    <span class="serif italic text-ink-3 text-[11px]" set:html={
+      subtitle.replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')
+      + links.map((link) => ` · <a href="${link.url}" class="text-rust hover:underline">${link.label}</a>`).join('')
+    } />
     {
       tags.length > 0 && (
         <div class="flex flex-wrap gap-1.5 mt-1">

@@ -50,6 +50,7 @@ const allTags = [...new Set([
           description="Interactive exploration of how language models encode confidence — intrinsic dimension analysis, layer evolution, activation steering, and cross-architecture transfer."
           publishedAt="2026-02"
           tags={confidenceManifoldTags}
+          venue="ICLR 2026 Reliable Autonomy"
           readingTime="20 min"
           slug="confidence-manifold"
         />
@@ -60,6 +61,7 @@ const allTags = [...new Set([
           description="Interactive exploration of Control Reinforcement Learning — learned per-token feature steering with branch analysis, critic trajectories, and layer-wise interpretability."
           publishedAt="2026-02"
           tags={crlTags}
+          venue="ICLR 2026 Trustworthy AI"
           readingTime="30 min"
           slug="crl"
         />
@@ -70,6 +72,7 @@ const allTags = [...new Set([
           description="An interactive exploration of correlation-guided feature selection for controllable language model behavior using Sparse Autoencoders."
           publishedAt="2025-08"
           tags={corrsteerTags}
+          venue="ICML 2026"
           readingTime="25 min"
           slug="corrsteer"
         />
@@ -81,6 +84,7 @@ const allTags = [...new Set([
             description={article.data.description}
             publishedAt={article.data.publishedAt}
             tags={article.data.tags}
+            venue={article.data.venue}
             readingTime={article.data.readingTime}
             slug={article.id}
             externalUrl={article.data.externalUrl}

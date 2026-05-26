@@ -30,11 +30,18 @@ export const publications: CardData[] = [
   },
   {
     title: 'CorrSteer: Steering LLMs via Correlation-based Corrections',
-    subtitle: 'ICML 2026 Main',
+    subtitle: 'ICML 2026',
     url: 'https://arxiv.org/abs/2508.12535',
     image: '/image/corrsteer.png',
     tags: ['Steering Vectors', 'Mechanistic Interpretability', 'LLM Safety'],
     links: [{ label: 'Article', url: '/article/corrsteer' }],
+  },
+  {
+    title: 'Automata from Agent Traces: Failure and Next-Step Prediction',
+    subtitle: 'ICML 2026 AIWILD',
+    url: 'https://openreview.net/forum?id=1cprFkvFT0',
+    image: '/image/agentgraph.png',
+    tags: ['Agent', 'LLM Safety'],
   },
   {
     title: 'AgentGraph: Trace-to-Graph Platform for Interactive Analysis and Robustness Testing in Agentic AI Systems',
