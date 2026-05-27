@@ -1,6 +1,0 @@
-packages: []
-overrides:
-  three-stdlib: ^2.36.1
-allowBuilds:
-  esbuild: true
-  sharp: true
