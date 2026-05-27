@@ -1,5 +1,4 @@
 {
-  "installCommand": "corepack enable && pnpm install",
   "headers": [
     {
       "source": "/(.*)",
