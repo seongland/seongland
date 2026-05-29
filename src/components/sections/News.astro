@@ -11,7 +11,7 @@ function renderText(text: string, links?: Record<string, string>): string {
     });
   }
   result = result.replace(/accepted at (.+)$/, 'accepted at <span class="serif italic">$1</span>');
-  result = result.replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>');
+  result = result.replace(/(ICML 2026)(?! )/g, '<span class="text-crimson font-bold">$1</span>');
   result = result.replace(/\bOral\b/g, '<span class="not-italic font-semibold">Oral</span>');
   return result;
 }
