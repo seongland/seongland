@@ -3,7 +3,7 @@ interface Props {
   title: string;
   subtitle: string;
   url: string;
-  image: string;
+  image?: string;
   year?: number;
   category?: string;
   tags?: string[];
@@ -18,14 +18,16 @@ const { title, subtitle, url, image, year, category, tags = [], links = [], imag
   class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg cursor-pointer"
   data-href={url}
 >
-  <div class="h-14 w-14 flex-shrink-0 rounded-full overflow-hidden">
-    <img
-      src={image}
-      alt={title}
-      class:list={["h-full w-full", imageClass || "object-cover"]}
-      loading="lazy"
-    />
-  </div>
+  {image && (
+    <div class="h-14 w-14 flex-shrink-0 rounded-full overflow-hidden">
+      <img
+        src={image}
+        alt={title}
+        class:list={["h-full w-full", imageClass || "object-cover"]}
+        loading="lazy"
+      />
+    </div>
+  )}
   <div class="flex min-w-0 flex-col gap-1">
     <div class="flex items-baseline gap-2">
       <h3 class="serif text-lg leading-tight text-ink group-hover:text-rust transition-colors">{title}</h3>

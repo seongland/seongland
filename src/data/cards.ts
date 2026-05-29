@@ -2,7 +2,7 @@ export interface CardData {
   title: string
   subtitle: string
   url: string
-  image: string
+  image?: string
   year?: number
   category?: 'App' | 'Demo' | 'Library'
   tags?: string[]
@@ -31,7 +31,6 @@ export const publications: CardData[] = [
     title: 'Tool Calling is Linearly Readable and Steerable in Language Models',
     subtitle: 'ICML 2026 FAGEN Oral',
     url: 'https://openreview.net/forum?id=FnXL1RKC06',
-    image: '/image/corrsteer.png',
     tags: ['Mechanistic Interpretability', 'Steering Vectors', 'Agent'],
   },
   {
