@@ -29,7 +29,11 @@ const isExternal = !!externalUrl
   </div>
   {description && <p class="text-sm text-ink-2 mt-2 line-clamp-2">{description}</p>}
   <div class="flex items-center gap-3 mt-3">
-    {venue && <span class="serif italic text-[11px] text-ink" set:html={venue.replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')} />}
+    {venue && <span class="serif italic text-[11px] text-ink" set:html={
+      venue
+        .replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')
+        .replace(/\bOral\b/g, '<span class="not-italic font-semibold">Oral</span>')
+    } />}
     {readingTime && <span class="mono text-[10px] text-ink-3">{readingTime} read</span>}
     {tags.map(tag => (
       <span class="text-[10px] text-ink-3 font-medium">{tag}</span>

@@ -31,6 +31,21 @@ export const profile = {
       links: { ASG: '/publications' },
     },
     {
+      date: '2026.05',
+      text: '{Tool Calling Probing} accepted at ICML 2026 FAGEN Oral',
+      links: { 'Tool Calling Probing': '/publications' },
+    },
+    {
+      date: '2026.05',
+      text: '{AgentRoom} accepted at ICML 2026 FAGEN',
+      links: { AgentRoom: '/publications' },
+    },
+    {
+      date: '2026.05',
+      text: '{PaaT} accepted at ICML 2026 FAGEN',
+      links: { PaaT: '/publications' },
+    },
+    {
       date: '2026.03',
       text: '{ControlRL} accepted at ICLR 2026 Trustworthy AI',
       links: { ControlRL: '/publications' },
@@ -40,8 +55,5 @@ export const profile = {
       text: '{Confidence Manifold} accepted at ICLR 2026 Reliable Autonomy',
       links: { 'Confidence Manifold': '/publications' },
     },
-    { date: '2025.10', text: '{AgentGraph} accepted at AAAI 2026 Demo', links: { AgentGraph: '/publications' } },
-    { date: '2025', text: '{FaithfulSAE} accepted at ACL 2025 SRW', links: { FaithfulSAE: '/publications' } },
-    { date: '2025', text: '{LibVulnWatch} accepted at ICML 2025 TAIG', links: { LibVulnWatch: '/publications' } },
   ],
 }
