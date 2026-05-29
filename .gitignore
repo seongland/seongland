@@ -10,3 +10,6 @@ coverage
 *-article/app/node_modules
 *-article/app/dist
 public/article/
+.env*.local
+
+.DS_Store
