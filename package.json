@@ -46,7 +46,7 @@
     "node": ">=24.16.0"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/mdx": "^6.0.2",
     "@astrojs/react": "^5.0.5",
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.7",
