@@ -24,8 +24,5 @@ module.exports = {
         'uses-responsive-images': 'warn',
       },
     },
-    upload: {
-      target: 'temporary-public-storage',
-    },
   },
 }
