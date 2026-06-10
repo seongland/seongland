@@ -78,7 +78,8 @@ export const publications: CardData[] = [
     tags: ['Sparse Autoencoders', 'Mechanistic Interpretability'],
   },
   {
-    title: 'LibVulnWatch: A Deep Assessment Agent System and Leaderboard for Uncovering Hidden Vulnerabilities in Open-Source AI Libraries',
+    title:
+      'LibVulnWatch: A Deep Assessment Agent System and Leaderboard for Uncovering Hidden Vulnerabilities in Open-Source AI Libraries',
     subtitle: 'ICML 2025 TAIG',
     url: 'https://arxiv.org/abs/2505.08842',
     image: '/image/libvuln.png',
