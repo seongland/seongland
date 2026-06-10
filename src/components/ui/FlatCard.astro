@@ -37,7 +37,7 @@ const { title, subtitle, url, image, year, category, tags = [], links = [], imag
       subtitle
         .replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')
         .replace(/\bOral\b/g, '<span class="not-italic font-semibold text-ink-2">Oral</span>')
-      + links.map((link) => ` · <a href="${link.url}" class="text-rust hover:underline">${link.label}</a>`).join('')
+      + links.map((link) => ` · <a href="${link.url}" class="text-rust underline underline-offset-2">${link.label}</a>`).join('')
     } />
     {
       tags.length > 0 && (
