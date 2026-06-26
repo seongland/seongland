@@ -39,6 +39,7 @@ export const publications: CardData[] = [
     url: 'https://openreview.net/forum?id=0aGLZqKJjt',
     image: '/image/agentroom.png',
     tags: ['Agent'],
+    links: [{ label: 'Article', url: '/article/agentroom' }],
   },
   {
     title: 'PaaT: Probe as a Tool for Proprioceptive Language Agents',

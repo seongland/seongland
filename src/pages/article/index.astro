@@ -7,10 +7,12 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
 // Submodule articles (draft in collection to avoid slug conflict)
+const agentRoomTags = ['Multi-Agent', 'Coding Agents', 'CRDT', 'MCP', 'Coordination']
 const confidenceManifoldTags = ['LLM Safety', 'Confidence', 'Geometry']
 const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment', 'RL']
 const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
 const allTags = [...new Set([
+  ...agentRoomTags,
   ...confidenceManifoldTags,
   ...crlTags,
   ...corrsteerTags,
@@ -44,6 +46,17 @@ const allTags = [...new Set([
     </div>
 
     <div id="item-list" class="flex flex-col gap-3 anim d2">
+      <div data-tags={JSON.stringify(agentRoomTags)} class="filter-item">
+        <ArticleCard
+          title="AgentRoom: Concurrent Multi-Agent Coding in a CRDT-Backed Shared Workspace"
+          description="When agents work the same task, they can't communicate in real time. An interactive look at coordination, not concurrency, as the active ingredient — a real-time coordination room over a CRDT-merged shared workspace."
+          publishedAt="2026-06"
+          tags={agentRoomTags}
+          venue="ICML 2026 FAGEN"
+          readingTime="15 min"
+          slug="agentroom"
+        />
+      </div>
       <div data-tags={JSON.stringify(confidenceManifoldTags)} class="filter-item">
         <ArticleCard
           title="Confidence Manifold: Geometric Analysis of LLM Confidence"

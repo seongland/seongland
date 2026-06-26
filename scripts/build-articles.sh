@@ -23,6 +23,11 @@ import config from './astro.config.mjs';
 config.base = '$base';
 export default config;
 BUILDCFG
+  # Some articles keep served JSON outside public/ (gitignored); stage it before build
+  if [ -d "$dir/app/src/content/assets/data" ]; then
+    mkdir -p "$dir/app/public/data"
+    cp -r "$dir/app/src/content/assets/data/." "$dir/app/public/data/"
+  fi
   (cd "$dir/app" && npm install && npx astro build --config astro.config.build.mjs)
   rm -f "$dir/app/astro.config.build.mjs"
 

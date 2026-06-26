@@ -7,3 +7,6 @@
 [submodule "confidence-manifold-article"]
 	path = confidence-manifold-article
 	url = https://huggingface.co/spaces/seonglae/ConfidenceManifold
+[submodule "agentroom-article"]
+	path = agentroom-article
+	url = https://huggingface.co/spaces/seonglae/AgentRoom
