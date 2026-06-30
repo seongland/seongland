@@ -7,11 +7,13 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
 // Submodule articles (draft in collection to avoid slug conflict)
+const paatTags = ['Agent Safety', 'Mechanistic Interpretability', 'Probes', 'Proprioception', 'Alignment']
 const agentRoomTags = ['Multi-Agent', 'Coding Agents', 'CRDT', 'MCP', 'Coordination']
 const confidenceManifoldTags = ['LLM Safety', 'Confidence', 'Geometry']
 const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment', 'RL']
 const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
 const allTags = [...new Set([
+  ...paatTags,
   ...agentRoomTags,
   ...confidenceManifoldTags,
   ...crlTags,
@@ -46,6 +48,17 @@ const allTags = [...new Set([
     </div>
 
     <div id="item-list" class="flex flex-col gap-3 anim d2">
+      <div data-tags={JSON.stringify(paatTags)} class="filter-item">
+        <ArticleCard
+          title="PaaT: Probe as a Tool for Proprioceptive Language Agents"
+          description="Language agents read every external tool result but are blind to their own internal state. PaaT exposes activation-derived safety probes as an agent-callable read_probe tool — and the same probe flips sign depending on whether the agent chooses to look or the system injects it."
+          publishedAt="2026-06"
+          tags={paatTags}
+          venue="ICML 2026 FAGEN"
+          readingTime="15 min"
+          slug="paat"
+        />
+      </div>
       <div data-tags={JSON.stringify(agentRoomTags)} class="filter-item">
         <ArticleCard
           title="AgentRoom: Concurrent Multi-Agent Coding in a CRDT-Backed Shared Workspace"

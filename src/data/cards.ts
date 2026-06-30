@@ -47,6 +47,7 @@ export const publications: CardData[] = [
     url: 'https://openreview.net/forum?id=eebZZqXB6z',
     image: '/image/paat.png',
     tags: ['Agent', 'Mechanistic Interpretability'],
+    links: [{ label: 'Article', url: '/article/paat' }],
   },
   {
     title: 'Control Reinforcement Learning: Interpretable Token-Level Steering of LLMs via Sparse Autoencoder Features',

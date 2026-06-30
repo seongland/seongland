@@ -10,3 +10,6 @@
 [submodule "agentroom-article"]
 	path = agentroom-article
 	url = https://huggingface.co/spaces/seonglae/AgentRoom
+[submodule "paat-article"]
+	path = paat-article
+	url = https://huggingface.co/spaces/seonglae/PaaT
