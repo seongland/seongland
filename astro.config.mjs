@@ -17,6 +17,7 @@ export default defineConfig({
     mdx(),
     sitemap({
       customPages: [
+        'https://seongland.com/article/optimismbench/',
         'https://seongland.com/article/paat/',
         'https://seongland.com/article/agentroom/',
         'https://seongland.com/article/crl/',

@@ -13,6 +13,13 @@ export interface CardData {
 
 export const publications: CardData[] = [
   {
+    title: 'OptimismBench: Measuring Forecasting Bias and Probing the Alignment Effect in Language Models',
+    subtitle: 'ICML 2026 Forecasting',
+    url: 'https://openreview.net/forum?id=sgB6Jwgjod',
+    tags: ['Forecasting', 'Optimism Bias', 'Alignment', 'LLM Safety'],
+    links: [{ label: 'Article', url: '/article/optimismbench' }],
+  },
+  {
     title: 'CorrSteer: Generation-Time LLM Steering via Correlated Sparse Autoencoder Features',
     subtitle: 'ICML 2026',
     url: 'https://arxiv.org/abs/2508.12535',

@@ -13,3 +13,6 @@
 [submodule "paat-article"]
 	path = paat-article
 	url = https://huggingface.co/spaces/seonglae/PaaT
+[submodule "optimismbench-article"]
+	path = optimismbench-article
+	url = https://huggingface.co/spaces/seonglae/OptimismBench
