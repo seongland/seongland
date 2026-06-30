@@ -16,3 +16,9 @@
 [submodule "optimismbench-article"]
 	path = optimismbench-article
 	url = https://huggingface.co/spaces/seonglae/OptimismBench
+[submodule "asg-article"]
+	path = asg-article
+	url = https://huggingface.co/spaces/seonglae/AgentStateGraph
+[submodule "asg-browser"]
+	path = asg-browser
+	url = https://huggingface.co/spaces/seonglae/AgentStateGraph-Browser

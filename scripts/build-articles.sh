@@ -58,3 +58,25 @@ done
 if [ "$found" -eq 0 ]; then
   echo "WARNING: No *-article submodules found"
 fi
+
+# --- ASG dashboard (separate repo, Vite app) -> nested /article/asg/browser ---
+# Lives in its own submodule so it deploys independently of the asg article and
+# never appears in the article list. Its vite.config sets base=/article/asg/browser/
+# on build; the sharded data (index.json + datasets/*.json) ships in its public/.
+if [ -d "asg-browser" ]; then
+  echo "=== Building asg browser dashboard ==="
+  (cd asg-browser && git lfs install --skip-smudge && git lfs pull)
+  (cd asg-browser && npm install && npm run build)
+  if [ ! -f "asg-browser/dist/index.html" ]; then
+    echo "ERROR: asg-browser/dist/index.html not found after build"
+    exit 1
+  fi
+  rm -rf public/article/asg/browser
+  mkdir -p public/article/asg/browser
+  cp -r asg-browser/dist/. public/article/asg/browser/
+  if [ ! -f "public/article/asg/browser/index.html" ]; then
+    echo "ERROR: copy failed - public/article/asg/browser/index.html missing"
+    exit 1
+  fi
+  echo "=== Done: asg browser ==="
+fi
