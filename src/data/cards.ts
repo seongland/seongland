@@ -13,7 +13,7 @@ export interface CardData {
 
 export const publications: CardData[] = [
   {
-    title: 'OptimismBench: Measuring Forecasting Bias and Probing the Alignment Effect in Language Models',
+    title: 'OptimismBench: Forecasting Bias and the Alignment Effect in Language Model Judgment',
     subtitle: 'ICML 2026 Forecasting',
     url: 'https://openreview.net/forum?id=sgB6Jwgjod',
     tags: ['Forecasting', 'Optimism Bias', 'Alignment', 'LLM Safety'],
