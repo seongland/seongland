@@ -7,13 +7,15 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft)
 const articles = allArticles.sort((a, b) => b.data.publishedAt.localeCompare(a.data.publishedAt))
 
 // Submodule articles (draft in collection to avoid slug conflict)
-const optimismBenchTags = ['Forecasting', 'Optimism Bias', 'Alignment', 'LLM Evaluation', 'Calibration']
-const paatTags = ['Agent Safety', 'Mechanistic Interpretability', 'Probes', 'Proprioception', 'Alignment']
-const agentRoomTags = ['Multi-Agent', 'Coding Agents', 'CRDT', 'MCP', 'Coordination']
-const confidenceManifoldTags = ['LLM Safety', 'Confidence', 'Geometry']
-const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment', 'RL']
+// Unified tag vocabulary — only tags shared by 2+ articles:
+// Agents, Interpretability, Alignment, Confidence, Steering, SAE.
+const asgTags = ['Agents', 'Interpretability', 'Alignment']
+const optimismBenchTags = ['Confidence', 'Alignment']
+const paatTags = ['Agents', 'Interpretability', 'Alignment']
+const agentRoomTags = ['Agents']
+const confidenceManifoldTags = ['Interpretability', 'Confidence', 'Alignment']
+const crlTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
 const corrsteerTags = ['Steering', 'Interpretability', 'SAE', 'Alignment']
-const asgTags = ['Agents', 'Interpretability', 'Automata', 'Failure Prediction', 'Safety']
 const allTags = [...new Set([
   ...asgTags,
   ...optimismBenchTags,
