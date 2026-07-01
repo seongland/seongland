@@ -28,7 +28,7 @@ const isExternal = !!externalUrl
     <span class="mono text-[11px] text-ink-3 shrink-0">{publishedAt}</span>
   </div>
   {description && <p class="text-sm text-ink-2 mt-2 line-clamp-2">{description}</p>}
-  <div class="flex items-center gap-3 mt-3">
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-3">
     {venue && <span class="serif italic text-[11px] text-ink" set:html={
       venue
         .replace(/(ICML 2026)(?! )/g, '<span class="text-crimson not-italic font-medium">$1</span>')
