@@ -43,7 +43,7 @@
     "since 2017"
   ],
   "engines": {
-    "node": ">=24.18.0"
+    "node": ">=24.18.1"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
@@ -53,31 +53,26 @@
     "@react-spring/three": "^10.1.2",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
-    "@tailwindcss/vite": "^4.3.1",
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "^6.4.8",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "tailwindcss": "^4.3.1",
-    "three": "^0.185.0"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^24.13.2",
+    "@types/node": "^24.13.3",
     "@types/react": "19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@types/three": "^0.184.1",
-    "eslint": "10.5.0",
+    "@types/three": "^0.185.1",
+    "eslint": "10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
     "husky": "9.1.7",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.6",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.62.0",
-    "vitest": "^4.1.9"
-  },
-  "pnpm": {
-    "overrides": {
-      "three-stdlib": "^2.36.1"
-    }
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
   }
 }
