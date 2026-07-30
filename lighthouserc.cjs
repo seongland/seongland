@@ -16,6 +16,7 @@ module.exports = {
         'errors-in-console': 'warn',
         'inspector-issues': 'warn',
         'network-dependency-tree-insight': 'warn',
+        'uses-rel-preconnect': 'warn',
         'unused-javascript': 'warn',
         'valid-source-maps': 'warn',
         'heading-order': 'warn',
