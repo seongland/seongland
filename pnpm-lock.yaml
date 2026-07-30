@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  three-stdlib: ^2.36.1
+
 importers:
 
   .:
