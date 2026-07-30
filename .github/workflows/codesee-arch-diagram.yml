@@ -42,7 +42,7 @@ jobs:
           node-version: '24.18.0'
 
       - name: Configure Python 3.x
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         if: ${{ fromJSON(steps.detect-languages.outputs.languages).python }}
         with:
           python-version: '3.14.6'
