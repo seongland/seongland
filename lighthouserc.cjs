@@ -22,6 +22,7 @@ module.exports = {
         'image-delivery-insight': 'warn',
         'total-byte-weight': 'warn',
         'uses-responsive-images': 'warn',
+        'uses-rel-preconnect': 'warn',
       },
     },
   },
