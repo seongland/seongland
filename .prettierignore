@@ -1,6 +1,11 @@
+agentroom-article/
+asg-article/
+asg-browser/
+confidence-manifold-article/
 corrsteer-article/
 crl-article/
-confidence-manifold-article/
+optimismbench-article/
+paat-article/
 dist/
 .astro/
 node_modules/
