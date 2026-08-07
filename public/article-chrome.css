@@ -51,9 +51,11 @@ html {
   top: 0;
   z-index: 1000;
   width: 100%;
-  background: color-mix(in srgb, var(--sl-bg) 85%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Same recipe as the site nav (bg-paper/30 + backdrop-blur-md), tinted from
+     the article's own background so it reads white here and dark in dark mode. */
+  background: color-mix(in srgb, var(--sl-bg) 30%, transparent);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
   font-family: 'DM Sans', system-ui, sans-serif;
   line-height: 1.65;
   color: var(--sl-fg);

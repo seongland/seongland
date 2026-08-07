@@ -9,6 +9,9 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    /* Convex exposes process.env inside functions; without this the typecheck
+       that gates every deploy fails on every env read. */
+    "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },

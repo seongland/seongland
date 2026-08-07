@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { getSecret } from 'astro:env/server'
 import { ConvexHttpClient } from 'convex/browser'
 import { trackedArticleIds } from '@/data/articles.ts'
 import { eventsApi } from '@/lib/convexApi.ts'
@@ -18,6 +19,13 @@ interface IncomingEvent {
   target?: string
   value?: number | string
   meta?: unknown
+}
+
+// Astro exposes no non-PUBLIC_ variable through import.meta.env and does not
+// copy .env.local into process.env, so secrets are read through getSecret, which
+// resolves from .env in dev and from the platform environment on Vercel.
+function secret(name: string): string | undefined {
+  return getSecret(name) || undefined
 }
 
 function header(request: Request, name: string): string | undefined {
@@ -64,8 +72,8 @@ export const POST: APIRoute = async ({ request }) => {
     const events = parseEvents(payload.events)
     if (events.length === 0) return noContent()
 
-    const convexUrl = process.env.CONVEX_URL ?? process.env.PUBLIC_CONVEX_URL
-    const ingestKey = process.env.TRACK_INGEST_KEY
+    const convexUrl = secret('CONVEX_URL') ?? import.meta.env.PUBLIC_CONVEX_URL
+    const ingestKey = secret('TRACK_INGEST_KEY')
     if (!convexUrl || !ingestKey) return noContent()
 
     const client = new ConvexHttpClient(convexUrl)
