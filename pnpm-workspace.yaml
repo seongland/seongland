@@ -1,3 +1,9 @@
+# Single-package repo. `packages` is required because pnpm 9, which Vercel uses,
+# treats the presence of this file as a workspace and fails the install without
+# it; the article submodules build with their own npm install, not through here.
+packages:
+  - .
+
 # pnpm 11 requires an explicit decision for every dependency with a build script.
 # All three fetch or verify prebuilt binaries at install time and are required:
 # esbuild and sharp back the Astro build, @clerk/shared backs the admin sign-in.
