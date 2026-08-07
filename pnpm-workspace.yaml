@@ -1,0 +1,7 @@
+# pnpm 11 requires an explicit decision for every dependency with a build script.
+# All three fetch or verify prebuilt binaries at install time and are required:
+# esbuild and sharp back the Astro build, @clerk/shared backs the admin sign-in.
+allowBuilds:
+  esbuild: true
+  sharp: true
+  '@clerk/shared': true
