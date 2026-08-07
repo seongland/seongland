@@ -10,6 +10,9 @@ export default tseslint.config(
     ignores: [
       'dist/',
       '.astro/',
+      '.vercel/',
+      '.playwright-mcp/',
+      'convex/_generated/',
       'node_modules/',
       'corrsteer-article/',
       'crl-article/',

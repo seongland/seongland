@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.tsx";
+import { isActiveTab, navTabs, siteName } from "@/data/nav.ts";
 
 interface Props {
   variant?: "space" | "paper";
@@ -8,16 +9,10 @@ interface Props {
 const { variant = "paper" } = Astro.props;
 const currentPath = Astro.url.pathname;
 
-const tabs = [
-  { label: "About", href: "/" },
-  { label: "Articles", href: "/article" },
-  { label: "Publications", href: "/publications" },
-  { label: "Projects", href: "/projects" },
-];
+const tabs = navTabs;
 
 function isActive(href: string): boolean {
-  if (href === "/") return currentPath === "/";
-  return currentPath.startsWith(href);
+  return isActiveTab(href, currentPath);
 }
 
 const isSpace = variant === "space";
@@ -39,7 +34,7 @@ const isSpace = variant === "space";
         isSpace ? "text-space-fg" : "text-ink",
       ]}
     >
-      Seongland
+      {siteName}
     </a>
 
     {/* Desktop tabs */}

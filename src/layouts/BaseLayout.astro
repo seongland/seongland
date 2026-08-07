@@ -9,6 +9,7 @@ interface Props {
   description?: string;
   image?: string;
   variant?: "space" | "paper";
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   description = "Seonglae Cho - Research & Engineering Portfolio",
   image = "/ogtag.png",
   variant = "paper",
+  noindex = false,
 } = Astro.props;
 
 const isSpace = variant === "space";
@@ -36,6 +38,7 @@ const isProduction = import.meta.env.PROD;
 
     {/* Canonical & SEO */}
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     {/* Open Graph */}
     <meta property="og:type" content="website" />
@@ -82,7 +85,7 @@ const isProduction = import.meta.env.PROD;
     {/* CSP */}
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com https://va.vercel-scripts.com; connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com; style-src 'self' 'unsafe-hashes' 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob:; media-src * data: blob:; worker-src 'self' blob:; font-src 'self' https://fonts.gstatic.com;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://vercel.live https://googleads.g.doubleclick.net https://www.googleadservices.com https://va.vercel-scripts.com https://*.clerk.accounts.dev https://*.clerk.com https://clerk.seongland.com; connect-src 'self' https://vitals.vercel-insights.com https://analytics.google.com https://stats.g.doubleclick.net https://*.pusher.com https://*.clerk.accounts.dev https://*.clerk.com https://clerk.seongland.com https://*.convex.cloud wss://*.convex.cloud; style-src 'self' 'unsafe-hashes' 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src * data: blob:; media-src * data: blob:; worker-src 'self' blob:; font-src 'self' https://fonts.gstatic.com;"
     />
 
     {/* Resource hints */}

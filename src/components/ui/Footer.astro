@@ -1,4 +1,6 @@
 ---
+import { footerLinks } from "@/data/nav.ts";
+
 interface Props {
   variant?: "space" | "paper";
 }
@@ -24,50 +26,21 @@ const isSpace = variant === "space";
     </span>
 
     <div class="flex items-center gap-4">
-      <a
-        href="https://github.com/seonglae"
-        target="_blank"
-        rel="noopener noreferrer"
-        class:list={[
-          "mono text-xs transition-colors",
-          isSpace ? "hover:text-space-fg/70" : "hover:text-ink",
-        ]}
-      >
-        GitHub
-      </a>
-      <a
-        href="https://scholar.google.com/citations?user=XIMB1PoAAAAJ"
-        target="_blank"
-        rel="noopener noreferrer"
-        class:list={[
-          "mono text-xs transition-colors",
-          isSpace ? "hover:text-space-fg/70" : "hover:text-ink",
-        ]}
-      >
-        Scholar
-      </a>
-      <a
-        href="/cv.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class:list={[
-          "mono text-xs transition-colors",
-          isSpace ? "hover:text-space-fg/70" : "hover:text-ink",
-        ]}
-      >
-        CV
-      </a>
-      <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class:list={[
-          "mono text-xs transition-colors",
-          isSpace ? "hover:text-space-fg/70" : "hover:text-ink",
-        ]}
-      >
-        Resume
-      </a>
+      {
+        footerLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class:list={[
+              "mono text-xs transition-colors",
+              isSpace ? "hover:text-space-fg/70" : "hover:text-ink",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </div>
   </div>
 </footer>

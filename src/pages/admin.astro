@@ -1,0 +1,10 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AdminApp from "@/components/admin/AdminApp.tsx";
+---
+
+<BaseLayout title="Admin" noindex>
+  <div class="mx-auto w-full max-w-5xl px-6 py-10">
+    <AdminApp client:only="react" />
+  </div>
+</BaseLayout>

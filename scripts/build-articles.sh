@@ -38,8 +38,8 @@ BUILDCFG
     exit 1
   fi
 
-  # Inject <base> tag so relative fetch paths resolve correctly
-  sed -i'' -e "s|<head>|<head><base href=\"$base/\">|" "$dir/app/dist/index.html"
+  # Base href, canonical fix, analytics, telemetry, and the shared seongland chrome
+  node scripts/inject-article-chrome.ts "$dir/app/dist/index.html" "$name"
 
   # Copy
   rm -rf "public/article/$name"
@@ -71,6 +71,8 @@ if [ -d "asg-browser" ]; then
     echo "ERROR: asg-browser/dist/index.html not found after build"
     exit 1
   fi
+  # Telemetry only: the dashboard is full-viewport, so a sticky header would fight it
+  node scripts/inject-article-chrome.ts asg-browser/dist/index.html asg/browser --no-chrome --no-base
   rm -rf public/article/asg/browser
   mkdir -p public/article/asg/browser
   cp -r asg-browser/dist/. public/article/asg/browser/
