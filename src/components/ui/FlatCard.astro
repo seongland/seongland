@@ -17,6 +17,8 @@ const { title, subtitle, url, image, year, category, tags = [], links = [], imag
 <div
   class="group flex items-start gap-5 rounded-xl bg-paper-warm/60 p-5 transition-all hover:bg-paper-warm hover:shadow-lg cursor-pointer"
   data-href={url}
+  data-sl-event="card"
+  data-sl-label={title}
 >
   {image && (
     <div class="h-14 w-14 flex-shrink-0 rounded-full overflow-hidden">

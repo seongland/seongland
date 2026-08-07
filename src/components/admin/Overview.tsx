@@ -1,6 +1,8 @@
 import { useMutation, useQuery } from 'convex/react'
 import { statsApi } from '@/lib/convexApi.ts'
+import { orgForIp } from '@/lib/ipOrg.ts'
 import type { Overview as OverviewData, RecentRow } from '@/lib/convexApi.ts'
+import FlowView from './FlowView.tsx'
 import Heatmap from './Heatmap.tsx'
 import Scatter from './Scatter.tsx'
 import WorldMap from './WorldMap.tsx'
@@ -78,7 +80,17 @@ function VisitorSplit({ fresh, returning }: { fresh: number; returning: number }
   )
 }
 
-function RecentTable({ rows, onExcludeIp }: { rows: RecentRow[]; onExcludeIp: (ip: string) => void }) {
+function RecentTable({
+  rows,
+  onExcludeIp,
+  onInclude,
+  ownerHidden,
+}: {
+  rows: RecentRow[]
+  onExcludeIp: (ip: string) => void
+  onInclude: (row: RecentRow) => void
+  ownerHidden: boolean
+}) {
   if (rows.length === 0) return <p className="mono text-[11px] text-ink-3">Nothing recorded yet</p>
   return (
     <div className="overflow-x-auto">
@@ -109,17 +121,33 @@ function RecentTable({ rows, onExcludeIp }: { rows: RecentRow[]; onExcludeIp: (i
               <td className="py-1.5 text-[11px] text-ink-3">
                 <span title={row.referrer || 'no referrer'}>{formatSource(row.referrer)}</span>
               </td>
-              <td className="mono py-1.5 text-[10px] text-ink-3">{row.ip ?? '—'}</td>
+              <td className="mono py-1.5 text-[10px] text-ink-3">
+                {row.ip ?? '—'}
+                {orgForIp(row.ip) && <span className="ml-1.5 text-rust">{orgForIp(row.ip)}</span>}
+              </td>
               <td className="mono py-1.5 text-right text-[10px] text-ink-3">{formatDuration(row.activeMs)}</td>
               <td className="mono py-1.5 text-right text-[10px] text-ink-3">{row.maxScroll}%</td>
               <td className="py-1.5 text-right">
-                {row.ip && !row.excluded && (
+                {row.excluded ? (
                   <button
-                    onClick={() => onExcludeIp(row.ip as string)}
-                    title={`Stop counting ${row.ip}`}
+                    onClick={() => onInclude(row)}
+                    title={
+                      row.owner && ownerHidden
+                        ? 'Hidden by the "ignore my own reading" setting, which is global'
+                        : 'Count this visit again'
+                    }
                     className="mono text-[10px] text-ink-3 underline-offset-2 hover:text-ink hover:underline">
-                    exclude
+                    include
                   </button>
+                ) : (
+                  row.ip && (
+                    <button
+                      onClick={() => onExcludeIp(row.ip as string)}
+                      title={`Stop counting ${row.ip}`}
+                      className="mono text-[10px] text-ink-3 underline-offset-2 hover:text-ink hover:underline">
+                      exclude
+                    </button>
+                  )
                 )}
               </td>
             </tr>
@@ -150,6 +178,17 @@ export default function Overview({
     void save({ ...exclusions, excludedIps: [...new Set([...exclusions.excludedIps, ip])] })
   }
 
+  // A row can be hidden by its address or by its visitor id, so putting it back
+  // has to clear both; the owner rule is global and stays where it is.
+  const includeAgain = (row: RecentRow) => {
+    if (!exclusions) return
+    void save({
+      ...exclusions,
+      excludedIps: exclusions.excludedIps.filter(ip => ip !== row.ip),
+      excludedVisitors: exclusions.excludedVisitors.filter(id => id !== row.visitorId),
+    })
+  }
+
   return (
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
@@ -164,6 +203,8 @@ export default function Overview({
       <Panel title="Where they read" note={`${data.places.length} located places`}>
         <WorldMap places={data.places} />
       </Panel>
+
+      <FlowView days={days} includeExcluded={includeExcluded} />
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Panel title="Daily sessions" note={data.truncated ? 'window truncated' : undefined}>
@@ -225,7 +266,12 @@ export default function Overview({
       </Panel>
 
       <Panel title="Recent sessions" note="newest first, including excluded">
-        <RecentTable rows={data.recent} onExcludeIp={excludeIp} />
+        <RecentTable
+          rows={data.recent}
+          onExcludeIp={excludeIp}
+          onInclude={includeAgain}
+          ownerHidden={exclusions?.excludeOwner ?? true}
+        />
       </Panel>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

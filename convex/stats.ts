@@ -365,6 +365,95 @@ export const journey = query({
   },
 })
 
+/** How many hops of a visit the flow diagram shows before it stops. */
+const MAX_FLOW_STEPS = 6
+
+/**
+ * Page-to-page movement across the whole site, as a Sankey-ready graph.
+ *
+ * Real visits revisit pages (home, article, back to home), and a Sankey cannot
+ * draw a cycle. Nodes are therefore keyed by page *and* hop number, which makes
+ * the graph acyclic by construction and reads the way behaviour flow should:
+ * each column is "where people were on their Nth page".
+ */
+export const flow = query({
+  args: { days: v.number(), start: v.optional(v.string()), includeExcluded: v.optional(v.boolean()) },
+  handler: async (ctx, args) => {
+    await requireOwner(ctx)
+    const from = since(args.days)
+
+    const sessions = await ctx.db
+      .query('sessions')
+      .withIndex('by_started', q => q.gte('startedAt', from))
+      .take(MAX_SESSIONS)
+
+    const isExcluded = excludes(await loadExclusions(ctx))
+    const skip = new Set<string>()
+    if (!args.includeExcluded) {
+      for (const session of sessions) if (isExcluded(session)) skip.add(session.sessionId)
+    }
+
+    const events = await ctx.db
+      .query('events')
+      .withIndex('by_type_ts', q => q.eq('type', 'pageview').gte('ts', from))
+      .order('desc')
+      .take(MAX_EVENTS)
+
+    const bySession = new Map<string, Doc<'events'>[]>()
+    for (const event of events) {
+      if (skip.has(event.sessionId)) continue
+      const bucket = bySession.get(event.sessionId) ?? []
+      bucket.push(event)
+      bySession.set(event.sessionId, bucket)
+    }
+
+    const nodes = new Map<string, { id: string; page: string; step: number; sessions: number; exits: number }>()
+    const links = new Map<string, { source: string; target: string; value: number }>()
+    const pages = new Set<string>()
+    let counted = 0
+
+    for (const bucket of bySession.values()) {
+      // A reload repeats the page; collapsing repeats keeps self-loops out.
+      const ordered = bucket.sort((a, b) => a.seq - b.seq).map(event => event.articleId)
+      let path = ordered.filter((page, index) => index === 0 || page !== ordered[index - 1])
+      for (const page of path) pages.add(page)
+
+      if (args.start) {
+        const entry = path.indexOf(args.start)
+        if (entry === -1) continue
+        path = path.slice(entry)
+      }
+      path = path.slice(0, MAX_FLOW_STEPS)
+      if (path.length === 0) continue
+      counted += 1
+
+      path.forEach((page, step) => {
+        const id = `${page}#${step}`
+        const node = nodes.get(id) ?? { id, page, step, sessions: 0, exits: 0 }
+        node.sessions += 1
+        if (step === path.length - 1) node.exits += 1
+        nodes.set(id, node)
+        if (step === 0) return
+        const source = `${path[step - 1]}#${step - 1}`
+        const key = `${source}>${id}`
+        const link = links.get(key) ?? { source, target: id, value: 0 }
+        link.value += 1
+        links.set(key, link)
+      })
+    }
+
+    return {
+      from,
+      truncated: events.length === MAX_EVENTS,
+      sessions: counted,
+      // Every page seen in the window, so the start control can offer real options.
+      pages: [...pages].sort(),
+      nodes: [...nodes.values()].sort((a, b) => a.step - b.step || b.sessions - a.sessions),
+      links: [...links.values()].sort((a, b) => b.value - a.value),
+    }
+  },
+})
+
 export const recentSessions = query({
   args: { articleId: v.optional(v.string()), limit: v.number() },
   handler: async (ctx, args) => {

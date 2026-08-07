@@ -40,6 +40,8 @@ const allTags = [...new Set([
       {allTags.map(tag => (
         <button
           data-tag={tag}
+          data-sl-event="filter"
+          data-sl-label={tag}
           class="tag-btn rounded-full border border-rule px-3 py-1 text-[11px] text-ink-3 transition-colors hover:border-ink-3 hover:text-ink cursor-pointer"
         >
           {tag}

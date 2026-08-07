@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro'
 import { getSecret } from 'astro:env/server'
 import { ConvexHttpClient } from 'convex/browser'
-import { trackedArticleIds } from '@/data/articles.ts'
+import { trackedPageIds } from '@/data/articles.ts'
 import { eventsApi } from '@/lib/convexApi.ts'
 
 // The one server-rendered route on the site. It exists so events can be stamped
@@ -10,8 +10,20 @@ export const prerender = false
 
 const MAX_BODY_BYTES = 64 * 1024
 const MAX_EVENTS = 100
-const ALLOWED = new Set(trackedArticleIds)
-const KNOWN_TYPES = new Set(['pageview', 'scroll', 'section', 'dwell', 'click', 'outbound', 'copy', 'bibtex_copy', 'exit'])
+const ALLOWED = new Set(trackedPageIds)
+const KNOWN_TYPES = new Set([
+  'pageview',
+  'scroll',
+  'section',
+  'dwell',
+  'click',
+  'outbound',
+  'copy',
+  'bibtex_copy',
+  'filter',
+  'card',
+  'exit',
+])
 
 interface IncomingEvent {
   type: string

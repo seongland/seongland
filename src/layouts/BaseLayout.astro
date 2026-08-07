@@ -159,5 +159,8 @@ const isProduction = import.meta.env.PROD;
         });
       })();
     </script>
+
+    {/* Self-disables on any path without a page id, which is how /admin and /login stay out of their own numbers. */}
+    <script is:inline type="module" src="/telemetry.js"></script>
   </body>
 </html>

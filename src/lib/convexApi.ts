@@ -27,6 +27,23 @@ export interface Place {
   sessions: number
 }
 
+export interface FlowNode {
+  id: string
+  page: string
+  step: number
+  sessions: number
+  exits: number
+}
+
+export interface Flow {
+  from: number
+  truncated: boolean
+  sessions: number
+  pages: string[]
+  nodes: FlowNode[]
+  links: { source: string; target: string; value: number }[]
+}
+
 export interface RecentRow {
   _id: string
   articleId: string
@@ -160,6 +177,7 @@ export const statsApi = {
     ArticleDetail
   >('stats:articleDetail'),
   journey: makeFunctionReference<'query', { articleId: string; days: number }, Journey>('stats:journey'),
+  flow: makeFunctionReference<'query', { days: number; start?: string; includeExcluded?: boolean }, Flow>('stats:flow'),
   recentSessions: makeFunctionReference<'query', { articleId?: string; limit: number }, RecentSession[]>(
     'stats:recentSessions',
   ),

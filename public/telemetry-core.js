@@ -32,6 +32,25 @@ export function articleIdFromPath(pathname) {
   return id ? id : null
 }
 
+/** Site pages worth measuring. Anything absent is not tracked at all. */
+const SITE_PAGES = { '': 'home', publications: 'publications', projects: 'projects', article: 'articles' }
+
+/**
+ * The id a visit is filed under. Articles keep their own id; the handful of
+ * site pages get a stable name so a session that crosses from the home page
+ * into an article reads as one ordered path. The dashboard itself is never
+ * tracked, so opening it cannot pollute the numbers it displays.
+ */
+export function pageIdFromPath(pathname) {
+  const article = articleIdFromPath(pathname)
+  if (article) return article
+  const clean = String(pathname || '')
+    .split(/[?#]/)[0]
+    .replace(/index\.html$/, '')
+    .replace(/^\/+|\/+$/g, '')
+  return Object.prototype.hasOwnProperty.call(SITE_PAGES, clean) ? SITE_PAGES[clean] : null
+}
+
 export function isBotAgent(userAgent, webdriver = false) {
   if (webdriver) return true
   return BOT_PATTERN.test(String(userAgent || ''))

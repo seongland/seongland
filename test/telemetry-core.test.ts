@@ -8,11 +8,35 @@ import {
   isOutbound,
   labelTarget,
   nextScrollMilestones,
+  pageIdFromPath,
   randomId,
   sanitizeText,
   scrollRatio,
   utmFromSearch,
 } from '../public/telemetry-core.js'
+
+describe('pageIdFromPath', () => {
+  it('keeps article ids unchanged', () => {
+    expect(pageIdFromPath('/article/corrsteer/')).toBe('corrsteer')
+    expect(pageIdFromPath('/article/asg/browser/')).toBe('asg/browser')
+  })
+
+  it('names the site pages so a cross-page visit is one path', () => {
+    expect(pageIdFromPath('/')).toBe('home')
+    expect(pageIdFromPath('/index.html')).toBe('home')
+    expect(pageIdFromPath('/publications')).toBe('publications')
+    expect(pageIdFromPath('/publications/')).toBe('publications')
+    expect(pageIdFromPath('/projects?tag=x')).toBe('projects')
+    expect(pageIdFromPath('/article')).toBe('articles')
+    expect(pageIdFromPath('/article/')).toBe('articles')
+  })
+
+  it('never tracks the dashboard, so it stays out of its own numbers', () => {
+    expect(pageIdFromPath('/admin')).toBeNull()
+    expect(pageIdFromPath('/login')).toBeNull()
+    expect(pageIdFromPath('/whatever')).toBeNull()
+  })
+})
 
 describe('articleIdFromPath', () => {
   it('reads the article id, including nested apps', () => {

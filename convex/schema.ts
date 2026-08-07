@@ -48,7 +48,10 @@ export default defineSchema({
   })
     .index('by_session_seq', ['sessionId', 'seq'])
     .index('by_article_ts', ['articleId', 'ts'])
-    .index('by_article_type', ['articleId', 'type']),
+    .index('by_article_type', ['articleId', 'type'])
+    // Cross-page flow needs every pageview in a window regardless of which page
+    // it landed on, which no article-scoped index can answer.
+    .index('by_type_ts', ['type', 'ts']),
 
   // Singleton row holding which visits the dashboard should ignore. Exclusions
   // are applied when reading rather than when writing, so editing the list

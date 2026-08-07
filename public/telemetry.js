@@ -5,7 +5,6 @@
  */
 import {
   LIMITS,
-  articleIdFromPath,
   createActiveTimer,
   createQueue,
   deviceClass,
@@ -14,6 +13,7 @@ import {
   isOutbound,
   labelTarget,
   nextScrollMilestones,
+  pageIdFromPath,
   randomId,
   sanitizeText,
   scrollRatio,
@@ -50,8 +50,8 @@ function stableId(store, key) {
   return id
 }
 
-function shouldTrack(articleId) {
-  if (!articleId) return false
+function shouldTrack(pageId) {
+  if (!pageId) return false
   if (window.__slTelemetryDisabled) return false
   if (navigator.globalPrivacyControl === true) return false
   if (isBotAgent(navigator.userAgent, navigator.webdriver)) return false
@@ -60,8 +60,8 @@ function shouldTrack(articleId) {
 }
 
 function boot() {
-  const articleId = articleIdFromPath(location.pathname)
-  if (!shouldTrack(articleId)) return
+  const pageId = pageIdFromPath(location.pathname)
+  if (!shouldTrack(pageId)) return
 
   const sessionId = stableId('sessionStorage', SESSION_KEY)
   const visitorId = stableId('localStorage', VISITOR_KEY)
@@ -76,7 +76,7 @@ function boot() {
   const owner = readStore('localStorage', OWNER_KEY) === '1'
 
   const send = batch => {
-    const body = JSON.stringify({ articleId, sessionId, visitorId, owner, events: batch })
+    const body = JSON.stringify({ articleId: pageId, sessionId, visitorId, owner, events: batch })
     try {
       if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' }))) return
       fetch(ENDPOINT, { method: 'POST', body, keepalive: true, headers: { 'content-type': 'application/json' } }).catch(
