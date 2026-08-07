@@ -13,6 +13,13 @@ export default defineSchema({
     country: v.optional(v.string()),
     region: v.optional(v.string()),
     city: v.optional(v.string()),
+    // Kept so a visit can be attributed to a person, and excluded by address.
+    ip: v.optional(v.string()),
+    latitude: v.optional(v.number()),
+    longitude: v.optional(v.number()),
+    timezone: v.optional(v.string()),
+    // True when the reader was signed in as the owner on this device.
+    owner: v.optional(v.boolean()),
     referrer: v.optional(v.string()),
     language: v.optional(v.string()),
     device: v.optional(v.string()),
@@ -42,4 +49,14 @@ export default defineSchema({
     .index('by_session_seq', ['sessionId', 'seq'])
     .index('by_article_ts', ['articleId', 'ts'])
     .index('by_article_type', ['articleId', 'type']),
+
+  // Singleton row holding which visits the dashboard should ignore. Exclusions
+  // are applied when reading rather than when writing, so editing the list
+  // re-scores history instead of only affecting future visits.
+  config: defineTable({
+    key: v.string(),
+    excludeOwner: v.boolean(),
+    excludedIps: v.array(v.string()),
+    excludedVisitors: v.array(v.string()),
+  }).index('by_key', ['key']),
 })

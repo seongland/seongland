@@ -2,6 +2,7 @@ import { useQuery } from 'convex/react'
 import { statsApi } from '@/lib/convexApi.ts'
 import JourneyGraph from './JourneyGraph.tsx'
 import SessionTree from './SessionTree.tsx'
+import WorldMap from './WorldMap.tsx'
 import { BarList, Loading, Panel, StatTile, formatDuration, formatPercent } from './ui.tsx'
 
 function Funnel({ rows, sessions }: { rows: { milestone: number; sessions: number }[]; sessions: number }) {
@@ -26,8 +27,16 @@ function Funnel({ rows, sessions }: { rows: { milestone: number; sessions: numbe
   )
 }
 
-export default function ArticleView({ articleId, days }: { articleId: string; days: number }) {
-  const detail = useQuery(statsApi.articleDetail, { articleId, days })
+export default function ArticleView({
+  articleId,
+  days,
+  includeExcluded,
+}: {
+  articleId: string
+  days: number
+  includeExcluded: boolean
+}) {
+  const detail = useQuery(statsApi.articleDetail, { articleId, days, includeExcluded })
   const journey = useQuery(statsApi.journey, { articleId, days })
   const sessions = useQuery(statsApi.recentSessions, { articleId, limit: 25 })
 
@@ -41,6 +50,10 @@ export default function ArticleView({ articleId, days }: { articleId: string; da
         <StatTile label="Completion" value={formatPercent(detail.summary.completionRate)} hint="reached the end" />
         <StatTile label="BibTeX copies" value={String(detail.bibtexCopies)} hint={`last ${days} days`} />
       </div>
+
+      <Panel title="Where they read" note={`${detail.places.length} located visits`}>
+        <WorldMap places={detail.places} height={240} />
+      </Panel>
 
       <div className="grid gap-4 md:grid-cols-2">
         <Panel title="Scroll funnel" note={detail.truncated ? 'window truncated' : undefined}>

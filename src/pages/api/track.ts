@@ -28,6 +28,18 @@ function secret(name: string): string | undefined {
   return getSecret(name) || undefined
 }
 
+/** x-forwarded-for is a client-to-proxy chain; the visitor is the first entry. */
+function clientIp(request: Request): string | undefined {
+  const forwarded = request.headers.get('x-forwarded-for')
+  const first = forwarded?.split(',')[0]?.trim()
+  return first || request.headers.get('x-real-ip') || undefined
+}
+
+function coordinate(request: Request, name: string): number | undefined {
+  const raw = Number(request.headers.get(name))
+  return Number.isFinite(raw) && raw !== 0 ? raw : undefined
+}
+
 function header(request: Request, name: string): string | undefined {
   const raw = request.headers.get(name)
   if (!raw) return undefined
@@ -85,6 +97,11 @@ export const POST: APIRoute = async ({ request }) => {
       country: header(request, 'x-vercel-ip-country'),
       region: header(request, 'x-vercel-ip-country-region'),
       city: header(request, 'x-vercel-ip-city'),
+      ip: clientIp(request),
+      latitude: coordinate(request, 'x-vercel-ip-latitude'),
+      longitude: coordinate(request, 'x-vercel-ip-longitude'),
+      timezone: header(request, 'x-vercel-ip-timezone'),
+      owner: payload.owner === true,
       events,
     })
   } catch {

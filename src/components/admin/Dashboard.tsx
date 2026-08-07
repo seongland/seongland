@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { SignOutButton } from '@clerk/clerk-react'
 import ArticleView from './ArticleView.tsx'
+import Exclusions from './Exclusions.tsx'
 import Overview from './Overview.tsx'
 
 const WINDOWS = [7, 30, 90, 365]
@@ -8,6 +9,13 @@ const WINDOWS = [7, 30, 90, 365]
 export default function Dashboard() {
   const [days, setDays] = useState(30)
   const [articleId, setArticleId] = useState<string | null>(null)
+  const [includeExcluded, setIncludeExcluded] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false)
+
+  const chip = (active: boolean) =>
+    `mono rounded-md px-2.5 py-1 text-[11px] transition-colors ${
+      active ? 'bg-ink/10 text-ink' : 'text-ink-3 hover:bg-ink/5 hover:text-ink'
+    }`
 
   return (
     <div className="flex flex-col gap-6">
@@ -22,17 +30,21 @@ export default function Dashboard() {
             </button>
           )}
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex flex-wrap items-center gap-1">
           {WINDOWS.map(window => (
-            <button
-              key={window}
-              onClick={() => setDays(window)}
-              className={`mono rounded-md px-2.5 py-1 text-[11px] transition-colors ${
-                days === window ? 'bg-ink/10 text-ink' : 'text-ink-3 hover:bg-ink/5 hover:text-ink'
-              }`}>
+            <button key={window} onClick={() => setDays(window)} className={chip(days === window)}>
               {window}d
             </button>
           ))}
+          <button
+            onClick={() => setIncludeExcluded(!includeExcluded)}
+            title="Count visits that exclusion rules normally hide"
+            className={chip(includeExcluded)}>
+            {includeExcluded ? 'counting excluded' : 'excluded hidden'}
+          </button>
+          <button onClick={() => setSettingsOpen(!settingsOpen)} className={chip(settingsOpen)}>
+            settings
+          </button>
           <SignOutButton>
             <button className="mono ml-2 rounded-md px-2.5 py-1 text-[11px] text-ink-3 hover:bg-ink/5 hover:text-ink">
               sign out
@@ -41,7 +53,13 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {articleId ? <ArticleView articleId={articleId} days={days} /> : <Overview days={days} onSelect={setArticleId} />}
+      {settingsOpen && <Exclusions />}
+
+      {articleId ? (
+        <ArticleView articleId={articleId} days={days} includeExcluded={includeExcluded} />
+      ) : (
+        <Overview days={days} includeExcluded={includeExcluded} onSelect={setArticleId} />
+      )}
     </div>
   )
 }

@@ -23,6 +23,7 @@ import {
 const ENDPOINT = '/api/track'
 const SESSION_KEY = 'sl.session'
 const VISITOR_KEY = 'sl.visitor'
+const OWNER_KEY = 'sl.owner'
 const INTERACTIVE = 'button, input, select, textarea, summary, canvas, [role="button"], [data-sl-event]'
 
 function readStore(store, key) {
@@ -70,8 +71,12 @@ function boot() {
   let deepestSection = null
   let ended = false
 
+  // Set by /admin once the owner gate passes, so the dashboard can tell the
+  // owner's own reading apart from real traffic.
+  const owner = readStore('localStorage', OWNER_KEY) === '1'
+
   const send = batch => {
-    const body = JSON.stringify({ articleId, sessionId, visitorId, events: batch })
+    const body = JSON.stringify({ articleId, sessionId, visitorId, owner, events: batch })
     try {
       if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' }))) return
       fetch(ENDPOINT, { method: 'POST', body, keepalive: true, headers: { 'content-type': 'application/json' } }).catch(

@@ -15,6 +15,40 @@ export interface Summary {
   medianActiveMs: number
   medianScroll: number
   completionRate: number
+  bounceRate: number
+  events: number
+}
+
+export interface Place {
+  lat: number
+  lon: number
+  city?: string
+  country?: string
+  sessions: number
+}
+
+export interface RecentRow {
+  _id: string
+  articleId: string
+  startedAt: number
+  activeMs: number
+  maxScroll: number
+  completed: boolean
+  city?: string
+  region?: string
+  country?: string
+  ip?: string
+  device?: string
+  referrer?: string
+  visitorId: string
+  owner: boolean
+  excluded: boolean
+}
+
+export interface Exclusions {
+  excludeOwner: boolean
+  excludedIps: string[]
+  excludedVisitors: string[]
 }
 
 export interface WhoAmI {
@@ -29,13 +63,23 @@ export interface WhoAmI {
 export interface Overview {
   from: number
   truncated: boolean
+  excludedCount: number
   totals: Summary
   articles: (Summary & { articleId: string })[]
   countries: Tally[]
   cities: Tally[]
   referrers: Tally[]
   devices: Tally[]
+  languages: Tally[]
+  timezones: Tally[]
   daily: { day: string; count: number }[]
+  /** Sessions per UTC weekday (0 = Sunday) by hour. */
+  hourly: number[][]
+  places: Place[]
+  scatter: { activeMs: number; maxScroll: number; articleId: string }[]
+  depth: { bucket: number; count: number }[]
+  visitors: { returning: number; fresh: number }
+  recent: RecentRow[]
 }
 
 export interface ArticleDetail {
@@ -48,6 +92,7 @@ export interface ArticleDetail {
   outbound: Tally[]
   bibtexCopies: number
   countries: Tally[]
+  places: Place[]
 }
 
 export interface Journey {
@@ -95,13 +140,24 @@ export interface IngestArgs {
   country?: string
   region?: string
   city?: string
+  ip?: string
+  latitude?: number
+  longitude?: number
+  timezone?: string
+  owner?: boolean
   events: { type: string; ts: number; target?: string; value?: number | string; meta?: unknown }[]
 }
 
 export const statsApi = {
   whoami: makeFunctionReference<'query', Record<string, never>, WhoAmI>('stats:whoami'),
-  overview: makeFunctionReference<'query', { days: number }, Overview>('stats:overview'),
-  articleDetail: makeFunctionReference<'query', { articleId: string; days: number }, ArticleDetail>('stats:articleDetail'),
+  overview: makeFunctionReference<'query', { days: number; includeExcluded?: boolean }, Overview>('stats:overview'),
+  getExclusions: makeFunctionReference<'query', Record<string, never>, Exclusions>('stats:getExclusions'),
+  setExclusions: makeFunctionReference<'mutation', Exclusions, Exclusions>('stats:setExclusions'),
+  articleDetail: makeFunctionReference<
+    'query',
+    { articleId: string; days: number; includeExcluded?: boolean },
+    ArticleDetail
+  >('stats:articleDetail'),
   journey: makeFunctionReference<'query', { articleId: string; days: number }, Journey>('stats:journey'),
   recentSessions: makeFunctionReference<'query', { articleId?: string; limit: number }, RecentSession[]>(
     'stats:recentSessions',

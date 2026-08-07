@@ -20,6 +20,15 @@ function SendToLogin() {
  */
 function OwnerGate({ children }: { children: React.ReactNode }) {
   const me = useQuery(statsApi.whoami, {})
+  // Mark this browser so the article tracker can label the owner's own reading.
+  useEffect(() => {
+    if (!me?.isOwner) return
+    try {
+      localStorage.setItem('sl.owner', '1')
+    } catch {
+      /* private mode: the owner's visits just stay unlabelled */
+    }
+  }, [me?.isOwner])
   if (me === undefined) return <Loading label="Checking access" />
   if (me.authenticated && me.isOwner) return <>{children}</>
   return (

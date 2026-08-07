@@ -48,6 +48,11 @@ export const ingest = mutation({
     country: v.optional(v.string()),
     region: v.optional(v.string()),
     city: v.optional(v.string()),
+    ip: v.optional(v.string()),
+    latitude: v.optional(v.number()),
+    longitude: v.optional(v.number()),
+    timezone: v.optional(v.string()),
+    owner: v.optional(v.boolean()),
     events: v.array(eventValidator),
   },
   handler: async (ctx, args) => {
@@ -109,6 +114,11 @@ export const ingest = mutation({
         country: args.country ?? session.country,
         region: args.region ?? session.region,
         city: args.city ?? session.city,
+        ip: args.ip ?? session.ip,
+        latitude: args.latitude ?? session.latitude,
+        longitude: args.longitude ?? session.longitude,
+        timezone: args.timezone ?? session.timezone,
+        owner: args.owner || session.owner,
       })
       return { accepted: events.length }
     }
@@ -122,6 +132,11 @@ export const ingest = mutation({
       country: clip(args.country, 8),
       region: clip(args.region, 64),
       city: clip(args.city, 64),
+      ip: clip(args.ip, 64),
+      latitude: args.latitude,
+      longitude: args.longitude,
+      timezone: clip(args.timezone, 64),
+      owner: args.owner === true,
       referrer: clip(pageviewMeta.referrer),
       language: clip(pageviewMeta.language, 16),
       device: clip(pageviewMeta.device, 16),
