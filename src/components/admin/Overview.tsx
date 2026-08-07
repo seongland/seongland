@@ -1,9 +1,16 @@
+import { useState } from 'react'
 import { useMutation, useQuery } from 'convex/react'
 import { statsApi } from '@/lib/convexApi.ts'
 import { orgForIp } from '@/lib/ipOrg.ts'
 import type { Overview as OverviewData, RecentRow } from '@/lib/convexApi.ts'
+import Dumbbell from './Dumbbell.tsx'
 import FlowView from './FlowView.tsx'
 import Heatmap from './Heatmap.tsx'
+import JourneyDrawer from './JourneyDrawer.tsx'
+import Radar from './Radar.tsx'
+import type { RadarSeries } from './Radar.tsx'
+import Sunburst from './Sunburst.tsx'
+import Treemap from './Treemap.tsx'
 import Scatter from './Scatter.tsx'
 import WorldMap from './WorldMap.tsx'
 import { BarList, Loading, Panel, StatTile, formatDuration, formatPercent, formatSource, formatTime } from './ui.tsx'
@@ -80,15 +87,43 @@ function VisitorSplit({ fresh, returning }: { fresh: number; returning: number }
   )
 }
 
+/**
+ * Each axis is scaled against the best page rather than an absolute maximum, so
+ * the chart answers "which page is strongest at what" instead of flattening
+ * every page against a ceiling nothing reaches. Bounce is inverted into
+ * stickiness so that, on every axis, further out is better.
+ */
+function radarSeries(data: OverviewData): RadarSeries[] {
+  const top = data.articles.slice(0, 4)
+  if (top.length === 0) return []
+  const best = {
+    visitors: Math.max(1, ...top.map(a => a.visitors)),
+    read: Math.max(1, ...top.map(a => a.medianActiveMs)),
+    depth: Math.max(1, ...top.map(a => a.medianScroll)),
+  }
+  return top.map(a => ({
+    page: a.articleId,
+    values: [
+      a.visitors / best.visitors,
+      a.medianActiveMs / best.read,
+      a.medianScroll / best.depth,
+      a.completionRate,
+      1 - a.bounceRate,
+    ],
+  }))
+}
+
 function RecentTable({
   rows,
   onExcludeIp,
   onInclude,
+  onOpenJourney,
   ownerHidden,
 }: {
   rows: RecentRow[]
   onExcludeIp: (ip: string) => void
   onInclude: (row: RecentRow) => void
+  onOpenJourney: (sessionId: string) => void
   ownerHidden: boolean
 }) {
   if (rows.length === 0) return <p className="mono text-[11px] text-ink-3">Nothing recorded yet</p>
@@ -111,7 +146,14 @@ function RecentTable({
         <tbody>
           {rows.map(row => (
             <tr key={row._id} className={`border-t border-rule/60 ${row.excluded ? 'opacity-40' : ''}`}>
-              <td className="mono py-1.5 text-[10px] text-ink-3">{formatTime(row.startedAt)}</td>
+              <td className="mono py-1.5 text-[10px] text-ink-3">
+                <button
+                  onClick={() => onOpenJourney(row.sessionId)}
+                  title="Show this visit as a journey"
+                  className="underline-offset-2 hover:text-ink hover:underline">
+                  {formatTime(row.startedAt)}
+                </button>
+              </td>
               <td className="py-1.5 text-[11px] text-ink">{row.articleId}</td>
               <td className="py-1.5 text-[11px] text-ink-3">
                 {[row.city, row.country].filter(Boolean).join(', ') || 'unknown'}
@@ -170,6 +212,7 @@ export default function Overview({
   const data = useQuery(statsApi.overview, { days, includeExcluded }) as OverviewData | undefined
   const exclusions = useQuery(statsApi.getExclusions, {})
   const save = useMutation(statsApi.setExclusions)
+  const [journey, setJourney] = useState<string | null>(null)
 
   if (data === undefined) return <Loading label="Loading overview" />
 
@@ -228,6 +271,21 @@ export default function Overview({
         </Panel>
       </div>
 
+      <div className="grid gap-4 lg:grid-cols-2">
+        <Panel title="Share of visits" note="area is visits">
+          <Treemap rows={data.articles.map(a => ({ page: a.articleId, value: a.sessions }))} />
+        </Panel>
+        <Panel title="Who is new, per page">
+          <Dumbbell rows={data.articles.map(a => ({ page: a.articleId, fresh: a.fresh, returning: a.returning }))} />
+        </Panel>
+        <Panel title="Country and city" note="inner ring is country">
+          <Sunburst geo={data.geo} />
+        </Panel>
+        <Panel title="Page profiles" note="busiest four, each axis relative to the best">
+          <Radar series={radarSeries(data)} />
+        </Panel>
+      </div>
+
       <Panel title="Per article">
         {data.articles.length === 0 ? (
           <p className="mono text-[11px] text-ink-3">Nothing recorded yet</p>
@@ -270,6 +328,7 @@ export default function Overview({
           rows={data.recent}
           onExcludeIp={excludeIp}
           onInclude={includeAgain}
+          onOpenJourney={setJourney}
           ownerHidden={exclusions?.excludeOwner ?? true}
         />
       </Panel>
@@ -294,6 +353,8 @@ export default function Overview({
           <BarList rows={data.timezones} />
         </Panel>
       </div>
+
+      {journey && <JourneyDrawer sessionId={journey} onClose={() => setJourney(null)} />}
     </div>
   )
 }

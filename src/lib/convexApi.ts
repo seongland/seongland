@@ -44,8 +44,33 @@ export interface Flow {
   links: { source: string; target: string; value: number }[]
 }
 
+export interface JourneyEvent {
+  seq: number
+  ts: number
+  type: string
+  page: string
+  target?: string
+  value?: number | string
+}
+
+export interface SessionJourney {
+  sessionId: string
+  visitorId?: string
+  country?: string
+  city?: string
+  ip?: string
+  device?: string
+  language?: string
+  referrer?: string
+  startedAt: number
+  activeMs: number
+  pages: { page: string; startedAt: number; activeMs: number; maxScroll: number }[]
+  events: JourneyEvent[]
+}
+
 export interface RecentRow {
   _id: string
+  sessionId: string
   articleId: string
   startedAt: number
   activeMs: number
@@ -83,7 +108,8 @@ export interface Overview {
   truncated: boolean
   excludedCount: number
   totals: Summary
-  articles: (Summary & { articleId: string })[]
+  articles: (Summary & { articleId: string; returning: number; fresh: number })[]
+  geo: { country: string; sessions: number; cities: { city: string; sessions: number }[] }[]
   countries: Tally[]
   cities: Tally[]
   referrers: Tally[]
@@ -178,6 +204,7 @@ export const statsApi = {
   >('stats:articleDetail'),
   journey: makeFunctionReference<'query', { articleId: string; days: number }, Journey>('stats:journey'),
   flow: makeFunctionReference<'query', { days: number; start?: string; includeExcluded?: boolean }, Flow>('stats:flow'),
+  sessionJourney: makeFunctionReference<'query', { sessionId: string }, SessionJourney>('stats:sessionJourney'),
   recentSessions: makeFunctionReference<'query', { articleId?: string; limit: number }, RecentSession[]>(
     'stats:recentSessions',
   ),

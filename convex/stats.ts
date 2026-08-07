@@ -189,6 +189,16 @@ export const overview = query({
       places.set(key, place)
     }
 
+    const geo = new Map<string, { country: string; sessions: number; cities: Map<string, number> }>()
+    for (const session of sessions) {
+      if (!session.country) continue
+      const entry = geo.get(session.country) ?? { country: session.country, sessions: 0, cities: new Map() }
+      entry.sessions += 1
+      const city = session.city ?? 'unknown'
+      entry.cities.set(city, (entry.cities.get(city) ?? 0) + 1)
+      geo.set(session.country, entry)
+    }
+
     const visitorSessions = new Map<string, number>()
     for (const session of sessions) {
       visitorSessions.set(session.visitorId, (visitorSessions.get(session.visitorId) ?? 0) + 1)
@@ -211,7 +221,21 @@ export const overview = query({
       excludedCount,
       totals: summarize(sessions),
       articles: [...byArticle.entries()]
-        .map(([articleId, rows]) => ({ articleId, ...summarize(rows) }))
+        .map(([articleId, rows]) => {
+          const returningHere = rows.filter(r => (visitorSessions.get(r.visitorId) ?? 0) > 1).length
+          return { articleId, ...summarize(rows), returning: returningHere, fresh: rows.length - returningHere }
+        })
+        .sort((a, b) => b.sessions - a.sessions),
+      // Country holding its own cities, so the sunburst does not have to guess
+      // the hierarchy back out of two flat lists.
+      geo: [...geo.values()]
+        .map(entry => ({
+          country: entry.country,
+          sessions: entry.sessions,
+          cities: [...entry.cities.entries()]
+            .map(([city, sessions]) => ({ city, sessions }))
+            .sort((a, b) => b.sessions - a.sessions),
+        }))
         .sort((a, b) => b.sessions - a.sessions),
       countries: tally(sessions, s => s.country),
       cities: tally(sessions, s => (s.city ? `${s.city}${s.country ? `, ${s.country}` : ''}` : undefined)).slice(0, 20),
@@ -236,6 +260,7 @@ export const overview = query({
       visitors: { returning, fresh: visitorSessions.size - returning },
       recent: all.slice(0, 40).map(s => ({
         _id: s._id,
+        sessionId: s.sessionId,
         articleId: s.articleId,
         startedAt: s.startedAt,
         activeMs: s.activeMs,
@@ -361,6 +386,54 @@ export const journey = query({
       sessions: bySession.size,
       nodes: [...nodes.values()].sort((a, b) => a.order - b.order || b.sessions - a.sessions),
       edges: [...edges.values()].sort((a, b) => b.count - a.count),
+    }
+  },
+})
+
+/**
+ * Everything one visitor did, in order, across every page they touched.
+ *
+ * recentSessions deliberately narrows to a single page; this does the opposite,
+ * because a journey that stops at the page boundary is not the journey.
+ */
+export const sessionJourney = query({
+  args: { sessionId: v.string() },
+  handler: async (ctx, args) => {
+    await requireOwner(ctx)
+
+    const events = await ctx.db
+      .query('events')
+      .withIndex('by_session_seq', q => q.eq('sessionId', args.sessionId))
+      .order('asc')
+      .take(400)
+
+    const visits = await ctx.db
+      .query('sessions')
+      .withIndex('by_session_article', q => q.eq('sessionId', args.sessionId))
+      .collect()
+
+    return {
+      sessionId: args.sessionId,
+      visitorId: visits[0]?.visitorId,
+      country: visits[0]?.country,
+      city: visits[0]?.city,
+      ip: visits[0]?.ip,
+      device: visits[0]?.device,
+      language: visits[0]?.language,
+      referrer: visits[0]?.referrer,
+      startedAt: Math.min(...visits.map(v => v.startedAt)),
+      activeMs: visits.reduce((total, v) => total + v.activeMs, 0),
+      pages: visits
+        .map(v => ({ page: v.articleId, startedAt: v.startedAt, activeMs: v.activeMs, maxScroll: v.maxScroll }))
+        .sort((a, b) => a.startedAt - b.startedAt),
+      events: events.map(e => ({
+        seq: e.seq,
+        ts: e.ts,
+        type: e.type,
+        page: e.articleId,
+        target: e.target,
+        value: e.value,
+      })),
     }
   },
 })
