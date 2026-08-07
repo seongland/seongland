@@ -1,0 +1,10 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import LoginApp from "@/components/admin/LoginApp.tsx";
+---
+
+<BaseLayout title="Sign in" noindex>
+  <div class="mx-auto flex min-h-[60vh] w-full max-w-md flex-col justify-center px-6 py-16">
+    <LoginApp client:only="react" />
+  </div>
+</BaseLayout>

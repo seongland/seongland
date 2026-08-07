@@ -1,0 +1,261 @@
+/*
+ * Chrome for prebuilt article pages. Colors come from the article template's own
+ * tokens (--page-bg, --text-color, --muted-color), so the header and footer sit
+ * flush with the page in both themes instead of importing the site's cream
+ * palette. Lengths are px rather than rem because each article template sets its
+ * own root font-size.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@font-face {
+  font-family: 'Nasalization';
+  src:
+    url('/fonts/nasalization.woff2') format('woff2'),
+    url('/fonts/Nasalization.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.sl-chrome,
+.sl-footer {
+  --sl-bg: var(--page-bg, #fff);
+  --sl-fg: var(--text-color, rgba(0, 0, 0, 0.85));
+  --sl-muted: var(--muted-color, rgba(0, 0, 0, 0.6));
+  --sl-hover: color-mix(in srgb, var(--sl-fg) 6%, transparent);
+  --sl-active: color-mix(in srgb, var(--sl-fg) 11%, transparent);
+}
+
+:root {
+  --sl-header-h: 44px;
+}
+
+html {
+  scroll-padding-top: calc(var(--sl-header-h) + 8px);
+}
+
+/* The article template pins its own toggle to the top-left of the page and lets
+   it scroll away. The shared header owns that control now. */
+#theme-toggle {
+  display: none !important;
+}
+
+/* Article TOC is sticky at 32px; keep it clear of the header. */
+.table-of-contents {
+  top: calc(32px + var(--sl-header-h)) !important;
+}
+
+.sl-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: color-mix(in srgb, var(--sl-bg) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.65;
+  color: var(--sl-fg);
+}
+
+.sl-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 784px;
+  margin: 0 auto;
+  padding: 10px 21px;
+}
+
+.sl-brand {
+  font-family: 'Nasalization', system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--sl-fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sl-tabs {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
+.sl-tab {
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--sl-muted);
+  text-decoration: none;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.sl-tab:hover {
+  color: var(--sl-fg);
+  background: var(--sl-hover);
+}
+
+.sl-tab[aria-current='page'] {
+  color: var(--sl-fg);
+  background: var(--sl-active);
+}
+
+.sl-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--sl-fg);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.sl-icon-btn:hover {
+  background: var(--sl-hover);
+}
+
+.sl-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.sl-theme .sl-moon,
+[data-theme='dark'] .sl-theme .sl-sun {
+  display: none;
+}
+
+[data-theme='dark'] .sl-theme .sl-moon {
+  display: block;
+}
+
+.sl-mobile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sl-menu {
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 21px 12px;
+  background: var(--sl-bg);
+}
+
+.sl-menu[data-open='1'] {
+  display: flex;
+}
+
+.sl-menu .sl-tab {
+  padding: 8px 11px;
+  font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .sl-tabs {
+    display: flex;
+  }
+
+  .sl-mobile,
+  .sl-menu[data-open='1'] {
+    display: none;
+  }
+}
+
+.sl-footer {
+  width: 100%;
+  background: var(--sl-bg);
+  padding: 24px 0 32px;
+  color: var(--sl-muted);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 784px;
+  margin: 0 auto;
+  padding: 0 21px;
+}
+
+.sl-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sl-footer a,
+.sl-footer span {
+  font-size: 11px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.sl-footer a:hover {
+  color: var(--sl-fg);
+}
+
+@media (min-width: 640px) {
+  .sl-footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Copy button added to the article's BibTeX block. The citation block is a grid,
+   so the button has to opt out of stretching to the full column. */
+.sl-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  align-self: start;
+  width: fit-content;
+  gap: 6px;
+  margin-bottom: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-color, rgba(0, 0, 0, 0.6));
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background-color 0.15s;
+}
+
+.sl-copy-btn:hover {
+  color: var(--text-color, rgba(0, 0, 0, 0.85));
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.sl-copy-btn[data-copied='1'] {
+  color: var(--success-color, #4aa651);
+  border-color: var(--success-color, #4aa651);
+}
+
+@media print {
+  .sl-chrome,
+  .sl-footer,
+  .sl-copy-btn {
+    display: none !important;
+  }
+}
