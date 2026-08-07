@@ -6,7 +6,9 @@ paat-article/
 optimismbench-article/
 asg-article/
 asg-browser/
+convex/_generated
 dist/
 .astro/
+.vercel/
 node_modules/
 pnpm-lock.yaml
