@@ -7,14 +7,16 @@ function position(lat: number, lon: number) {
   return { left: `${((lon + 180) / 360) * 100}%`, top: `${((90 - lat) / 180) * 100}%` }
 }
 
-export default function WorldMap({ places, height = 300 }: { places: Place[]; height?: number }) {
+export default function WorldMap({ places, maxHeight = 520 }: { places: Place[]; maxHeight?: number }) {
   const theme = useTheme()
   if (places.length === 0) return <p className="mono text-[11px] text-ink-3">No located visits yet</p>
 
   const max = Math.max(...places.map(place => place.sessions))
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height, maxWidth: height * 2 }}>
+    // The box has to stay exactly 2:1, or the SVG letterboxes inside it while the
+    // dots keep positioning against the full box and drift off the coastlines.
+    <div className="relative mx-auto w-full overflow-hidden" style={{ aspectRatio: '2 / 1', maxWidth: maxHeight * 2 }}>
       <img
         src="/world-110m.svg"
         alt=""

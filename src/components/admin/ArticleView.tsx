@@ -52,7 +52,7 @@ export default function ArticleView({
       </div>
 
       <Panel title="Where they read" note={`${detail.places.length} located visits`}>
-        <WorldMap places={detail.places} height={240} />
+        <WorldMap places={detail.places} maxHeight={420} />
       </Panel>
 
       <div className="grid gap-4 md:grid-cols-2">
