@@ -3,13 +3,13 @@
 Stores what `/api/track` collects from article pages and serves the owner-only
 dashboard at `/admin`.
 
-| File | Role |
-| --- | --- |
-| `schema.ts` | `sessions` (one row per article visit) and `events` (the ordered stream) |
-| `events.ts` | `ingest`, the only writer, gated on `TRACK_INGEST_KEY` |
-| `stats.ts` | `whoami` (ungated) plus the owner-gated dashboard queries |
-| `auth.ts` | `requireOwner`, and the ingest key check |
-| `auth.config.ts` | Clerk bridge on `CLERK_ISSUER_URL` |
+| File             | Role                                                                     |
+| ---------------- | ------------------------------------------------------------------------ |
+| `schema.ts`      | `sessions` (one row per article visit) and `events` (the ordered stream) |
+| `events.ts`      | `ingest`, the only writer, gated on `TRACK_INGEST_KEY`                   |
+| `stats.ts`       | `whoami` (ungated) plus the owner-gated dashboard queries                |
+| `auth.ts`        | `requireOwner`, and the ingest key check                                 |
+| `auth.config.ts` | Clerk bridge on `CLERK_ISSUER_URL`                                       |
 
 `_generated/` is produced by the Convex CLI and is not needed by the site build:
 `src/lib/convexApi.ts` addresses these functions by name through

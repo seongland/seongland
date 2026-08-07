@@ -19,13 +19,13 @@ Three things are being built together because they all hang off the same build-t
 
 ## Decisions
 
-| Question | Decision |
-| --- | --- |
-| Ingest path | Browser posts to `/api/track` (Astro route, `prerender = false`, runs as a Vercel function), which reads the Vercel edge geo headers and forwards to Convex |
-| Backend | New Convex project for seongland; auth reuses the existing Clerk instance already domain-locked to seongland.com |
-| Events | Pageview, scroll depth, section reached, active dwell, interaction clicks, outbound clicks, copy, BibTeX copy, exit |
-| Login surface | Hidden `/login`, dashboard at `/admin`, no entry point anywhere on the public site |
-| Article chrome | Full shared header plus the seongland footer appended after the article's own citation footer |
+| Question       | Decision                                                                                                                                                    |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ingest path    | Browser posts to `/api/track` (Astro route, `prerender = false`, runs as a Vercel function), which reads the Vercel edge geo headers and forwards to Convex |
+| Backend        | New Convex project for seongland; auth reuses the existing Clerk instance already domain-locked to seongland.com                                            |
+| Events         | Pageview, scroll depth, section reached, active dwell, interaction clicks, outbound clicks, copy, BibTeX copy, exit                                         |
+| Login surface  | Hidden `/login`, dashboard at `/admin`, no entry point anywhere on the public site                                                                          |
+| Article chrome | Full shared header plus the seongland footer appended after the article's own citation footer                                                               |
 
 ## Architecture
 
@@ -100,17 +100,17 @@ Envelope, so new event types never need a schema migration:
 { articleId, sessionId, visitorId, seq, ts, type, target?, value?, meta? }
 ```
 
-| type | source |
-| --- | --- |
-| `pageview` | load: referrer, UTM, language, viewport, device class |
-| `scroll` | 25 / 50 / 75 / 100 percent milestones |
-| `section` | IntersectionObserver over `section[id]`, `h2[id]` |
-| `dwell` | active-only accumulator, paused on `visibilitychange` |
-| `click` | delegated on button/input/select/summary/canvas, labeled by nearest `id`, `data-*`, or `aria-label` |
-| `outbound` | anchors to external hosts |
-| `copy` | `copy` event, records selection length |
-| `bibtex_copy` | the injected copy button |
-| `exit` | final flush with max scroll and total active ms |
+| type          | source                                                                                              |
+| ------------- | --------------------------------------------------------------------------------------------------- |
+| `pageview`    | load: referrer, UTM, language, viewport, device class                                               |
+| `scroll`      | 25 / 50 / 75 / 100 percent milestones                                                               |
+| `section`     | IntersectionObserver over `section[id]`, `h2[id]`                                                   |
+| `dwell`       | active-only accumulator, paused on `visibilitychange`                                               |
+| `click`       | delegated on button/input/select/summary/canvas, labeled by nearest `id`, `data-*`, or `aria-label` |
+| `outbound`    | anchors to external hosts                                                                           |
+| `copy`        | `copy` event, records selection length                                                              |
+| `bibtex_copy` | the injected copy button                                                                            |
+| `exit`        | final flush with max scroll and total active ms                                                     |
 
 `sessionId` lives in `sessionStorage`, `visitorId` (random UUID) in `localStorage`. No cookies, no
 IP storage, geo stays coarse.
