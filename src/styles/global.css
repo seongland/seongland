@@ -330,3 +330,11 @@
     animation-delay: 0.6s;
   }
 }
+
+/* ─── Clerk ─── */
+/* Clerk injects its stylesheet after ours, so the appearance option that sets
+   `hidden` on the widget footer loses on `display`. The footer holds both the
+   sign-up link, which is wrong for an owner-only login, and the Clerk badge. */
+.cl-footer {
+  display: none !important;
+}

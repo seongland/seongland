@@ -4,7 +4,7 @@ import { ConvexReactClient, useQuery } from 'convex/react'
 import { ConvexProviderWithClerk } from 'convex/react-clerk'
 import { statsApi } from '@/lib/convexApi.ts'
 import Dashboard from './Dashboard.tsx'
-import { clerkAppearance, clerkPublishableKey, convexUrl } from './config.ts'
+import { clerkAppearance, clerkPublishableKey, convexUrl, useTheme } from './config.ts'
 import { Loading, Notice } from './ui.tsx'
 
 function SendToLogin() {
@@ -44,6 +44,7 @@ function OwnerGate({ children }: { children: React.ReactNode }) {
 const convex = convexUrl ? new ConvexReactClient(convexUrl) : null
 
 export default function AdminApp() {
+  const theme = useTheme()
   if (!clerkPublishableKey || !convex) {
     return (
       <Notice title="Dashboard is not configured">
@@ -55,7 +56,7 @@ export default function AdminApp() {
   }
 
   return (
-    <ClerkProvider publishableKey={clerkPublishableKey} appearance={clerkAppearance()}>
+    <ClerkProvider key={theme} publishableKey={clerkPublishableKey} appearance={clerkAppearance(theme)}>
       <SignedOut>
         <SendToLogin />
       </SignedOut>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { ClerkProvider, SignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
-import { clerkAppearance, clerkPublishableKey } from './config.ts'
+import { clerkAppearance, clerkPublishableKey, useTheme } from './config.ts'
 import { Notice } from './ui.tsx'
 
 function Redirect() {
@@ -11,15 +11,17 @@ function Redirect() {
 }
 
 export default function LoginApp() {
+  const theme = useTheme()
   if (!clerkPublishableKey) {
     return (
       <Notice title="Sign-in is not configured">Set PUBLIC_CLERK_PUBLISHABLE_KEY for this deployment, then reload.</Notice>
     )
   }
+  const appearance = clerkAppearance(theme)
   return (
-    <ClerkProvider publishableKey={clerkPublishableKey} appearance={clerkAppearance()}>
+    <ClerkProvider key={theme} publishableKey={clerkPublishableKey} appearance={appearance}>
       <SignedOut>
-        <SignIn routing="hash" fallbackRedirectUrl="/admin" appearance={clerkAppearance()} />
+        <SignIn routing="hash" fallbackRedirectUrl="/admin" appearance={appearance} />
       </SignedOut>
       <SignedIn>
         <Redirect />

@@ -125,7 +125,11 @@ const isProduction = import.meta.env.PROD;
     ]}
   >
     <StarBackground client:only="react" />
-    <div id="content" class="relative z-10" style={isSpace ? 'filter:blur(6px);transition:filter 0.3s ease' : ''}>
+    {/* flex-1 + column so main can grow and keep the footer at the bottom on short pages */}
+    <div
+      id="content"
+      class="relative z-10 flex flex-1 flex-col"
+      style={isSpace ? 'filter:blur(6px);transition:filter 0.3s ease' : ''}>
       <Nav variant={variant} />
       <main class="flex-1">
         <slot />
