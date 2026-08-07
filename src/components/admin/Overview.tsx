@@ -4,7 +4,7 @@ import type { Overview as OverviewData, RecentRow } from '@/lib/convexApi.ts'
 import Heatmap from './Heatmap.tsx'
 import Scatter from './Scatter.tsx'
 import WorldMap from './WorldMap.tsx'
-import { BarList, Loading, Panel, StatTile, formatDuration, formatPercent, formatTime } from './ui.tsx'
+import { BarList, Loading, Panel, StatTile, formatDuration, formatPercent, formatSource, formatTime } from './ui.tsx'
 
 function DailyChart({ rows }: { rows: { day: string; count: number }[] }) {
   if (rows.length === 0) return <p className="mono text-[11px] text-ink-3">No visits yet</p>
@@ -15,7 +15,7 @@ function DailyChart({ rows }: { rows: { day: string; count: number }[] }) {
         <div
           key={row.day}
           title={`${row.day}: ${row.count}`}
-          className="flex-1 rounded-t bg-ink/25 transition-colors hover:bg-ink/45"
+          className="flex-1 rounded-t bg-rust/70 transition-colors hover:bg-rust"
           style={{ height: `${Math.max(4, (row.count / max) * 100)}%` }}
         />
       ))}
@@ -34,7 +34,14 @@ function Depth({ rows }: { rows: { bucket: number; count: number }[] }) {
             {index === rows.length - 1 ? '100%' : `${row.bucket}–${rows[index + 1].bucket}%`}
           </span>
           <span className="h-3 flex-1 overflow-hidden rounded bg-ink/5">
-            <span className="block h-full rounded bg-ink/30" style={{ width: `${(row.count / total) * 100}%` }} />
+            {/* Buckets are ordered, so the ramp itself encodes how deep the read was. */}
+            <span
+              className="block h-full rounded"
+              style={{
+                width: `${(row.count / total) * 100}%`,
+                backgroundColor: `color-mix(in srgb, var(--color-rust) ${35 + (index / Math.max(1, rows.length - 1)) * 65}%, transparent)`,
+              }}
+            />
           </span>
           <span className="mono w-8 text-[10px] text-ink-3">{row.count}</span>
         </li>
@@ -48,13 +55,24 @@ function VisitorSplit({ fresh, returning }: { fresh: number; returning: number }
   if (total === 0) return <p className="mono text-[11px] text-ink-3">No visitors yet</p>
   return (
     <div>
-      <div className="flex h-4 w-full overflow-hidden rounded">
-        <div className="bg-ink/35" style={{ width: `${(fresh / total) * 100}%` }} title={`${fresh} first-time`} />
-        <div className="bg-rust/60" style={{ width: `${(returning / total) * 100}%` }} title={`${returning} returning`} />
+      {/* A 2px gap keeps the two segments legible where they meet. */}
+      <div className="flex h-4 w-full gap-[2px] overflow-hidden rounded">
+        <div className="rounded-l bg-rust" style={{ width: `${(fresh / total) * 100}%` }} title={`${fresh} first-time`} />
+        <div
+          className="rounded-r bg-crimson"
+          style={{ width: `${(returning / total) * 100}%` }}
+          title={`${returning} returning`}
+        />
       </div>
       <div className="mono mt-2 flex justify-between text-[10px] text-ink-3">
-        <span>{fresh} first-time</span>
-        <span>{returning} returning</span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-rust" aria-hidden="true" />
+          {fresh} first-time
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-crimson" aria-hidden="true" />
+          {returning} returning
+        </span>
       </div>
     </div>
   )
@@ -70,6 +88,8 @@ function RecentTable({ rows, onExcludeIp }: { rows: RecentRow[]; onExcludeIp: (i
             <th className="pb-2 font-normal">When</th>
             <th className="pb-2 font-normal">Article</th>
             <th className="pb-2 font-normal">Where</th>
+            <th className="pb-2 font-normal">Lang</th>
+            <th className="pb-2 font-normal">Came from</th>
             <th className="pb-2 font-normal">IP</th>
             <th className="pb-2 text-right font-normal">Read</th>
             <th className="pb-2 text-right font-normal">Depth</th>
@@ -84,6 +104,10 @@ function RecentTable({ rows, onExcludeIp }: { rows: RecentRow[]; onExcludeIp: (i
               <td className="py-1.5 text-[11px] text-ink-3">
                 {[row.city, row.country].filter(Boolean).join(', ') || 'unknown'}
                 {row.owner && <span className="mono ml-1.5 text-[9px] text-rust">me</span>}
+              </td>
+              <td className="mono py-1.5 text-[10px] text-ink-3">{row.language ?? '—'}</td>
+              <td className="py-1.5 text-[11px] text-ink-3">
+                <span title={row.referrer || 'no referrer'}>{formatSource(row.referrer)}</span>
               </td>
               <td className="mono py-1.5 text-[10px] text-ink-3">{row.ip ?? '—'}</td>
               <td className="mono py-1.5 text-right text-[10px] text-ink-3">{formatDuration(row.activeMs)}</td>

@@ -40,6 +40,7 @@ export interface RecentRow {
   ip?: string
   device?: string
   referrer?: string
+  language?: string
   visitorId: string
   owner: boolean
   excluded: boolean

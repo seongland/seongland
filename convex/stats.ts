@@ -247,6 +247,7 @@ export const overview = query({
         ip: s.ip,
         device: s.device,
         referrer: s.referrer,
+        language: s.language,
         visitorId: s.visitorId,
         owner: s.owner === true,
         excluded: isExcluded(s),
